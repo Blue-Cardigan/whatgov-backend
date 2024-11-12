@@ -1,0 +1,1245 @@
+{
+  "Overview": {
+    "Id": 4751133,
+    "ExtId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+    "Title": "Written Statements",
+    "HRSTag": null,
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "",
+    "NextDebateTitle": "",
+    "PreviousDebateExtId": "",
+    "PreviousDebateTitle": ""
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    }
+  ],
+  "Items": [],
+  "ChildDebates": [
+    {
+      "Overview": {
+        "Id": 4751134,
+        "ExtId": "24110646000001",
+        "Title": "Written Statements",
+        "HRSTag": "hs_3MainHdg",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "24110646000012",
+        "NextDebateTitle": "Updated Ministerial Code",
+        "PreviousDebateExtId": "",
+        "PreviousDebateTitle": ""
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751134,
+          "Title": "Written Statements",
+          "ParentId": 4751133,
+          "SortOrder": 2,
+          "ExternalId": "24110646000001",
+          "HRSTag": "hs_3MainHdg",
+          "HansardSection": "Header-3-60",
+          "Timecode": null
+        }
+      ],
+      "Items": [
+        {
+          "ItemType": "Contribution",
+          "ItemId": 40890896,
+          "MemberId": null,
+          "AttributedTo": null,
+          "Value": "<span id=\"9WS\" class=\"column-number column-only\" data-column-number=\"9WS\"></span>",
+          "OrderInSection": 0,
+          "Timecode": null,
+          "ExternalId": null,
+          "HRSTag": "hs_ColumnNumber",
+          "HansardSection": null,
+          "UIN": null,
+          "IsReiteration": false
+        },
+        {
+          "ItemType": "Contribution",
+          "ItemId": 40890897,
+          "MemberId": null,
+          "AttributedTo": null,
+          "Value": "<em>Wednesday 6 November 2024</em>",
+          "OrderInSection": 2,
+          "Timecode": null,
+          "ExternalId": "24110646000011",
+          "HRSTag": "hs_6fDate",
+          "HansardSection": "Header-3-60",
+          "UIN": null,
+          "IsReiteration": false
+        }
+      ],
+      "ChildDebates": []
+    },
+    {
+      "Overview": {
+        "Id": 4751135,
+        "ExtId": "0EAD423F-1464-4549-8417-0A467C491CE0",
+        "Title": "Cabinet Office",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751135,
+          "Title": "Cabinet Office",
+          "ParentId": 4751133,
+          "SortOrder": 3,
+          "ExternalId": "0EAD423F-1464-4549-8417-0A467C491CE0",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751136,
+            "ExtId": "24110646000012",
+            "Title": "Updated Ministerial Code",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000013",
+            "NextDebateTitle": "Silicon Valley Bank UK: Bank of England’s Transfer Power",
+            "PreviousDebateExtId": "24110646000001",
+            "PreviousDebateTitle": "Written Statements"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751135,
+              "Title": "Cabinet Office",
+              "ParentId": 4751133,
+              "SortOrder": 3,
+              "ExternalId": "0EAD423F-1464-4549-8417-0A467C491CE0",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751136,
+              "Title": "Updated Ministerial Code",
+              "ParentId": 4751135,
+              "SortOrder": 4,
+              "ExternalId": "24110646000012",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890898,
+              "MemberId": null,
+              "AttributedTo": null,
+              "Value": "<em>The Ministerial Code</em>",
+              "OrderInSection": 1,
+              "Timecode": null,
+              "ExternalId": "24110646000022",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            },
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890899,
+              "MemberId": 1587,
+              "AttributedTo": "The Chancellor of the Duchy of Lancaster (Pat McFadden)",
+              "Value": "The Government have today published an updated ministerial code. The code is available on <a href='https://<a href='https://www.gov.uk'>www.gov.uk</a>'><a href='https://www.gov.uk'>www.gov.uk</a>.</a> The new code will be instrumental in setting out the high standards that the British people expect and that Ministers must follow.\r\n\r\nChanges to the code include incorporating the seven principles of public life directly into the code; strengthening the powers of the Prime Minister’s independent adviser on ministerial standards; setting out guiding principles for Ministers on gifts and hospitality; and introducing improved transparency arrangements to align more closely the publication of ministerial gifts and hospitality with the House of Commons register.\r\n\r\nThe new code has also been restructured into three distinct sections: Ministers’ standards of conduct; Ministers’ interests; and Ministers and Government procedures. This brings ethical standards to the forefront of the new code, ending the confusing blend of public service values and everyday governing processes found in previous versions.\r\n\r\nThe new ministerial code also:\r\n\r\nReinserts an explicit reference to international law and treaty obligations as part of Ministers’ overarching duty to comply with the law.\r\n\r\nIncludes updated terms of reference for the Prime Minister’s independent adviser on ministerial standards—previously the independent adviser on ministers’ interests.\r\n\r\nEnsures the code reflects existing rules, guidance and procedure, including the guidance on use of non-corporate communications channels for Government business, quasi-judicial decisions, and public appointments.\r\n\r\nThis new ministerial code will help to restore the public’s trust in politics, and shape this Government’s mission to return Britain to the service of working people.\r\n\r\n<em>The List of Ministers’ </em><em>I</em><em>nterests</em>\r\n\r\nThe list of Ministers’ interests is also being published today on <a href='https://www.gov.uk'>www.gov.uk</a> by the independent adviser on ministerial standards. The list provides details of the personal interests of members of the Government that are judged by the independent adviser to be relevant to their ministerial portfolios and duties.\r\n\r\n<em>The List of Ministerial Responsibilities</em>\r\n\r\nThe Government will today be publishing the list of ministerial responsibilities and the list of non-ministerial departments and executive agencies on <a href='https://<a href='https://www.gov.uk'>www.gov.uk</a>'><a href='https://www.gov.uk'>www.gov.uk</a>.</a> I have requested that a copy of the list of ministerial responsibilities be deposited in the Libraries of the Houses of Parliament. The list of ministerial responsibilities includes details of ministerial Departments, their correspondence  <span id=\"10WS\" class=\"column-number\" data-column-number=\"10WS\"></span>contact details, the Ministers within each Department, and their portfolio responsibilities. The list of non-ministerial departments and executive agencies includes details of each of these organisations, along with associated correspondence contact details, the parent Department and the responsible Government Minister.\r\n\r\n<em>The Special Adviser Code of Conduct</em>\r\n\r\nThe Government have today published an updated code of conduct for special advisers, in line with the Constitutional Reform and Governance Act 2010. The code is available on <a href='https://<a href='https://www.gov.uk'>www.gov.uk</a>'><a href='https://www.gov.uk'>www.gov.uk</a>.</a> Alongside establishing the key responsibilities of special advisers, the updated code of conduct for special advisers sets out the standards of behaviour this Government expect of them and formalises the existing policy for managing interests. The code of conduct for special advisers is part of special advisers’ terms and conditions of service.\r\n\r\n<em>The Special Adviser Contract</em>\r\n\r\nThe Government have today published an updated special adviser model contract, which is available on <a href='https://<a href='https://www.gov.uk'>www.gov.uk</a>'><a href='https://www.gov.uk'>www.gov.uk</a>.</a> The model contract sets out the terms and conditions that apply to all special advisers appointed by Ministers and employed by Government Departments.\r\n\r\nThis Government have introduced a small number of changes to the terms of the model contract. These are:\r\n\r\nTo require special advisers to obtain the required level of security clearance for their role within the first four months of starting in post.\r\n\r\nTo enable special advisers to leave Government with a severance payment at the start of the pre-election period before a general election—or at the Dissolution of Parliament.\r\n\r\nTo confirm that special advisers are entitled to an annual review of their salary, and the process for determining any increases in salary.\r\n\r\n[HCWS198]",
+              "OrderInSection": 2,
+              "Timecode": null,
+              "ExternalId": "B3CFB194-F211-4D23-865A-7CE71814777F",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    },
+    {
+      "Overview": {
+        "Id": 4751137,
+        "ExtId": "91E4B7C1-2939-4BA4-99A7-C67610154F0F",
+        "Title": "Treasury",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751137,
+          "Title": "Treasury",
+          "ParentId": 4751133,
+          "SortOrder": 5,
+          "ExternalId": "91E4B7C1-2939-4BA4-99A7-C67610154F0F",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751138,
+            "ExtId": "24110646000013",
+            "Title": "Silicon Valley Bank UK: Bank of England’s Transfer Power",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000014",
+            "NextDebateTitle": "Media Mergers Regime",
+            "PreviousDebateExtId": "24110646000012",
+            "PreviousDebateTitle": "Updated Ministerial Code"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751137,
+              "Title": "Treasury",
+              "ParentId": 4751133,
+              "SortOrder": 5,
+              "ExternalId": "91E4B7C1-2939-4BA4-99A7-C67610154F0F",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751138,
+              "Title": "Silicon Valley Bank UK: Bank of England’s Transfer Power",
+              "ParentId": 4751137,
+              "SortOrder": 6,
+              "ExternalId": "24110646000013",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890900,
+              "MemberId": 4518,
+              "AttributedTo": "The Economic Secretary to the Treasury (Tulip Siddiq)",
+              "Value": "In March 2023, the Bank of England used its transfer power under the special resolution regime—provided for by the Banking Act 2009, as amended—to resolve Silicon Valley Bank UK by transferring ownership of the firm to HSBC UK.\r\n\r\nSection 79A of the Banking Act 2009 requires the Bank to provide a report to the Chancellor of the Exchequer, my right hon. Friend the Member for Leeds West and Pudsey (Rachel Reeves), where it has used the power to make share transfer instruments or property transfer instruments to sell a firm in whole or in part to a commercial purchaser.\r\n\r\nThe Bank has provided this report to the Chancellor. The Government and the Bank of England are committed to transparency concerning the application of their resolution powers, so copies of the report have been deposited in the Libraries of both Houses, and the report is also available on the Bank’s website <a href='https://www.bankofengland.co.uk'>www.bankofengland.co.uk.</a>\r\n\r\nI thank the Bank of England’s staff for the dedication they demonstrated when they took swift and decisive action to protect financial stability and secure a good outcome for Silicon Valley Bank UK’s customers.\r\n\r\n[HCWS197]",
+              "OrderInSection": 1,
+              "Timecode": null,
+              "ExternalId": "71DD48D3-4B0E-43C3-8201-65E804420DAE",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    },
+    {
+      "Overview": {
+        "Id": 4751139,
+        "ExtId": "A29A8B3B-09E3-4937-873C-1690CFB8F9D2",
+        "Title": "Culture, Media and Sport",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751139,
+          "Title": "Culture, Media and Sport",
+          "ParentId": 4751133,
+          "SortOrder": 7,
+          "ExternalId": "A29A8B3B-09E3-4937-873C-1690CFB8F9D2",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751140,
+            "ExtId": "24110646000014",
+            "Title": "Media Mergers Regime",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000015",
+            "NextDebateTitle": "Defence Nuclear Enterprise",
+            "PreviousDebateExtId": "24110646000013",
+            "PreviousDebateTitle": "Silicon Valley Bank UK: Bank of England’s Transfer Power"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751139,
+              "Title": "Culture, Media and Sport",
+              "ParentId": 4751133,
+              "SortOrder": 7,
+              "ExternalId": "A29A8B3B-09E3-4937-873C-1690CFB8F9D2",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751140,
+              "Title": "Media Mergers Regime",
+              "ParentId": 4751139,
+              "SortOrder": 8,
+              "ExternalId": "24110646000014",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890901,
+              "MemberId": null,
+              "AttributedTo": null,
+              "Value": "<span id=\"11WS\" class=\"column-number column-only\" data-column-number=\"11WS\"></span>",
+              "OrderInSection": 0,
+              "Timecode": null,
+              "ExternalId": null,
+              "HRSTag": "hs_ColumnNumber",
+              "HansardSection": null,
+              "UIN": null,
+              "IsReiteration": false
+            },
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890902,
+              "MemberId": 4607,
+              "AttributedTo": "The Parliamentary Under-Secretary of State for Culture, Media and Sport (Stephanie Peacock)",
+              "Value": "The Government are committed to a pluralistic media landscape, where citizens are able to access information from a range of sources in order to form opinions. The public’s ability to access a wide range of news, views and information about the world in which we live is central to the health of our democracy.\r\n\r\nThe Enterprise Act 2002 gives the Secretary of State (Lisa Nandy) the power to intervene in media mergers if she believes one or more public interest considerations may be relevant. The Secretary of State may ultimately order a media merger to be blocked or unwound if she decides that it has operated or may be expected to operate against the public interest.\r\n\r\nHowever, the media landscape has changed significantly since the Enterprise Act became law more than two decades ago. The world has changed; Ofcom’s news consumption survey, published in September 2024, shows over two thirds (71%) of UK adults now access news online. It is essential that our regimes move with the times, are fit for purpose, and are future-proofed to protect the availability of a wide range of accurate and high-quality news, particularly for younger audiences, as technology and news habits evolve.\r\n\r\nTo reflect the way news is increasingly consumed and the need to protect the freedom of the press as a cornerstone of democracy, I am today launching a six-week technical public consultation on expanding the legislation governing media mergers, to allow the Secretary of State to intervene in mergers involving a wider range of print news publications, online news publications and news programmes. This follows advice from Ofcom as part of its 2021 statement on the future of media plurality.\r\n\r\nThe consultation will seek views from industry, Parliament, and the public, on whether our proposed updates to the regime achieve our desired effects.\r\n\r\n[HCWS191]",
+              "OrderInSection": 2,
+              "Timecode": null,
+              "ExternalId": "855A809F-38AA-4EA5-B715-1EAF05FBBAE9",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    },
+    {
+      "Overview": {
+        "Id": 4751141,
+        "ExtId": "7216688B-D613-4C49-B04E-ACA9CB2B3D6B",
+        "Title": "Defence",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751141,
+          "Title": "Defence",
+          "ParentId": 4751133,
+          "SortOrder": 9,
+          "ExternalId": "7216688B-D613-4C49-B04E-ACA9CB2B3D6B",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751142,
+            "ExtId": "24110646000015",
+            "Title": "Defence Nuclear Enterprise",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000016",
+            "NextDebateTitle": "Energy Infrastructure Planning",
+            "PreviousDebateExtId": "24110646000014",
+            "PreviousDebateTitle": "Media Mergers Regime"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751141,
+              "Title": "Defence",
+              "ParentId": 4751133,
+              "SortOrder": 9,
+              "ExternalId": "7216688B-D613-4C49-B04E-ACA9CB2B3D6B",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751142,
+              "Title": "Defence Nuclear Enterprise",
+              "ParentId": 4751141,
+              "SortOrder": 10,
+              "ExternalId": "24110646000015",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890903,
+              "MemberId": 400,
+              "AttributedTo": "The Secretary of State for Defence (John Healey)",
+              "Value": "The UK is exploring options to re-establish a nuclear fuel cycle for reactor fuel for defence purposes. The Government are committed to modernising defence nuclear fuel production under the Defence Nuclear Enterprise. We are commencing engagement with industry to develop options for how this requirement can be delivered.\r\n\r\nThe UK takes its nuclear responsibilities and obligations seriously. This fuel production cycle will be fully consistent with the UK’s international obligations, including the treaty on the non-proliferation of nuclear weapons. It will also be fully consistent with the UK’s voluntary  <span id=\"12WS\" class=\"column-number\" data-column-number=\"12WS\"></span>moratorium, established in 1995, on the production of fissile material for nuclear weapons or other nuclear explosive devices.\r\n\r\nThe UK will continue to maintain the highest standards of safeguarding of civil nuclear materials, ensuring a separation from defence materials and complying with our obligations under the UK’s voluntary offer agreement with the International Atomic Energy Agency.\r\n\r\n[HCWS193]",
+              "OrderInSection": 1,
+              "Timecode": null,
+              "ExternalId": "ACACC0D9-353B-4EB4-B684-361601C8F865",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    },
+    {
+      "Overview": {
+        "Id": 4751143,
+        "ExtId": "99FBBABC-07CD-4E2F-92F4-006C918A46B0",
+        "Title": "Energy Security and Net Zero",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751143,
+          "Title": "Energy Security and Net Zero",
+          "ParentId": 4751133,
+          "SortOrder": 11,
+          "ExternalId": "99FBBABC-07CD-4E2F-92F4-006C918A46B0",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751144,
+            "ExtId": "24110646000016",
+            "Title": "Energy Infrastructure Planning",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000017",
+            "NextDebateTitle": "Biodiversity COP16",
+            "PreviousDebateExtId": "24110646000015",
+            "PreviousDebateTitle": "Defence Nuclear Enterprise"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751143,
+              "Title": "Energy Security and Net Zero",
+              "ParentId": 4751133,
+              "SortOrder": 11,
+              "ExternalId": "99FBBABC-07CD-4E2F-92F4-006C918A46B0",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751144,
+              "Title": "Energy Infrastructure Planning",
+              "ParentId": 4751143,
+              "SortOrder": 12,
+              "ExternalId": "24110646000016",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890904,
+              "MemberId": 4998,
+              "AttributedTo": "The Parliamentary Under-Secretary of State for Energy Security and Net Zero (Michael Shanks)",
+              "Value": "The Minister for Energy Security and Net Zero, my noble Friend Lord Hunt of Kings Heath OBE, has today made the following statement:\r\n\r\nThis statement concerns an application for development consent made under the Planning Act 2008 by West Burton Solar Project Ltd for the construction, operation, maintenance and decommissioning of a solar photovoltaic array electricity generating station situated in Lincolnshire.\r\n\r\nUnder section 107(1) of the Planning Act 2008, the Secretary of State (Ed Miliband) must make a decision on an application within three months of the receipt of the examining authority’s report unless exercising the power under section 107(3) of the Act to set a new deadline. Where a new deadline is set, the Secretary of State must make a statement to Parliament to announce it.\r\n\r\nThe current statutory deadline for the decision on the West Burton Solar Project application is 8 November 2024.\r\n\r\nI have decided to allow a short extension and to set a new deadline of 24 January 2025 to allow time for necessary public consultation on potential variations to the application.\r\n\r\nThe decision to set the new deadline for this application is without prejudice to the decision on whether to grant or refuse development consent.\r\n\r\n[HCWS195]",
+              "OrderInSection": 1,
+              "Timecode": null,
+              "ExternalId": "219ABE49-CB4E-4227-BE8F-AFBCBD560F65",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    },
+    {
+      "Overview": {
+        "Id": 4751145,
+        "ExtId": "9A9DBBFC-681E-420D-BC32-5ED39CDE6D40",
+        "Title": "Environment, Food and Rural Affairs",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751145,
+          "Title": "Environment, Food and Rural Affairs",
+          "ParentId": 4751133,
+          "SortOrder": 13,
+          "ExternalId": "9A9DBBFC-681E-420D-BC32-5ED39CDE6D40",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751146,
+            "ExtId": "24110646000017",
+            "Title": "Biodiversity COP16",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000018",
+            "NextDebateTitle": "South West Water: Customer Rebate",
+            "PreviousDebateExtId": "24110646000016",
+            "PreviousDebateTitle": "Energy Infrastructure Planning"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751145,
+              "Title": "Environment, Food and Rural Affairs",
+              "ParentId": 4751133,
+              "SortOrder": 13,
+              "ExternalId": "9A9DBBFC-681E-420D-BC32-5ED39CDE6D40",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751146,
+              "Title": "Biodiversity COP16",
+              "ParentId": 4751145,
+              "SortOrder": 14,
+              "ExternalId": "24110646000017",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890905,
+              "MemberId": 1579,
+              "AttributedTo": "The Parliamentary Under-Secretary of State for Environment, Food and Rural Affairs (Mary Creagh)",
+              "Value": "The climate and nature crisis defines our times, and it is the most vulnerable who bear the brunt. Over half of global GDP is moderately or highly dependent on nature. Loss of biodiversity poses a serious risk to global food security by undermining the resilience of many agricultural systems to threats such as pests, pathogens and climate change. The Government are committed to ending poverty on a liveable planet.\r\n\r\nThe UN biodiversity summit—CBD COP16—held in Colombia closed on the morning of Saturday 2 November. The UK Government took a leading role in driving forward key elements of work necessary to mobilise more international finance for nature and deliver on our mission to halt and reverse nature loss. The Secretary <span id=\"13WS\" class=\"column-number\" data-column-number=\"13WS\"></span>of State for Environment, Food and Rural Affairs, my right hon. Friend the Member for Streatham and Croydon North (Steve Reed), and I led the UK delegation.\r\n\r\nThe conclusion of complex negotiations on digital sequence information (DSI) means that businesses have the option of voluntarily contributing to a new fund—known as the Cali fund—if they use this genetic information from nature. DNA that has been sequenced from the natural world is available online for use in research. This research can be applied to important work across agriculture, conservation, medicine and public health. This fund will then support further use of DSI and the conservation and sustainable use of nature, with a significant proportion flowing to indigenous people and local communities.\r\n\r\nProgress was made on several fronts, including the UK launching the biodiversity finance trends dashboard to increase transparency and demonstrate that nature finance flows are increasing. The Government welcomed the launch of the framework for high integrity biodiversity credits markets, developed by the Independent Advisory Panel on Biodiversity Credits (IAPB), which was sponsored by the UK and France. Alongside the framework, the IAPB also showcased in Cali a suite of pilot projects as a meaningful way of illustrating the current state of the market and its development prospects.\r\n\r\nAt the conference, the Secretary of State set out new criteria to meet our “30 by 30” targets, which commit to the protection of 30% of land and ocean by 2030. A newly published update outlined criteria for eligible land in England and laid out next steps to achieve this milestone, which is essential for nature conservation and biodiversity.\r\n\r\nThe UK was pleased that a new permanent body for indigenous peoples and local communities was created at COP16 to increase their formal decision-making power, given that they live on an estimated 50% of the world’s land. I launched the principles for inclusive, gender-responsive, locally-led biodiversity action, which will help focus and co-ordinate action to strengthen the gender equality and social inclusion aspects of the transformative change required to implement the Kunming- Montreal global biodiversity framework and tackle the biodiversity crisis. The Secretary of State and I made commitments to increase support to the global biodiversity framework fund and to join the legacy landscapes fund.\r\n\r\nThe UK was, however, disappointed that COP16 concluded before reaching an agreement on international strategies for mobilising nature finance. It is only through our international action and leadership that we tackle the twin threats of climate change and biodiversity loss, which threaten growth, our future prosperity and wellbeing.\r\n\r\n[HCWS196]",
+              "OrderInSection": 1,
+              "Timecode": null,
+              "ExternalId": "14066A4B-D174-4BF2-9E55-860BEDC2F2D4",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        },
+        {
+          "Overview": {
+            "Id": 4751147,
+            "ExtId": "24110646000018",
+            "Title": "South West Water: Customer Rebate",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000019",
+            "NextDebateTitle": "Oxford Nanopore Technologies: Strategic Partnership",
+            "PreviousDebateExtId": "24110646000017",
+            "PreviousDebateTitle": "Biodiversity COP16"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751145,
+              "Title": "Environment, Food and Rural Affairs",
+              "ParentId": 4751133,
+              "SortOrder": 13,
+              "ExternalId": "9A9DBBFC-681E-420D-BC32-5ED39CDE6D40",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751147,
+              "Title": "South West Water: Customer Rebate",
+              "ParentId": 4751145,
+              "SortOrder": 15,
+              "ExternalId": "24110646000018",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890906,
+              "MemberId": 4645,
+              "AttributedTo": "The Parliamentary Under-Secretary of State for Environment, Food and Rural Affairs (Emma Hardy)",
+              "Value": "The Government are fixing the foundations to put public finances on a sustainable path to restore stability, and taking difficult decisions on tax, welfare and spending. This includes needing to address a £22 billion black hole.  <span id=\"14WS\" class=\"column-number\" data-column-number=\"14WS\"></span>To support this effort, the taxpayer-funded contribution to the water and sewerage bills of South West Water (SWW) household customers will end after 31 March 2025.\r\n\r\nThe rebate was originally introduced in 2013 because SWW customers faced significantly higher water bills than customers in other regions due to the level of investment the company was required to make in the region’s infrastructure to meet environmental and water quality standards. Over the last decade, the difference between water bills in the south-west region and others has decreased. Over the next price review period, 2025 to 2029, Ofwat’s latest projections are that SWW customers’ bills will be similar to those in other regions.\r\n\r\nThe Government are committed to taking action to address water poverty and help vulnerable customers with their water bills. All water companies have measures in place for people who struggle to pay for their water and waste water services, including measures such as WaterSure, social tariffs, payment breaks and holidays, and debt management support. We expect all water companies to proactively engage with their customers to ensure that they know what support schemes are available and how to use them.\r\n\r\n[HCWS200]",
+              "OrderInSection": 1,
+              "Timecode": null,
+              "ExternalId": "0EAC85A9-BB74-4075-BEC2-1B294FD09ABA",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    },
+    {
+      "Overview": {
+        "Id": 4751148,
+        "ExtId": "1A8E1149-2EB4-44DA-B28A-541F4C2F4268",
+        "Title": "Health and Social Care",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751148,
+          "Title": "Health and Social Care",
+          "ParentId": 4751133,
+          "SortOrder": 16,
+          "ExternalId": "1A8E1149-2EB4-44DA-B28A-541F4C2F4268",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751149,
+            "ExtId": "24110646000019",
+            "Title": "Oxford Nanopore Technologies: Strategic Partnership",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000020",
+            "NextDebateTitle": "Failure to Prevent Fraud: Corporate Offence Guidance",
+            "PreviousDebateExtId": "24110646000018",
+            "PreviousDebateTitle": "South West Water: Customer Rebate"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751148,
+              "Title": "Health and Social Care",
+              "ParentId": 4751133,
+              "SortOrder": 16,
+              "ExternalId": "1A8E1149-2EB4-44DA-B28A-541F4C2F4268",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751149,
+              "Title": "Oxford Nanopore Technologies: Strategic Partnership",
+              "ParentId": 4751148,
+              "SortOrder": 17,
+              "ExternalId": "24110646000019",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890907,
+              "MemberId": 1506,
+              "AttributedTo": "The Parliamentary Under-Secretary of State for Health and Social Care (Andrew Gwynne)",
+              "Value": "My noble friend the Under-Secretary of State for Health and Social Care, Baroness Merron, has made the following written statement:\r\n\r\nWe have announced the Government’s intention to enter into a strategic partnership with Oxford Nanopore—a world-leading UK-based life sciences company whose technology is used to advance biomedical research and translate discoveries for improved patient care across cancer, genetic disease and infectious disease. This collaboration also involves NHS England and two of our world-leading scientific institutions—Genomics England and UK Biobank.\r\n\r\nThe collaboration will seek to utilise Oxford Nanopore’s technology to enhance research and, using insights from the UK’s genetic databases, could pave the way for new treatments for cancer and rare diseases.\r\n\r\nThe collaboration is another vote of confidence in the UK’s life sciences sector, which will help kickstart economic growth and support the 10-year health plan’s ambition to shift the health service from analogue to digital and from sickness to prevention, helping keep patients out of hospital. The collaboration also builds on the Chancellor’s commitment to support UK spinouts announced as part of the Budget.\r\n\r\nSeparately, following a successful pilot at Guy’s and St Thomas’ Hospital, we are announcing the scale-up of NHS England’s respiratory metagenomics programme, offering fast-track genetic testing for patients with suspected respiratory infectious diseases. Through this programme, Nanopore’s sequencing technology will be rolled out from 10 to up to 30 NHS sites to detect new pathogens emerging in the UK. Patients suspected of having severe acute respiratory infections will now be diagnosed within six hours thanks to this technology, compared to the previous norm of around three days.<span id=\"15WS\" class=\"column-number\" data-column-number=\"15WS\"></span>\r\n\r\nThis will create an “early warning system” for future pandemics, supporting the Government to take quicker action on emerging infectious disease, and monitor the threat of future pandemics.\r\n\r\nI will provide further updates to the House on this collaboration as it develops\r\n\r\n[HCWS199]",
+              "OrderInSection": 1,
+              "Timecode": null,
+              "ExternalId": "B9914C63-E025-4BE4-9EFA-4E7D9936808E",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    },
+    {
+      "Overview": {
+        "Id": 4751150,
+        "ExtId": "4248E9E5-68D6-48C9-BD08-41EE49150447",
+        "Title": "Home Department",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751150,
+          "Title": "Home Department",
+          "ParentId": 4751133,
+          "SortOrder": 18,
+          "ExternalId": "4248E9E5-68D6-48C9-BD08-41EE49150447",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751151,
+            "ExtId": "24110646000020",
+            "Title": "Failure to Prevent Fraud: Corporate Offence Guidance",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "24110646000021",
+            "NextDebateTitle": "Homelessness and Rough Sleeping:  Winter Pressures Funding",
+            "PreviousDebateExtId": "24110646000019",
+            "PreviousDebateTitle": "Oxford Nanopore Technologies: Strategic Partnership"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751150,
+              "Title": "Home Department",
+              "ParentId": 4751133,
+              "SortOrder": 18,
+              "ExternalId": "4248E9E5-68D6-48C9-BD08-41EE49150447",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751151,
+              "Title": "Failure to Prevent Fraud: Corporate Offence Guidance",
+              "ParentId": 4751150,
+              "SortOrder": 19,
+              "ExternalId": "24110646000020",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890908,
+              "MemberId": 4243,
+              "AttributedTo": "The Minister for Security (Dan Jarvis)",
+              "Value": "My noble Friend the Minister of State for the Home Office (Lord Hanson of Flint) has today made the following written ministerial statement:\r\n\r\nTo strengthen corporate criminal liability a new offence of failure to prevent fraud was included in the Economic Crime and Corporate Transparency Act 2023. The offence is intended to hold large organisations to account if they profit from fraud and to drive a culture change towards improved fraud prevention procedures.\r\n\r\nThe offence will hold corporates to account if they fail to prevent a fraud that benefits them, or in some circumstances, their clients. It is limited to large organisations and partnerships only.\r\n\r\nOrganisations will have a defence in court if they can prove that they had reasonable procedures in place to prevent the fraud, or if it was not reasonable, in all the circumstances, to have any procedures in place. The Government are required to publish guidance to explain the fraud prevention procedures that organisations should have in place to have a defence in the event of prosecution.\r\n\r\nThe guidance is similar in structure to the guidance for the existing offences of failure to prevent bribery in the Bribery Act 2010 and failure to prevent the criminal facilitation of tax evasion in the Criminal Finances Act 2017. Most organisations subject to the offence will therefore be familiar with the concepts and approach set out in the guidance.\r\n\r\nIn developing the guidance, the Home Office has worked closely with prosecutors, regulators and across Government. We have also engaged with industry, including trade professional bodies. The devolved Governments have also been consulted.\r\n\r\nThe guidance has been published today and is available on <a href='https://www.gov.uk'>www.gov.uk.</a>\r\n\r\nTo allow organisations to prepare and develop their fraud prevention procedures, Government intend to commence the offence nine months after publication of this guidance.\r\n\r\n[HCWS192]",
+              "OrderInSection": 1,
+              "Timecode": null,
+              "ExternalId": "ED84C43F-933D-4D04-8DBA-2D55826CBF49",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    },
+    {
+      "Overview": {
+        "Id": 4751152,
+        "ExtId": "633C594C-BA27-43E7-B5BD-4DD8768C1A63",
+        "Title": "Housing, Communities and Local Government",
+        "HRSTag": "hs_6bDepartment",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "",
+        "NextDebateTitle": "",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751152,
+          "Title": "Housing, Communities and Local Government",
+          "ParentId": 4751133,
+          "SortOrder": 20,
+          "ExternalId": "633C594C-BA27-43E7-B5BD-4DD8768C1A63",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [],
+      "ChildDebates": [
+        {
+          "Overview": {
+            "Id": 4751153,
+            "ExtId": "24110646000021",
+            "Title": "Homelessness and Rough Sleeping:  Winter Pressures Funding",
+            "HRSTag": "hs_8Statement",
+            "Date": "2024-11-06T00:00:00",
+            "Location": "Written Statements",
+            "House": "Commons",
+            "Source": 2,
+            "VolumeNo": 756,
+            "ContentLastUpdated": "2024-11-08T13:17:12.317",
+            "DebateTypeId": 3,
+            "SectionType": 2,
+            "NextDebateExtId": "",
+            "NextDebateTitle": "",
+            "PreviousDebateExtId": "24110646000020",
+            "PreviousDebateTitle": "Failure to Prevent Fraud: Corporate Offence Guidance"
+          },
+          "Navigator": [
+            {
+              "Id": 4751133,
+              "Title": "Written Statements",
+              "ParentId": null,
+              "SortOrder": 1,
+              "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+              "HRSTag": null,
+              "HansardSection": null,
+              "Timecode": null
+            },
+            {
+              "Id": 4751152,
+              "Title": "Housing, Communities and Local Government",
+              "ParentId": 4751133,
+              "SortOrder": 20,
+              "ExternalId": "633C594C-BA27-43E7-B5BD-4DD8768C1A63",
+              "HRSTag": "hs_6bDepartment",
+              "HansardSection": "1-10",
+              "Timecode": null
+            },
+            {
+              "Id": 4751153,
+              "Title": "Homelessness and Rough Sleeping:  Winter Pressures Funding",
+              "ParentId": 4751152,
+              "SortOrder": 21,
+              "ExternalId": "24110646000021",
+              "HRSTag": "hs_8Statement",
+              "HansardSection": "1-10",
+              "Timecode": null
+            }
+          ],
+          "Items": [
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890909,
+              "MemberId": null,
+              "AttributedTo": null,
+              "Value": "<span id=\"16WS\" class=\"column-number column-only\" data-column-number=\"16WS\"></span>",
+              "OrderInSection": 0,
+              "Timecode": null,
+              "ExternalId": null,
+              "HRSTag": "hs_ColumnNumber",
+              "HansardSection": null,
+              "UIN": null,
+              "IsReiteration": false
+            },
+            {
+              "ItemType": "Contribution",
+              "ItemId": 40890910,
+              "MemberId": 4138,
+              "AttributedTo": "The Parliamentary Under-Secretary of State for Housing, Communities and Local Government (Rushanara Ali)",
+              "Value": "I am pleased to announce to the House that the Ministry of Housing, Communities and Local Government has today taken an important step towards tackling homelessness.\r\n\r\nThe Deputy Prime Minister, my right hon. Friend the Member for Ashton-under-Lyne (Angela Rayner), will chair the first cross-Government inter-ministerial group on homelessness and rough sleeping, following the confirmation at Budget of nearly £1 billion to tackle homelessness and rough sleeping. Further, my Department will be providing £10 million of rough sleeping winter pressures funding to local authorities across England this winter.\r\n\r\nThe inter-ministerial group will bring together Ministers from across Government to drive progress on the development of our strategy to get back on track to ending homelessness, making sure we are working across Government, and in partnership with local authorities and mayors, to tackle the root causes. This first meeting marks an important step to developing our strategy and follows the announcement at Budget of nearly £1 billion of funding for homelessness and rough sleeping for 2025-26, an increase of £233 million on 2024-25. This will help to prevent the rising number of families in temporary accommodation and help to prevent rough sleeping.\r\n\r\nThe £10 million funding allocated across London and to 115 local authorities outside London will provide a range of services to tackle rough sleeping this winter in the areas with greatest rough sleeping pressures. This includes specialist support to vulnerable groups such as veterans, care leavers and victims of domestic abuse sleeping rough. It also includes support to people at risk of rough sleeping, as well as immediate off-the-street accommodation and support to prevent individuals returning to the streets. Services provided from the winter pressures 2024-25 funding will enable local authorities to act during periods of extreme weather over winter and help save lives.\r\n\r\nToday’s announcement is a further demonstration of our commitment to getting back on track to ending homelessness, and I hope that colleagues across the House will work with me in this endeavour.\r\n\r\n[HCWS194]",
+              "OrderInSection": 2,
+              "Timecode": null,
+              "ExternalId": "9D1F1A12-680B-47AA-85DA-ED8A42DA2A80",
+              "HRSTag": "hs_Para",
+              "HansardSection": "1-10",
+              "UIN": null,
+              "IsReiteration": false
+            }
+          ],
+          "ChildDebates": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "Overview": {
+    "Id": 4751112,
+    "ExtId": "048D81EE-5FBB-4672-A4FB-818909BF709A",
+    "Title": "Economic Growth",
+    "HRSTag": "hs_8Question",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "D84F3382-2AF3-4F54-8E53-AEB8CDC27B9A",
+    "NextDebateTitle": "Healthcare Collaboration",
+    "PreviousDebateExtId": "4AED90CF-37FA-4E42-A6C7-E375E9FB904C",
+    "PreviousDebateTitle": "Impact of the Budget"
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751107,
+      "Title": "Oral Answers to Questions",
+      "ParentId": 4751104,
+      "SortOrder": 4,
+      "ExternalId": "9713E21B-1497-47D8-A190-34E452520914",
+      "HRSTag": "hs_3OralAnswers",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    },
+    {
+      "Id": 4751108,
+      "Title": "Wales",
+      "ParentId": 4751107,
+      "SortOrder": 5,
+      "ExternalId": "ACA061B0-3998-42C9-8620-40ED3FCC9BB2",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    },
+    {
+      "Id": 4751112,
+      "Title": "Economic Growth",
+      "ParentId": 4751108,
+      "SortOrder": 9,
+      "ExternalId": "048D81EE-5FBB-4672-A4FB-818909BF709A",
+      "HRSTag": "hs_8Question",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889745,
+      "MemberId": 5046,
+      "AttributedTo": "Andrew Ranger (Wrexham) (Lab)",
+      "Value": "<Question HRSContentId=\"{D19C85DE-34A3-4874-8409-4B001FB156FA}\">5. <QuestionText HRSContentId=\"{EA4DB06A-93F5-4168-B971-9273917AE39E}\">What recent discussions she has had with Cabinet colleagues on increasing economic growth in Wales.</QuestionText> </Question>",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "D19C85DE-34A3-4874-8409-4B001FB156FA",
+      "HRSTag": "Question",
+      "HansardSection": "AA-AD",
+      "UIN": "901042",
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889746,
+      "MemberId": 4425,
+      "AttributedTo": "The Secretary of State for Wales (Jo Stevens)",
+      "Value": "The growth mission is the central priority for this Government. Our new industrial strategy and national wealth fund will boost economic growth across Wales, creating jobs and driving up living standards. Working alongside ministerial colleagues, I was pleased to confirm £320 million of funding for two investment zones in Wales, the green light on the freeport in the Celtic sea and protection for local community growth funding across Wales.",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "1DC8766D-749C-421D-8B08-F116CBB892C3",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AA-AD",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889747,
+      "MemberId": 5046,
+      "AttributedTo": "Andrew Ranger",
+      "Value": "I thank the Secretary of State for her answer. Universities in Wales, such as Wrexham University in my constituency, are crucial not just for the educational and research outcomes they provide, but for the economic opportunities they give our towns and cities, with a recent report by Universities Wales showing that their contribution to the economy stands at £11 billion. At a time when we are firmly in pursuit of economic growth, can the Secretary of State tell me what conversations she has had to ensure that universities in Wales are partners in this mission? Will she agree to visit Wrexham University with me to see at first hand the brilliant work that it is doing in collaboration with local businesses?",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "2DC73E95-C77B-4EB3-8BCF-4E22435CF09E",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AA-AD",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889748,
+      "MemberId": 4425,
+      "AttributedTo": "Jo Stevens",
+      "Value": "I would be delighted to go back to Wrexham and visit the university with my hon. Friend. Welsh universities will benefit from record levels of investment in research and development, which will be worth over £20 billion next year. The Budget confirmed £160 million of funding for the Wrexham and Flintshire investment <span id=\"289\" class=\"column-number\" data-column-number=\"289\"></span>zone, which was chosen due to the presence of world-renowned research institutions such as Wrexham University and Bangor University.",
+      "OrderInSection": 4,
+      "Timecode": null,
+      "ExternalId": "7737552A-72C3-45DC-A72B-69CFE95C4FA8",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AA-AD",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889749,
+      "MemberId": 4857,
+      "AttributedTo": "Carla Lockhart (Upper Bann) (DUP)",
+      "Value": "We say the phrase “no farmers, no food” so often, but never has there been a need for such emphasis as in the wake of the autumn Budget. Farmers in Wales, in Northern Ireland and right across this United Kingdom are reeling from the change in agricultural property relief and the impact it will have on the future of family farms. What is the Secretary of State doing to support farmers and make this case to the Treasury?",
+      "OrderInSection": 5,
+      "Timecode": null,
+      "ExternalId": "5A82D2FF-A539-43A4-BCD5-A159EDEE1EC1",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AA-AD",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889750,
+      "MemberId": 4425,
+      "AttributedTo": "Jo Stevens",
+      "Value": "This Government continue to provide significant tax relief for farmers. For example, farming parents are able to pass up to £3 million to their children free of tax. They then pay half of the normal inheritance tax rates on anything over £3 million, and they have up to 10 years to pay it. The vast majority of farms will be unaffected by the changes in the Budget and will continue not to pay inheritance tax.",
+      "OrderInSection": 6,
+      "Timecode": null,
+      "ExternalId": "55A53FEF-5833-4482-9BE9-DFCF5BBFEA57",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AA-AD",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

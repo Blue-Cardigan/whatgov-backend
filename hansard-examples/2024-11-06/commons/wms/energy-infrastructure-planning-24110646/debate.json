@@ -1,0 +1,69 @@
+{
+  "Overview": {
+    "Id": 4751144,
+    "ExtId": "24110646000016",
+    "Title": "Energy Infrastructure Planning",
+    "HRSTag": "hs_8Statement",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "24110646000017",
+    "NextDebateTitle": "Biodiversity COP16",
+    "PreviousDebateExtId": "24110646000015",
+    "PreviousDebateTitle": "Defence Nuclear Enterprise"
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751143,
+      "Title": "Energy Security and Net Zero",
+      "ParentId": 4751133,
+      "SortOrder": 11,
+      "ExternalId": "99FBBABC-07CD-4E2F-92F4-006C918A46B0",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "1-10",
+      "Timecode": null
+    },
+    {
+      "Id": 4751144,
+      "Title": "Energy Infrastructure Planning",
+      "ParentId": 4751143,
+      "SortOrder": 12,
+      "ExternalId": "24110646000016",
+      "HRSTag": "hs_8Statement",
+      "HansardSection": "1-10",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890904,
+      "MemberId": 4998,
+      "AttributedTo": "The Parliamentary Under-Secretary of State for Energy Security and Net Zero (Michael Shanks)",
+      "Value": "The Minister for Energy Security and Net Zero, my noble Friend Lord Hunt of Kings Heath OBE, has today made the following statement:\r\n\r\nThis statement concerns an application for development consent made under the Planning Act 2008 by West Burton Solar Project Ltd for the construction, operation, maintenance and decommissioning of a solar photovoltaic array electricity generating station situated in Lincolnshire.\r\n\r\nUnder section 107(1) of the Planning Act 2008, the Secretary of State (Ed Miliband) must make a decision on an application within three months of the receipt of the examining authority’s report unless exercising the power under section 107(3) of the Act to set a new deadline. Where a new deadline is set, the Secretary of State must make a statement to Parliament to announce it.\r\n\r\nThe current statutory deadline for the decision on the West Burton Solar Project application is 8 November 2024.\r\n\r\nI have decided to allow a short extension and to set a new deadline of 24 January 2025 to allow time for necessary public consultation on potential variations to the application.\r\n\r\nThe decision to set the new deadline for this application is without prejudice to the decision on whether to grant or refuse development consent.\r\n\r\n[HCWS195]",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "219ABE49-CB4E-4227-BE8F-AFBCBD560F65",
+      "HRSTag": "hs_Para",
+      "HansardSection": "1-10",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

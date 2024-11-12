@@ -1,0 +1,87 @@
+{
+  "Overview": {
+    "Id": 4751060,
+    "ExtId": "4B5F9DB5-25F9-47CA-B857-8E918D6534B7",
+    "Title": "Arrangement of Business",
+    "HRSTag": "NewDebate",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Grand Committee",
+    "House": "Lords",
+    "Source": 2,
+    "VolumeNo": 840,
+    "ContentLastUpdated": "2024-11-07T16:24:38.53",
+    "DebateTypeId": 2,
+    "SectionType": 1,
+    "NextDebateExtId": "3FEB0846-1D4D-4CD3-A53A-78D482D03137",
+    "NextDebateTitle": "Property (Digital Assets etc) Bill",
+    "PreviousDebateExtId": "",
+    "PreviousDebateTitle": ""
+  },
+  "Navigator": [
+    {
+      "Id": 4751059,
+      "Title": "Grand Committee",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "e65ca46c-0ab6-4d4e-95b3-3d1205dddc11",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751060,
+      "Title": "Arrangement of Business",
+      "ParentId": 4751059,
+      "SortOrder": 2,
+      "ExternalId": "4B5F9DB5-25F9-47CA-B857-8E918D6534B7",
+      "HRSTag": "NewDebate",
+      "HansardSection": "AA-AB",
+      "Timecode": "2024-11-06T13:02:00"
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889168,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Announcement",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "4e06df02-2e8f-4dfe-bd2c-33aea07e55a7",
+      "HRSTag": "hs_DebateType",
+      "HansardSection": "AA-AB",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946363,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "13:02:00",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AA-AB",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889169,
+      "MemberId": 4179,
+      "AttributedTo": "The Deputy Chairman of Committees (Baroness Healy of Primrose Hill) (Lab)",
+      "Value": "My Lords, before the Minister moves that the Bill be considered, I remind noble Lords that the Motion before the Committee will be that the Committee do consider the Bill. I should perhaps make it clear that the Motion to give the Bill a Second Reading will be moved in the Chamber in the usual way on a later date, with the expectation that it will be taken formally. Also, there may be further Divisions in the Chamber; I will adjourn the Committee for 10 minutes each time.",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "C75AA035-4BA8-4BAC-8D6A-1E18BCA52ECF",
+      "HRSTag": "hs_para",
+      "HansardSection": "AA-AB",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

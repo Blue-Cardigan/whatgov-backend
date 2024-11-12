@@ -1,0 +1,114 @@
+{
+  "Overview": {
+    "Id": 4751150,
+    "ExtId": "4248E9E5-68D6-48C9-BD08-41EE49150447",
+    "Title": "Home Department",
+    "HRSTag": "hs_6bDepartment",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "",
+    "NextDebateTitle": "",
+    "PreviousDebateExtId": "24110646000001",
+    "PreviousDebateTitle": "Written Statements"
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751150,
+      "Title": "Home Department",
+      "ParentId": 4751133,
+      "SortOrder": 18,
+      "ExternalId": "4248E9E5-68D6-48C9-BD08-41EE49150447",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "1-10",
+      "Timecode": null
+    }
+  ],
+  "Items": [],
+  "ChildDebates": [
+    {
+      "Overview": {
+        "Id": 4751151,
+        "ExtId": "24110646000020",
+        "Title": "Failure to Prevent Fraud: Corporate Offence Guidance",
+        "HRSTag": "hs_8Statement",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "24110646000021",
+        "NextDebateTitle": "Homelessness and Rough Sleeping:  Winter Pressures Funding",
+        "PreviousDebateExtId": "24110646000019",
+        "PreviousDebateTitle": "Oxford Nanopore Technologies: Strategic Partnership"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751150,
+          "Title": "Home Department",
+          "ParentId": 4751133,
+          "SortOrder": 18,
+          "ExternalId": "4248E9E5-68D6-48C9-BD08-41EE49150447",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        },
+        {
+          "Id": 4751151,
+          "Title": "Failure to Prevent Fraud: Corporate Offence Guidance",
+          "ParentId": 4751150,
+          "SortOrder": 19,
+          "ExternalId": "24110646000020",
+          "HRSTag": "hs_8Statement",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [
+        {
+          "ItemType": "Contribution",
+          "ItemId": 40890908,
+          "MemberId": 4243,
+          "AttributedTo": "The Minister for Security (Dan Jarvis)",
+          "Value": "My noble Friend the Minister of State for the Home Office (Lord Hanson of Flint) has today made the following written ministerial statement:\r\n\r\nTo strengthen corporate criminal liability a new offence of failure to prevent fraud was included in the Economic Crime and Corporate Transparency Act 2023. The offence is intended to hold large organisations to account if they profit from fraud and to drive a culture change towards improved fraud prevention procedures.\r\n\r\nThe offence will hold corporates to account if they fail to prevent a fraud that benefits them, or in some circumstances, their clients. It is limited to large organisations and partnerships only.\r\n\r\nOrganisations will have a defence in court if they can prove that they had reasonable procedures in place to prevent the fraud, or if it was not reasonable, in all the circumstances, to have any procedures in place. The Government are required to publish guidance to explain the fraud prevention procedures that organisations should have in place to have a defence in the event of prosecution.\r\n\r\nThe guidance is similar in structure to the guidance for the existing offences of failure to prevent bribery in the Bribery Act 2010 and failure to prevent the criminal facilitation of tax evasion in the Criminal Finances Act 2017. Most organisations subject to the offence will therefore be familiar with the concepts and approach set out in the guidance.\r\n\r\nIn developing the guidance, the Home Office has worked closely with prosecutors, regulators and across Government. We have also engaged with industry, including trade professional bodies. The devolved Governments have also been consulted.\r\n\r\nThe guidance has been published today and is available on <a href='https://www.gov.uk'>www.gov.uk.</a>\r\n\r\nTo allow organisations to prepare and develop their fraud prevention procedures, Government intend to commence the offence nine months after publication of this guidance.\r\n\r\n[HCWS192]",
+          "OrderInSection": 1,
+          "Timecode": null,
+          "ExternalId": "ED84C43F-933D-4D04-8DBA-2D55826CBF49",
+          "HRSTag": "hs_Para",
+          "HansardSection": "1-10",
+          "UIN": null,
+          "IsReiteration": false
+        }
+      ],
+      "ChildDebates": []
+    }
+  ]
+}

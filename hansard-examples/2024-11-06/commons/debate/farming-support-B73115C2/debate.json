@@ -1,0 +1,121 @@
+{
+  "Overview": {
+    "Id": 4751114,
+    "ExtId": "B73115C2-6B6F-48CF-828E-D67C72542FD0",
+    "Title": "Farming: Support",
+    "HRSTag": "hs_8Question",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "C9F48A8B-B562-44F8-9F7F-688DCD3031D9",
+    "NextDebateTitle": "Job Creation",
+    "PreviousDebateExtId": "D84F3382-2AF3-4F54-8E53-AEB8CDC27B9A",
+    "PreviousDebateTitle": "Healthcare Collaboration"
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751107,
+      "Title": "Oral Answers to Questions",
+      "ParentId": 4751104,
+      "SortOrder": 4,
+      "ExternalId": "9713E21B-1497-47D8-A190-34E452520914",
+      "HRSTag": "hs_3OralAnswers",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    },
+    {
+      "Id": 4751108,
+      "Title": "Wales",
+      "ParentId": 4751107,
+      "SortOrder": 5,
+      "ExternalId": "ACA061B0-3998-42C9-8620-40ED3FCC9BB2",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    },
+    {
+      "Id": 4751114,
+      "Title": "Farming: Support",
+      "ParentId": 4751108,
+      "SortOrder": 11,
+      "ExternalId": "B73115C2-6B6F-48CF-828E-D67C72542FD0",
+      "HRSTag": "hs_8Question",
+      "HansardSection": "AE-AH",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889760,
+      "MemberId": 5207,
+      "AttributedTo": "Clive Jones (Wokingham) (LD)",
+      "Value": "<Question HRSContentId=\"{20E22DBF-9D34-48F2-A165-7B25F71E7AAB}\">7. <QuestionText HRSContentId=\"{2A9B0CC7-44A2-4AF8-8036-1F37253352EB}\">What discussions she is having with the Welsh Government on support for the farming industry in Wales. </QuestionText></Question>",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "20E22DBF-9D34-48F2-A165-7B25F71E7AAB",
+      "HRSTag": "Question",
+      "HansardSection": "AE-AH",
+      "UIN": "901045",
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889761,
+      "MemberId": 1541,
+      "AttributedTo": "The Parliamentary Under-Secretary of State for Wales (Dame Nia Griffith)",
+      "Value": "I recently met the Deputy First Minister of Wales to discuss a range of matters relating to farming. In September, the inter-ministerial group meeting on rural affairs agreed to improve food security and environmental land management by increasing the exchange of data and insights on farming support schemes. I was also pleased to see the Budget protecting Welsh farm budgets at current levels for the financial year.",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "A9D1DEB4-3990-4C37-905F-3E682132A3F7",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AE-AH",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889762,
+      "MemberId": 5207,
+      "AttributedTo": "Clive Jones",
+      "Value": "The Secretary of State, while in opposition, warned that the New Zealand trade deal would push Welsh farmers into bankruptcy and noted that Australian meat was produced at a far lower standard than in Wales. I agree. My constituents want high-quality Welsh lamb, beef and chicken. Will the Minister therefore push her colleagues in the Department for Business and Trade to review the Australia and New Zealand trade agreement and get it right for our farming communities?",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "19A8D77E-C1C2-4A20-BF02-39C874DF319F",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AE-AH",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889763,
+      "MemberId": 1541,
+      "AttributedTo": "Dame Nia Griffith",
+      "Value": "The hon. Member will know as well as I do that the new Leader of the Opposition is the one who sold our farmers down the river, negotiating deals with places such as Australia and leaving our farmers open to increasing quotas on imported meat. I assure him that this Government are committed to promoting robust standards, nationally and internationally, to protect consumer interests and to ensure that consumers have confidence in the food that they buy. We will consider the full range of tools at our disposal to uphold the UK’s commitment to high standards. That includes using our influence in the World Trade Organisation and other multilateral bodies to argue for better and fairer trading rules.",
+      "OrderInSection": 4,
+      "Timecode": null,
+      "ExternalId": "CA50E047-6DA7-4C65-B0F1-A1C82B9DBE0E",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AE-AH",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

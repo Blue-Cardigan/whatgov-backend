@@ -1,0 +1,114 @@
+{
+  "Overview": {
+    "Id": 4751137,
+    "ExtId": "91E4B7C1-2939-4BA4-99A7-C67610154F0F",
+    "Title": "Treasury",
+    "HRSTag": "hs_6bDepartment",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "",
+    "NextDebateTitle": "",
+    "PreviousDebateExtId": "24110646000001",
+    "PreviousDebateTitle": "Written Statements"
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751137,
+      "Title": "Treasury",
+      "ParentId": 4751133,
+      "SortOrder": 5,
+      "ExternalId": "91E4B7C1-2939-4BA4-99A7-C67610154F0F",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "1-10",
+      "Timecode": null
+    }
+  ],
+  "Items": [],
+  "ChildDebates": [
+    {
+      "Overview": {
+        "Id": 4751138,
+        "ExtId": "24110646000013",
+        "Title": "Silicon Valley Bank UK: Bank of England’s Transfer Power",
+        "HRSTag": "hs_8Statement",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "24110646000014",
+        "NextDebateTitle": "Media Mergers Regime",
+        "PreviousDebateExtId": "24110646000012",
+        "PreviousDebateTitle": "Updated Ministerial Code"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751137,
+          "Title": "Treasury",
+          "ParentId": 4751133,
+          "SortOrder": 5,
+          "ExternalId": "91E4B7C1-2939-4BA4-99A7-C67610154F0F",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        },
+        {
+          "Id": 4751138,
+          "Title": "Silicon Valley Bank UK: Bank of England’s Transfer Power",
+          "ParentId": 4751137,
+          "SortOrder": 6,
+          "ExternalId": "24110646000013",
+          "HRSTag": "hs_8Statement",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [
+        {
+          "ItemType": "Contribution",
+          "ItemId": 40890900,
+          "MemberId": 4518,
+          "AttributedTo": "The Economic Secretary to the Treasury (Tulip Siddiq)",
+          "Value": "In March 2023, the Bank of England used its transfer power under the special resolution regime—provided for by the Banking Act 2009, as amended—to resolve Silicon Valley Bank UK by transferring ownership of the firm to HSBC UK.\r\n\r\nSection 79A of the Banking Act 2009 requires the Bank to provide a report to the Chancellor of the Exchequer, my right hon. Friend the Member for Leeds West and Pudsey (Rachel Reeves), where it has used the power to make share transfer instruments or property transfer instruments to sell a firm in whole or in part to a commercial purchaser.\r\n\r\nThe Bank has provided this report to the Chancellor. The Government and the Bank of England are committed to transparency concerning the application of their resolution powers, so copies of the report have been deposited in the Libraries of both Houses, and the report is also available on the Bank’s website <a href='https://www.bankofengland.co.uk'>www.bankofengland.co.uk.</a>\r\n\r\nI thank the Bank of England’s staff for the dedication they demonstrated when they took swift and decisive action to protect financial stability and secure a good outcome for Silicon Valley Bank UK’s customers.\r\n\r\n[HCWS197]",
+          "OrderInSection": 1,
+          "Timecode": null,
+          "ExternalId": "71DD48D3-4B0E-43C3-8201-65E804420DAE",
+          "HRSTag": "hs_Para",
+          "HansardSection": "1-10",
+          "UIN": null,
+          "IsReiteration": false
+        }
+      ],
+      "ChildDebates": []
+    }
+  ]
+}

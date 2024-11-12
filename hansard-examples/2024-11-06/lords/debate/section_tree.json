@@ -1,0 +1,136 @@
+[
+  {
+    "House": "Lords",
+    "ItemDate": "2024-11-06T00:00:00",
+    "Metadata": null,
+    "Title": "Lords Chamber",
+    "Description": "Record of debates that happened in the House of Lords main chamber.",
+    "SectionType": 1,
+    "SortOrder": 1,
+    "LastUpdated": "2024-11-07T16:24:27.213",
+    "VolumeNo": 840,
+    "SectionTreeItems": [
+      {
+        "Id": 4751047,
+        "Title": "Lords Chamber",
+        "ParentId": null,
+        "SortOrder": 1,
+        "ExternalId": "72fe8575-39d5-4bfc-a2ad-878cd7e860d1",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4751048,
+        "Title": "House of Lords",
+        "ParentId": 4751047,
+        "SortOrder": 2,
+        "ExternalId": "24110617000365",
+        "HRSTag": "hs_Venue",
+        "HansardSection": "AA-AB1",
+        "Timecode": null
+      },
+      {
+        "Id": 4751049,
+        "Title": "Gypsy and Traveller Communities: Accommodation",
+        "ParentId": 4751047,
+        "SortOrder": 3,
+        "ExternalId": "DACCA0BA-C575-422F-B1F7-1AB1E74AB407",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AA-AB1",
+        "Timecode": "2024-11-06T11:06:00"
+      },
+      {
+        "Id": 4751050,
+        "Title": "Command Paper Safeguarding the Union",
+        "ParentId": 4751047,
+        "SortOrder": 4,
+        "ExternalId": "EDCD2586-FD2B-414A-B5B1-A1AE8EE98F51",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AB2-AC1",
+        "Timecode": "2024-11-06T11:17:00"
+      },
+      {
+        "Id": 4751051,
+        "Title": "Biodiversity Net Gain",
+        "ParentId": 4751047,
+        "SortOrder": 5,
+        "ExternalId": "1CE65E65-1AF0-4151-B503-8D7FA28852A9",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AC2-AD1",
+        "Timecode": "2024-11-06T11:27:00"
+      },
+      {
+        "Id": 4751052,
+        "Title": "United Kingdom Declining Birth Rate",
+        "ParentId": 4751047,
+        "SortOrder": 6,
+        "ExternalId": "C59D384F-F164-488E-BA75-DF2E6E1318AF",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AD2-AE1",
+        "Timecode": "2024-11-06T11:36:00"
+      },
+      {
+        "Id": 4751053,
+        "Title": "Mental Health Bill [HL]",
+        "ParentId": 4751047,
+        "SortOrder": 7,
+        "ExternalId": "AD51BCE0-12C8-4456-9498-7FC5790F6C4D",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AE2-AF",
+        "Timecode": "2024-11-06T11:46:00"
+      },
+      {
+        "Id": 4751054,
+        "Title": "Renewable Transport Fuel Obligations (Sustainable Aviation Fuel) Order 2024",
+        "ParentId": 4751047,
+        "SortOrder": 8,
+        "ExternalId": "EAF775E6-AD1F-43D2-A5A2-A3385CAD5838",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AE2-AF",
+        "Timecode": "2024-11-06T11:47:00"
+      },
+      {
+        "Id": 4751055,
+        "Title": "Animal Welfare (Livestock Exports) Enforcement Regulations 2024",
+        "ParentId": 4751047,
+        "SortOrder": 9,
+        "ExternalId": "65BA9E86-E7B1-4F25-B603-8552970FA386",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AE2-AF",
+        "Timecode": "2024-11-06T11:48:00"
+      },
+      {
+        "Id": 4751056,
+        "Title": "Arbitration Bill [HL]",
+        "ParentId": 4751047,
+        "SortOrder": 10,
+        "ExternalId": "820CF4D4-FAF0-494C-9EE8-AC865950C3EB",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AE2-AF",
+        "Timecode": "2024-11-06T11:48:00"
+      },
+      {
+        "Id": 4751057,
+        "Title": "Flight Cancellations",
+        "ParentId": 4751047,
+        "SortOrder": 11,
+        "ExternalId": "9EA9A210-E0E8-48F8-8BA8-451A3D461C8E",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AG-AG",
+        "Timecode": null
+      },
+      {
+        "Id": 4751058,
+        "Title": "Passenger Railway Services (Public Ownership) Bill",
+        "ParentId": 4751047,
+        "SortOrder": 12,
+        "ExternalId": "1497808B-FF52-4E4E-9797-3CA5A09AB910",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AH-AH",
+        "Timecode": "2024-11-06T12:16:00"
+      }
+    ],
+    "Source": 2
+  }
+]

@@ -1,0 +1,129 @@
+{
+  "Overview": {
+    "Id": 4751121,
+    "ExtId": "BD667D21-CD2C-4ED3-9647-F4F05D92D917",
+    "Title": "Horticultural Peat (Prohibition of Sale)",
+    "HRSTag": "hs_2DebBill",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "60E76CFD-3195-4DDB-9FBA-C9E15B4D676F",
+    "NextDebateTitle": " Ways and Means",
+    "PreviousDebateExtId": "FF76D309-9E01-47C0-B481-E39B2B67FACD",
+    "PreviousDebateTitle": " Points of Order"
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751121,
+      "Title": "Horticultural Peat (Prohibition of Sale)",
+      "ParentId": 4751104,
+      "SortOrder": 18,
+      "ExternalId": "BD667D21-CD2C-4ED3-9647-F4F05D92D917",
+      "HRSTag": "hs_2DebBill",
+      "HansardSection": "AS2-AT",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889950,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"319\" class=\"column-number column-only\" data-column-number=\"319\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889951,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<em>Motion for leave to bring in a Bill (Standing Order No. 23)</em>",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "24110640000110",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946438,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "13:25:00",
+      "OrderInSection": 3,
+      "Timecode": "2024-11-05T18:19:14",
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889952,
+      "MemberId": 4995,
+      "AttributedTo": "Sarah Dyke (Glastonbury and Somerton) (LD)",
+      "Value": "I beg to move,\r\n\r\nThat leave be given to bring in a Bill to provide for the prohibition of the sale in England of horticultural peat by the end of 2025; to provide for certain exemptions from that prohibition; and for connected purposes.\r\n\r\nLet me begin by paying tribute to the right hon. Theresa Villiers, the former Member for Chipping Barnet, who previously worked hard to bring this Bill through Parliament, and by thanking Rebecca Pow, the former Member for Taunton Deane, who also endeavoured to secure a ban on the sale of peat.\r\n\r\nSomerset is one of only two counties in England where peat extraction still takes place. The Somerset levels and moors are the second largest area of lowland deep peat in England, containing 11 million tonnes of carbon. However, drained deep peat is a major source of greenhouse gas emissions and, along with peat extraction, could be responsible for as much as 255,000 tonnes of CO<sub>2</sub> per year, according to a 2023 report published by eftec. Somerset’s peatlands are extremely rare and valuable habitats for wildlife. They are the perfect place for plants such as the sundew and the marsh violet, which in turn support invertebrates and bird populations.\r\n\r\nBanning the sale of peat and protecting our peatlands both at home and abroad is crucial. I say “abroad” because we offshore most of our peatland emissions by importing about 60% of the peat used in horticulture in the UK. All the major parties agree with the proposal for a ban. The Liberal Democrats have pledged to restore peatlands and ban the use of horticultural peat, Labour’s 2024 manifesto promised to expand nature-rich habitats such as peat bogs, and the last Conservative Government made several attempts, despite failing to ban peat in their 14 years in office.\r\n\r\nIn 2011, the previous Government said that they wanted to reduce the amount of peat in compost voluntarily by 2020, but as the amount of peat fell by only a quarter in the subsequent years, the threat of legislation was introduced. A consultation by the last Government also revealed how popular a ban was, with 95% of respondents favouring a ban on retail peat by the end of the last Parliament. However, no legislation has been introduced that would ensure a ban on selling peat, so a vast amount of uncertainty remains in the industry today.\r\n\r\nI want to be absolutely clear how important it is that the horticultural industry is considered and consulted before any legislation seeking to ban peat is introduced. But banning horticultural peat is the right thing to do, and that is already supported by a vast number of people in the industry, and, if done correctly, will bring huge opportunities for British horticulture. In September this year, professional growers, gardeners, nursery owners, compost manufacturers, retailers and supporters of peat-free horticulture wrote to the Prime Minister demanding a sale ban. The signatories included B&amp;Q, Co-op supermarkets, Chris Beardshaw, Alys Fowler, Chris Packham, the Soil Association, the National Trust, the Wildlife Trust, CPRE, Evergreen Garden Care, Vitacress and the Royal Horticultural Society, to name just a few.<span id=\"320\" class=\"column-number\" data-column-number=\"320\"></span>\r\n\r\nI recently visited Durston Garden Products, just outside Street, which is the largest manufacturer of growing media in southern England. It produces 6 million bags a year, and it supports a ban on the sale of peat. Three quarters of the bags that Durston currently produces are peat free; five years ago, the figure was just one quarter. That is because Durston, like most of the industry, took the previous Government at their word when they committed to banning the sale of peat. Durston has done what it believed was the right thing for the business and for the environment, and it has put in the time, effort and money to develop alternative growing media that can outperform peat. As it stands, however, the investment that Durston has made to prepare for a peat-free market has been for nothing.\r\n\r\nBritain is a gardening nation. In fact, there are 30 million gardeners in the country, and 70% of them are interested in gardening more sustainably. The positive reaction to my Bill being announced demonstrates the feeling in the industry. The chair of the Growing Media Association, Simon Blackhurst, told the industry’s main trade magazine, <em>Horticultural Week</em>, that there is currently an “unfair commercial landscape”, as\r\n\r\n“peat based growing media is cheaper than peat free.”\r\n\r\nSouthern Trident’s Steve Harper said:\r\n\r\n“There really is no argument for delaying a retail peat ban”.\r\n\r\nFloralive’s Sean Higgs said:\r\n\r\n“Everyone is expecting it now (or believes it’s already in place)—to reverse would be counterproductive to the industry and undermine it on several counts.”\r\n\r\nThere are many fantastic examples of businesses moving towards being peat free. One such business is Kelways in Langport, in my constituency, which no longer sells compost containing peat and understands the shift that needs to take place. Moving towards being peat free would help the Government to achieve their aim of moving towards a circular economy. Peat-free compost manufacturers want to keep supply chains close to home, and some, such as Miracle-Gro, have their own on-site waste processors to produce compost. Others have partnerships with local forestry and wood processing businesses. RocketGro in Somerset processes digestate, a by-product of sustainable energy, into peat-free compost.\r\n\r\nAdvances in technology are clear evidence of the success of peat-free alternatives. The Royal Horticultural Society is set to be 100% peat free by the end of 2025, and is now at the end of a second successful year of trials funded by the Department for Environment, Food and Rural Affairs. The RHS has grown millions of plants peat free in partnership with eight major wholesale growers, and developed practices to help the wholesale industry transition smoothly. By ending the use of horticultural peat at home, we can reduce our reliance on foreign, imported plants grown in peat, and support British peat-free growers. I am fully aware that any ban would require exemptions, time for businesses to transition, and support from the Government to help businesses move forward, but setting dates in stone through legislation would remove the uncertainty that is damaging the industry and reducing opportunities.\r\n\r\nI turn to the impact that a ban on peat would have on peatland. Peat grows at a rate of 1 mm per year but can degrade by 1 cm per year if it is in bad condition, which, sadly, is the case for 86% of our peatlands. As I touched on earlier, they are amazing and rare habitats. Given our current knowledge of the damage that peat extraction <span id=\"321\" class=\"column-number\" data-column-number=\"321\"></span>does to nature, the environment and the land around us, there is simply no excuse for not changing course. Somerset faces ever more devastating flooding every winter, and the degradation and destruction of our peatlands does little to worsen its impact by reducing peatland’s ability to absorb excess rainwater and act as a natural flood defence, as an intact peat bog would do. Whereas preventing the sale of peat opens up opportunities for world-beating peat alternatives, stopping peat extraction opens up opportunities for peat restoration, such as creating new jobs by reskilling the existing workforce to use their expertise in managing peatlands for restoration.\r\n\r\nThe destruction of these precious, important and beautiful habitats must stop. As many experts, the public and politicians alike have outlined, we must not miss our chance. I urge the House to support this Bill today and ensure that we take the steps that would prevent the release of thousands of tonnes of carbon, help us move towards a circular economy, open up opportunities for British horticulture and protect precious peatlands.",
+      "OrderInSection": 4,
+      "Timecode": "2024-11-05T18:19:14",
+      "ExternalId": "D457D835-3CEE-487F-98AB-2D154E881D85",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946439,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "13:35:00",
+      "OrderInSection": 5,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AU-AV1",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889953,
+      "MemberId": 242,
+      "AttributedTo": "Sir Christopher Chope (Christchurch) (Con)",
+      "Value": "I am not going to oppose the right of the hon. Member for Glastonbury and Somerton (Sarah Dyke) to bring in a Bill, because I believe in the right of Members to bring forward whatever Bills they want. Most of them are ill conceived, and I have spent much of my time in this place attacking Bills that would have unintended consequences. I think the hon. Lady’s Bill will fit into the category of Bills that have good intentions, but would have unacceptable unintended consequences.\r\n\r\nIt will not go unnoticed that this Bill is a full-frontal attack on British horticulture, and that it is being promoted by none other than the Liberal Democrats. The hon. Lady referred to the previous Bill, which I spoke against on 16 April. It is a salutary reminder of the work of democrats in this country that none of the 12 Members of this House who supported that Bill is still a Member of the House—the electorate gave their verdict on the ill-conceived support for it. I am delighted to say today that a number of my new and not so new colleagues have said to me, “Why can’t you divide the House and oppose this Bill?” I say to them, including my hon. Friends the Members for Rutland and Stamford (Alicia Kearns) and for Mid Buckinghamshire (Greg Smith), that we should allow the Liberal Democrats to stew in their own juice and bring forward their Bill, so that it can be criticised and never reach the statute book.\r\n\r\nOne would have thought from the remarks of the hon. Member for Glastonbury and Somerton that she was a supporter of the Horticultural Trades Association. Yesterday, the association ran an event in this House, and so many people attended that the free indoor plants on offer were all scooped up about halfway through. If the hon. Lady went to collect her free plants, she obviously missed the opportunity to talk to representatives of the association, who believe that her proposals would completely undermine British horticulture. What is most important—the HTA makes this point—is that we should have a level playing field with European growers.\r\n\r\nWe want to grow more trees. Too few trees are being home-grown, and too many of them are being imported. Likewise, we want to promote garden products, but too <span id=\"322\" class=\"column-number\" data-column-number=\"322\"></span>many of them are being imported. A very large proportion are being imported from Holland, because, far from having a peat-free environment, Holland is the fastest-growing export market for peat coming into our country. Holland is also one of the largest importers and exporters of peat, and it gets a lot of its peat from Germany, Estonia, Belgium, Latvia and Sweden.\r\n\r\nThe Dutch use peat to make horticultural products, which are then sold into our market because those products are more acceptable to consumers, not least because they tend to last longer, as peat is a substance that enables plants to retain moisture and water a lot longer than products that are peat free, such as coir. Some of the people who promote peat-free products do not seem to realise, when they talk about coir as a substitute, that it is produced mainly in the far east, particularly in Sri Lanka, and that it has to be washed and de-salted before it can be prepared for horticultural use and then has to be transported halfway across the world. That is not an ecologically friendly way of producing a peat substitute.\r\n\r\nThere is another dimension to the issue of peat. What proportion of it is used in horticulture? It is a very small proportion. I am told that about 95% of the peat consumed in the world is used for peat fires. It is put into domestic boilers and mega-incinerators or used as a substitute for coal or even natural gas. By concentrating on just one aspect of the use of peat, in horticulture, we are ignoring the much larger problem of the burning of peat for fuel. I have looked up how easy it is to buy peat for fuel in this country, and the latest information is that I could get a pallet of 10 or so bags of peat delivered to my home for £260. That peat comes from exactly the same source as peat for agriculture. Why are we having a go at the use of peat in horticulture and agriculture when we could be dealing with the much larger issue of the extraction of peat for heating our homes?\r\n\r\nThis is a sensitive, emotional subject, but we need to have some hard-headed realism around it. If you, like me, Madam Deputy Speaker, support British horticulture, you should be very much opposed to this Bill, because it is a full-frontal assault upon the viability of our horticulture industry and will result in less choice for all those who engage in horticulture, whether as amateur or professional gardeners.\r\n\r\nI urge the hon. Lady to think carefully before she drafts her Bill. If she thinks that it will be mitigated by having a lot of exemptions set out in it, I challenge her to include on the face of her Bill all the exemptions she thinks will be necessary, because only with thousands of exemptions will the Bill be in any way acceptable. That is the challenge to her. That is why I am not going to oppose her bringing forward her Bill. Let us see what it says, but I fear it is going to be absolutely ghastly. I am disappointed, because I thought the Liberal Democrats were the friends of people working in the countryside and in agriculture and horticulture, but this Bill suggests quite the reverse. I strongly oppose it.\r\n\r\n<em>Question put </em><em>(Standing Order No. 23) </em><em>and agreed to.</em>\r\n\r\n<em>Ordered,</em>\r\n\r\nThat Sarah Dyke, Wera Hobhouse, Tim Farron, Pippa Heylings, Martin Wrigley, Caroline Voaden, Carla Denyer, Layla Moran, Tessa Munt, Richard Foord, Vikki Slade and Steve Darling present the Bill.<span id=\"323\" class=\"column-number\" data-column-number=\"323\"></span>\r\n\r\nSarah Dyke accordingly presented the Bill.\r\n\r\n<em>Bill read the First time; to be read a Second time on Friday 24 January 2025, and to be printed (Bill 122).</em>",
+      "OrderInSection": 6,
+      "Timecode": "2024-11-06T13:40:06",
+      "ExternalId": "C37FE34C-7F59-4DA2-AAB7-328A3B48FE70",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AU-AV1",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

@@ -1,0 +1,59 @@
+{
+  "Overview": {
+    "Id": 4751106,
+    "ExtId": "A8D0B2A8-8583-46D4-824B-4F952EAE963D",
+    "Title": "Prayers",
+    "HRSTag": "hs_6bBigBoldHdg",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "FC31FB0F-DD02-4E03-9C34-13BE92441AB8",
+    "NextDebateTitle": "Support for the Steel Industry",
+    "PreviousDebateExtId": "92CADC9C-2C1D-44EC-B68E-84C26E179057",
+    "PreviousDebateTitle": "House of Commons"
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751106,
+      "Title": "Prayers",
+      "ParentId": 4751104,
+      "SortOrder": 3,
+      "ExternalId": "A8D0B2A8-8583-46D4-824B-4F952EAE963D",
+      "HRSTag": "hs_6bBigBoldHdg",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889700,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "[Mr Speaker<em> in the Chair</em>]",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "24110615000011",
+      "HRSTag": "hs_76fChair",
+      "HansardSection": "AA-AD",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

@@ -1,0 +1,101 @@
+{
+  "Overview": {
+    "Id": 4751053,
+    "ExtId": "AD51BCE0-12C8-4456-9498-7FC5790F6C4D",
+    "Title": "Mental Health Bill [HL]",
+    "HRSTag": "NewDebate",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Lords Chamber",
+    "House": "Lords",
+    "Source": 2,
+    "VolumeNo": 840,
+    "ContentLastUpdated": "2024-11-07T16:24:27.213",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "EAF775E6-AD1F-43D2-A5A2-A3385CAD5838",
+    "NextDebateTitle": "Renewable Transport Fuel Obligations (Sustainable Aviation Fuel) Order 2024",
+    "PreviousDebateExtId": "C59D384F-F164-488E-BA75-DF2E6E1318AF",
+    "PreviousDebateTitle": "United Kingdom Declining Birth Rate"
+  },
+  "Navigator": [
+    {
+      "Id": 4751047,
+      "Title": "Lords Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "72fe8575-39d5-4bfc-a2ad-878cd7e860d1",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751053,
+      "Title": "Mental Health Bill [HL]",
+      "ParentId": 4751047,
+      "SortOrder": 7,
+      "ExternalId": "AD51BCE0-12C8-4456-9498-7FC5790F6C4D",
+      "HRSTag": "NewDebate",
+      "HansardSection": "AE2-AF",
+      "Timecode": "2024-11-06T11:46:00"
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888958,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "First Reading",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "ad1d2f13-9c81-48fd-a8f1-d70ac7ce2348",
+      "HRSTag": "hs_DebateType",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946340,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "11:46:00",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888959,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "A Bill to make provision to amend the Mental Health Act 1983 in relation to mentally disordered persons; and for connected purposes.",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "24110617000349",
+      "HRSTag": "hs_Procedure",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888960,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "The Bill was introduced by Baroness Merron, read a first time and ordered to be printed.",
+      "OrderInSection": 4,
+      "Timecode": null,
+      "ExternalId": "24110617000350",
+      "HRSTag": "hs_Procedure",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

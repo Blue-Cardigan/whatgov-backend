@@ -1,0 +1,83 @@
+{
+  "Overview": {
+    "Id": 4751140,
+    "ExtId": "24110646000014",
+    "Title": "Media Mergers Regime",
+    "HRSTag": "hs_8Statement",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "24110646000015",
+    "NextDebateTitle": "Defence Nuclear Enterprise",
+    "PreviousDebateExtId": "24110646000013",
+    "PreviousDebateTitle": "Silicon Valley Bank UK: Bank of England’s Transfer Power"
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751139,
+      "Title": "Culture, Media and Sport",
+      "ParentId": 4751133,
+      "SortOrder": 7,
+      "ExternalId": "A29A8B3B-09E3-4937-873C-1690CFB8F9D2",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "1-10",
+      "Timecode": null
+    },
+    {
+      "Id": 4751140,
+      "Title": "Media Mergers Regime",
+      "ParentId": 4751139,
+      "SortOrder": 8,
+      "ExternalId": "24110646000014",
+      "HRSTag": "hs_8Statement",
+      "HansardSection": "1-10",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890901,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"11WS\" class=\"column-number column-only\" data-column-number=\"11WS\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890902,
+      "MemberId": 4607,
+      "AttributedTo": "The Parliamentary Under-Secretary of State for Culture, Media and Sport (Stephanie Peacock)",
+      "Value": "The Government are committed to a pluralistic media landscape, where citizens are able to access information from a range of sources in order to form opinions. The public’s ability to access a wide range of news, views and information about the world in which we live is central to the health of our democracy.\r\n\r\nThe Enterprise Act 2002 gives the Secretary of State (Lisa Nandy) the power to intervene in media mergers if she believes one or more public interest considerations may be relevant. The Secretary of State may ultimately order a media merger to be blocked or unwound if she decides that it has operated or may be expected to operate against the public interest.\r\n\r\nHowever, the media landscape has changed significantly since the Enterprise Act became law more than two decades ago. The world has changed; Ofcom’s news consumption survey, published in September 2024, shows over two thirds (71%) of UK adults now access news online. It is essential that our regimes move with the times, are fit for purpose, and are future-proofed to protect the availability of a wide range of accurate and high-quality news, particularly for younger audiences, as technology and news habits evolve.\r\n\r\nTo reflect the way news is increasingly consumed and the need to protect the freedom of the press as a cornerstone of democracy, I am today launching a six-week technical public consultation on expanding the legislation governing media mergers, to allow the Secretary of State to intervene in mergers involving a wider range of print news publications, online news publications and news programmes. This follows advice from Ofcom as part of its 2021 statement on the future of media plurality.\r\n\r\nThe consultation will seek views from industry, Parliament, and the public, on whether our proposed updates to the regime achieve our desired effects.\r\n\r\n[HCWS191]",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "855A809F-38AA-4EA5-B715-1EAF05FBBAE9",
+      "HRSTag": "hs_Para",
+      "HansardSection": "1-10",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

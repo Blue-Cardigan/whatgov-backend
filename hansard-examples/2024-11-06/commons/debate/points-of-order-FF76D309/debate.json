@@ -1,0 +1,129 @@
+{
+  "Overview": {
+    "Id": 4751120,
+    "ExtId": "FF76D309-9E01-47C0-B481-E39B2B67FACD",
+    "Title": " Points of Order",
+    "HRSTag": "hs_2cGenericHdg",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "BD667D21-CD2C-4ED3-9647-F4F05D92D917",
+    "NextDebateTitle": "Horticultural Peat (Prohibition of Sale)",
+    "PreviousDebateExtId": "E9801558-33D2-4DE5-B4AC-467CC5A9453C",
+    "PreviousDebateTitle": " Personal Statement"
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751120,
+      "Title": " Points of Order",
+      "ParentId": 4751104,
+      "SortOrder": 17,
+      "ExternalId": "FF76D309-9E01-47C0-B481-E39B2B67FACD",
+      "HRSTag": "hs_2cGenericHdg",
+      "HansardSection": "AS2-AT",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889945,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"317\" class=\"column-number column-only\" data-column-number=\"317\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946437,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "13:22:00",
+      "OrderInSection": 2,
+      "Timecode": "2024-11-06T13:22:13",
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889946,
+      "MemberId": 178,
+      "AttributedTo": "John McDonnell (Hayes and Harlington) (Ind)",
+      "Value": "On a point of order, Mr Speaker. Have you received any notice of a statement from the Government? I know that a number of Members have written to the Foreign Secretary, in particular, about the case of the writer and human rights activist Alaa Abd el-Fattah, who has served five years in an Egyptian prison for organising human rights protests. He was meant to be released in September but has still not been. His mother, Laila, has now been on hunger strike for four weeks, and many of us are concerned about the risk to her life. If a statement is not forthcoming, perhaps those on the Treasury Bench could urge the Government to make firm representations to Egypt to release Mr Abd el-Fattah.",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "11C147D8-0019-452C-AAE3-1AFC5F5F11AC",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889947,
+      "MemberId": 467,
+      "AttributedTo": "Mr Speaker",
+      "Value": "The right hon. Gentleman is in danger of answering his own point of order. I have received no notification of a statement, but I am sure that those on the Treasury Bench will have taken his point on board. Let me also say to him that I know he will not rest there on this matter; that he will use all other avenues available to him ensure that the profile of the case is raised—I would expect nothing else.",
+      "OrderInSection": 4,
+      "Timecode": null,
+      "ExternalId": "3235060E-7019-4DA5-854B-E14F0FDB4E65",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889948,
+      "MemberId": 4786,
+      "AttributedTo": "Zarah Sultana (Coventry South) (Ind)",
+      "Value": "On a point of order, Mr Speaker. This concerns the lack of response to my cross-party correspondence addressed to the Foreign Secretary, the Secretary of State for Business and Trade, and the Defence Secretary, dated 13 September 2024. In that letter I, along with 36 parliamentary colleagues, requested clarification on the Government’s decision to exempt offensive F-35 fighter jet components from the 30 out of 350 licences that they have suspended for items that could be used in Israel’s genocidal assault on Gaza, as there is a clear risk that they may be used to commit or facilitate a serious violation of international humanitarian law. Given the significance of the issue and its implications for the UK’s international obligations, it is imperative that MPs receive a comprehensive response. Having to wait two months for a reply raises questions—",
+      "OrderInSection": 5,
+      "Timecode": "2024-11-06T13:24:07",
+      "ExternalId": "9D59DF12-39F9-41C7-A5DD-F4DD6852E8AF",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889949,
+      "MemberId": 467,
+      "AttributedTo": "Mr Speaker",
+      "Value": "Order. I have absolutely got the point of order. Obviously, this is not my responsibility, but I take it seriously if any Member of this House writes to the  <span id=\"318\" class=\"column-number\" data-column-number=\"318\"></span>Government and does not receive a timely reply. I am here to defend whoever the correspondence is from and ensure that they receive a reply. I am entirely convinced that those on the Front Bench will have heard what has been said and will already be looking to get that reply. If not, the hon. Lady should inform me and we will raise it again. I thank her for her point of order.\r\n\r\nBills Presented\r\n\r\nFinancial Assistance to Ukraine Bill\r\n\r\n<em>Presentation and First Reading (Standing Order No. 50)</em>\r\n\r\nDarren Jones, supported by the Prime Minister, James Murray, Tulip Siddiq and Emma Reynolds, presented a Bill to make provision for loans or other financial assistance to be provided to, or for the benefit of, the government of Ukraine.\r\n\r\n<em>Bill read the first time; to be read a second time </em><em>on Monday 11 November</em><em>,</em><em> </em><em>and to be printed (Bill 48)</em><em> </em><em>with explanatory notes (Bill 48</em><em>-</em><em>EN).</em>\r\n\r\nArmed Forces Commissioner Bill\r\n\r\n<em>Presentation and First Reading (Standing Order No. 5</em><em>7</em><em>)</em>\r\n\r\nSecretary John Healey, supported by the Prime Minister, Secretary Angela Rayner, the Chancellor of the Exchequer, Secretary Yvette Cooper, Secretary David Lammy, Secretary Hilary Benn, Secretary Ian Murray, Secretary Jo Stevens, Dan Jarvis, Maria Eagle and Luke Pollard presented a Bill to establish, and confer functions on, the Armed Forces Commissioner; to abolish the office of Service Complaints Ombudsman; and for connected purposes.\r\n\r\n<em>Bill read the first time; to be read a second time </em><em>on Monday 11 November, </em><em>and to be printed (Bill 124) with explanatory notes (Bill 124-EN).</em>\r\n\r\nChild Criminal Exploitation (No. 2) Bill\r\n\r\n<em>Presentation and First Reading (Standing Order No. 5</em><em>7</em><em>)</em>\r\n\r\nVictoria Atkins presented a Bill to create an offence of child criminal exploitation; and for connected purposes.\r\n\r\n<em>Bill read the first time; to be read a second time </em><em>on </em><em>Friday 29 November 2024 and to be printed (Bill 75).</em>",
+      "OrderInSection": 6,
+      "Timecode": null,
+      "ExternalId": "0562807B-6B2D-4936-A8A7-22C545E15738",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

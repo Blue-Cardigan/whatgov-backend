@@ -1,0 +1,66 @@
+[
+  {
+    "House": "Commons",
+    "ItemDate": "2024-10-31T00:00:00",
+    "Metadata": null,
+    "Title": "Public Bill Committees",
+    "Description": "Public Bill Committees debate and consider amendments to Bills.",
+    "SectionType": 5,
+    "SortOrder": 7,
+    "LastUpdated": "2024-10-31T18:57:13.227",
+    "VolumeNo": 755,
+    "SectionTreeItems": [
+      {
+        "Id": 4745276,
+        "Title": "Public Bill Committees",
+        "ParentId": null,
+        "SortOrder": 1,
+        "ExternalId": "cff26a49-b93d-422d-a647-a10c7de64fb0",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4745277,
+        "Title": "Renters' Rights Bill (Fifth sitting)",
+        "ParentId": 4745276,
+        "SortOrder": 2,
+        "ExternalId": "7c55663a-0af0-41bd-ac7f-be5746ee09e9",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4745560,
+        "Title": "Renters' Rights Bill (Sixth sitting)",
+        "ParentId": 4745276,
+        "SortOrder": 3,
+        "ExternalId": "7daf30f0-459e-4592-b9de-988e35d65eaa",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4745561,
+        "Title": "Terrorism (Protection of Premises) Bill (Third sitting)",
+        "ParentId": 4745276,
+        "SortOrder": 4,
+        "ExternalId": "46e88bc4-c060-4f73-b8cb-8e61790f93a4",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4745578,
+        "Title": "Terrorism (Protection of Premises) Bill (Fourth sitting)",
+        "ParentId": 4745276,
+        "SortOrder": 5,
+        "ExternalId": "6b52db3f-ab44-402b-93c7-0bd3c1b3a63d",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      }
+    ],
+    "Source": 2
+  }
+]

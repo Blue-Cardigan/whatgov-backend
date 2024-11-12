@@ -1,0 +1,114 @@
+{
+  "Overview": {
+    "Id": 4751148,
+    "ExtId": "1A8E1149-2EB4-44DA-B28A-541F4C2F4268",
+    "Title": "Health and Social Care",
+    "HRSTag": "hs_6bDepartment",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "",
+    "NextDebateTitle": "",
+    "PreviousDebateExtId": "24110646000001",
+    "PreviousDebateTitle": "Written Statements"
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751148,
+      "Title": "Health and Social Care",
+      "ParentId": 4751133,
+      "SortOrder": 16,
+      "ExternalId": "1A8E1149-2EB4-44DA-B28A-541F4C2F4268",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "1-10",
+      "Timecode": null
+    }
+  ],
+  "Items": [],
+  "ChildDebates": [
+    {
+      "Overview": {
+        "Id": 4751149,
+        "ExtId": "24110646000019",
+        "Title": "Oxford Nanopore Technologies: Strategic Partnership",
+        "HRSTag": "hs_8Statement",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "24110646000020",
+        "NextDebateTitle": "Failure to Prevent Fraud: Corporate Offence Guidance",
+        "PreviousDebateExtId": "24110646000018",
+        "PreviousDebateTitle": "South West Water: Customer Rebate"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751148,
+          "Title": "Health and Social Care",
+          "ParentId": 4751133,
+          "SortOrder": 16,
+          "ExternalId": "1A8E1149-2EB4-44DA-B28A-541F4C2F4268",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        },
+        {
+          "Id": 4751149,
+          "Title": "Oxford Nanopore Technologies: Strategic Partnership",
+          "ParentId": 4751148,
+          "SortOrder": 17,
+          "ExternalId": "24110646000019",
+          "HRSTag": "hs_8Statement",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [
+        {
+          "ItemType": "Contribution",
+          "ItemId": 40890907,
+          "MemberId": 1506,
+          "AttributedTo": "The Parliamentary Under-Secretary of State for Health and Social Care (Andrew Gwynne)",
+          "Value": "My noble friend the Under-Secretary of State for Health and Social Care, Baroness Merron, has made the following written statement:\r\n\r\nWe have announced the Government’s intention to enter into a strategic partnership with Oxford Nanopore—a world-leading UK-based life sciences company whose technology is used to advance biomedical research and translate discoveries for improved patient care across cancer, genetic disease and infectious disease. This collaboration also involves NHS England and two of our world-leading scientific institutions—Genomics England and UK Biobank.\r\n\r\nThe collaboration will seek to utilise Oxford Nanopore’s technology to enhance research and, using insights from the UK’s genetic databases, could pave the way for new treatments for cancer and rare diseases.\r\n\r\nThe collaboration is another vote of confidence in the UK’s life sciences sector, which will help kickstart economic growth and support the 10-year health plan’s ambition to shift the health service from analogue to digital and from sickness to prevention, helping keep patients out of hospital. The collaboration also builds on the Chancellor’s commitment to support UK spinouts announced as part of the Budget.\r\n\r\nSeparately, following a successful pilot at Guy’s and St Thomas’ Hospital, we are announcing the scale-up of NHS England’s respiratory metagenomics programme, offering fast-track genetic testing for patients with suspected respiratory infectious diseases. Through this programme, Nanopore’s sequencing technology will be rolled out from 10 to up to 30 NHS sites to detect new pathogens emerging in the UK. Patients suspected of having severe acute respiratory infections will now be diagnosed within six hours thanks to this technology, compared to the previous norm of around three days.<span id=\"15WS\" class=\"column-number\" data-column-number=\"15WS\"></span>\r\n\r\nThis will create an “early warning system” for future pandemics, supporting the Government to take quicker action on emerging infectious disease, and monitor the threat of future pandemics.\r\n\r\nI will provide further updates to the House on this collaboration as it develops\r\n\r\n[HCWS199]",
+          "OrderInSection": 1,
+          "Timecode": null,
+          "ExternalId": "B9914C63-E025-4BE4-9EFA-4E7D9936808E",
+          "HRSTag": "hs_Para",
+          "HansardSection": "1-10",
+          "UIN": null,
+          "IsReiteration": false
+        }
+      ],
+      "ChildDebates": []
+    }
+  ]
+}

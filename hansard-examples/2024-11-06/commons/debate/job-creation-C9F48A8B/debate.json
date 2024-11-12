@@ -1,0 +1,163 @@
+{
+  "Overview": {
+    "Id": 4751115,
+    "ExtId": "C9F48A8B-B562-44F8-9F7F-688DCD3031D9",
+    "Title": "Job Creation",
+    "HRSTag": "hs_8Question",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "A88B993F-8656-4A1E-B905-645A66C84ACF",
+    "NextDebateTitle": "Engagements",
+    "PreviousDebateExtId": "B73115C2-6B6F-48CF-828E-D67C72542FD0",
+    "PreviousDebateTitle": "Farming: Support"
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751107,
+      "Title": "Oral Answers to Questions",
+      "ParentId": 4751104,
+      "SortOrder": 4,
+      "ExternalId": "9713E21B-1497-47D8-A190-34E452520914",
+      "HRSTag": "hs_3OralAnswers",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    },
+    {
+      "Id": 4751108,
+      "Title": "Wales",
+      "ParentId": 4751107,
+      "SortOrder": 5,
+      "ExternalId": "ACA061B0-3998-42C9-8620-40ED3FCC9BB2",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    },
+    {
+      "Id": 4751115,
+      "Title": "Job Creation",
+      "ParentId": 4751108,
+      "SortOrder": 12,
+      "ExternalId": "C9F48A8B-B562-44F8-9F7F-688DCD3031D9",
+      "HRSTag": "hs_8Question",
+      "HansardSection": "AE-AH",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889764,
+      "MemberId": 5221,
+      "AttributedTo": "Steve Witherden (Montgomeryshire and Glyndŵr) (Lab)",
+      "Value": "<Question HRSContentId=\"{250F77A5-B494-4C9D-B243-04431DFFF460}\">8. <QuestionText HRSContentId=\"{37B7CD1D-1824-4EED-A5CE-930184F33E1D}\">What steps she is taking with Cabinet colleagues to help create new jobs in Wales. </QuestionText></Question>",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "250F77A5-B494-4C9D-B243-04431DFFF460",
+      "HRSTag": "Question",
+      "HansardSection": "AE-AH",
+      "UIN": "901046",
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889765,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"291\" class=\"column-number column-only\" data-column-number=\"291\"></span>",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889766,
+      "MemberId": 1541,
+      "AttributedTo": "The Parliamentary Under-Secretary of State for Wales (Dame Nia Griffith)",
+      "Value": "Our mission to kick-start economic growth will deliver good jobs and growth in Wales. Just last month, our international investment summit secured over £63 billion in private investment into the UK. Since July, we have secured over £1 billion of investment into north Wales, creating and sustaining 400 well-paid jobs in manufacturing.",
+      "OrderInSection": 4,
+      "Timecode": null,
+      "ExternalId": "9308C745-B71E-4B36-A263-930710A85031",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AE-AH",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889767,
+      "MemberId": 5221,
+      "AttributedTo": "Steve Witherden",
+      "Value": "The Secretary of State has said that economic growth is her No. 1 priority. Can the Minister say how the Budget’s confirmation of the investment zones will help contribute to that aim?",
+      "OrderInSection": 5,
+      "Timecode": "2024-11-06T11:59:31",
+      "ExternalId": "D8BA0ACD-009A-4DE0-AEB3-77C21B5756E3",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AE-AH",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889768,
+      "MemberId": 1541,
+      "AttributedTo": "Dame Nia Griffith",
+      "Value": "The Budget includes a total of £320 million and a commitment for the investment zones in Cardiff and Newport and in Wrexham and Flintshire. This is a crucial part of our work with the Welsh Government to provide a rocket boost for sectoral strengths such as the creative industries, the life sciences and advanced manufacturing, including our world-leading compound semiconductor cluster.",
+      "OrderInSection": 6,
+      "Timecode": "2024-11-06T11:59:55",
+      "ExternalId": "29FDE3A9-6BBE-4D16-B53C-D6D27136D8C8",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AE-AH",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889769,
+      "MemberId": 4131,
+      "AttributedTo": "Jim Shannon (Strangford) (DUP)",
+      "Value": "There is great potential for creating new jobs in wind energy and sea energy in Wales. We in Northern Ireland, and in Belfast in particular, have the engineering skills to provide the turbines for that energy production. Everyone would gain: Wales would get the jobs, and Northern Ireland would get the jobs as well.",
+      "OrderInSection": 7,
+      "Timecode": "2024-11-06T12:00:17",
+      "ExternalId": "FE961539-5261-474E-B3A0-B09A6FCC8DF0",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AE-AH",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889770,
+      "MemberId": 1541,
+      "AttributedTo": "Dame Nia Griffith",
+      "Value": "This Government are absolutely committed to economic growth across all parts of the United Kingdom.",
+      "OrderInSection": 8,
+      "Timecode": null,
+      "ExternalId": "BE03D27B-D923-42AD-BE9A-FD2AFEE3CDC6",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AE-AH",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

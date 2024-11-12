@@ -1,0 +1,46 @@
+[
+  {
+    "House": "Lords",
+    "ItemDate": "2024-11-06T00:00:00",
+    "Metadata": null,
+    "Title": "Grand Committee",
+    "Description": "Grand Committees may consider Bills or statutory instruments, or debate particular issues or topics.",
+    "SectionType": 1,
+    "SortOrder": 2,
+    "LastUpdated": "2024-11-07T16:24:38.53",
+    "VolumeNo": 840,
+    "SectionTreeItems": [
+      {
+        "Id": 4751059,
+        "Title": "Grand Committee",
+        "ParentId": null,
+        "SortOrder": 1,
+        "ExternalId": "e65ca46c-0ab6-4d4e-95b3-3d1205dddc11",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4751060,
+        "Title": "Arrangement of Business",
+        "ParentId": 4751059,
+        "SortOrder": 2,
+        "ExternalId": "4B5F9DB5-25F9-47CA-B857-8E918D6534B7",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AA-AB",
+        "Timecode": "2024-11-06T13:02:00"
+      },
+      {
+        "Id": 4751061,
+        "Title": "Property (Digital Assets etc) Bill",
+        "ParentId": 4751059,
+        "SortOrder": 3,
+        "ExternalId": "3FEB0846-1D4D-4CD3-A53A-78D482D03137",
+        "HRSTag": "NewDebate",
+        "HansardSection": "AA-AB",
+        "Timecode": "2024-11-06T13:03:00"
+      }
+    ],
+    "Source": 2
+  }
+]

@@ -1,0 +1,115 @@
+{
+  "Overview": {
+    "Id": 4751119,
+    "ExtId": "E9801558-33D2-4DE5-B4AC-467CC5A9453C",
+    "Title": " Personal Statement",
+    "HRSTag": "hs_2cGenericHdg",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "FF76D309-9E01-47C0-B481-E39B2B67FACD",
+    "NextDebateTitle": " Points of Order",
+    "PreviousDebateExtId": "77B1E99D-C873-49E1-9EB9-B6F57C0B939C",
+    "PreviousDebateTitle": "Small Boat Crossings"
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751119,
+      "Title": " Personal Statement",
+      "ParentId": 4751104,
+      "SortOrder": 16,
+      "ExternalId": "E9801558-33D2-4DE5-B4AC-467CC5A9453C",
+      "HRSTag": "hs_2cGenericHdg",
+      "HansardSection": "AS2-AT",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889941,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"316\" class=\"column-number column-only\" data-column-number=\"316\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889942,
+      "MemberId": 467,
+      "AttributedTo": "Mr Speaker",
+      "Value": "Order. Before I call the hon. Member for Ashfield (Lee Anderson) to make his personal statement, I remind the House that such statements should be heard in silence and without interruption.",
+      "OrderInSection": 2,
+      "Timecode": "2024-11-06T13:21:08",
+      "ExternalId": "511D8E7F-565A-4A39-9290-D0B1D427553E",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946436,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "13:21:00",
+      "OrderInSection": 3,
+      "Timecode": "2024-11-06T13:21:15",
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889943,
+      "MemberId": 4743,
+      "AttributedTo": "Lee Anderson (Ashfield) (Reform)",
+      "Value": "With permission, Mr Speaker, I will make a personal statement, in compliance with the findings of the Independent Expert Panel in its report. I accept the findings of the panel and the Parliamentary Commissioner for Standards in full and without reservation.\r\n\r\nOn 23 November 2023, at the Derby Gate entrance, I was involved in an incident with a security guard. During the incident, I spoke to the complainant in a manner that was totally unacceptable, and which including swearing and other language that goes against the House of Commons bullying and harassment policy.\r\n\r\nI would like to apologise to the complainant and to the House for my behaviour. Our security staff do an incredible job and should always be treated with the utmost respect. An MP’s behaviour must always be of a higher standard. I give you, Mr Speaker, and the House my firm assurance that I have learnt significant lessons through this process, and a firm undertaking that such behaviour on my part will never happen again.",
+      "OrderInSection": 4,
+      "Timecode": "2024-11-06T13:21:25",
+      "ExternalId": "BC3B74B6-71A9-4E36-820E-C54EF1079C9C",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889944,
+      "MemberId": 467,
+      "AttributedTo": "Mr Speaker",
+      "Value": "I thank the hon. Member.",
+      "OrderInSection": 5,
+      "Timecode": null,
+      "ExternalId": "035FEAEB-1EB4-4FFF-9AA9-F3AAFD60F01E",
+      "HRSTag": "hs_Para",
+      "HansardSection": "AS2-AT",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

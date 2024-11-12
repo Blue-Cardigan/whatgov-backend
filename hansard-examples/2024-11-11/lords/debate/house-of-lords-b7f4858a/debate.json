@@ -1,0 +1,87 @@
+{
+  "Overview": {
+    "Id": 4751205,
+    "ExtId": "b7f4858a-ad3f-4740-bbfe-5bd7d9fe6a5c",
+    "Title": "House of Lords",
+    "HRSTag": "hs_Venue",
+    "Date": "2024-11-11T00:00:00",
+    "Location": "Lords Chamber",
+    "House": "Lords",
+    "Source": 1,
+    "VolumeNo": null,
+    "ContentLastUpdated": "2024-11-11T16:20:23.997",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "CB98A160-A8B9-4A83-90C3-FE5070C4F905",
+    "NextDebateTitle": "Police: Junior Cadet Schemes",
+    "PreviousDebateExtId": "",
+    "PreviousDebateTitle": ""
+  },
+  "Navigator": [
+    {
+      "Id": 4751204,
+      "Title": "Lords Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "923341a3-e641-4be1-bcaf-d61ab0bfbcd6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751205,
+      "Title": "House of Lords",
+      "ParentId": 4751204,
+      "SortOrder": 2,
+      "ExternalId": "b7f4858a-ad3f-4740-bbfe-5bd7d9fe6a5c",
+      "HRSTag": "hs_Venue",
+      "HansardSection": "RLG",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40891525,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Monday 11 November 2024",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "f85620df-b2d6-4afd-a5a4-445225f42948",
+      "HRSTag": "hs_date",
+      "HansardSection": "RLG",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946662,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "14:30:00",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "RLG",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40891526,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Prayers—read by the Lord Bishop of Gloucester.",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "be0042cd-d529-4038-bb17-da44ab7a255b",
+      "HRSTag": "hs_Procedure",
+      "HansardSection": "RLG",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

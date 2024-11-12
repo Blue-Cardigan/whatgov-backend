@@ -1,0 +1,46 @@
+[
+  {
+    "House": "Lords",
+    "ItemDate": "2024-11-11T00:00:00",
+    "Metadata": null,
+    "Title": "Lords Chamber",
+    "Description": "Record of debates that happened in the House of Lords main chamber.",
+    "SectionType": 1,
+    "SortOrder": 1,
+    "LastUpdated": "2024-11-11T16:20:23.997",
+    "VolumeNo": null,
+    "SectionTreeItems": [
+      {
+        "Id": 4751204,
+        "Title": "Lords Chamber",
+        "ParentId": null,
+        "SortOrder": 1,
+        "ExternalId": "923341a3-e641-4be1-bcaf-d61ab0bfbcd6",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4751205,
+        "Title": "House of Lords",
+        "ParentId": 4751204,
+        "SortOrder": 2,
+        "ExternalId": "b7f4858a-ad3f-4740-bbfe-5bd7d9fe6a5c",
+        "HRSTag": "hs_Venue",
+        "HansardSection": "RLG",
+        "Timecode": null
+      },
+      {
+        "Id": 4751206,
+        "Title": "Police: Junior Cadet Schemes",
+        "ParentId": 4751204,
+        "SortOrder": 3,
+        "ExternalId": "CB98A160-A8B9-4A83-90C3-FE5070C4F905",
+        "HRSTag": "NewDebate",
+        "HansardSection": "RLG",
+        "Timecode": "2024-11-11T14:36:00"
+      }
+    ],
+    "Source": 1
+  }
+]

@@ -1,0 +1,69 @@
+{
+  "Overview": {
+    "Id": 4751142,
+    "ExtId": "24110646000015",
+    "Title": "Defence Nuclear Enterprise",
+    "HRSTag": "hs_8Statement",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "24110646000016",
+    "NextDebateTitle": "Energy Infrastructure Planning",
+    "PreviousDebateExtId": "24110646000014",
+    "PreviousDebateTitle": "Media Mergers Regime"
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751141,
+      "Title": "Defence",
+      "ParentId": 4751133,
+      "SortOrder": 9,
+      "ExternalId": "7216688B-D613-4C49-B04E-ACA9CB2B3D6B",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "1-10",
+      "Timecode": null
+    },
+    {
+      "Id": 4751142,
+      "Title": "Defence Nuclear Enterprise",
+      "ParentId": 4751141,
+      "SortOrder": 10,
+      "ExternalId": "24110646000015",
+      "HRSTag": "hs_8Statement",
+      "HansardSection": "1-10",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890903,
+      "MemberId": 400,
+      "AttributedTo": "The Secretary of State for Defence (John Healey)",
+      "Value": "The UK is exploring options to re-establish a nuclear fuel cycle for reactor fuel for defence purposes. The Government are committed to modernising defence nuclear fuel production under the Defence Nuclear Enterprise. We are commencing engagement with industry to develop options for how this requirement can be delivered.\r\n\r\nThe UK takes its nuclear responsibilities and obligations seriously. This fuel production cycle will be fully consistent with the UK’s international obligations, including the treaty on the non-proliferation of nuclear weapons. It will also be fully consistent with the UK’s voluntary  <span id=\"12WS\" class=\"column-number\" data-column-number=\"12WS\"></span>moratorium, established in 1995, on the production of fissile material for nuclear weapons or other nuclear explosive devices.\r\n\r\nThe UK will continue to maintain the highest standards of safeguarding of civil nuclear materials, ensuring a separation from defence materials and complying with our obligations under the UK’s voluntary offer agreement with the International Atomic Energy Agency.\r\n\r\n[HCWS193]",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "ACACC0D9-353B-4EB4-B684-361601C8F865",
+      "HRSTag": "hs_Para",
+      "HansardSection": "1-10",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

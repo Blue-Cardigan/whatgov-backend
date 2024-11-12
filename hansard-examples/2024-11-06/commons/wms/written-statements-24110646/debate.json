@@ -1,0 +1,73 @@
+{
+  "Overview": {
+    "Id": 4751134,
+    "ExtId": "24110646000001",
+    "Title": "Written Statements",
+    "HRSTag": "hs_3MainHdg",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "24110646000012",
+    "NextDebateTitle": "Updated Ministerial Code",
+    "PreviousDebateExtId": "",
+    "PreviousDebateTitle": ""
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751134,
+      "Title": "Written Statements",
+      "ParentId": 4751133,
+      "SortOrder": 2,
+      "ExternalId": "24110646000001",
+      "HRSTag": "hs_3MainHdg",
+      "HansardSection": "Header-3-60",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890896,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"9WS\" class=\"column-number column-only\" data-column-number=\"9WS\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890897,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<em>Wednesday 6 November 2024</em>",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "24110646000011",
+      "HRSTag": "hs_6fDate",
+      "HansardSection": "Header-3-60",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

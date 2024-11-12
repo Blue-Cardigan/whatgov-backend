@@ -1,0 +1,86 @@
+[
+  {
+    "House": "Commons",
+    "ItemDate": "2024-11-06T00:00:00",
+    "Metadata": null,
+    "Title": "Westminster Hall",
+    "Description": "Westminster Hall debates give Members an opportunity to raise local or national issues and receive a response from a government minister.",
+    "SectionType": 1,
+    "SortOrder": 2,
+    "LastUpdated": "2024-11-08T13:17:01.26",
+    "VolumeNo": 756,
+    "SectionTreeItems": [
+      {
+        "Id": 4751126,
+        "Title": "Westminster Hall",
+        "ParentId": null,
+        "SortOrder": 1,
+        "ExternalId": "288cbda7-0844-4cd6-acf5-49628db32408",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4751127,
+        "Title": "Westminster Hall",
+        "ParentId": 4751126,
+        "SortOrder": 2,
+        "ExternalId": "F9A072FE-6EFE-493C-A7BE-F5BC3AEB7CCB",
+        "HRSTag": "hs_3MainHdg",
+        "HansardSection": "AA-AC1",
+        "Timecode": null
+      },
+      {
+        "Id": 4751128,
+        "Title": "Uyghur and Turkic Muslims: Forced Labour in China",
+        "ParentId": 4751126,
+        "SortOrder": 3,
+        "ExternalId": "7C4D516D-FC4F-4C8A-AC19-5BEC8D7769D8",
+        "HRSTag": "hs_2DebBill",
+        "HansardSection": "AA-AC1",
+        "Timecode": null
+      },
+      {
+        "Id": 4751129,
+        "Title": " Peak Forest and Macclesfield Canals",
+        "ParentId": 4751126,
+        "SortOrder": 4,
+        "ExternalId": "121AADAA-8CEB-4044-B2E4-BF8D4D3F4318",
+        "HRSTag": "hs_2cWestHallDebate",
+        "HansardSection": "AT-AV1",
+        "Timecode": null
+      },
+      {
+        "Id": 4751130,
+        "Title": " Fuel Poverty",
+        "ParentId": 4751126,
+        "SortOrder": 5,
+        "ExternalId": "46275579-B4A9-4F5C-B6A7-20CB33F9ECC6",
+        "HRSTag": "hs_2cWestHallDebate",
+        "HansardSection": "AY-BC1",
+        "Timecode": null
+      },
+      {
+        "Id": 4751131,
+        "Title": " Energy Rebates: Highlands and Islands",
+        "ParentId": 4751126,
+        "SortOrder": 6,
+        "ExternalId": "A62903E8-DD22-4CB7-946C-1E4B6A2E33E1",
+        "HRSTag": "hs_2cWestHallDebate",
+        "HansardSection": "BO2-BS1",
+        "Timecode": null
+      },
+      {
+        "Id": 4751132,
+        "Title": "Furniture Poverty",
+        "ParentId": 4751126,
+        "SortOrder": 7,
+        "ExternalId": "121D2AF0-44E5-4B39-8A63-F81C5BF210C3",
+        "HRSTag": "hs_2DebBill",
+        "HansardSection": "BY-CB1",
+        "Timecode": null
+      }
+    ],
+    "Source": 2
+  }
+]

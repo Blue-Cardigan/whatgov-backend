@@ -1,0 +1,59 @@
+{
+  "Overview": {
+    "Id": 4751122,
+    "ExtId": "60E76CFD-3195-4DDB-9FBA-C9E15B4D676F",
+    "Title": " Ways and Means",
+    "HRSTag": "hs_3cMainHdg",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "DBE9C141-29E1-4666-B0D1-CF616C409D66",
+    "NextDebateTitle": "Budget Resolutions",
+    "PreviousDebateExtId": "BD667D21-CD2C-4ED3-9647-F4F05D92D917",
+    "PreviousDebateTitle": "Horticultural Peat (Prohibition of Sale)"
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751122,
+      "Title": " Ways and Means",
+      "ParentId": 4751104,
+      "SortOrder": 19,
+      "ExternalId": "60E76CFD-3195-4DDB-9FBA-C9E15B4D676F",
+      "HRSTag": "hs_3cMainHdg",
+      "HansardSection": "AV2-AW",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889954,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"324\" class=\"column-number column-only\" data-column-number=\"324\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

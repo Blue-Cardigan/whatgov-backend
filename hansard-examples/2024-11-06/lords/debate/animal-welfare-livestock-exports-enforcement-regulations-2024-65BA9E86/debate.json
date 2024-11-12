@@ -1,0 +1,143 @@
+{
+  "Overview": {
+    "Id": 4751055,
+    "ExtId": "65BA9E86-E7B1-4F25-B603-8552970FA386",
+    "Title": "Animal Welfare (Livestock Exports) Enforcement Regulations 2024",
+    "HRSTag": "NewDebate",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Lords Chamber",
+    "House": "Lords",
+    "Source": 2,
+    "VolumeNo": 840,
+    "ContentLastUpdated": "2024-11-07T16:24:27.213",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "820CF4D4-FAF0-494C-9EE8-AC865950C3EB",
+    "NextDebateTitle": "Arbitration Bill [HL]",
+    "PreviousDebateExtId": "EAF775E6-AD1F-43D2-A5A2-A3385CAD5838",
+    "PreviousDebateTitle": "Renewable Transport Fuel Obligations (Sustainable Aviation Fuel) Order 2024"
+  },
+  "Navigator": [
+    {
+      "Id": 4751047,
+      "Title": "Lords Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "72fe8575-39d5-4bfc-a2ad-878cd7e860d1",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751055,
+      "Title": "Animal Welfare (Livestock Exports) Enforcement Regulations 2024",
+      "ParentId": 4751047,
+      "SortOrder": 9,
+      "ExternalId": "65BA9E86-E7B1-4F25-B603-8552970FA386",
+      "HRSTag": "NewDebate",
+      "HansardSection": "AE2-AF",
+      "Timecode": "2024-11-06T11:48:00"
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888966,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"1497\" class=\"column-number column-only\" data-column-number=\"1497\"></span>",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888967,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Ivory Act 2018 (Meaning of “Ivory” and Miscellaneous Amendments) Regulations 2024",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "24110617000344",
+      "HRSTag": "hs_DebateHeading",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888968,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Motions to Approve",
+      "OrderInSection": 4,
+      "Timecode": null,
+      "ExternalId": "3a736d09-7cd2-4aa2-92ba-565827e9f2f0",
+      "HRSTag": "hs_DebateType",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946342,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "11:48:00",
+      "OrderInSection": 5,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888969,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Moved by",
+      "OrderInSection": 6,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_TabledBy",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888970,
+      "MemberId": 4395,
+      "AttributedTo": "Baroness Hayman of Ullock",
+      "Value": "That the draft Regulations laid before the House on 21 May and 12 September be approved.\r\n\r\n<em>Considered in Grand Committee on 5 November.</em>",
+      "OrderInSection": 7,
+      "Timecode": null,
+      "ExternalId": "338B5983-6A1F-421D-B868-1D00EEE3CBBD",
+      "HRSTag": "hs_TabledBy",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888971,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Motions agreed.",
+      "OrderInSection": 8,
+      "Timecode": null,
+      "ExternalId": "24110617000352",
+      "HRSTag": "hs_Procedure",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

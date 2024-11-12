@@ -1,0 +1,226 @@
+[
+  {
+    "House": "Commons",
+    "ItemDate": "2024-11-06T00:00:00",
+    "Metadata": null,
+    "Title": "Written Statements",
+    "Description": "Written statements are normally used to put the day-to-day business of government on the official record and in the public domain.",
+    "SectionType": 2,
+    "SortOrder": 3,
+    "LastUpdated": "2024-11-08T13:17:12.317",
+    "VolumeNo": 756,
+    "SectionTreeItems": [
+      {
+        "Id": 4751133,
+        "Title": "Written Statements",
+        "ParentId": null,
+        "SortOrder": 1,
+        "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4751134,
+        "Title": "Written Statements",
+        "ParentId": 4751133,
+        "SortOrder": 2,
+        "ExternalId": "24110646000001",
+        "HRSTag": "hs_3MainHdg",
+        "HansardSection": "Header-3-60",
+        "Timecode": null
+      },
+      {
+        "Id": 4751135,
+        "Title": "Cabinet Office",
+        "ParentId": 4751133,
+        "SortOrder": 3,
+        "ExternalId": "0EAD423F-1464-4549-8417-0A467C491CE0",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751136,
+        "Title": "Updated Ministerial Code",
+        "ParentId": 4751135,
+        "SortOrder": 4,
+        "ExternalId": "24110646000012",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751137,
+        "Title": "Treasury",
+        "ParentId": 4751133,
+        "SortOrder": 5,
+        "ExternalId": "91E4B7C1-2939-4BA4-99A7-C67610154F0F",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751138,
+        "Title": "Silicon Valley Bank UK: Bank of England’s Transfer Power",
+        "ParentId": 4751137,
+        "SortOrder": 6,
+        "ExternalId": "24110646000013",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751139,
+        "Title": "Culture, Media and Sport",
+        "ParentId": 4751133,
+        "SortOrder": 7,
+        "ExternalId": "A29A8B3B-09E3-4937-873C-1690CFB8F9D2",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751140,
+        "Title": "Media Mergers Regime",
+        "ParentId": 4751139,
+        "SortOrder": 8,
+        "ExternalId": "24110646000014",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751141,
+        "Title": "Defence",
+        "ParentId": 4751133,
+        "SortOrder": 9,
+        "ExternalId": "7216688B-D613-4C49-B04E-ACA9CB2B3D6B",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751142,
+        "Title": "Defence Nuclear Enterprise",
+        "ParentId": 4751141,
+        "SortOrder": 10,
+        "ExternalId": "24110646000015",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751143,
+        "Title": "Energy Security and Net Zero",
+        "ParentId": 4751133,
+        "SortOrder": 11,
+        "ExternalId": "99FBBABC-07CD-4E2F-92F4-006C918A46B0",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751144,
+        "Title": "Energy Infrastructure Planning",
+        "ParentId": 4751143,
+        "SortOrder": 12,
+        "ExternalId": "24110646000016",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751145,
+        "Title": "Environment, Food and Rural Affairs",
+        "ParentId": 4751133,
+        "SortOrder": 13,
+        "ExternalId": "9A9DBBFC-681E-420D-BC32-5ED39CDE6D40",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751146,
+        "Title": "Biodiversity COP16",
+        "ParentId": 4751145,
+        "SortOrder": 14,
+        "ExternalId": "24110646000017",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751147,
+        "Title": "South West Water: Customer Rebate",
+        "ParentId": 4751145,
+        "SortOrder": 15,
+        "ExternalId": "24110646000018",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751148,
+        "Title": "Health and Social Care",
+        "ParentId": 4751133,
+        "SortOrder": 16,
+        "ExternalId": "1A8E1149-2EB4-44DA-B28A-541F4C2F4268",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751149,
+        "Title": "Oxford Nanopore Technologies: Strategic Partnership",
+        "ParentId": 4751148,
+        "SortOrder": 17,
+        "ExternalId": "24110646000019",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751150,
+        "Title": "Home Department",
+        "ParentId": 4751133,
+        "SortOrder": 18,
+        "ExternalId": "4248E9E5-68D6-48C9-BD08-41EE49150447",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751151,
+        "Title": "Failure to Prevent Fraud: Corporate Offence Guidance",
+        "ParentId": 4751150,
+        "SortOrder": 19,
+        "ExternalId": "24110646000020",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751152,
+        "Title": "Housing, Communities and Local Government",
+        "ParentId": 4751133,
+        "SortOrder": 20,
+        "ExternalId": "633C594C-BA27-43E7-B5BD-4DD8768C1A63",
+        "HRSTag": "hs_6bDepartment",
+        "HansardSection": "1-10",
+        "Timecode": null
+      },
+      {
+        "Id": 4751153,
+        "Title": "Homelessness and Rough Sleeping:  Winter Pressures Funding",
+        "ParentId": 4751152,
+        "SortOrder": 21,
+        "ExternalId": "24110646000021",
+        "HRSTag": "hs_8Statement",
+        "HansardSection": "1-10",
+        "Timecode": null
+      }
+    ],
+    "Source": 2
+  }
+]

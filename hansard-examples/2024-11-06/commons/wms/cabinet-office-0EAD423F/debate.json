@@ -1,0 +1,128 @@
+{
+  "Overview": {
+    "Id": 4751135,
+    "ExtId": "0EAD423F-1464-4549-8417-0A467C491CE0",
+    "Title": "Cabinet Office",
+    "HRSTag": "hs_6bDepartment",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "",
+    "NextDebateTitle": "",
+    "PreviousDebateExtId": "24110646000001",
+    "PreviousDebateTitle": "Written Statements"
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751135,
+      "Title": "Cabinet Office",
+      "ParentId": 4751133,
+      "SortOrder": 3,
+      "ExternalId": "0EAD423F-1464-4549-8417-0A467C491CE0",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "1-10",
+      "Timecode": null
+    }
+  ],
+  "Items": [],
+  "ChildDebates": [
+    {
+      "Overview": {
+        "Id": 4751136,
+        "ExtId": "24110646000012",
+        "Title": "Updated Ministerial Code",
+        "HRSTag": "hs_8Statement",
+        "Date": "2024-11-06T00:00:00",
+        "Location": "Written Statements",
+        "House": "Commons",
+        "Source": 2,
+        "VolumeNo": 756,
+        "ContentLastUpdated": "2024-11-08T13:17:12.317",
+        "DebateTypeId": 3,
+        "SectionType": 2,
+        "NextDebateExtId": "24110646000013",
+        "NextDebateTitle": "Silicon Valley Bank UK: Bank of England’s Transfer Power",
+        "PreviousDebateExtId": "24110646000001",
+        "PreviousDebateTitle": "Written Statements"
+      },
+      "Navigator": [
+        {
+          "Id": 4751133,
+          "Title": "Written Statements",
+          "ParentId": null,
+          "SortOrder": 1,
+          "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+          "HRSTag": null,
+          "HansardSection": null,
+          "Timecode": null
+        },
+        {
+          "Id": 4751135,
+          "Title": "Cabinet Office",
+          "ParentId": 4751133,
+          "SortOrder": 3,
+          "ExternalId": "0EAD423F-1464-4549-8417-0A467C491CE0",
+          "HRSTag": "hs_6bDepartment",
+          "HansardSection": "1-10",
+          "Timecode": null
+        },
+        {
+          "Id": 4751136,
+          "Title": "Updated Ministerial Code",
+          "ParentId": 4751135,
+          "SortOrder": 4,
+          "ExternalId": "24110646000012",
+          "HRSTag": "hs_8Statement",
+          "HansardSection": "1-10",
+          "Timecode": null
+        }
+      ],
+      "Items": [
+        {
+          "ItemType": "Contribution",
+          "ItemId": 40890898,
+          "MemberId": null,
+          "AttributedTo": null,
+          "Value": "<em>The Ministerial Code</em>",
+          "OrderInSection": 1,
+          "Timecode": null,
+          "ExternalId": "24110646000022",
+          "HRSTag": "hs_Para",
+          "HansardSection": "1-10",
+          "UIN": null,
+          "IsReiteration": false
+        },
+        {
+          "ItemType": "Contribution",
+          "ItemId": 40890899,
+          "MemberId": 1587,
+          "AttributedTo": "The Chancellor of the Duchy of Lancaster (Pat McFadden)",
+          "Value": "The Government have today published an updated ministerial code. The code is available on <a href='https://<a href='https://www.gov.uk'>www.gov.uk</a>'><a href='https://www.gov.uk'>www.gov.uk</a>.</a> The new code will be instrumental in setting out the high standards that the British people expect and that Ministers must follow.\r\n\r\nChanges to the code include incorporating the seven principles of public life directly into the code; strengthening the powers of the Prime Minister’s independent adviser on ministerial standards; setting out guiding principles for Ministers on gifts and hospitality; and introducing improved transparency arrangements to align more closely the publication of ministerial gifts and hospitality with the House of Commons register.\r\n\r\nThe new code has also been restructured into three distinct sections: Ministers’ standards of conduct; Ministers’ interests; and Ministers and Government procedures. This brings ethical standards to the forefront of the new code, ending the confusing blend of public service values and everyday governing processes found in previous versions.\r\n\r\nThe new ministerial code also:\r\n\r\nReinserts an explicit reference to international law and treaty obligations as part of Ministers’ overarching duty to comply with the law.\r\n\r\nIncludes updated terms of reference for the Prime Minister’s independent adviser on ministerial standards—previously the independent adviser on ministers’ interests.\r\n\r\nEnsures the code reflects existing rules, guidance and procedure, including the guidance on use of non-corporate communications channels for Government business, quasi-judicial decisions, and public appointments.\r\n\r\nThis new ministerial code will help to restore the public’s trust in politics, and shape this Government’s mission to return Britain to the service of working people.\r\n\r\n<em>The List of Ministers’ </em><em>I</em><em>nterests</em>\r\n\r\nThe list of Ministers’ interests is also being published today on <a href='https://www.gov.uk'>www.gov.uk</a> by the independent adviser on ministerial standards. The list provides details of the personal interests of members of the Government that are judged by the independent adviser to be relevant to their ministerial portfolios and duties.\r\n\r\n<em>The List of Ministerial Responsibilities</em>\r\n\r\nThe Government will today be publishing the list of ministerial responsibilities and the list of non-ministerial departments and executive agencies on <a href='https://<a href='https://www.gov.uk'>www.gov.uk</a>'><a href='https://www.gov.uk'>www.gov.uk</a>.</a> I have requested that a copy of the list of ministerial responsibilities be deposited in the Libraries of the Houses of Parliament. The list of ministerial responsibilities includes details of ministerial Departments, their correspondence  <span id=\"10WS\" class=\"column-number\" data-column-number=\"10WS\"></span>contact details, the Ministers within each Department, and their portfolio responsibilities. The list of non-ministerial departments and executive agencies includes details of each of these organisations, along with associated correspondence contact details, the parent Department and the responsible Government Minister.\r\n\r\n<em>The Special Adviser Code of Conduct</em>\r\n\r\nThe Government have today published an updated code of conduct for special advisers, in line with the Constitutional Reform and Governance Act 2010. The code is available on <a href='https://<a href='https://www.gov.uk'>www.gov.uk</a>'><a href='https://www.gov.uk'>www.gov.uk</a>.</a> Alongside establishing the key responsibilities of special advisers, the updated code of conduct for special advisers sets out the standards of behaviour this Government expect of them and formalises the existing policy for managing interests. The code of conduct for special advisers is part of special advisers’ terms and conditions of service.\r\n\r\n<em>The Special Adviser Contract</em>\r\n\r\nThe Government have today published an updated special adviser model contract, which is available on <a href='https://<a href='https://www.gov.uk'>www.gov.uk</a>'><a href='https://www.gov.uk'>www.gov.uk</a>.</a> The model contract sets out the terms and conditions that apply to all special advisers appointed by Ministers and employed by Government Departments.\r\n\r\nThis Government have introduced a small number of changes to the terms of the model contract. These are:\r\n\r\nTo require special advisers to obtain the required level of security clearance for their role within the first four months of starting in post.\r\n\r\nTo enable special advisers to leave Government with a severance payment at the start of the pre-election period before a general election—or at the Dissolution of Parliament.\r\n\r\nTo confirm that special advisers are entitled to an annual review of their salary, and the process for determining any increases in salary.\r\n\r\n[HCWS198]",
+          "OrderInSection": 2,
+          "Timecode": null,
+          "ExternalId": "B3CFB194-F211-4D23-865A-7CE71814777F",
+          "HRSTag": "hs_Para",
+          "HansardSection": "1-10",
+          "UIN": null,
+          "IsReiteration": false
+        }
+      ],
+      "ChildDebates": []
+    }
+  ]
+}

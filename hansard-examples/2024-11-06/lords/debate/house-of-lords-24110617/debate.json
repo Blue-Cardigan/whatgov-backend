@@ -1,0 +1,101 @@
+{
+  "Overview": {
+    "Id": 4751048,
+    "ExtId": "24110617000365",
+    "Title": "House of Lords",
+    "HRSTag": "hs_Venue",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Lords Chamber",
+    "House": "Lords",
+    "Source": 2,
+    "VolumeNo": 840,
+    "ContentLastUpdated": "2024-11-07T16:24:27.213",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "DACCA0BA-C575-422F-B1F7-1AB1E74AB407",
+    "NextDebateTitle": "Gypsy and Traveller Communities: Accommodation",
+    "PreviousDebateExtId": "",
+    "PreviousDebateTitle": ""
+  },
+  "Navigator": [
+    {
+      "Id": 4751047,
+      "Title": "Lords Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "72fe8575-39d5-4bfc-a2ad-878cd7e860d1",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751048,
+      "Title": "House of Lords",
+      "ParentId": 4751047,
+      "SortOrder": 2,
+      "ExternalId": "24110617000365",
+      "HRSTag": "hs_Venue",
+      "HansardSection": "AA-AB1",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888848,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"1483\" class=\"column-number column-only\" data-column-number=\"1483\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888849,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Wednesday 6 November 2024",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "24110617000001",
+      "HRSTag": "hs_date",
+      "HansardSection": "AA-AB1",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946335,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "11:00:00",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AA-AB1",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888850,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Prayers—read by the Lord Bishop of Bristol.",
+      "OrderInSection": 4,
+      "Timecode": null,
+      "ExternalId": "24110617000348",
+      "HRSTag": "hs_Procedure",
+      "HansardSection": "AA-AB1",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

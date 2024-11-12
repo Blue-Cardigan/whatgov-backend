@@ -1,0 +1,129 @@
+{
+  "Overview": {
+    "Id": 4751054,
+    "ExtId": "EAF775E6-AD1F-43D2-A5A2-A3385CAD5838",
+    "Title": "Renewable Transport Fuel Obligations (Sustainable Aviation Fuel) Order 2024",
+    "HRSTag": "NewDebate",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Lords Chamber",
+    "House": "Lords",
+    "Source": 2,
+    "VolumeNo": 840,
+    "ContentLastUpdated": "2024-11-07T16:24:27.213",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "65BA9E86-E7B1-4F25-B603-8552970FA386",
+    "NextDebateTitle": "Animal Welfare (Livestock Exports) Enforcement Regulations 2024",
+    "PreviousDebateExtId": "AD51BCE0-12C8-4456-9498-7FC5790F6C4D",
+    "PreviousDebateTitle": "Mental Health Bill [HL]"
+  },
+  "Navigator": [
+    {
+      "Id": 4751047,
+      "Title": "Lords Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "72fe8575-39d5-4bfc-a2ad-878cd7e860d1",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751054,
+      "Title": "Renewable Transport Fuel Obligations (Sustainable Aviation Fuel) Order 2024",
+      "ParentId": 4751047,
+      "SortOrder": 8,
+      "ExternalId": "EAF775E6-AD1F-43D2-A5A2-A3385CAD5838",
+      "HRSTag": "NewDebate",
+      "HansardSection": "AE2-AF",
+      "Timecode": "2024-11-06T11:47:00"
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888961,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Franchising Schemes (Franchising Authorities) (England) Regulations 2024",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "24110617000342",
+      "HRSTag": "hs_DebateHeading",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888962,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Motions to Approve",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "a2d83d45-2fc5-4761-b526-902172e1a899",
+      "HRSTag": "hs_DebateType",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Timestamp",
+      "ItemId": 2946341,
+      "MemberId": null,
+      "AttributedTo": "",
+      "Value": "11:47:00",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": null,
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888963,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Moved by",
+      "OrderInSection": 4,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_TabledBy",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888964,
+      "MemberId": 4972,
+      "AttributedTo": "Lord Hendy of Richmond Hill",
+      "Value": "That the draft Order and Regulations laid before the House on 24 July and 9 September be approved.\r\n\r\n<em>Relevant document: 1st </em><em>and 3rd </em><em>Report</em><em>s</em><em> from the Secondary Legislation Scrutiny Committee</em><em> (special attention drawn to the second instrument)</em><em>. Considered in Grand Committee on 5 November.</em>",
+      "OrderInSection": 5,
+      "Timecode": null,
+      "ExternalId": "0194D7FD-C95D-42C8-85A3-941C098AB85F",
+      "HRSTag": "hs_TabledBy",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40888965,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "Motions agreed.",
+      "OrderInSection": 6,
+      "Timecode": null,
+      "ExternalId": "24110617000351",
+      "HRSTag": "hs_Procedure",
+      "HansardSection": "AE2-AF",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

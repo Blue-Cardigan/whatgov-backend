@@ -1,0 +1,87 @@
+{
+  "Overview": {
+    "Id": 4751105,
+    "ExtId": "92CADC9C-2C1D-44EC-B68E-84C26E179057",
+    "Title": "House of Commons",
+    "HRSTag": "hs_3MainHdg",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Commons Chamber",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:16:27.527",
+    "DebateTypeId": 1,
+    "SectionType": 1,
+    "NextDebateExtId": "A8D0B2A8-8583-46D4-824B-4F952EAE963D",
+    "NextDebateTitle": "Prayers",
+    "PreviousDebateExtId": "",
+    "PreviousDebateTitle": ""
+  },
+  "Navigator": [
+    {
+      "Id": 4751104,
+      "Title": "Commons Chamber",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "90970f9c-e65c-4a47-9a92-02f47570c169",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751105,
+      "Title": "House of Commons",
+      "ParentId": 4751104,
+      "SortOrder": 2,
+      "ExternalId": "92CADC9C-2C1D-44EC-B68E-84C26E179057",
+      "HRSTag": "hs_3MainHdg",
+      "HansardSection": "AA-AD",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889697,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"283\" class=\"column-number column-only\" data-column-number=\"283\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889698,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<em>Wednesday 6 November 2024</em>",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "24110615000007",
+      "HRSTag": "hs_6fDate",
+      "HansardSection": "AA-AD",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40889699,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<em>The House met at half-past Eleven o’clock</em>",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "24110615000008",
+      "HRSTag": "hs_6fDate",
+      "HansardSection": "AA-AD",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

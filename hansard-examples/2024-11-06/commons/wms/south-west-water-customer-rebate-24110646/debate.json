@@ -1,0 +1,69 @@
+{
+  "Overview": {
+    "Id": 4751147,
+    "ExtId": "24110646000018",
+    "Title": "South West Water: Customer Rebate",
+    "HRSTag": "hs_8Statement",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Written Statements",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:12.317",
+    "DebateTypeId": 3,
+    "SectionType": 2,
+    "NextDebateExtId": "24110646000019",
+    "NextDebateTitle": "Oxford Nanopore Technologies: Strategic Partnership",
+    "PreviousDebateExtId": "24110646000017",
+    "PreviousDebateTitle": "Biodiversity COP16"
+  },
+  "Navigator": [
+    {
+      "Id": 4751133,
+      "Title": "Written Statements",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "c6ed6169-ecef-47bc-a499-56ecfe6ca9d6",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751145,
+      "Title": "Environment, Food and Rural Affairs",
+      "ParentId": 4751133,
+      "SortOrder": 13,
+      "ExternalId": "9A9DBBFC-681E-420D-BC32-5ED39CDE6D40",
+      "HRSTag": "hs_6bDepartment",
+      "HansardSection": "1-10",
+      "Timecode": null
+    },
+    {
+      "Id": 4751147,
+      "Title": "South West Water: Customer Rebate",
+      "ParentId": 4751145,
+      "SortOrder": 15,
+      "ExternalId": "24110646000018",
+      "HRSTag": "hs_8Statement",
+      "HansardSection": "1-10",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890906,
+      "MemberId": 4645,
+      "AttributedTo": "The Parliamentary Under-Secretary of State for Environment, Food and Rural Affairs (Emma Hardy)",
+      "Value": "The Government are fixing the foundations to put public finances on a sustainable path to restore stability, and taking difficult decisions on tax, welfare and spending. This includes needing to address a £22 billion black hole.  <span id=\"14WS\" class=\"column-number\" data-column-number=\"14WS\"></span>To support this effort, the taxpayer-funded contribution to the water and sewerage bills of South West Water (SWW) household customers will end after 31 March 2025.\r\n\r\nThe rebate was originally introduced in 2013 because SWW customers faced significantly higher water bills than customers in other regions due to the level of investment the company was required to make in the region’s infrastructure to meet environmental and water quality standards. Over the last decade, the difference between water bills in the south-west region and others has decreased. Over the next price review period, 2025 to 2029, Ofwat’s latest projections are that SWW customers’ bills will be similar to those in other regions.\r\n\r\nThe Government are committed to taking action to address water poverty and help vulnerable customers with their water bills. All water companies have measures in place for people who struggle to pay for their water and waste water services, including measures such as WaterSure, social tariffs, payment breaks and holidays, and debt management support. We expect all water companies to proactively engage with their customers to ensure that they know what support schemes are available and how to use them.\r\n\r\n[HCWS200]",
+      "OrderInSection": 1,
+      "Timecode": null,
+      "ExternalId": "0EAC85A9-BB74-4075-BEC2-1B294FD09ABA",
+      "HRSTag": "hs_Para",
+      "HansardSection": "1-10",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}

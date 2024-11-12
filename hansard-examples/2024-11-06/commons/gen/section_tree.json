@@ -1,0 +1,66 @@
+[
+  {
+    "House": "Commons",
+    "ItemDate": "2024-11-06T00:00:00",
+    "Metadata": null,
+    "Title": "General Committees",
+    "Description": "General Committees consider proposed legislation in detail.",
+    "SectionType": 5,
+    "SortOrder": 6,
+    "LastUpdated": "2024-11-06T17:52:23.763",
+    "VolumeNo": 756,
+    "SectionTreeItems": [
+      {
+        "Id": 4749471,
+        "Title": "General Committees",
+        "ParentId": null,
+        "SortOrder": 1,
+        "ExternalId": "878d4f59-26ef-4bd5-b84f-bce7c0f52beb",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4749472,
+        "Title": "Delegated Legislation Committee",
+        "ParentId": 4749471,
+        "SortOrder": 2,
+        "ExternalId": "cdb163f8-fdbf-49c0-9b29-5cf43262c3b3",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4749473,
+        "Title": "Draft Packaged Retail and  Insurance-based Investment Products (Retail Disclosure) (Amendment)  Regulations 2024 \r\n\r\n Draft Consumer Composite Investments (Designated Activities) Regulations 2024 \r\n\r\n Draft Securitisation (Amendment) (No. 2) Regulations 2024 \r\n\r\nDraft Prudential Regulation of Credit Institutions (Meaning of CRR Rules and Recognised Exchange) (Amendment) Regulations 2024",
+        "ParentId": 4749472,
+        "SortOrder": 3,
+        "ExternalId": "ada98e42-bb68-4a79-a3cb-6c383b1380ce",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4749549,
+        "Title": "Draft Barnsley and Sheffield  (Boundary Change) Order 2024",
+        "ParentId": 4749472,
+        "SortOrder": 4,
+        "ExternalId": "d1645a97-4e9f-4f61-b2e9-403adc96c9ba",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      },
+      {
+        "Id": 4750171,
+        "Title": "  Draft Windsor Framework  (Non-Commercial Movement of Pet Animals) Regulations 2024",
+        "ParentId": 4749472,
+        "SortOrder": 5,
+        "ExternalId": "12578966-4553-43c0-9646-c33b513ad6b0",
+        "HRSTag": null,
+        "HansardSection": null,
+        "Timecode": null
+      }
+    ],
+    "Source": 2
+  }
+]

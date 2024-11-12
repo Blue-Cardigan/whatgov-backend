@@ -1,0 +1,87 @@
+{
+  "Overview": {
+    "Id": 4751127,
+    "ExtId": "F9A072FE-6EFE-493C-A7BE-F5BC3AEB7CCB",
+    "Title": "Westminster Hall",
+    "HRSTag": "hs_3MainHdg",
+    "Date": "2024-11-06T00:00:00",
+    "Location": "Westminster Hall",
+    "House": "Commons",
+    "Source": 2,
+    "VolumeNo": 756,
+    "ContentLastUpdated": "2024-11-08T13:17:01.26",
+    "DebateTypeId": 2,
+    "SectionType": 1,
+    "NextDebateExtId": "7C4D516D-FC4F-4C8A-AC19-5BEC8D7769D8",
+    "NextDebateTitle": "Uyghur and Turkic Muslims: Forced Labour in China",
+    "PreviousDebateExtId": "",
+    "PreviousDebateTitle": ""
+  },
+  "Navigator": [
+    {
+      "Id": 4751126,
+      "Title": "Westminster Hall",
+      "ParentId": null,
+      "SortOrder": 1,
+      "ExternalId": "288cbda7-0844-4cd6-acf5-49628db32408",
+      "HRSTag": null,
+      "HansardSection": null,
+      "Timecode": null
+    },
+    {
+      "Id": 4751127,
+      "Title": "Westminster Hall",
+      "ParentId": 4751126,
+      "SortOrder": 2,
+      "ExternalId": "F9A072FE-6EFE-493C-A7BE-F5BC3AEB7CCB",
+      "HRSTag": "hs_3MainHdg",
+      "HansardSection": "AA-AC1",
+      "Timecode": null
+    }
+  ],
+  "Items": [
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890798,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<span id=\"53WH\" class=\"column-number column-only\" data-column-number=\"53WH\"></span>",
+      "OrderInSection": 0,
+      "Timecode": null,
+      "ExternalId": null,
+      "HRSTag": "hs_ColumnNumber",
+      "HansardSection": null,
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890799,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "<em>Wednesday 6 November 2024</em>",
+      "OrderInSection": 2,
+      "Timecode": null,
+      "ExternalId": "24110612000003",
+      "HRSTag": "hs_6fDate",
+      "HansardSection": "AA-AC1",
+      "UIN": null,
+      "IsReiteration": false
+    },
+    {
+      "ItemType": "Contribution",
+      "ItemId": 40890800,
+      "MemberId": null,
+      "AttributedTo": null,
+      "Value": "[Peter Dowd<em> in the Chair</em>]",
+      "OrderInSection": 3,
+      "Timecode": null,
+      "ExternalId": "24110612000004",
+      "HRSTag": "hs_76fChair",
+      "HansardSection": "AA-AC1",
+      "UIN": null,
+      "IsReiteration": false
+    }
+  ],
+  "ChildDebates": []
+}
