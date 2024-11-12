@@ -66,7 +66,6 @@ export function transformDebate(debateDetails) {
       ai_title: debateDetails.title || '',
       ai_summary: debateDetails.summary || '',
       ai_tone: (debateDetails.tone || 'neutral').toLowerCase(),
-      ai_questions: Array.isArray(debateDetails.questions) ? debateDetails.questions : [],
       ai_topics: Array.isArray(debateDetails.topics) ? debateDetails.topics : [],
       ai_tags: Array.isArray(debateDetails.tags) ? debateDetails.tags : [],
       ai_key_points: Array.isArray(debateDetails.keyPoints) ? debateDetails.keyPoints : [],

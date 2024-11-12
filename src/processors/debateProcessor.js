@@ -40,13 +40,13 @@ export async function processDebates() {
       // Process batch in parallel
       const promises = batch.map(async (debate) => {
         try {
-          // Check if we already have this debate
-        //   const { data: existing } = await SupabaseService.getDebateByExtId(debate.ExternalId);
-        //   if (existing) {
-        //     logger.debug(`Skipping existing debate ${debate.ExternalId}`);
-        //     results.skipped++;
-        //     return;
-        //   }
+        //   Check if we already have this debate
+          const { data: existing } = await SupabaseService.getDebateByExtId(debate.ExternalId);
+          if (existing) {
+            logger.debug(`Skipping existing debate ${debate.ExternalId}`);
+            results.skipped++;
+            return;
+          }
 
           const debateDetails = debate.debate; // Use existing debate details instead of fetching
           

@@ -60,7 +60,7 @@ export async function processAIContent(debate, memberDetails) {
     (await extractKeyPoints(debateText)).choices[0].message.parsed
   ]);
 
-  console.log(summary, questions, topics, keyPoints);
+//   console.log(summary, questions, topics, keyPoints);
 
   // Handle potential refusals
   if (summary.refusal || questions.refusal || topics.refusal || keyPoints.refusal) {
