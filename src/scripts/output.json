@@ -1,6 +1,240 @@
 {
-  "lastRun": null,
+  "lastRun": "2024-11-13T11:28:22.757Z",
   "newDebatesFound": 0,
   "debates": [],
-  "history": []
+  "history": [
+    {
+      "timestamp": "2024-11-13T11:28:22.757Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T10:52:59.566Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T10:23:02.076Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T09:52:57.096Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T09:22:57.258Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T08:52:59.926Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T08:22:54.665Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T07:52:57.690Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T07:23:00.103Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T06:52:56.794Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T06:22:59.432Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T05:52:55.296Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T05:22:51.497Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T04:52:52.456Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T04:22:52.175Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T03:52:52.543Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T03:22:53.284Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T02:52:54.927Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T02:19:51.821Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T01:49:52.502Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-13T01:19:52.843Z",
+      "newDebates": 1,
+      "debates": [
+        {
+          "title": "House of Lords",
+          "house": "Lords",
+          "type": "hs_Venue",
+          "location": "Lords Chamber",
+          "date": "2024-11-12T00:00:00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2024-11-13T00:49:52.676Z",
+      "newDebates": 10,
+      "debates": [
+        {
+          "title": "Written Statements",
+          "house": "Commons",
+          "type": "hs_3MainHdg",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Notification of Contingent Liability",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Launch of Youth Strategy",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Contingent Liability: Local Government Pension Scheme Guarantee",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Paris Emissions Reduction Target:  UK’s Nationally Determined Contribution",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Bathing Water Regulations 2013",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Contingent Liability:  TPIMS Accommodation Provision",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Housing Design and Quality",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Local Government Best Value:  London Borough  of Tower Hamlets",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        },
+        {
+          "title": "Completing the Implementation of Universal Credit",
+          "house": "Commons",
+          "type": "hs_8Statement",
+          "location": "Written Statements",
+          "date": "2024-11-12T00:00:00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2024-11-13T00:19:12.003Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-12T23:49:10.142Z",
+      "newDebates": 1,
+      "debates": [
+        {
+          "title": "House of Lords",
+          "house": "Lords",
+          "type": "hs_Venue",
+          "location": "Lords Chamber",
+          "date": "2024-11-12T00:00:00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2024-11-12T23:19:12.461Z",
+      "newDebates": 1,
+      "debates": [
+        {
+          "title": "House of Lords",
+          "house": "Lords",
+          "type": "hs_Venue",
+          "location": "Lords Chamber",
+          "date": "2024-11-12T00:00:00"
+        }
+      ]
+    },
+    {
+      "timestamp": "2024-11-12T22:47:50.025Z",
+      "newDebates": 1,
+      "debates": [
+        {
+          "title": "House of Lords",
+          "house": "Lords",
+          "type": "hs_Venue",
+          "location": "Lords Chamber",
+          "date": "2024-11-12T00:00:00"
+        }
+      ]
+    }
+  ]
 }

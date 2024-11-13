@@ -2,7 +2,8 @@ name: Process Hansard Debates
 
 on:
   schedule:
-    - cron: '0 */6 * * *'  # Run every 6 hours
+    - cron: '*/30 14-23,0-1 * * *'  # Run every 30 minutes between 1400-0200
+    # - cron: '0 9-13 * * *' 
   workflow_dispatch:        # Allow manual triggers
 
 jobs:
@@ -25,5 +26,4 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          HANSARD_API_KEY: ${{ secrets.HANSARD_API_KEY }}
         run: node src/index.js 
