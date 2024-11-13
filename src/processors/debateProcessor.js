@@ -5,22 +5,38 @@ import { calculateStats } from './statsProcessor.js';
 import { transformDebate, validateDebateContent } from '../utils/transforms.js';
 import logger from '../utils/logger.js';
 import { config } from '../config/config.js';
+import { calculateDebateScore } from '../utils/scoreCalculator.js';
 
-async function fetchmemberDetails(memberId) {
+async function fetchBatchMemberDetails(memberIds) {
   try {
-    const response = await fetch(`https://hansard-api.parliament.uk/search/members.json?queryParameters.memberId=${memberId}`);
+    // Convert array of IDs to comma-separated string
+    const memberIdsString = memberIds.join(',');
+    
+    // Make single request with all member IDs
+    const response = await fetch(
+      `https://hansard-api.parliament.uk/search/members.json?queryParameters.memberIds=${memberIdsString}`
+    );
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
     const data = await response.json();
-    return data.Results[0] || null;
+    
+    // Create map of results
+    return new Map(
+      data.Results.map(member => [member.MemberId, member])
+    );
   } catch (error) {
-    logger.error(`Failed to fetch member ${memberId}:`, error);
-    return null;
+    logger.error('Failed to fetch member details:', error);
+    return new Map();
   }
 }
 
-export async function processDebates() {
+export async function processDebates(specificDate = null) {
   try {
     // Get latest debates from Hansard
-    const debates = await HansardService.getLatestDebates();
+    const debates = await HansardService.getLatestDebates(specificDate);
     
     if (!debates || !debates.length) {
       logger.warn('No debates found to process');
@@ -33,6 +49,17 @@ export async function processDebates() {
       skipped: 0
     };
 
+    // Collect all unique member IDs across all debates first
+    const allMemberIds = new Set();
+    debates.forEach(debate => {
+      debate.debate.Items
+        .filter(item => item.ItemType === 'Contribution' && item.MemberId)
+        .forEach(item => allMemberIds.add(item.MemberId));
+    });
+
+    // Fetch all member details in one go
+    const memberDetails = await fetchBatchMemberDetails([...allMemberIds]);
+
     // Process debates in batches to avoid overwhelming APIs
     for (let i = 0; i < debates.length; i += config.BATCH_SIZE) {
       const batch = debates.slice(i, i + config.BATCH_SIZE);
@@ -40,15 +67,8 @@ export async function processDebates() {
       // Process batch in parallel
       const promises = batch.map(async (debate) => {
         try {
-        //   Check if we already have this debate
-          const { data: existing } = await SupabaseService.getDebateByExtId(debate.ExternalId);
-          if (existing) {
-            logger.debug(`Skipping existing debate ${debate.ExternalId}`);
-            results.skipped++;
-            return;
-          }
-
-          const debateDetails = debate.debate; // Use existing debate details instead of fetching
+          // Remove redundant existence check since debates are pre-filtered
+          const debateDetails = debate.debate;
           
           // Transform raw data
           const valid = validateDebateContent(debateDetails);
@@ -60,22 +80,6 @@ export async function processDebates() {
             return;
           }
           
-          // Fetch member details first
-          const uniqueMembers = new Set(
-            debateDetails.Items
-              .filter(item => item.ItemType === 'Contribution' && item.MemberId)
-              .map(item => item.MemberId)
-          );
-
-          const memberDetails = new Map();
-          const memberPromises = Array.from(uniqueMembers).map(async (memberId) => {
-            const details = await fetchmemberDetails(memberId);
-            if (details) {
-              memberDetails.set(memberId, details);
-            }
-          });
-          await Promise.all(memberPromises);
-
           // Calculate statistics using the debate details and member info
           const stats = await calculateStats(debateDetails, memberDetails);
           logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
@@ -87,8 +91,11 @@ export async function processDebates() {
             logger.debug(`Generated AI content for debate ${debate.ExternalId}`);
           }
           
-          // Combine everything
-          const finalDebate = transformDebate({...debateDetails, ...stats, ...aiContent});          
+          const finalDebate = transformDebate({
+            ...debateDetails, 
+            ...stats, 
+            ...aiContent
+          });          
           // Store in Supabase
           await SupabaseService.upsertDebate(finalDebate);
           logger.debug(`Stored debate ${debate.ExternalId} in database`);

@@ -1,0 +1,69 @@
+{
+  "original": "cozy potato with lazer aluminum",
+  "translated": "cosy potato with lazer aluminium",
+  "analysis": {
+    "1": [
+      {
+        "cozy": {
+          "issue": "American English Spelling",
+          "details": "cosy"
+        }
+      },
+      {
+        "aluminum": {
+          "issue": "American English Spelling",
+          "details": "aluminium"
+        }
+      }
+    ]
+  }
+},
+{
+  "original": "The elevator is broken",
+  "translated": "The elevator is broken",
+  "analysis": {
+    "1": [
+      {
+        "elevator": {
+          "issue": "Different meanings",
+          "details": {
+            "American English": "platform or cage moved vertically in a shaft to transport people and goods \nto various floors in a building (UK: lift)\nbuilding for grain storage (in full grain elevator) (UK: silo)",
+            "Common": "flap on the back of an aeroplane used to control pitch\nmoving belt to transport grain, hay bales, etc."
+          }
+        }
+      }
+    ]
+  }
+},
+{
+  "original": "I need to buy some chips",
+  "translated": "I need to buy some chips",
+  "analysis": {
+    "1": [
+      {
+        "chips": {
+          "issue": "Different meanings",
+          "details": {
+            "American English": "thin slices of fried potato(UK: crisps)",
+            "British English": "Long cuts of deep fried potato, usu. thick cut resembling American steak \nfries",
+            "Common": "French fries, in (orig. UK) phrase fish and chips"
+          }
+        }
+      }
+    ]
+  }
+},
+{
+  "original": "Let's watch soccer on the weekend",
+  "translated": "Let's watch soccer on the weekend",
+  "analysis": {
+    "1": [
+      {
+        "soccer": {
+          "issue": "American English",
+          "details": "used in the UK but the sport is mainly known as \"football\" (or fully as association football); historically most common among the middle and upper classes in England (i.e. outside the game's traditional core support base); more common in Ireland to avoid confusion with Gaelic football"
+        }
+      }
+    ]
+  }
+},

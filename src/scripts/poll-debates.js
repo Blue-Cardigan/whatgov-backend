@@ -1,118 +1,87 @@
-import { HansardAPI } from '../services/hansard-api.js';
-import { SupabaseService } from '../services/supabase.js';
-import { validateDebateContent, transformDebate, transformSpeaker } from '../utils/transforms.js';
-import logger from '../utils/logger.js';
 import fs from 'fs/promises';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { HansardService } from '../services/hansard.js';
+import logger from '../utils/logger.js';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const OUTPUT_FILE = path.join(__dirname, 'output.json');
 const POLL_INTERVAL = 30 * 60 * 1000; // 30 minutes in milliseconds
-const HOUSES = ['Commons', 'Lords'];
-const OUTPUT_FILE = path.join(process.cwd(), 'src/scripts/output.json');
 
-let stats = {
-  lastRun: null,
-  newDebatesFound: 0,
-  debates: [],
-  history: []
-};
-
-async function loadStats() {
+async function readOutputFile() {
   try {
     const data = await fs.readFile(OUTPUT_FILE, 'utf8');
-    stats = JSON.parse(data);
+    return JSON.parse(data);
   } catch (error) {
-    await fs.writeFile(OUTPUT_FILE, JSON.stringify(stats, null, 2), 'utf8');
-  }
-}
-
-async function saveStats() {
-  await fs.writeFile(OUTPUT_FILE, JSON.stringify(stats, null, 2), 'utf8');
-}
-
-async function processDebate(debate) {
-  try {
-    const { data: existingDebate } = await SupabaseService.getDebateByExtId(debate.ExternalId);
-    if (existingDebate) return null;
-
-    const details = await HansardAPI.getDebateDetails(debate.ExternalId);
-    if (!validateDebateContent(details.debate)) return null;
-
-    const transformedDebate = transformDebate({
-      ...details.debate,
-      speakers: details.speakers.map(transformSpeaker)
-    });
-
-    await SupabaseService.upsertDebate(transformedDebate);
-    stats.newDebatesFound++;
-
+    // Return default structure if file doesn't exist or is invalid
     return {
-      title: transformedDebate.title,
-      house: transformedDebate.house,
-      type: transformedDebate.type,
-      location: transformedDebate.location,
-      date: transformedDebate.date
+      lastRun: null,
+      newDebatesFound: 0,
+      debates: [],
+      history: []
     };
-
-  } catch (error) {
-    logger.error('Failed to process debate:', error);
-    return null;
   }
 }
 
-async function pollForDebates() {
+async function writeOutputFile(data) {
   try {
-    const lastProcessedDate = await SupabaseService.getLastProcessedDate();
-    stats.newDebatesFound = 0;
-    stats.debates = [];
+    await fs.writeFile(OUTPUT_FILE, JSON.stringify(data, null, 2));
+  } catch (error) {
+    logger.error('Failed to write output file:', error);
+    throw error;
+  }
+}
 
-    for (const house of HOUSES) {
-      const debates = await HansardAPI.getDebatesList(lastProcessedDate, house);
-      
-      for (const debate of debates) {
-        const debateDetails = await processDebate(debate);
-        if (debateDetails) {
-          stats.debates.push(debateDetails);
-        }
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
-    }
-
-    // Update stats
-    const run = {
-      timestamp: new Date().toISOString(),
-      newDebates: stats.newDebatesFound,
-      debates: stats.debates
+async function pollDebates() {
+  try {
+    const output = await readOutputFile();
+    const timestamp = new Date().toISOString();
+    
+    // Get latest debates
+    const newDebates = await HansardService.getLatestDebates();
+    
+    // Create new history entry
+    const historyEntry = {
+      timestamp,
+      newDebates: newDebates.length,
+      debates: newDebates.map(debate => ({
+        externalId: debate.ExternalId,
+        title: debate.Title,
+        ...(debate.house && { house: debate.house }),
+        ...(debate.type && { type: debate.type }),
+        ...(debate.location && { location: debate.location }),
+        ...(debate.debateDate && { date: debate.debateDate })
+      }))
     };
-    
-    stats.lastRun = run.timestamp;
-    stats.history = [run, ...(stats.history || [])].slice(0, 100);
-    
-    await saveStats();
 
+    // Update output object
+    output.lastRun = timestamp;
+    output.newDebatesFound = newDebates.length;
+    output.debates = historyEntry.debates;
+    output.history = [historyEntry, ...output.history];
+
+    // Write updated data back to file
+    await writeOutputFile(output);
+
+    logger.info(`Poll completed: ${newDebates.length} new debates found`);
   } catch (error) {
     logger.error('Poll failed:', error);
   }
 }
 
-async function startPolling() {
-  await loadStats();
-  await pollForDebates();
-  setInterval(pollForDebates, POLL_INTERVAL);
-}
+// Initial poll
+pollDebates();
 
-// Handle shutdown
-process.on('SIGTERM', async () => {
-  await saveStats();
+// Set up recurring poll
+setInterval(pollDebates, POLL_INTERVAL);
+
+// Handle graceful shutdown
+process.on('SIGINT', () => {
+  logger.info('Shutting down poll-debates script');
   process.exit(0);
 });
 
-process.on('SIGINT', async () => {
-  await saveStats();
+process.on('SIGTERM', () => {
+  logger.info('Shutting down poll-debates script');
   process.exit(0);
-});
-
-// Start polling
-startPolling().catch(error => {
-  logger.error('Failed to start polling:', error);
-  process.exit(1);
 }); 

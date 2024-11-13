@@ -39,18 +39,17 @@ export class SupabaseService {
     }
   }
 
-  static async getDebateByExtId(extId) {
+  static async getDebateIds(externalIds) {
     try {
       const { data, error } = await supabase
         .from('debates')
-        .select('*')
-        .eq('ext_id', extId)
-        .maybeSingle();
+        .select('ext_id')
+        .in('ext_id', externalIds);
 
       if (error) throw error;
-      return { data };
+      return data.map(d => d.ext_id);
     } catch (error) {
-      logger.error('Failed to get debate by external ID:', error);
+      logger.error('Failed to get debate IDs:', error);
       throw error;
     }
   }

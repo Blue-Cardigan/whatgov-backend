@@ -9,6 +9,13 @@ CREATE TABLE debates (
   type TEXT NOT NULL,
   house TEXT NOT NULL,
   location TEXT NOT NULL,
+
+    -- Quick stats
+  speaker_count INT NOT NULL DEFAULT 0,
+  contribution_count INT NOT NULL DEFAULT 0,
+  party_count JSONB NOT NULL DEFAULT '{}',
+  interest_score INT NOT NULL DEFAULT 0,
+  interest_factors JSONB NOT NULL DEFAULT '{}',
   
   -- AI-generated content
   ai_title TEXT NOT NULL DEFAULT '',
@@ -29,11 +36,6 @@ CREATE TABLE debates (
   ai_topics JSONB NOT NULL DEFAULT '[]',
   ai_tags JSONB NOT NULL DEFAULT '[]',
   ai_key_points JSONB NOT NULL DEFAULT '[]',
-  
-  -- Quick stats
-  speaker_count INT NOT NULL DEFAULT 0,
-  contribution_count INT NOT NULL DEFAULT 0,
-  party_count JSONB NOT NULL DEFAULT '{}',
     
   -- Navigation
   parent_ext_id TEXT NOT NULL,

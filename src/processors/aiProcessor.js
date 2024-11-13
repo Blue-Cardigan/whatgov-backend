@@ -60,7 +60,7 @@ export async function processAIContent(debate, memberDetails) {
     (await extractKeyPoints(debateText)).choices[0].message.parsed
   ]);
 
-//   console.log(summary, questions, topics, keyPoints);
+  // console.log(summary, questions, topics, keyPoints);
 
   // Handle potential refusals
   if (summary.refusal || questions.refusal || topics.refusal || keyPoints.refusal) {
@@ -76,22 +76,29 @@ export async function processAIContent(debate, memberDetails) {
   // Translate the AI outputs to British English
   const translatedSummary = {
     ...summary,
-    title: translator.translate(summary.title, translationOptions),
-    summary: translator.translate(summary.summary, translationOptions)
+    title: handleBritishTranslation(summary.title, translationOptions),
+    summary: handleBritishTranslation(summary.summary, translationOptions)
   };
 
   const translatedQuestions = {
     questions: questions.questions.map(q => ({
       ...q,
-      text: translator.translate(q.text, translationOptions),
-      topic: translator.translate(q.topic, translationOptions)
+      text: handleBritishTranslation(q.text, translationOptions),
+      topic: handleBritishTranslation(q.topic, translationOptions)
     }))
   };
 
   const translatedKeyPoints = {
     keyPoints: keyPoints.keyPoints.map(kp => ({
       ...kp,
-      point: translator.translate(kp.point, translationOptions)
+      point: handleBritishTranslation(kp.point, translationOptions)
+    }))
+  };
+
+  const translatedTopics = {
+    topics: topics.topics.map(t => ({
+      ...t,
+      name: handleBritishTranslation(t.name, translationOptions)
     }))
   };
 
@@ -103,14 +110,14 @@ export async function processAIContent(debate, memberDetails) {
     summary: translatedSummary.summary,
     tone: translatedSummary.tone.toLowerCase(),
     ...questionFields,
-    topics: topics.topics.map(t => ({
+    topics: translatedTopics.topics.map(t => ({
       name: t.name,
-      subtopics: t.subtopics.map(st => translator.translate(st, translationOptions)),
+      subtopics: t.subtopics.map(st => handleBritishTranslation(st, translationOptions)),
       frequency: t.frequency,
       speakers: t.speakers
     })),
     keyPoints: translatedKeyPoints.keyPoints,
-    tags: topics.topics.flatMap(t => t.subtopics.map(st => translator.translate(st, translationOptions)))
+    tags: translatedTopics.topics.flatMap(t => t.subtopics.map(st => handleBritishTranslation(st, translationOptions)))
   };
 }
 
@@ -166,7 +173,11 @@ async function generateSummary(text) {
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: "You are an expert in UK parliamentary procedure and translating parliamentary language into concise media-friendly analysis. Provide a snappy title and 2 sentence analysis for this parliamentary debate, in the style of a Financial Times article. Highlight points of greatest significance to the public. Also assess the overall tone of the debate."
+      content: `You are an expert in UK parliamentary procedure and translating parliamentary language into concise media-friendly analysis.
+      Provide a snappy title and 2 sentence analysis for this parliamentary debate, in the style of a Financial Times article. 
+      Highlight points of greatest significance to the public. 
+      Begin your analysis without any introductory text; the reader already knows the title and location.
+      Also assess the overall tone of the debate.`
     }, {
       role: "user",
       content: text
@@ -224,7 +235,7 @@ async function extractKeyPoints(text) {
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: "You are an expert UK parliamentary analyst. Extract the key points from this debate and the speakers who made them. Identify speakers who supported or opposed each point."
+      content: "You are an expert UK parliamentary analyst. Identify the key points from this debate and the speakers who made them. Phrase the points as though they were made by the speaker themselves. Identify speakers who supported or opposed each point."
     }, {
       role: "user",
       content: text
@@ -244,4 +255,34 @@ function formatQuestionFields(questions) {
     questionFields[`ai_question_${num}_noes`] = 0;
   });
   return questionFields;
+}
+
+// Add new helper function to handle translations
+function handleBritishTranslation(text, options) {
+    const analysis = translator.translate(text, options);
+    let translatedText = text;
+    
+    // Only process if we have analysis results
+    if (analysis && analysis['1']) {
+        // Process each identified word/phrase
+        analysis['1'].forEach(item => {
+            // Get the first (and only) key from the object
+            const americanWord = Object.keys(item)[0];
+            const details = item[americanWord];
+
+            // Handle different types of issues
+            switch (details.issue) {
+                case 'American English Spelling':
+                    // Direct replacement with British spelling
+                    const britishSpelling = details.details;
+                    translatedText = translatedText.replace(
+                        new RegExp(`\\b${americanWord}\\b`, 'gi'), 
+                        britishSpelling
+                    );
+                    break;
+            }
+        });
+    }
+
+    return translatedText;
 }

@@ -1,11 +1,29 @@
+import { calculateDebateScore } from './scoreCalculator.js';
+
 export function validateDebateContent(debateDetails) {
   try {
     // Validate input
     if (!debateDetails?.Overview) {
-    throw new Error('Missing required debate overview data');
+      throw new Error('Missing required debate overview data');
     }
 
-    const { Items = [], } = debateDetails;
+    const { Items = [], Overview } = debateDetails;
+    
+    // Skip if HRSTag contains 'BigBold'
+    if (Overview.HRSTag?.includes('BigBold')) {
+      console.log('Skipping debate with HRSTag containing BigBold');
+      return null;
+    }
+
+    // Get all contribution items
+    const contributionItems = Items.filter(item => item?.ItemType === 'Contribution');
+    
+    // Skip if all contributions have no MemberId and no previous debate
+    if (contributionItems.length > 0 && 
+        contributionItems.every(item => !item.MemberId) && 
+        !Overview.PreviousDebateExtId) {
+      return null;
+    }
     
     // Get cleaned search text first to validate content
     const searchText = (Items || [])
@@ -17,19 +35,18 @@ export function validateDebateContent(debateDetails) {
     
     // Return null if no meaningful content
     if (!searchText) {
-        return null;
-    } else {
-        return 'valid';
+      return null;
     }
+
+    return 'valid';
   } catch (error) {
     console.error('Filter debate content error:', error);
     return null;
- }
+  }
 }
 
 export function transformDebate(debateDetails) {
   try {
-    // Find parent section in navigator
     const { Navigator = [], Overview = {}, Items = [] } = debateDetails;
     const parent = Navigator[Navigator.length - 2] || {};
     
@@ -38,20 +55,10 @@ export function transformDebate(debateDetails) {
       throw new Error('Missing required fields in Overview');
     }
     
-    // Get cleaned search text
-    const searchText = (Items || [])
-      .filter(item => item?.ItemType === 'Contribution')
-      .map(item => item?.Value || '')
-      .join(' ')
-      .replace(/<[^>]*>/g, '')
-      .trim();
-    
-    // Get unique speaker count from contributions
-    const uniqueSpeakers = new Set(
-      Items
-        .filter(item => item?.ItemType === 'Contribution' && item?.MemberId)
-        .map(item => item.MemberId)
-    );
+    // Calculate interest score and factors directly here
+    console.log('debateDetails', debateDetails);
+    const scoreData = calculateDebateScore(debateDetails);
+    console.log('scoreData', scoreData);
 
     return {
       ext_id: Overview.ExtId,
@@ -70,9 +77,15 @@ export function transformDebate(debateDetails) {
       ai_tags: Array.isArray(debateDetails.tags) ? debateDetails.tags : [],
       ai_key_points: Array.isArray(debateDetails.keyPoints) ? debateDetails.keyPoints : [],
       
-      speaker_count: uniqueSpeakers.size,
+      speaker_count: new Set(
+        Items
+          .filter(item => item?.ItemType === 'Contribution' && item?.MemberId)
+          .map(item => item.MemberId)
+      ).size,
       contribution_count: (Items || []).filter(item => item?.ItemType === 'Contribution').length,
       party_count: debateDetails.partyCount || {},
+      interest_score: scoreData.score,
+      interest_factors: scoreData.factors,
       
       // Navigation
       parent_ext_id: parent.ExternalId || '',
@@ -81,7 +94,12 @@ export function transformDebate(debateDetails) {
       next_ext_id: Overview.NextDebateExtId || null,
       
       // Search optimization
-      search_text: searchText,
+      search_text: (Items || [])
+        .filter(item => item?.ItemType === 'Contribution')
+        .map(item => item?.Value || '')
+        .join(' ')
+        .replace(/<[^>]*>/g, '')
+        .trim(),
       
       // Individual question fields
       ai_question_1: debateDetails.ai_question_1 || '',
@@ -100,7 +118,6 @@ export function transformDebate(debateDetails) {
       ai_question_3_noes: 0,
     };
   } catch (error) {
-    // Add detailed error information
     console.error('Transform debate error:', {
       error: error.message,
       overview: debateDetails?.Overview,

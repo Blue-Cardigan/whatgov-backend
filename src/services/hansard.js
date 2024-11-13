@@ -1,26 +1,69 @@
 import { HansardAPI } from './hansard-api.js';
 import logger from '../utils/logger.js';
+import { SupabaseService } from '../services/supabase.js';
 
 export class HansardService {
-  static async getLatestDebates() {
+  static async getLatestDebates(specificDate = null) {
     try {
-      // Get latest sitting date
-      const latestDate = await HansardAPI.getLastSittingDate();
-      
+      let dateToProcess;
+
+      if (specificDate) {
+        dateToProcess = specificDate;
+        logger.info(`Processing specific date: ${dateToProcess}`);
+      } else {
+        // First get latest processed date from Supabase
+        const lastProcessedDate = await SupabaseService.getLastProcessedDate();
+        
+        // Get latest sitting date
+        const latestDate = await HansardAPI.getLastSittingDate();
+        
+        // Only fetch debates if we have new content
+        if (lastProcessedDate && new Date(lastProcessedDate) >= new Date(latestDate)) {
+          logger.info('No new debates to process');
+          return [];
+        }
+        
+        dateToProcess = latestDate;
+      }
+
       // Get debates from both houses
       const [commonsDebates, lordsDebates] = await Promise.all([
-        this.getHouseDebates(latestDate, 'Commons'),
-        this.getHouseDebates(latestDate, 'Lords')
+        this.getHouseDebates(dateToProcess, 'Commons'),
+        this.getHouseDebates(dateToProcess, 'Lords')
       ]);
 
-      logger.info(`Found ${commonsDebates.length} Commons debates and ${lordsDebates.length} Lords debates`);
+      logger.info(`Fetched ${commonsDebates.length} Commons debates and ${lordsDebates.length} Lords debates for ${dateToProcess}`);
 
-      // Combine and filter valid debates
-      const allDebates = [...commonsDebates, ...lordsDebates].filter(debate => 
-        debate && debate.ExternalId && debate.Title
+      // Pre-filter debates we already have in database
+      const existingIds = await SupabaseService.getDebateIds(
+        [...commonsDebates, ...lordsDebates].map(d => d.ExternalId)
       );
 
-      return allDebates;
+      const allDebates = [...commonsDebates, ...lordsDebates];
+      logger.info(`Total debates before filtering: ${allDebates.length}`);
+      
+      // Log debates without ExternalId or Title
+      const invalidDebates = allDebates.filter(debate => !debate?.ExternalId || !debate?.Title);
+      if (invalidDebates.length > 0) {
+        logger.warn(`Found ${invalidDebates.length} debates with missing ExternalId or Title`);
+      }
+
+      // Log debates that already exist
+      const existingDebatesCount = allDebates.filter(d => existingIds.includes(d.ExternalId)).length;
+      if (existingDebatesCount > 0) {
+        logger.info(`Found ${existingDebatesCount} debates that already exist in database`);
+      }
+
+      // Filter out existing debates and invalid ones
+      const newDebates = allDebates.filter(debate => 
+        debate?.ExternalId && 
+        debate?.Title &&
+        !existingIds.includes(debate.ExternalId)
+      );
+
+      logger.info(`Debates after filtering: ${newDebates.length}`);
+      
+      return newDebates;
     } catch (error) {
       logger.error('Failed to fetch latest debates:', {
         error: error.message,
@@ -33,6 +76,7 @@ export class HansardService {
   static async getHouseDebates(date, house) {
     try {
       const debates = await HansardAPI.getDebatesList(date, house);
+      logger.info(`Fetched ${debates.length} ${house} debates for ${date}`);
       return debates;
     } catch (error) {
       logger.error(`Failed to fetch ${house} debates:`, error);
