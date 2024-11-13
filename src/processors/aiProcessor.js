@@ -219,7 +219,7 @@ async function extractTopics(text) {
 For each identified topic:
 1. Include frequency of discussion
 2. List the speakers who discussed it
-3. Identify specific subtopics within each main topic (avoid overlapping terms and overly broad descriptions)
+3. Identify specific subtopics within each main topic. Ensure these are distinct and specific
 
 Select only the most relevant main topics - not all topics need to be used.`
     }, {

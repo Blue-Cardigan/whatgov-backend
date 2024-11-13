@@ -2,8 +2,8 @@ name: Process Hansard Debates
 
 on:
   schedule:
-    - cron: '*/30 14-23,0-1 * * *'  # Run every 30 minutes between 1400-0200
-    # - cron: '0 9-13 * * *' 
+    - cron: '*/30 18-23,0-1 * * *'  # Run every 30 minutes between 1800-0200
+    - cron: '*/30 12-15 * * *' # Run every 30 minutes between 1200-1500
   workflow_dispatch:        # Allow manual triggers
 
 jobs:
