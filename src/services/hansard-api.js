@@ -242,4 +242,26 @@ export class HansardAPI {
       throw error;
     }
   }
+
+  static async searchMembers(params = {}, skip = 0) {
+    const url = `${HANSARD_API_BASE}/search/members.json?` +
+      new URLSearchParams({
+        ...params,
+        skip,
+        take: 50 // Fetch 50 results at a time
+      });
+
+    return this.fetchWithErrorHandling(url);
+  }
+
+  static async fetchDivisionsList(debateSectionExtId) {
+    const url = `${HANSARD_API_BASE}/debates/divisions/${debateSectionExtId}.json`;
+    return this.fetchWithErrorHandling(url);
+  }
+
+  static async fetchDivisionDetails(divisionExtId, isEvel = false) {
+    const url = `${HANSARD_API_BASE}/debates/division/${divisionExtId}.json?` +
+      new URLSearchParams({ isEvel: isEvel });
+    return this.fetchWithErrorHandling(url);
+  }
 }

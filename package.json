@@ -10,7 +10,8 @@
     "test": "jest",
     "lint": "eslint src/",
     "format": "prettier --write 'src/**/*.{js,json}'",
-    "poll": "node src/scripts/poll-debates.js"
+    "poll": "node src/scripts/poll-debates.js",
+    "sync-members": "node src/scripts/sync-members.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.7",

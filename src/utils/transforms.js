@@ -56,9 +56,7 @@ export function transformDebate(debateDetails) {
     }
     
     // Calculate interest score and factors directly here
-    console.log('debateDetails', debateDetails);
     const scoreData = calculateDebateScore(debateDetails);
-    console.log('scoreData', scoreData);
 
     return {
       ext_id: Overview.ExtId,

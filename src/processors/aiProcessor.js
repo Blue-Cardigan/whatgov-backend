@@ -219,7 +219,7 @@ async function extractTopics(text) {
 For each identified topic:
 1. Include frequency of discussion
 2. List the speakers who discussed it
-3. Identify specific subtopics within each main topic. Ensure these are distinct and specific
+3. Identify distinct subtopics within each main topic. Ensure these do not overlap, and are not subsets of each other.
 
 Select only the most relevant main topics - not all topics need to be used.`
     }, {
@@ -235,7 +235,11 @@ async function extractKeyPoints(text) {
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: "You are an expert UK parliamentary analyst. Identify the key points from this debate and the speakers who made them. Phrase the points as though they were made by the speaker themselves. Identify speakers who supported or opposed each point."
+      content: `You are an expert UK parliamentary analyst. 
+      Identify the key points from this debate and the speakers who made them. 
+      Phrase the points as though they were made by the speaker themselves.
+
+      Identify other speakers who supported or opposed each point.`
     }, {
       role: "user",
       content: text

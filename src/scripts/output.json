@@ -1,8 +1,588 @@
 {
-  "lastRun": "2024-11-13T23:19:31.348Z",
+  "lastRun": "2024-11-17T03:39:14.726Z",
   "newDebatesFound": 0,
   "debates": [],
   "history": [
+    {
+      "timestamp": "2024-11-17T03:39:14.726Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-17T03:09:14.310Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-17T02:39:14.297Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-17T02:09:14.240Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-17T01:39:14.233Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-17T01:09:14.236Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-17T00:39:14.231Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-17T00:03:16.527Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T23:33:16.491Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T23:03:16.515Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T22:33:16.590Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T21:43:55.006Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T21:13:55.055Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T20:43:55.047Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T20:13:55.059Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T19:43:55.067Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T19:13:55.032Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T18:43:54.991Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T18:13:54.948Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T17:37:34.932Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T16:36:42.406Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T15:35:26.580Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T14:25:27.654Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T13:55:27.630Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T13:25:27.663Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T12:55:27.680Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T12:25:27.690Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T11:55:27.616Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T11:25:27.627Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T10:55:27.643Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T10:25:27.687Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T09:55:27.674Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T09:25:27.674Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T08:55:27.694Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T08:25:27.680Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T07:55:27.643Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T07:25:27.651Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T06:55:27.639Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T06:25:27.710Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T05:55:27.664Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T05:25:27.657Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T04:55:27.657Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T04:25:27.639Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T03:55:27.651Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T03:25:27.717Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T02:55:27.628Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T02:25:27.651Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T01:55:27.726Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T01:25:27.635Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T00:55:27.647Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-16T00:25:27.644Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T23:55:27.631Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T23:23:14.324Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T22:53:14.333Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T22:23:14.386Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T21:53:14.356Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T21:23:14.321Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T20:53:14.341Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T20:23:14.324Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T19:53:15.210Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T19:23:14.259Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T18:53:14.255Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T18:23:14.258Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T17:53:14.176Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T17:23:14.151Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T16:53:14.143Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T16:23:14.157Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T15:53:14.116Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T15:23:14.153Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T14:53:14.113Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T13:11:38.174Z",
+      "newDebates": 4,
+      "debates": [
+        {
+          "externalId": "30b8e192-03c5-4697-82b1-a7a733b676e1",
+          "title": "House of Lords",
+          "house": "Lords",
+          "date": "2024-11-15"
+        },
+        {
+          "externalId": "8560BF73-C9DC-457A-8A7D-3B102BB671D3",
+          "title": "Support for Infants and Parents etc (Information) Bill [HL]",
+          "house": "Lords",
+          "date": "2024-11-15"
+        },
+        {
+          "externalId": "EC261801-0ACE-4806-9843-7177387FF357",
+          "title": "Education (Values of British Citizenship) Bill [HL]",
+          "house": "Lords",
+          "date": "2024-11-15"
+        },
+        {
+          "externalId": "AA52FACB-7728-4261-AAC1-F46F61F87155",
+          "title": "Imprisonment for Public Protection (Re-sentencing) Bill [HL]",
+          "house": "Lords",
+          "date": "2024-11-15"
+        }
+      ]
+    },
+    {
+      "timestamp": "2024-11-15T12:41:38.141Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T12:11:38.109Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T11:41:38.123Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T11:11:38.139Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T10:41:38.093Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T10:11:38.125Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T09:41:38.126Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T08:41:38.114Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T08:11:38.115Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T07:41:38.156Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T07:11:38.131Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T06:41:38.043Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T06:11:38.065Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T05:41:38.138Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T05:11:38.127Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T04:41:38.115Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T04:11:38.114Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T03:41:38.156Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T03:09:25.746Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T02:39:25.937Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T02:09:25.679Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T01:39:25.665Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T01:09:25.665Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T00:39:25.635Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-15T00:09:25.592Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T23:39:25.592Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T23:09:25.601Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T22:39:25.571Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T22:09:25.634Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T21:39:25.632Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T21:09:25.627Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T20:39:25.626Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T20:09:25.599Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T19:39:25.595Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T19:09:25.602Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T18:39:25.514Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T18:09:25.511Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T17:39:25.534Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T17:09:25.482Z",
+      "newDebates": 0,
+      "debates": []
+    },
+    {
+      "timestamp": "2024-11-14T16:39:25.429Z",
+      "newDebates": 0,
+      "debates": []
+    },
     {
       "timestamp": "2024-11-13T23:19:31.348Z",
       "newDebates": 0,

@@ -5,30 +5,24 @@ import { calculateStats } from './statsProcessor.js';
 import { transformDebate, validateDebateContent } from '../utils/transforms.js';
 import logger from '../utils/logger.js';
 import { config } from '../config/config.js';
-import { calculateDebateScore } from '../utils/scoreCalculator.js';
+import { processDivisions } from './divisionsProcessor.js';
 
-async function fetchBatchMemberDetails(memberIds) {
+async function fetchMembersFromSupabase(memberIds) {
   try {
-    // Convert array of IDs to comma-separated string
-    const memberIdsString = memberIds.join(',');
+    // Get only the fields we need
+    const { data, error } = await SupabaseService.getMemberDetails(memberIds);
     
-    // Make single request with all member IDs
-    const response = await fetch(
-      `https://hansard-api.parliament.uk/search/members.json?queryParameters.memberIds=${memberIdsString}`
-    );
+    if (error) throw error;
     
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    
-    const data = await response.json();
-    
-    // Create map of results
+    // Create map of results with only required fields
     return new Map(
-      data.Results.map(member => [member.MemberId, member])
+      data.map(member => [member.member_id, {
+        DisplayAs: member.display_as,
+        Party: member.party
+      }])
     );
   } catch (error) {
-    logger.error('Failed to fetch member details:', error);
+    logger.error('Failed to fetch member details from Supabase:', error);
     return new Map();
   }
 }
@@ -57,8 +51,8 @@ export async function processDebates(specificDate = null) {
         .forEach(item => allMemberIds.add(item.MemberId));
     });
 
-    // Fetch all member details in one go
-    const memberDetails = await fetchBatchMemberDetails([...allMemberIds]);
+    // Fetch all member details from Supabase in one go
+    const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
 
     // Process debates in batches to avoid overwhelming APIs
     for (let i = 0; i < debates.length; i += config.BATCH_SIZE) {
@@ -67,20 +61,21 @@ export async function processDebates(specificDate = null) {
       // Process batch in parallel
       const promises = batch.map(async (debate) => {
         try {
-          // Remove redundant existence check since debates are pre-filtered
           const debateDetails = debate.debate;
           
-          // Transform raw data
+          // Validate content
           const valid = validateDebateContent(debateDetails);
-          
-          // Skip if debate has no content
           if (valid === null) {
             logger.debug(`Skipping empty debate ${debate.ExternalId}`);
             results.skipped++;
             return;
           }
           
-          // Calculate statistics using the debate details and member info
+          // Process divisions first to include in stats
+          const divisions = await processDivisions(debate);
+          logger.debug(`Processed divisions for debate ${debate.ExternalId}`);
+          
+          // Calculate statistics using debate details, member info, and divisions
           const stats = await calculateStats(debateDetails, memberDetails);
           logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
           
@@ -95,7 +90,8 @@ export async function processDebates(specificDate = null) {
             ...debateDetails, 
             ...stats, 
             ...aiContent
-          });          
+          });
+          
           // Store in Supabase
           await SupabaseService.upsertDebate(finalDebate);
           logger.debug(`Stored debate ${debate.ExternalId} in database`);

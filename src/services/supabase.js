@@ -53,6 +53,91 @@ export class SupabaseService {
       throw error;
     }
   }
+
+  static async upsertMember(member) {
+    try {
+      const { data, error } = await supabase
+        .from('members')
+        .upsert(member, {
+          onConflict: ['member_id'],
+          returning: 'representation',
+          conflictTarget: 'member_id'
+        });
+
+      if (error) throw error;
+      return data;
+    } catch (error) {
+      logger.error('Failed to upsert member:', error);
+      throw error;
+    }
+  }
+
+  static async getMemberDetails(memberIds) {
+    try {
+      const { data, error } = await supabase
+        .from('members')
+        .select('member_id, display_as, party')
+        .in('member_id', memberIds);
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to get member details:', error);
+      return { data: [], error };
+    }
+  }
+
+  static async getMembersWithoutTwfyId() {
+    try {
+      const { data, error } = await supabase
+        .from('members')
+        .select('member_id, display_as')
+        .is('twfy_id', null);
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to get members without TWFY ID:', error);
+      return { data: [], error };
+    }
+  }
+
+  static async updateMemberTwfy({ memberId, twfyId, twfyUrl }) {
+    try {
+      const { data, error } = await supabase
+        .from('members')
+        .update({
+          twfy_id: twfyId,
+          twfy_url: twfyUrl,
+          updated_at: new Date().toISOString()
+        })
+        .eq('member_id', memberId)
+        .select();
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to update member TWFY details:', error);
+      return { data: null, error };
+    }
+  }
+
+  static async upsertDivisions(divisions) {
+    try {
+      const { data, error } = await supabase
+        .from('divisions')
+        .upsert(divisions, {
+          onConflict: 'division_id',
+          returning: true
+        });
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to upsert divisions:', error);
+      return { data: null, error };
+    }
+  }
 }
 
 export { supabase }; 
