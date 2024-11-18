@@ -4,7 +4,8 @@ import logger from './utils/logger.js';
 async function main() {
   try {
     const testDate = process.argv[2]; // Get date from command line argument
-    await processDebates(testDate);
+    const debateId = process.argv[3]; // Get optional debate ID argument
+    await processDebates(testDate, debateId);
   } catch (error) {
     logger.error('Failed to process debates:', error);
     process.exit(1);

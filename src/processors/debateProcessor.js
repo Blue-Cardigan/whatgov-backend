@@ -1,4 +1,5 @@
 import { HansardService } from '../services/hansard.js';
+import { HansardAPI } from '../services/hansard-api.js';
 import { SupabaseService } from '../services/supabase.js';
 import { processAIContent } from './aiProcessor.js';
 import { calculateStats } from './statsProcessor.js';
@@ -27,25 +28,61 @@ async function fetchMembersFromSupabase(memberIds) {
   }
 }
 
-export async function processDebates(specificDate = null) {
+export async function processDebates(specificDate = null, specificDebateId = null) {
   try {
-    // Get latest debates from Hansard
-    const debates = await HansardService.getLatestDebates(specificDate);
+    let debatesToProcess = [];
     
-    if (!debates || !debates.length) {
+    if (specificDebateId) {
+      try {
+        const [debate, speakers] = await Promise.all([
+          HansardAPI.fetchDebate(specificDebateId),
+          HansardAPI.fetchSpeakers(specificDebateId)
+        ]);
+        
+        if (!debate) {
+          throw new Error('No debate data returned');
+        }
+
+        logger.debug('Fetched specific debate:', {
+          id: specificDebateId,
+          title: debate.Title,
+          itemCount: debate.Items?.length
+        });
+        
+        debatesToProcess = [{
+          ExternalId: specificDebateId,
+          debate,
+          speakers
+        }];
+        
+      } catch (error) {
+        logger.error(`Failed to fetch specific debate ${specificDebateId}:`, {
+          error: error.message,
+          stack: error.stack,
+          status: error.status,
+          response: error.response
+        });
+        return;
+      }
+    } else {
+      // Get latest debates from Hansard
+      debatesToProcess = await HansardService.getLatestDebates(specificDate);
+    }
+    
+    if (!debatesToProcess?.length) {
       logger.warn('No debates found to process');
       return;
     }
-    
+
     const results = {
       success: 0,
       failed: 0,
       skipped: 0
     };
 
-    // Collect all unique member IDs across all debates first
+    // Collect all unique member IDs across filtered debates
     const allMemberIds = new Set();
-    debates.forEach(debate => {
+    debatesToProcess.forEach(debate => {
       debate.debate.Items
         .filter(item => item.ItemType === 'Contribution' && item.MemberId)
         .forEach(item => allMemberIds.add(item.MemberId));
@@ -53,10 +90,11 @@ export async function processDebates(specificDate = null) {
 
     // Fetch all member details from Supabase in one go
     const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
+    console.log(`memberDetails.size: ${memberDetails.size}`);
 
     // Process debates in batches to avoid overwhelming APIs
-    for (let i = 0; i < debates.length; i += config.BATCH_SIZE) {
-      const batch = debates.slice(i, i + config.BATCH_SIZE);
+    for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {
+      const batch = debatesToProcess.slice(i, i + config.BATCH_SIZE);
       
       // Process batch in parallel
       const promises = batch.map(async (debate) => {
@@ -71,20 +109,50 @@ export async function processDebates(specificDate = null) {
             return;
           }
           
-          // Process divisions first to include in stats
+          // Process divisions first
           const divisions = await processDivisions(debate);
-          logger.debug(`Processed divisions for debate ${debate.ExternalId}`);
-          
-          // Calculate statistics using debate details, member info, and divisions
-          const stats = await calculateStats(debateDetails, memberDetails);
-          logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
+          logger.debug(`Processed divisions for debate ${debate.ExternalId}`, {
+            divisionCount: divisions?.length
+          });
           
           // Generate AI content if enabled
           let aiContent = {};
           if (config.ENABLE_AI_PROCESSING) {
-            aiContent = await processAIContent(debateDetails, memberDetails);
-            logger.debug(`Generated AI content for debate ${debate.ExternalId}`);
+            console.log(`processing AI content for debate ${debate.ExternalId}`);
+            try {
+              aiContent = await processAIContent(debateDetails, memberDetails, divisions);
+              logger.debug(`Generated AI content for debate ${debate.ExternalId}`, {
+                contentKeys: Object.keys(aiContent)
+              });
+            } catch (error) {
+              logger.error('Failed to generate AI content:', {
+                debateId: debate.ExternalId,
+                error: error.message,
+                stack: error.stack,
+                cause: error.cause
+              });
+            }
+            
+            // Update divisions with AI content if they exist
+            if (divisions?.length) {
+              console.log(`divisions.length: ${divisions.length}`);
+              try {
+                await processDivisions(debate, aiContent);
+                logger.debug(`Updated divisions with AI content for debate ${debate.ExternalId}`);
+              } catch (error) {
+                logger.error('Failed to update divisions with AI content:', {
+                  debateId: debate.ExternalId,
+                  error: error.message,
+                  stack: error.stack,
+                  cause: error.cause
+                });
+              }
+            }
           }
+          
+          // Calculate statistics using debate details, member info, and divisions
+          const stats = await calculateStats(debateDetails, memberDetails);
+          logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
           
           const finalDebate = transformDebate({
             ...debateDetails, 
@@ -110,7 +178,7 @@ export async function processDebates(specificDate = null) {
       await Promise.all(promises);
       
       // Add small delay between batches
-      if (i + config.BATCH_SIZE < debates.length) {
+      if (i + config.BATCH_SIZE < debatesToProcess.length) {
         await new Promise(resolve => setTimeout(resolve, config.RETRY_DELAY));
       }
     }
@@ -119,7 +187,7 @@ export async function processDebates(specificDate = null) {
       processed: results.success,
       failed: results.failed,
       skipped: results.skipped,
-      total: debates.length
+      total: debatesToProcess.length
     });
 
   } catch (error) {

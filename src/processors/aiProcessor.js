@@ -2,6 +2,7 @@ import { openai } from '../services/openai.js';
 import { z } from 'zod';
 import { zodResponseFormat } from 'openai/helpers/zod';
 import translator from 'american-british-english-translator';
+import logger from '../utils/logger.js';
 
 // Define schemas for each type of response
 const SummarySchema = z.object({
@@ -47,78 +48,196 @@ const KeyPointSchema = z.object({
   }))
 });
 
-export async function processAIContent(debate, memberDetails) {
-  // Process and clean debate text
-  const processedItems = processDebateItems(debate.Items, memberDetails);
-  const debateText = formatDebateContext(debate.Overview, processedItems);
+// Add new schema for division questions
+const DivisionQuestionSchema = z.object({
+  questions: z.array(z.object({
+    division_id: z.number(),
+    question: z.string(),
+    topic: z.enum([
+      'Environment and Natural Resources',
+      'Healthcare and Social Welfare',
+      'Economy, Business, and Infrastructure',
+      'Science, Technology, and Innovation',
+      'Legal Affairs and Public Safety',
+      'International Relations and Diplomacy',
+      'Parliamentary Affairs and Governance',
+      'Education, Culture, and Society'
+    ]),
+    context: z.string(),
+    key_arguments: z.object({
+      for: z.string(),
+      against: z.string()
+    })
+  }))
+});
 
-  // Generate all AI responses concurrently
-  const [summary, questions, topics, keyPoints] = await Promise.all([
-    (await generateSummary(debateText)).choices[0].message.parsed,
-    (await generateQuestions(debateText)).choices[0].message.parsed,
-    (await extractTopics(debateText)).choices[0].message.parsed,
-    (await extractKeyPoints(debateText)).choices[0].message.parsed
-  ]);
+export async function processAIContent(debate, memberDetails, divisions = null) {
+  try {
+    // Process and clean debate text
+    const processedItems = processDebateItems(debate.Items, memberDetails);
+    const debateText = formatDebateContext(debate.Overview, processedItems);
 
-  // console.log(summary, questions, topics, keyPoints);
+    logger.debug('Prepared debate text for AI processing', {
+      debateId: debate.Overview?.Id,
+      textLength: debateText.length,
+      itemCount: processedItems.length
+    });
 
-  // Handle potential refusals
-  if (summary.refusal || questions.refusal || topics.refusal || keyPoints.refusal) {
-    throw new Error('AI refused to process debate content');
+    // Generate all AI responses concurrently
+    try {
+      const [summary, questions, topics, keyPoints, divisionQuestions] = await Promise.all([
+        generateSummary(debateText).then(res => {
+          logger.debug('Generated summary', { 
+            debateId: debate.Overview?.Id,
+            success: !!res?.choices?.[0]?.message?.parsed 
+          });
+          return res.choices[0].message.parsed;
+        }),
+        generateQuestions(debateText).then(res => {
+          logger.debug('Generated questions', { 
+            debateId: debate.Overview?.Id,
+            count: res?.choices?.[0]?.message?.parsed?.questions?.length 
+          });
+          return res.choices[0].message.parsed;
+        }),
+        extractTopics(debateText).then(res => {
+          logger.debug('Extracted topics', { 
+            debateId: debate.Overview?.Id,
+            count: res?.choices?.[0]?.message?.parsed?.topics?.length 
+          });
+          return res.choices[0].message.parsed;
+        }),
+        extractKeyPoints(debateText).then(res => {
+          logger.debug('Extracted key points', { 
+            debateId: debate.Overview?.Id,
+            count: res?.choices?.[0]?.message?.parsed?.keyPoints?.length 
+          });
+          return res.choices[0].message.parsed;
+        }),
+        divisions ? generateDivisionQuestions(debate, divisions, memberDetails).then(res => {
+          logger.debug('Generated division questions', { 
+            debateId: debate.Overview?.Id,
+            divisionCount: divisions.length,
+            questionCount: res?.length 
+          });
+          return res;
+        }) : []
+      ]);
+
+      // Handle potential refusals
+      if (summary.refusal || questions.refusal || topics.refusal || keyPoints.refusal) {
+        logger.warn('AI refused to process some content', {
+          debateId: debate.Overview?.Id,
+          refusals: {
+            summary: !!summary.refusal,
+            questions: !!questions.refusal,
+            topics: !!topics.refusal,
+            keyPoints: !!keyPoints.refusal
+          }
+        });
+        throw new Error('AI refused to process debate content');
+      }
+
+      // Add translation options
+      const translationOptions = {
+        british: true,
+        spelling: true
+      };
+
+      logger.debug('Starting translations', {
+        debateId: debate.Overview?.Id
+      });
+
+      // Translate the AI outputs to British English
+      const translatedSummary = {
+        ...summary,
+        title: handleBritishTranslation(summary.title, translationOptions),
+        summary: handleBritishTranslation(summary.summary, translationOptions)
+      };
+
+      const translatedQuestions = {
+        questions: questions.questions.map(q => ({
+          ...q,
+          text: handleBritishTranslation(q.text, translationOptions),
+          topic: handleBritishTranslation(q.topic, translationOptions)
+        }))
+      };
+
+      const translatedKeyPoints = {
+        keyPoints: keyPoints.keyPoints.map(kp => ({
+          ...kp,
+          point: handleBritishTranslation(kp.point, translationOptions)
+        }))
+      };
+
+      const translatedTopics = {
+        topics: topics.topics.map(t => ({
+          ...t,
+          name: handleBritishTranslation(t.name, translationOptions)
+        }))
+      };
+
+      logger.debug('Completed translations', {
+        debateId: debate.Overview?.Id
+      });
+
+      // Format questions into individual fields
+      const questionFields = formatQuestionFields(translatedQuestions.questions);
+
+      const result = {
+        title: translatedSummary.title,
+        summary: translatedSummary.summary,
+        tone: translatedSummary.tone.toLowerCase(),
+        ...questionFields,
+        topics: translatedTopics.topics.map(t => ({
+          name: t.name,
+          subtopics: t.subtopics.map(st => handleBritishTranslation(st, translationOptions)),
+          frequency: t.frequency,
+          speakers: t.speakers
+        })),
+        keyPoints: translatedKeyPoints.keyPoints,
+        tags: translatedTopics.topics.flatMap(t => t.subtopics.map(st => handleBritishTranslation(st, translationOptions))),
+        division_questions: divisionQuestions.map(q => ({
+          division_id: q.division_id,
+          question: handleBritishTranslation(q.question, translationOptions),
+          topic: q.topic,
+          context: handleBritishTranslation(q.context, translationOptions),
+          key_arguments: {
+            for: handleBritishTranslation(q.key_arguments.for, translationOptions),
+            against: handleBritishTranslation(q.key_arguments.against, translationOptions)
+          }
+        }))
+      };
+
+      logger.debug('Successfully processed AI content', {
+        debateId: debate.Overview?.Id,
+        contentSections: Object.keys(result),
+        questionCount: result.division_questions?.length,
+        topicCount: result.topics?.length,
+        keyPointCount: result.keyPoints?.length
+      });
+
+      return result;
+
+    } catch (error) {
+      logger.error('Failed during AI content generation', {
+        debateId: debate.Overview?.Id,
+        error: error.message,
+        stack: error.stack,
+        cause: error.cause
+      });
+      throw error;
+    }
+
+  } catch (error) {
+    logger.error('Failed to process AI content', {
+      debateId: debate.Overview?.Id,
+      error: error.message,
+      stack: error.stack,
+      cause: error.cause
+    });
+    throw error;
   }
-
-  // Add translation options
-  const translationOptions = {
-    british: true,  // Only identify British translations
-    spelling: true  // Include spelling differences
-  };
-
-  // Translate the AI outputs to British English
-  const translatedSummary = {
-    ...summary,
-    title: handleBritishTranslation(summary.title, translationOptions),
-    summary: handleBritishTranslation(summary.summary, translationOptions)
-  };
-
-  const translatedQuestions = {
-    questions: questions.questions.map(q => ({
-      ...q,
-      text: handleBritishTranslation(q.text, translationOptions),
-      topic: handleBritishTranslation(q.topic, translationOptions)
-    }))
-  };
-
-  const translatedKeyPoints = {
-    keyPoints: keyPoints.keyPoints.map(kp => ({
-      ...kp,
-      point: handleBritishTranslation(kp.point, translationOptions)
-    }))
-  };
-
-  const translatedTopics = {
-    topics: topics.topics.map(t => ({
-      ...t,
-      name: handleBritishTranslation(t.name, translationOptions)
-    }))
-  };
-
-  // Format questions into individual fields
-  const questionFields = formatQuestionFields(translatedQuestions.questions);
-
-  return {
-    title: translatedSummary.title,
-    summary: translatedSummary.summary,
-    tone: translatedSummary.tone.toLowerCase(),
-    ...questionFields,
-    topics: translatedTopics.topics.map(t => ({
-      name: t.name,
-      subtopics: t.subtopics.map(st => handleBritishTranslation(st, translationOptions)),
-      frequency: t.frequency,
-      speakers: t.speakers
-    })),
-    keyPoints: translatedKeyPoints.keyPoints,
-    tags: translatedTopics.topics.flatMap(t => t.subtopics.map(st => handleBritishTranslation(st, translationOptions)))
-  };
 }
 
 function processDebateItems(items, memberDetails) {
@@ -250,43 +369,155 @@ async function extractKeyPoints(text) {
 
 // Helper function to format questions (moved from inline)
 function formatQuestionFields(questions) {
-  const questionFields = {};
-  questions.forEach((q, index) => {
-    const num = index + 1;
-    questionFields[`ai_question_${num}`] = q.text;
-    questionFields[`ai_question_${num}_topic`] = q.topic;
-    questionFields[`ai_question_${num}_ayes`] = 0;
-    questionFields[`ai_question_${num}_noes`] = 0;
-  });
-  return questionFields;
+  try {
+    const questionFields = {};
+    questions.forEach((q, index) => {
+      const num = index + 1;
+      questionFields[`ai_question_${num}`] = q.text;
+      questionFields[`ai_question_${num}_topic`] = q.topic;
+      questionFields[`ai_question_${num}_ayes`] = 0;
+      questionFields[`ai_question_${num}_noes`] = 0;
+    });
+
+    logger.debug('Formatted question fields', {
+      questionCount: questions.length,
+      fieldCount: Object.keys(questionFields).length
+    });
+
+    return questionFields;
+  } catch (error) {
+    logger.error('Failed to format question fields', {
+      error: error.message,
+      stack: error.stack,
+      questionCount: questions?.length
+    });
+    throw error;
+  }
 }
 
 // Add new helper function to handle translations
 function handleBritishTranslation(text, options) {
+  try {
     const analysis = translator.translate(text, options);
     let translatedText = text;
     
-    // Only process if we have analysis results
     if (analysis && analysis['1']) {
-        // Process each identified word/phrase
-        analysis['1'].forEach(item => {
-            // Get the first (and only) key from the object
-            const americanWord = Object.keys(item)[0];
-            const details = item[americanWord];
+      logger.debug('Translation analysis found changes', {
+        originalText: text.substring(0, 50),
+        changeCount: analysis['1'].length
+      });
 
-            // Handle different types of issues
-            switch (details.issue) {
-                case 'American English Spelling':
-                    // Direct replacement with British spelling
-                    const britishSpelling = details.details;
-                    translatedText = translatedText.replace(
-                        new RegExp(`\\b${americanWord}\\b`, 'gi'), 
-                        britishSpelling
-                    );
-                    break;
-            }
-        });
+      analysis['1'].forEach(item => {
+        const americanWord = Object.keys(item)[0];
+        const details = item[americanWord];
+
+        switch (details.issue) {
+          case 'American English Spelling':
+            const britishSpelling = details.details;
+            translatedText = translatedText.replace(
+              new RegExp(`\\b${americanWord}\\b`, 'gi'), 
+              britishSpelling
+            );
+            break;
+        }
+      });
     }
 
     return translatedText;
+  } catch (error) {
+    logger.error('Translation error', {
+      error: error.message,
+      text: text?.substring(0, 50),
+      stack: error.stack
+    });
+    return text; // Return original text on error
+  }
+}
+
+async function generateDivisionQuestions(debate, divisions, memberDetails) {
+  if (!divisions?.length) {
+    logger.debug('No divisions to process for questions', {
+      debateId: debate.Overview?.Id
+    });
+    return [];
+  }
+
+  try {
+    // Process debate text for context
+    const processedItems = processDebateItems(debate.Items, memberDetails);
+    const debateText = formatDebateContext(debate.Overview, processedItems);
+
+    logger.debug('Preparing division questions prompt', {
+      debateId: debate.Overview?.Id,
+      divisionCount: divisions.length,
+      textLength: debateText.length
+    });
+
+    const prompt = `
+You are an expert UK parliamentary analyst. Analyze these divisions that occurred during the debate.
+
+Debate Title: ${debate.Overview.Title}
+Debate Context:
+${debateText}
+
+Divisions:
+${divisions.map(div => `
+Division ${div.division_number || div.Id}:
+- Division ID: ${div.Id || div.division_id}
+- Text before vote: "${div.text_before_vote}"
+- Text after vote: "${div.text_after_vote}"
+- Result: Ayes: ${div.ayes_count}, Noes: ${div.noes_count}
+`).join('\n')}
+
+For each division above, provide:
+1. The division_id as shown
+2. A clear yes/no question (max 20 words) that MPs were voting on
+3. The main topic category it falls under
+4. A two-sentence explanation of the significance and context of the division
+5. Key arguments for and against
+
+Ensure each response includes the correct division_id to match with the original division.`;
+
+    const response = await openai.beta.chat.completions.parse({
+      model: "gpt-4o",
+      messages: [{
+        role: "system",
+        content: "You are an expert in UK parliamentary procedure who specializes in making complex votes accessible to the public."
+      }, {
+        role: "user",
+        content: prompt
+      }],
+      response_format: zodResponseFormat(DivisionQuestionSchema, 'division_questions')
+    });
+
+    // Validate that we got responses for all divisions
+    const questions = response.choices[0].message.parsed.questions;
+    const missingDivisions = divisions.filter(div => 
+      !questions.find(q => q.division_id === (div.Id || div.division_id))
+    );
+
+    if (missingDivisions.length > 0) {
+      logger.warn('Some divisions missing from AI response', {
+        debateId: debate.Overview?.Id,
+        missingDivisions: missingDivisions.map(d => d.Id || d.division_id)
+      });
+    }
+
+    return questions;
+  } catch (error) {
+    logger.error('Failed to generate division questions:', {
+      error: error.message,
+      stack: error.stack,
+      cause: error.cause,
+      debateId: debate.Overview?.Id,
+      divisionCount: divisions?.length,
+      divisions: divisions?.map(d => ({
+        id: d.Id || d.division_id,
+        number: d.division_number,
+        hasTextBefore: !!d.text_before_vote,
+        hasTextAfter: !!d.text_after_vote
+      }))
+    });
+    return [];
+  }
 }
