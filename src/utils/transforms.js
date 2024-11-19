@@ -50,6 +50,10 @@ export function transformDebate(debateDetails) {
     const { Navigator = [], Overview = {}, Items = [] } = debateDetails;
     const parent = Navigator[Navigator.length - 2] || {};
     
+    // Find the debate's Timecode from Navigator
+    const debateNode = Navigator.find(n => n.ExternalId === Overview.ExtId);
+    const startTime = debateNode?.Timecode || null;
+
     // Validate required fields
     if (!Overview.ExtId || !Overview.Title || !Overview.Date) {
       throw new Error('Missing required fields in Overview');
@@ -62,9 +66,22 @@ export function transformDebate(debateDetails) {
       ext_id: Overview.ExtId,
       title: Overview.Title || '',
       date: Overview.Date,
+      start_time: startTime,
       
-      // Basic metadata
-      type: Overview.HRSTag || '',
+      // Strip hs_ prefix and numeric prefixes from type
+      type: (Overview.HRSTag || '')
+        .replace(/^hs_/, '')
+        .replace(/^(?:2c|2|3c|6b|8|3)/, '')
+        .replace(/WestHallDebate/, 'Westminster Hall Debate')
+        // Add spaces between capitalized words, but handle consecutive caps (like "MP")
+        .replace(/([a-z])([A-Z])/g, '$1 $2')  // Space between lower -> upper
+        .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')  // Space between upper -> upper+lower
+        // Replace specific terms
+        .replace(/Bill Title/, 'Bill Procedure')
+        .replace(/Business WO Debate/, 'Business Without Debate')
+        .replace(/Deb Bill/, 'Debated Bill')
+        .trim(),
+      
       house: Overview.House || '',
       location: Overview.Location || '',
 

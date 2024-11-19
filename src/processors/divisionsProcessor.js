@@ -24,9 +24,9 @@ export async function processDivisions(debate, aiContent = {}) {
       divisions.map(async (division) => {
         try {
           // Verify the division belongs to this debate
-          if (division.DebateSectionSource !== debateExternalId) {
+          if (division.DebateSectionExtId !== debateExternalId) {
             logger.warn(`Division ${division.ExternalId} belongs to different debate section`, {
-              divisionDebateId: division.DebateSectionSource,
+              divisionDebateId: division.DebateSectionExtId,
               expectedDebateId: debateExternalId
             });
             return null;
@@ -52,7 +52,7 @@ export async function processDivisions(debate, aiContent = {}) {
             noes_count: division.NoesCount,
             house: division.House,
             debate_section: division.DebateSection,
-            debate_section_source: division.DebateSectionSource,
+            debate_section_source: division.DebateSectionExtId,
             division_number: division.Number,
             text_before_vote: division.TextBeforeVote,
             text_after_vote: division.TextAfterVote,

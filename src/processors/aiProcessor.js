@@ -71,6 +71,45 @@ const DivisionQuestionSchema = z.object({
   }))
 });
 
+// Add new schema after existing schemas
+const CommentThreadSchema = z.object({
+  comments: z.array(z.object({
+    id: z.string(),
+    parent_id: z.string().nullable(),
+    author: z.string(),
+    party: z.string().nullable(),
+    content: z.string(),
+    votes: z.object({
+      upvotes: z.number(),
+      upvotes_speakers: z.array(z.string()),
+      downvotes: z.number(),
+      downvotes_speakers: z.array(z.string())
+    }),
+    tags: z.array(z.string())
+  }))
+});
+
+// Add new generation function before processAIContent
+async function generateCommentThread(text) {
+  return await openai.beta.chat.completions.parse({
+    model: "gpt-4o",
+    messages: [{
+      role: "system",
+      content: `You are an expert in transforming parliamentary debates into engaging social media-style disagreements.
+      Convert this debate into a threaded comment structure where:
+      - Each major point becomes a top-level comment
+      - Responses and counterpoints become replies
+      - Include relevant hashtag-style tags for each comment
+      - Provide up/downvotes corresponding to the engagement of other speakers
+      - Preserve the speaker's party affiliation`
+    }, {
+      role: "user",
+      content: text
+    }],
+    response_format: zodResponseFormat(CommentThreadSchema, 'comment_thread')
+  });
+}
+
 export async function processAIContent(debate, memberDetails, divisions = null) {
   try {
     // Process and clean debate text
@@ -85,7 +124,7 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
 
     // Generate all AI responses concurrently
     try {
-      const [summary, questions, topics, keyPoints, divisionQuestions] = await Promise.all([
+      const [summary, questions, topics, keyPoints, divisionQuestions, commentThread] = await Promise.all([
         generateSummary(debateText).then(res => {
           logger.debug('Generated summary', { 
             debateId: debate.Overview?.Id,
@@ -121,7 +160,14 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
             questionCount: res?.length 
           });
           return res;
-        }) : []
+        }) : [],
+        generateCommentThread(debateText).then(res => {
+          logger.debug('Generated comment thread', { 
+            debateId: debate.Overview?.Id,
+            commentCount: res?.choices?.[0]?.message?.parsed?.comments?.length 
+          });
+          return res.choices[0].message.parsed;
+        })
       ]);
 
       // Handle potential refusals
@@ -206,6 +252,11 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
             for: handleBritishTranslation(q.key_arguments.for, translationOptions),
             against: handleBritishTranslation(q.key_arguments.against, translationOptions)
           }
+        })),
+        comment_thread: commentThread.comments.map(comment => ({
+          ...comment,
+          content: handleBritishTranslation(comment.content, translationOptions),
+          tags: comment.tags.map(tag => handleBritishTranslation(tag, translationOptions))
         }))
       };
 
@@ -293,7 +344,7 @@ async function generateSummary(text) {
     messages: [{
       role: "system",
       content: `You are an expert in UK parliamentary procedure and translating parliamentary language into concise media-friendly analysis.
-      Provide a snappy title and 2 sentence analysis for this parliamentary debate, in the style of a Financial Times article. 
+      Provide a snappy title and 3 sentence analysis for this parliamentary debate, in the style of a Financial Times article. 
       Highlight points of greatest significance to the public. 
       Begin your analysis without any introductory text; the reader already knows the title and location.
       Also assess the overall tone of the debate.`
