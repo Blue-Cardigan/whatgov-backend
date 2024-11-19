@@ -102,7 +102,7 @@ async function generateCommentThread(text, debateId) {
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: `You are an expert in transforming parliamentary debates into engaging social media-style disagreements.
+      content: `You are an expert in transforming parliamentary debates into casual social media-style disagreements.
       Convert this debate into a threaded comment structure where:
       - Each major point becomes a top-level comment (use index numbers starting from 1)
       - Responses and counterpoints become replies (use parent's index followed by reply number)
