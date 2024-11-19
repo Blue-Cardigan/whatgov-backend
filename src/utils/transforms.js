@@ -91,6 +91,7 @@ export function transformDebate(debateDetails) {
       ai_topics: Array.isArray(debateDetails.topics) ? debateDetails.topics : [],
       ai_tags: Array.isArray(debateDetails.tags) ? debateDetails.tags : [],
       ai_key_points: Array.isArray(debateDetails.keyPoints) ? debateDetails.keyPoints : [],
+      ai_comment_thread: debateDetails.comment_thread || {},
       
       speaker_count: new Set(
         Items

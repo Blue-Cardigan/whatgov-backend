@@ -90,24 +90,42 @@ const CommentThreadSchema = z.object({
 });
 
 // Add new generation function before processAIContent
-async function generateCommentThread(text) {
-  return await openai.beta.chat.completions.parse({
+async function generateCommentThread(text, debateId) {
+  const generateCommentId = (index, parentIndex = null) => {
+    const prefix = debateId || 'debate';
+    return parentIndex === null 
+      ? `${prefix}_c${index}` 
+      : `${prefix}_c${parentIndex}_r${index}`;
+  };
+
+  const response = await openai.beta.chat.completions.parse({
     model: "gpt-4o",
     messages: [{
       role: "system",
       content: `You are an expert in transforming parliamentary debates into engaging social media-style disagreements.
       Convert this debate into a threaded comment structure where:
-      - Each major point becomes a top-level comment
-      - Responses and counterpoints become replies
-      - Include relevant hashtag-style tags for each comment
+      - Each major point becomes a top-level comment (use index numbers starting from 1)
+      - Responses and counterpoints become replies (use parent's index followed by reply number)
+      - Include relevant hashtag-style tags if relevant to the comment
       - Provide up/downvotes corresponding to the engagement of other speakers
-      - Preserve the speaker's party affiliation`
+      - Preserve the speaker's full name
+      - For each comment, include its index number in the sequence`
     }, {
       role: "user",
       content: text
     }],
     response_format: zodResponseFormat(CommentThreadSchema, 'comment_thread')
   });
+
+  // Transform the comments to include proper IDs
+  console.log(response.choices[0].message.parsed);
+  return {
+    ...response.choices[0].message.parsed,
+    comments: response.choices[0].message.parsed.comments.map((comment, index) => ({
+      ...comment,
+      id: generateCommentId(index + 1, comment.parent_id)
+    }))
+  };
 }
 
 export async function processAIContent(debate, memberDetails, divisions = null) {
@@ -161,12 +179,13 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
           });
           return res;
         }) : [],
-        generateCommentThread(debateText).then(res => {
+        generateCommentThread(debateText, debate.Overview?.Id).then(res => {
           logger.debug('Generated comment thread', { 
             debateId: debate.Overview?.Id,
-            commentCount: res?.choices?.[0]?.message?.parsed?.comments?.length 
+            commentCount: res?.comments?.length 
           });
-          return res.choices[0].message.parsed;
+          console.log(res);
+          return res;
         })
       ]);
 
@@ -265,8 +284,11 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
         contentSections: Object.keys(result),
         questionCount: result.division_questions?.length,
         topicCount: result.topics?.length,
-        keyPointCount: result.keyPoints?.length
+        keyPointCount: result.keyPoints?.length,
+        commentCount: result.comment_thread?.comments?.length
       });
+
+      console.log(result.comment_thread);
 
       return result;
 
