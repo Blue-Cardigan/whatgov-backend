@@ -8,6 +8,11 @@ export function validateDebateContent(debateDetails) {
     }
 
     const { Items = [], Overview } = debateDetails;
+
+    if (Overview.Title?.includes('Prayer')) {
+      console.log('Skipping debate with Prayer title');
+      return null;
+    }
     
     // Skip if HRSTag contains 'BigBold'
     if (Overview.HRSTag?.includes('BigBold')) {
@@ -62,10 +67,24 @@ export function transformDebate(debateDetails) {
     // Calculate interest score and factors directly here
     const scoreData = calculateDebateScore(debateDetails);
 
+    // Get day of week from date with error handling
+    let dayOfWeek = '';
+    try {
+      dayOfWeek = new Date(Overview.Date).toLocaleDateString('en-UK', { weekday: 'long' });
+      // Verify we got a valid day (in case date parsing succeeded but gave wrong date)
+      if (dayOfWeek === 'Invalid Date') {
+        throw new Error('Invalid date');
+      }
+    } catch (error) {
+      console.error('Failed to parse date:', Overview.Date);
+      dayOfWeek = '';
+    }
+
     return {
       ext_id: Overview.ExtId,
       title: Overview.Title || '',
       date: Overview.Date,
+      day_of_week: dayOfWeek,
       start_time: startTime,
       
       // Strip hs_ prefix and numeric prefixes from type
