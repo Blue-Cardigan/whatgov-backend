@@ -109,7 +109,8 @@ async function generateCommentThread(text, debateId) {
       - Include relevant hashtag-style tags if relevant to the comment
       - Provide up/downvotes corresponding to the engagement of other speakers
       - Preserve the speaker's full name
-      - For each comment, include its index number in the sequence`
+      - For each comment, include its index number in the sequence
+      - Use social media-style language and punctuation designed to entertain the user, while conveying the information in full`
     }, {
       role: "user",
       content: text
