@@ -97,6 +97,12 @@ export function transformDebate(debateDetails) {
       type = 'Bill Committee';
     }
 
+    // Add speakers array extraction
+    const speakers = Items
+      .filter(item => item?.ItemType === 'Contribution' && item?.MemberId)
+      .map(item => item?.MemberName || '')
+      .filter((name, index, self) => name && self.indexOf(name) === index); // Get unique non-empty names
+
     return {
       ext_id: Overview.ExtId,
       title: Overview.Title || '',
@@ -115,11 +121,8 @@ export function transformDebate(debateDetails) {
       ai_key_points: Array.isArray(debateDetails.keyPoints) ? debateDetails.keyPoints : [],
       ai_comment_thread: debateDetails.comment_thread || {},
       
-      speaker_count: new Set(
-        Items
-          .filter(item => item?.ItemType === 'Contribution' && item?.MemberId)
-          .map(item => item.MemberId)
-      ).size,
+      speaker_count: speakers.length,
+      speakers: speakers,
       contribution_count: (Items || []).filter(item => item?.ItemType === 'Contribution').length,
       party_count: debateDetails.partyCount || {},
       interest_score: scoreData.score,

@@ -266,7 +266,9 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
           speakers: t.speakers
         })),
         keyPoints: translatedKeyPoints.keyPoints,
-        tags: translatedTopics.topics.flatMap(t => t.subtopics.map(st => handleBritishTranslation(st, translationOptions))),
+        tags: translatedTopics.topics.flatMap(t => 
+          t.subtopics.map(st => handleBritishTranslation(st, translationOptions))
+        ),
         division_questions: divisionQuestions.map(q => ({
           division_id: q.division_id,
           question: handleBritishTranslation(q.question, translationOptions),
