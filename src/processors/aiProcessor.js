@@ -7,7 +7,9 @@ import logger from '../utils/logger.js';
 // Define schemas for each type of response
 const SummarySchema = z.object({
   title: z.string(),
-  summary: z.string(),
+  sentence1: z.string(),
+  sentence2: z.string(),
+  sentence3: z.string(),
   tone: z.enum(['neutral', 'contentious', 'collaborative']),
   wordCount: z.number()
 });
@@ -216,7 +218,11 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
       const translatedSummary = {
         ...summary,
         title: handleBritishTranslation(summary.title, translationOptions),
-        summary: handleBritishTranslation(summary.summary, translationOptions)
+        summary: [
+          handleBritishTranslation(summary.sentence1, translationOptions),
+          handleBritishTranslation(summary.sentence2, translationOptions),
+          handleBritishTranslation(summary.sentence3, translationOptions)
+        ].join('\n')
       };
 
       const translatedQuestions = {

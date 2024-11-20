@@ -70,7 +70,7 @@ export function transformDebate(debateDetails) {
     // Get day of week from date with error handling
     let dayOfWeek = '';
     try {
-      dayOfWeek = new Date(Overview.Date).toLocaleDateString('en-UK', { weekday: 'long' });
+      dayOfWeek = new Date(Overview.Date).toLocaleDateString('en-UK', { weekday: 'long' }).trim();
       // Verify we got a valid day (in case date parsing succeeded but gave wrong date)
       if (dayOfWeek === 'Invalid Date') {
         throw new Error('Invalid date');
@@ -80,28 +80,30 @@ export function transformDebate(debateDetails) {
       dayOfWeek = '';
     }
 
+    // Determine type based on location
+    let type = (Overview.HRSTag || '')
+      .replace(/^hs_/, '')
+      .replace(/Hdg/, '')
+      .replace(/^(?:2c|2|3c|6b|8|3)/, '')
+      .replace(/WestHallDebate/, 'Westminster Hall Debate')
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
+      .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
+      .replace(/Bill Title/, 'Bill Procedure')
+      .replace(/Business WO Debate/, 'Business Without Debate')
+      .replace(/Deb Bill/, 'Debated Bill')
+      .trim();
+
+    if (Overview.Location?.includes('Committee') && !type) {
+      type = 'Bill Committee';
+    }
+
     return {
       ext_id: Overview.ExtId,
       title: Overview.Title || '',
       date: Overview.Date,
       day_of_week: dayOfWeek,
       start_time: startTime,
-      
-      // Strip hs_ prefix and numeric prefixes from type
-      type: (Overview.HRSTag || '')
-        .replace(/^hs_/, '')
-        .replace(/Hdg/, '')
-        .replace(/^(?:2c|2|3c|6b|8|3)/, '')
-        .replace(/WestHallDebate/, 'Westminster Hall Debate')
-        // Add spaces between capitalized words, but handle consecutive caps (like "MP")
-        .replace(/([a-z])([A-Z])/g, '$1 $2')  // Space between lower -> upper
-        .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')  // Space between upper -> upper+lower
-        // Replace specific terms
-        .replace(/Bill Title/, 'Bill Procedure')
-        .replace(/Business WO Debate/, 'Business Without Debate')
-        .replace(/Deb Bill/, 'Debated Bill')
-        .trim(),
-      
+      type: type,
       house: Overview.House || '',
       location: Overview.Location || '',
 
