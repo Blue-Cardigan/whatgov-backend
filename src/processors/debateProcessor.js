@@ -90,7 +90,7 @@ export async function processDebates(specificDate = null, specificDebateId = nul
 
     // Fetch all member details from Supabase in one go
     const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
-    console.log(`memberDetails.size: ${memberDetails.size}`);
+    console.log(`Members fetched: ${memberDetails.size}`);
 
     // Process debates in batches to avoid overwhelming APIs
     for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {

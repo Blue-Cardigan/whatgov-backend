@@ -71,6 +71,7 @@ export function transformDebate(debateDetails) {
       // Strip hs_ prefix and numeric prefixes from type
       type: (Overview.HRSTag || '')
         .replace(/^hs_/, '')
+        .replace(/Hdg/, '')
         .replace(/^(?:2c|2|3c|6b|8|3)/, '')
         .replace(/WestHallDebate/, 'Westminster Hall Debate')
         // Add spaces between capitalized words, but handle consecutive caps (like "MP")

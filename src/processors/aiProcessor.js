@@ -118,7 +118,6 @@ async function generateCommentThread(text, debateId) {
   });
 
   // Transform the comments to include proper IDs
-  console.log(response.choices[0].message.parsed);
   return {
     ...response.choices[0].message.parsed,
     comments: response.choices[0].message.parsed.comments.map((comment, index) => ({
@@ -184,7 +183,6 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
             debateId: debate.Overview?.Id,
             commentCount: res?.comments?.length 
           });
-          console.log(res);
           return res;
         })
       ]);
@@ -287,8 +285,6 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
         keyPointCount: result.keyPoints?.length,
         commentCount: result.comment_thread?.comments?.length
       });
-
-      console.log(result.comment_thread);
 
       return result;
 
