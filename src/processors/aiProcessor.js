@@ -130,11 +130,12 @@ async function generateCommentThread(text, debateId) {
   };
 }
 
-export async function processAIContent(debate, memberDetails, divisions = null) {
+export async function processAIContent(debate, memberDetails, divisions = null, debateType) {
   try {
     // Process and clean debate text
     const processedItems = processDebateItems(debate.Items, memberDetails);
     const debateText = formatDebateContext(debate.Overview, processedItems);
+    const location = debate.Overview?.Location;
 
     logger.debug('Prepared debate text for AI processing', {
       debateId: debate.Overview?.Id,
@@ -145,7 +146,7 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
     // Generate all AI responses concurrently
     try {
       const [summary, questions, topics, keyPoints, divisionQuestions, commentThread] = await Promise.all([
-        generateSummary(debateText, debate.Overview?.Type).then(res => {
+        generateSummary(debateText, debateType, location).then(res => {
           logger.debug('Generated summary', { 
             debateId: debate.Overview?.Id,
             success: !!res?.choices?.[0]?.message?.parsed 
@@ -356,6 +357,7 @@ function formatDebateContext(overview, processedItems) {
   const context = [
     `Title: ${overview.Title}`,
     `Location: ${overview.Location}`,
+    `House: ${overview.Location?.includes('Lords') ? 'House of Lords' : 'House of Commons'}`,
     '\nDebate Transcript:',
     ...processedItems.map(group => 
       `${group.speaker}:\n${group.text.join('\n')}`
@@ -365,8 +367,9 @@ function formatDebateContext(overview, processedItems) {
   return context.join('\n\n');
 }
 
-async function generateSummary(text, debateType) {
-  const typeSpecificPrompt = getTypeSpecificPrompt(debateType);
+async function generateSummary(text, debateType, location) {
+  const typeSpecificPrompt = getTypeSpecificPrompt(debateType, location);
+  const isLords = location?.includes('Lords');
   
   return await openai.beta.chat.completions.parse({
     model: "gpt-4o",
@@ -377,6 +380,7 @@ async function generateSummary(text, debateType) {
       Provide a snappy title and 3 sentence analysis, in the style of a Financial Times article. 
       Highlight points of greatest significance to the public. 
       Begin your analysis without any introductory text; the reader already knows the title and location.
+      ${isLords ? 'Emphasize the Lords\' role in scrutiny and improvement of policy or legislation.' : ''}
       Also assess the overall tone of the debate.`
     }, {
       role: "user",
@@ -386,10 +390,30 @@ async function generateSummary(text, debateType) {
   });
 }
 
-function getTypeSpecificPrompt(debateType) {
+function getTypeSpecificPrompt(debateType, location) {
+  // Check for Lords debates first based on location
+  if (location?.includes('Lords Chamber')) {
+    return `
+      This is a House of Lords Chamber debate.
+      Focus on the expertise and experience of contributing peers.
+      Highlight cross-party consensus and areas of detailed scrutiny.
+      Note any recommendations made to government policy.
+      Consider the Lords' role in revising and improving legislation.`;
+  }
+  
+  if (location?.includes('Grand Committee')) {
+    return `
+      This is a House of Lords Grand Committee session.
+      Focus on the detailed examination of legislation or policy.
+      Highlight technical improvements and clarifications suggested by peers.
+      Note areas where peers seek additional government commitments or clarifications.
+      Consider how the committee's work may influence the main chamber debate.`;
+  }
+
+  // Existing debate type prompts
   const prompts = {
     'Bill Committee': `
-      This is a Bill Committee debate where MPs examine legislation in detail.
+      This is a Commons Bill Committee debate where MPs examine legislation in detail.
       Focus on specific amendments discussed, key disagreements, and any changes made to the bill.
       Highlight the practical implications of the committee's decisions.`,
       
