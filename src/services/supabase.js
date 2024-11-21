@@ -138,6 +138,41 @@ export class SupabaseService {
       return { data: null, error };
     }
   }
+
+  static async getDebates() {
+    try {
+      const { data, error } = await supabase
+        .from('debates')
+        .select('ext_id, title')
+        .order('date', { ascending: false });
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to get debates:', error);
+      return { data: [], error };
+    }
+  }
+
+  static async updateDebateSpeakers({ ext_id, speakers, speaker_count }) {
+    try {
+      const { data, error } = await supabase
+        .from('debates')
+        .update({ 
+          speakers,
+          speaker_count,
+          updated_at: new Date().toISOString()
+        })
+        .eq('ext_id', ext_id)
+        .select();
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to update debate speakers:', error);
+      return { data: null, error };
+    }
+  }
 }
 
 export { supabase }; 

@@ -3,7 +3,7 @@ import { HansardAPI } from '../services/hansard-api.js';
 import { SupabaseService } from '../services/supabase.js';
 import { processAIContent } from './aiProcessor.js';
 import { calculateStats } from './statsProcessor.js';
-import { transformDebate, validateDebateContent } from '../utils/transforms.js';
+import { transformDebate, validateDebateContent, getDebateType } from '../utils/transforms.js';
 import logger from '../utils/logger.js';
 import { config } from '../config/config.js';
 import { processDivisions } from './divisionsProcessor.js';
@@ -101,6 +101,9 @@ export async function processDebates(specificDate = null, specificDebateId = nul
         try {
           const debateDetails = debate.debate;
           
+          // Get debate type early
+          const debateType = getDebateType(debateDetails.Overview);
+          
           // Validate content
           const valid = validateDebateContent(debateDetails);
           if (valid === null) {
@@ -120,7 +123,7 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           if (config.ENABLE_AI_PROCESSING) {
             console.log(`processing AI content for debate ${debate.ExternalId}`);
             try {
-              aiContent = await processAIContent(debateDetails, memberDetails, divisions);
+              aiContent = await processAIContent(debateDetails, memberDetails, divisions, debateType);
               logger.debug(`Generated AI content for debate ${debate.ExternalId}`, {
                 contentKeys: Object.keys(aiContent)
               });

@@ -50,6 +50,34 @@ export function validateDebateContent(debateDetails) {
   }
 }
 
+// Add new helper function
+function getDebateType(overview) {
+  let type = (overview.HRSTag || '')
+    .replace(/^hs_/, '')
+    .replace(/Hdg/, '')
+    .replace(/^(?:2c|2|3c|6b|8|3)/, '')
+    .replace(/WestHallDebate/, 'Westminster Hall Debate')
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
+    .replace(/Bill Title/, 'Bill Procedure')
+    .replace(/Business WO Debate/, 'Business Without Debate')
+    .replace(/Deb Bill/, 'Debated Bill')
+    .trim();
+
+  // Additional type detection
+  if (!type) {
+    if (overview.Location?.includes('Committee')) {
+      type = 'Bill Committee';
+    } else if (overview.Title?.includes('Urgent Question')) {
+      type = 'Urgent Question';
+    } else if (overview.Title?.includes('Statement')) {
+      type = 'Statement';
+    }
+  }
+
+  return type;
+}
+
 export function transformDebate(debateDetails) {
   try {
     const { Navigator = [], Overview = {}, Items = [] } = debateDetails;
@@ -80,22 +108,8 @@ export function transformDebate(debateDetails) {
       dayOfWeek = '';
     }
 
-    // Determine type based on location
-    let type = (Overview.HRSTag || '')
-      .replace(/^hs_/, '')
-      .replace(/Hdg/, '')
-      .replace(/^(?:2c|2|3c|6b|8|3)/, '')
-      .replace(/WestHallDebate/, 'Westminster Hall Debate')
-      .replace(/([a-z])([A-Z])/g, '$1 $2')
-      .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
-      .replace(/Bill Title/, 'Bill Procedure')
-      .replace(/Business WO Debate/, 'Business Without Debate')
-      .replace(/Deb Bill/, 'Debated Bill')
-      .trim();
-
-    if (Overview.Location?.includes('Committee') && !type) {
-      type = 'Bill Committee';
-    }
+    // Replace type determination with new helper function
+    const type = getDebateType(Overview);
 
     // Add speakers array extraction
     const speakers = Items
@@ -175,4 +189,7 @@ export function transformSpeaker(apiSpeaker) {
     party: apiSpeaker.Party,
     constituency: apiSpeaker.MemberFrom
   };
-} 
+}
+
+// Export the helper function
+export { getDebateType }; 

@@ -145,7 +145,7 @@ export async function processAIContent(debate, memberDetails, divisions = null) 
     // Generate all AI responses concurrently
     try {
       const [summary, questions, topics, keyPoints, divisionQuestions, commentThread] = await Promise.all([
-        generateSummary(debateText).then(res => {
+        generateSummary(debateText, debate.Overview?.Type).then(res => {
           logger.debug('Generated summary', { 
             debateId: debate.Overview?.Id,
             success: !!res?.choices?.[0]?.message?.parsed 
@@ -365,13 +365,16 @@ function formatDebateContext(overview, processedItems) {
   return context.join('\n\n');
 }
 
-async function generateSummary(text) {
+async function generateSummary(text, debateType) {
+  const typeSpecificPrompt = getTypeSpecificPrompt(debateType);
+  
   return await openai.beta.chat.completions.parse({
     model: "gpt-4o",
     messages: [{
       role: "system",
       content: `You are an expert in UK parliamentary procedure and translating parliamentary language into concise media-friendly analysis.
-      Provide a snappy title and 3 sentence analysis for this parliamentary debate, in the style of a Financial Times article. 
+      ${typeSpecificPrompt}
+      Provide a snappy title and 3 sentence analysis, in the style of a Financial Times article. 
       Highlight points of greatest significance to the public. 
       Begin your analysis without any introductory text; the reader already knows the title and location.
       Also assess the overall tone of the debate.`
@@ -381,6 +384,68 @@ async function generateSummary(text) {
     }],
     response_format: zodResponseFormat(SummarySchema, 'summary')
   });
+}
+
+function getTypeSpecificPrompt(debateType) {
+  const prompts = {
+    'Bill Committee': `
+      This is a Bill Committee debate where MPs examine legislation in detail.
+      Focus on specific amendments discussed, key disagreements, and any changes made to the bill.
+      Highlight the practical implications of the committee's decisions.`,
+      
+    'Westminster Hall Debate': `
+      This is a Westminster Hall debate - a forum for raising constituency matters and specific issues.
+      Focus on the local or specific impacts discussed and any ministerial responses.
+      Highlight any cross-party consensus or commitments made by ministers.`,
+      
+    'Bill Procedure': `
+      This is a debate on bill procedure - focusing on the legislative process itself.
+      Emphasize the stage of the bill, key voting decisions, and next steps.
+      Note any significant amendments or changes to the bill's trajectory.`,
+      
+    'Business Without Debate': `
+      This is a procedural item passed without debate.
+      Focus on the practical implications and why it was considered non-controversial.
+      Note any relevant background context that explains the lack of debate.`,
+      
+    'Debated Bill': `
+      This is a full bill debate in the main chamber.
+      Focus on the core principles being discussed and main points of contention.
+      Highlight key arguments for and against, and any significant amendments.`,
+      
+    'Urgent Question': `
+      This is an urgent question requiring immediate ministerial response.
+      Focus on the specific issue raised and the government's response.
+      Highlight any commitments or clarifications made by ministers.`,
+      
+    'Statement': `
+      This is a ministerial statement to the House.
+      Focus on new announcements or policy changes being communicated.
+      Highlight key reactions from opposition and backbench MPs.`,
+
+    'Questions': `
+      This is a parliamentary questions session.
+      Focus on the key questions raised and the government's responses.
+      Highlight any notable commitments, admissions, or evasions by ministers.
+      Note any particularly contentious exchanges or significant revelations.`,
+
+    'Opposition Day': `
+      This is an Opposition Day debate where the opposition sets the agenda.
+      Focus on the opposition's main criticisms of government policy and their alternative proposals.
+      Highlight the key points of disagreement between government and opposition.
+      Note any concessions or defences made by the government.`,
+
+    'Debated Motion': `
+      This is a debate on a specific parliamentary motion.
+      Focus on the practical implications of the motion if passed.
+      Highlight the key arguments for and against the motion.
+      Note any cross-party support or opposition and the likely outcome.`
+  };
+
+  return prompts[debateType] || `
+    This is a general parliamentary debate.
+    Focus on the key points of discussion and any decisions made.
+    Highlight the practical implications for the public.`;
 }
 
 async function generateQuestions(text) {
