@@ -9,6 +9,7 @@ export function validateDebateContent(debateDetails) {
 
     const { Items = [], Overview } = debateDetails;
 
+    // Skip prayers in both Houses
     if (Overview.Title?.includes('Prayer')) {
       console.log('Skipping debate with Prayer title');
       return null;
@@ -23,20 +24,29 @@ export function validateDebateContent(debateDetails) {
     // Get all contribution items
     const contributionItems = Items.filter(item => item?.ItemType === 'Contribution');
     
-    // Skip if all contributions have no MemberId and no previous debate
-    if (contributionItems.length > 0 && 
-        contributionItems.every(item => !item.MemberId) && 
-        !Overview.PreviousDebateExtId) {
-      return null;
+    // Modified check for contributions - different rules for Lords
+    if (contributionItems.length > 0) {
+      if (Overview.House === 'Commons') {
+        // Commons-specific check
+        if (contributionItems.every(item => !item.MemberId) && 
+            !Overview.PreviousDebateExtId) {
+          return null;
+        }
+      } else if (Overview.House === 'Lords') {
+        // Lords-specific check - more lenient on MemberId requirement
+        if (contributionItems.every(item => !item.Value?.trim())) {
+          return null;
+        }
+      }
     }
     
     // Get cleaned search text first to validate content
     const searchText = (Items || [])
-    .filter(item => item?.ItemType === 'Contribution')
-    .map(item => item?.Value || '')
-    .join(' ')
-    .replace(/<[^>]*>/g, '') // Remove HTML tags
-    .trim(); // Trim whitespace
+      .filter(item => item?.ItemType === 'Contribution')
+      .map(item => item?.Value || '')
+      .join(' ')
+      .replace(/<[^>]*>/g, '') // Remove HTML tags
+      .trim(); // Trim whitespace
     
     // Return null if no meaningful content
     if (!searchText) {
@@ -52,11 +62,26 @@ export function validateDebateContent(debateDetails) {
 
 // Add new helper function
 function getDebateType(overview) {
+  // Check for Lords debates first based on location
+  if (overview.Location?.includes('Lords')) {
+    if (overview.Location?.includes('Grand Committee')) {
+      return 'Grand Committee';
+    }
+    if (overview.Location?.includes('Chamber')) {
+      return 'Lords Chamber';
+    }
+  }
+
+  if (overview.Title?.includes('Prime Minister')) {
+    return 'Prime Minister\'s Questions';
+  }
+
+  // Process Commons debate types
   let type = (overview.HRSTag || '')
     .replace(/^hs_/, '')
     .replace(/Hdg/, '')
     .replace(/^(?:2c|2|3c|6b|8|3)/, '')
-    .replace(/WestHallDebate/, 'Westminster Hall Debate')
+    .replace(/WestHallDebate/, 'Westminster Hall')
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
     .replace(/Bill Title/, 'Bill Procedure')
@@ -64,15 +89,22 @@ function getDebateType(overview) {
     .replace(/Deb Bill/, 'Debated Bill')
     .trim();
 
-  // Additional type detection
+  // Additional type detection for Commons
   if (!type) {
-    if (overview.Location?.includes('Committee')) {
-      type = 'Bill Committee';
+    if (overview.Location?.includes('Public Bill Committees') && !overview.Location?.includes('Lords')) {
+      type = 'Public Bill Committees';
+    } else if (overview.Location?.includes('General Committees') && !overview.Location?.includes('Lords')) {
+      type = 'General Committees';
     } else if (overview.Title?.includes('Urgent Question')) {
       type = 'Urgent Question';
     } else if (overview.Title?.includes('Statement')) {
       type = 'Statement';
     }
+  }
+
+  // If still no type but in Commons, set as general debate
+  if (!type && overview.House === 'Commons') {
+    type = 'General Debate';
   }
 
   return type;

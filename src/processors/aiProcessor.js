@@ -417,7 +417,7 @@ function getTypeSpecificPrompt(debateType, location) {
       Focus on specific amendments discussed, key disagreements, and any changes made to the bill.
       Highlight the practical implications of the committee's decisions.`,
       
-    'Westminster Hall Debate': `
+    'Westminster Hall': `
       This is a Westminster Hall debate - a forum for raising constituency matters and specific issues.
       Focus on the local or specific impacts discussed and any ministerial responses.
       Highlight any cross-party consensus or commitments made by ministers.`,
@@ -477,7 +477,9 @@ async function generateQuestions(text) {
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: "You are an expert in UK parliamentary procedure and survey research. Provide 3 yes/no questions to gauge reader perspectives on key issues from this debate. Each question should be thought-provoking and relate to a specific topic of contention."
+      content: `You are an expert in UK parliamentary procedure and survey design. 
+      Provide up to 3 yes/no questions to gauge reader perspectives on key issues from this debate. 
+      Each question should be thought-provoking and identify a topic British people are likely to disagree on.`
     }, {
       role: "user",
       content: text
