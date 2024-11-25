@@ -1,8 +1,8 @@
 import { openai } from '../services/openai.js';
 import { z } from 'zod';
 import { zodResponseFormat } from 'openai/helpers/zod';
-import translator from 'american-british-english-translator';
 import logger from '../utils/logger.js';
+import us2gbTranslations from './us2gbbig.json';
 
 // Define schemas for each type of response
 const SummarySchema = z.object({
@@ -16,7 +16,16 @@ const SummarySchema = z.object({
 
 const QuestionSchema = z.object({
   text: z.string(),
-  topic: z.string()
+  topic: z.enum([
+    'Environment and Natural Resources',
+    'Healthcare and Social Welfare',
+    'Economy, Business, and Infrastructure',
+    'Science, Technology, and Innovation',
+    'Legal Affairs and Public Safety',
+    'International Relations and Diplomacy',
+    'Parliamentary Affairs and Governance',
+    'Education, Culture, and Society'
+  ]),
 });
 
 const QuestionsSchema = z.object({
@@ -108,11 +117,11 @@ async function generateCommentThread(text, debateId) {
       Convert this debate into a threaded comment structure where:
       - Each major point becomes a top-level comment (use index numbers starting from 1)
       - Responses and counterpoints become replies (use parent's index followed by reply number)
+      - Identify support and opposition to each point and provide up/downvotes accordingly
+      - Preserve the speaker's full first and last name
+      - Preserve the full first and last name of supporters and opponents
       - Include relevant hashtag-style tags if relevant to the comment
-      - Provide up/downvotes corresponding to the engagement of other speakers
-      - Preserve the speaker's full name
-      - For each comment, include its index number in the sequence
-      - Use social media-style language and punctuation designed to entertain the user, while conveying the information in full`
+      - Balance entertaining social media-style language with complete information`
     }, {
       role: "user",
       content: text
@@ -132,61 +141,40 @@ async function generateCommentThread(text, debateId) {
 
 export async function processAIContent(debate, memberDetails, divisions = null, debateType) {
   try {
-    // Process and clean debate text
     const processedItems = processDebateItems(debate.Items, memberDetails);
     const debateText = formatDebateContext(debate.Overview, processedItems);
     const location = debate.Overview?.Location;
 
-    logger.debug('Prepared debate text for AI processing', {
+    // Get the type-specific prompt first
+    const typeSpecificPrompt = getTypeSpecificPrompt(debateType, location);
+
+    logger.debug('Processing AI content', {
       debateId: debate.Overview?.Id,
       textLength: debateText.length,
-      itemCount: processedItems.length
+      itemCount: processedItems.length,
+      debateType,
+      location
     });
 
-    // Generate all AI responses concurrently
     try {
+      // Generate all AI responses concurrently
       const [summary, questions, topics, keyPoints, divisionQuestions, commentThread] = await Promise.all([
-        generateSummary(debateText, debateType, location).then(res => {
-          logger.debug('Generated summary', { 
-            debateId: debate.Overview?.Id,
-            success: !!res?.choices?.[0]?.message?.parsed 
-          });
+        generateSummary(debateText, typeSpecificPrompt).then(res => {
           return res.choices[0].message.parsed;
         }),
-        generateQuestions(debateText).then(res => {
-          logger.debug('Generated questions', { 
-            debateId: debate.Overview?.Id,
-            count: res?.choices?.[0]?.message?.parsed?.questions?.length 
-          });
+        generateQuestions(debateText, typeSpecificPrompt).then(res => {
           return res.choices[0].message.parsed;
         }),
         extractTopics(debateText).then(res => {
-          logger.debug('Extracted topics', { 
-            debateId: debate.Overview?.Id,
-            count: res?.choices?.[0]?.message?.parsed?.topics?.length 
-          });
           return res.choices[0].message.parsed;
         }),
         extractKeyPoints(debateText).then(res => {
-          logger.debug('Extracted key points', { 
-            debateId: debate.Overview?.Id,
-            count: res?.choices?.[0]?.message?.parsed?.keyPoints?.length 
-          });
           return res.choices[0].message.parsed;
         }),
         divisions ? generateDivisionQuestions(debate, divisions, memberDetails).then(res => {
-          logger.debug('Generated division questions', { 
-            debateId: debate.Overview?.Id,
-            divisionCount: divisions.length,
-            questionCount: res?.length 
-          });
           return res;
         }) : [],
         generateCommentThread(debateText, debate.Overview?.Id).then(res => {
-          logger.debug('Generated comment thread', { 
-            debateId: debate.Overview?.Id,
-            commentCount: res?.comments?.length 
-          });
           return res;
         })
       ]);
@@ -205,12 +193,6 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         throw new Error('AI refused to process debate content');
       }
 
-      // Add translation options
-      const translationOptions = {
-        british: true,
-        spelling: true
-      };
-
       logger.debug('Starting translations', {
         debateId: debate.Overview?.Id
       });
@@ -218,33 +200,33 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
       // Translate the AI outputs to British English
       const translatedSummary = {
         ...summary,
-        title: handleBritishTranslation(summary.title, translationOptions),
+        title: handleBritishTranslation(summary.title),
         summary: [
-          handleBritishTranslation(summary.sentence1, translationOptions),
-          handleBritishTranslation(summary.sentence2, translationOptions),
-          handleBritishTranslation(summary.sentence3, translationOptions)
+          handleBritishTranslation(summary.sentence1),
+          handleBritishTranslation(summary.sentence2),
+          handleBritishTranslation(summary.sentence3)
         ].join('\n')
       };
 
       const translatedQuestions = {
         questions: questions.questions.map(q => ({
           ...q,
-          text: handleBritishTranslation(q.text, translationOptions),
-          topic: handleBritishTranslation(q.topic, translationOptions)
+          text: handleBritishTranslation(q.text),
+          topic: handleBritishTranslation(q.topic)
         }))
       };
 
       const translatedKeyPoints = {
         keyPoints: keyPoints.keyPoints.map(kp => ({
           ...kp,
-          point: handleBritishTranslation(kp.point, translationOptions)
+          point: handleBritishTranslation(kp.point)
         }))
       };
 
       const translatedTopics = {
         topics: topics.topics.map(t => ({
           ...t,
-          name: handleBritishTranslation(t.name, translationOptions)
+          name: handleBritishTranslation(t.name)
         }))
       };
 
@@ -262,28 +244,28 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         ...questionFields,
         topics: translatedTopics.topics.map(t => ({
           name: t.name,
-          subtopics: t.subtopics.map(st => handleBritishTranslation(st, translationOptions)),
+          subtopics: t.subtopics.map(st => handleBritishTranslation(st)),
           frequency: t.frequency,
           speakers: t.speakers
         })),
         keyPoints: translatedKeyPoints.keyPoints,
         tags: translatedTopics.topics.flatMap(t => 
-          t.subtopics.map(st => handleBritishTranslation(st, translationOptions))
+          t.subtopics.map(st => handleBritishTranslation(st))
         ),
         division_questions: divisionQuestions.map(q => ({
           division_id: q.division_id,
-          question: handleBritishTranslation(q.question, translationOptions),
+          question: handleBritishTranslation(q.question),
           topic: q.topic,
-          context: handleBritishTranslation(q.context, translationOptions),
+          context: handleBritishTranslation(q.context),
           key_arguments: {
-            for: handleBritishTranslation(q.key_arguments.for, translationOptions),
-            against: handleBritishTranslation(q.key_arguments.against, translationOptions)
+            for: handleBritishTranslation(q.key_arguments.for),
+            against: handleBritishTranslation(q.key_arguments.against)
           }
         })),
         comment_thread: commentThread.comments.map(comment => ({
           ...comment,
-          content: handleBritishTranslation(comment.content, translationOptions),
-          tags: comment.tags.map(tag => handleBritishTranslation(tag, translationOptions))
+          content: handleBritishTranslation(comment.content),
+          tags: comment.tags.map(tag => handleBritishTranslation(tag))
         }))
       };
 
@@ -367,10 +349,7 @@ function formatDebateContext(overview, processedItems) {
   return context.join('\n\n');
 }
 
-async function generateSummary(text, debateType, location) {
-  const typeSpecificPrompt = getTypeSpecificPrompt(debateType, location);
-  const isLords = location?.includes('Lords');
-  
+async function generateSummary(text, typeSpecificPrompt) {
   return await openai.beta.chat.completions.parse({
     model: "gpt-4o",
     messages: [{
@@ -379,9 +358,7 @@ async function generateSummary(text, debateType, location) {
       ${typeSpecificPrompt}
       Provide a snappy title and 3 sentence analysis, in the style of a Financial Times article. 
       Highlight points of greatest significance to the public. 
-      Begin your analysis without any introductory text; the reader already knows the title and location.
-      ${isLords ? 'Emphasize the Lords\' role in scrutiny and improvement of policy or legislation.' : ''}
-      Also assess the overall tone of the debate.`
+      Begin your analysis without any introductory text; the reader already knows the title and location.`
     }, {
       role: "user",
       content: text
@@ -391,95 +368,137 @@ async function generateSummary(text, debateType, location) {
 }
 
 function getTypeSpecificPrompt(debateType, location) {
-  // Check for Lords debates first based on location
+  // Lords-specific prompts with enhanced focus
   if (location?.includes('Lords Chamber')) {
     return `
       This is a House of Lords Chamber debate.
-      Focus on the expertise and experience of contributing peers.
-      Highlight cross-party consensus and areas of detailed scrutiny.
-      Note any recommendations made to government policy.
-      Consider the Lords' role in revising and improving legislation.`;
+      Focus on:
+      - The constitutional scrutiny role of the Lords
+      - Specific amendments and legislative improvements proposed
+      - Requests for government clarification or commitments
+      Consider the Lords' role as a revising chamber and highlight any significant challenges to government policy.`;
   }
   
   if (location?.includes('Grand Committee')) {
     return `
       This is a House of Lords Grand Committee session.
-      Focus on the detailed examination of legislation or policy.
-      Highlight technical improvements and clarifications suggested by peers.
-      Note areas where peers seek additional government commitments or clarifications.
-      Consider how the committee's work may influence the main chamber debate.`;
+      Focus on:
+      - Detailed line-by-line examination of legislation
+      - Technical amendments and their implications
+      - Expert insights from peers with relevant experience
+      - Areas where further government clarity is sought
+      - Potential improvements to be raised in Chamber
+      Note that Grand Committee work informs subsequent Chamber stages.`;
   }
 
-  // Existing debate type prompts
   const prompts = {
-    'Bill Committee': `
-      This is a Commons Bill Committee debate where MPs examine legislation in detail.
-      Focus on specific amendments discussed, key disagreements, and any changes made to the bill.
-      Highlight the practical implications of the committee's decisions.`,
-      
     'Westminster Hall': `
-      This is a Westminster Hall debate - a forum for raising constituency matters and specific issues.
-      Focus on the local or specific impacts discussed and any ministerial responses.
-      Highlight any cross-party consensus or commitments made by ministers.`,
-      
-    'Bill Procedure': `
-      This is a debate on bill procedure - focusing on the legislative process itself.
-      Emphasize the stage of the bill, key voting decisions, and next steps.
-      Note any significant amendments or changes to the bill's trajectory.`,
-      
-    'Business Without Debate': `
-      This is a procedural item passed without debate.
-      Focus on the practical implications and why it was considered non-controversial.
-      Note any relevant background context that explains the lack of debate.`,
-      
-    'Debated Bill': `
-      This is a full bill debate in the main chamber.
-      Focus on the core principles being discussed and main points of contention.
-      Highlight key arguments for and against, and any significant amendments.`,
-      
-    'Urgent Question': `
-      This is an urgent question requiring immediate ministerial response.
-      Focus on the specific issue raised and the government's response.
-      Highlight any commitments or clarifications made by ministers.`,
-      
-    'Statement': `
-      This is a ministerial statement to the House.
-      Focus on new announcements or policy changes being communicated.
-      Highlight key reactions from opposition and backbench MPs.`,
+      This is a Westminster Hall debate - Parliament's second debating chamber.
+      Focus on:
+      - Specific constituency or policy issues raised by backbenchers
+      - The responding minister's commitments or explanations
+      - Cross-party support for particular actions
+      - Written ministerial responses promised
+      Note that while non-binding, these debates often influence departmental policy.`,
 
-    'Questions': `
-      This is a parliamentary questions session.
-      Focus on the key questions raised and the government's responses.
-      Highlight any notable commitments, admissions, or evasions by ministers.
-      Note any particularly contentious exchanges or significant revelations.`,
+    'Prime Minister\'s Questions': `
+      This is Prime Minister's Questions (PMQs).
+      Focus on:
+      - The Leader of the Opposition's six questions and PM's responses
+      - Key policy announcements or commitments made
+      - Notable backbench questions (especially from PM's own party)
+      - Any departure from usual PMQs format
+      Note the broader political context of exchanges and any significant shifts in government position.`,
+
+    'Department Questions': `
+      This is Departmental Question Time.
+      Focus on:
+      - Topical and urgent questions added on the day
+      - Written questions selected for oral answer
+      - Specific commitments made by ministers
+      - Follow-up questions from other MPs
+      Note any announcements of new policy or changes to existing policy.`,
+
+    'Public Bill Committee': `
+      This is a Public Bill Committee.
+      Focus on:
+      - Clause-by-clause scrutiny of the bill
+      - Evidence sessions with external experts (if any)
+      - Government and opposition amendments
+      - Areas of cross-party agreement/disagreement
+      - Technical improvements and clarifications
+      Note that this stage shapes the bill's final form.`,
+
+    'Delegated Legislation Committee': `
+      This is a Delegated Legislation Committee.
+      Focus on:
+      - The specific statutory instrument under scrutiny
+      - Implementation concerns raised by MPs
+      - Cost and impact assessments discussed
+      - Consultation responses referenced
+      Note that while committees cannot amend SIs, their scrutiny can influence future regulations.`,
 
     'Opposition Day': `
-      This is an Opposition Day debate where the opposition sets the agenda.
-      Focus on the opposition's main criticisms of government policy and their alternative proposals.
-      Highlight the key points of disagreement between government and opposition.
-      Note any concessions or defences made by the government.`,
+      This is an Opposition Day debate.
+      Focus on:
+      - The specific motion proposed by the Opposition
+      - Key criticisms of government policy
+      - Alternative proposals presented
+      - Government defense and any concessions
+      - Voting patterns, especially of government backbenchers
+      Note these debates' role in holding government to account.`,
 
-    'Debated Motion': `
-      This is a debate on a specific parliamentary motion.
-      Focus on the practical implications of the motion if passed.
-      Highlight the key arguments for and against the motion.
-      Note any cross-party support or opposition and the likely outcome.`
+    'Urgent Question': `
+      This is an Urgent Question (UQ) granted by the Speaker.
+      Focus on:
+      - The specific issue requiring immediate ministerial response
+      - New information revealed in minister's response
+      - Follow-up questions from MPs
+      - Any commitments made by the minister
+      Note UQs' role in immediate parliamentary scrutiny of emerging issues.`,
+
+    'Statement': `
+      This is a Ministerial Statement.
+      Focus on:
+      - New policy announcements or changes
+      - Opposition front bench response
+      - Backbench concerns raised
+      - Specific commitments or clarifications made
+      Note any departure from previously stated government position.`
   };
 
   return prompts[debateType] || `
-    This is a general parliamentary debate.
-    Focus on the key points of discussion and any decisions made.
-    Highlight the practical implications for the public.`;
+    This is a House of Commons proceeding.
+    Focus on:
+    - The specific parliamentary procedure being used
+    - Key points of debate or discussion
+    - Ministerial responses or commitments
+    - Cross-party positions
+    - Practical implications for policy or legislation`;
 }
 
-async function generateQuestions(text) {
+async function generateQuestions(text, typeSpecificPrompt) {
+  
   return await openai.beta.chat.completions.parse({
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: `You are an expert in UK parliamentary procedure and survey design. 
-      Provide up to 3 yes/no questions to gauge reader perspectives on key issues from this debate. 
-      Each question should be thought-provoking and identify a topic British people are likely to disagree on.`
+      content: `You are an expert in survey design for the British public.
+      
+${typeSpecificPrompt}
+
+Generate 3 yes/no questions about this debate. For each question provide:
+1. A clear yes/no question that:
+   - Is thought-provoking, provocative, and highlights political differences in British politics
+   - Reflects this type of parliamentary proceeding
+   - Focuses on significant policy implications
+   - Uses clear, accessible language
+   - Avoids leading or biased language
+2. The main topic category it falls under
+
+Format your response as exactly 3 questions, each with:
+- text: The yes/no question
+- topic: The main topic category`
     }, {
       role: "user",
       content: text
@@ -565,32 +584,20 @@ function formatQuestionFields(questions) {
 }
 
 // Add new helper function to handle translations
-function handleBritishTranslation(text, options) {
+function handleBritishTranslation(text) {
   try {
-    const analysis = translator.translate(text, options);
-    let translatedText = text;
+    if (!text) return text;
     
-    if (analysis && analysis['1']) {
-      logger.debug('Translation analysis found changes', {
-        originalText: text.substring(0, 50),
-        changeCount: analysis['1'].length
-      });
-
-      analysis['1'].forEach(item => {
-        const americanWord = Object.keys(item)[0];
-        const details = item[americanWord];
-
-        switch (details.issue) {
-          case 'American English Spelling':
-            const britishSpelling = details.details;
-            translatedText = translatedText.replace(
-              new RegExp(`\\b${americanWord}\\b`, 'gi'), 
-              britishSpelling
-            );
-            break;
-        }
-      });
+    let translatedText = text;
+    for (const [american, british] of Object.entries(us2gbTranslations)) {
+      const regex = new RegExp(`\\b${american}\\b`, 'gi');
+      translatedText = translatedText.replace(regex, british);
     }
+
+    logger.debug('Translation completed', {
+      originalText: text.substring(0, 50),
+      hasChanges: text !== translatedText
+    });
 
     return translatedText;
   } catch (error) {

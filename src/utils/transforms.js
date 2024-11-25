@@ -82,6 +82,7 @@ function getDebateType(overview) {
     .replace(/Hdg/, '')
     .replace(/^(?:2c|2|3c|6b|8|3)/, '')
     .replace(/WestHallDebate/, 'Westminster Hall')
+    .replace(/Department/, 'Department Questions')
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
     .replace(/Bill Title/, 'Bill Procedure')

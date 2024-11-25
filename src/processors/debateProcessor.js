@@ -121,15 +121,13 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           // Generate AI content if enabled
           let aiContent = {};
           if (config.ENABLE_AI_PROCESSING) {
-            console.log(`processing AI content for debate ${debate.ExternalId}`);
+            console.log(`processing AI content for debate ${debate.Title}, ${debate.ExternalId}`);
             try {
               aiContent = await processAIContent(debateDetails, memberDetails, divisions, debateType);
-              logger.debug(`Generated AI content for debate ${debate.ExternalId}`, {
-                contentKeys: Object.keys(aiContent)
-              });
             } catch (error) {
               logger.error('Failed to generate AI content:', {
                 debateId: debate.ExternalId,
+                debateTitle: debate.Title,
                 error: error.message,
                 stack: error.stack,
                 cause: error.cause
@@ -141,10 +139,11 @@ export async function processDebates(specificDate = null, specificDebateId = nul
               console.log(`divisions.length: ${divisions.length}`);
               try {
                 await processDivisions(debate, aiContent);
-                logger.debug(`Updated divisions with AI content for debate ${debate.ExternalId}`);
+                logger.debug(`Updated divisions with AI content for debate ${debate.Title}`);
               } catch (error) {
                 logger.error('Failed to update divisions with AI content:', {
                   debateId: debate.ExternalId,
+                  debateTitle: debate.Title,
                   error: error.message,
                   stack: error.stack,
                   cause: error.cause
