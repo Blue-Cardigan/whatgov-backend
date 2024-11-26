@@ -2,7 +2,7 @@ import { openai } from '../services/openai.js';
 import { z } from 'zod';
 import { zodResponseFormat } from 'openai/helpers/zod';
 import logger from '../utils/logger.js';
-import us2gbTranslations from './us2gbbig.json';
+import us2gbTranslations from './us2gbbig.json' assert { type: 'json' };
 
 // Define schemas for each type of response
 const SummarySchema = z.object({
@@ -358,7 +358,7 @@ async function generateSummary(text, typeSpecificPrompt) {
       content: `You are an expert in UK parliamentary procedure and debate analysis.
       ${typeSpecificPrompt}
       Provide a snappy title and 3 sentence analysis, in the style of a Financial Times article. 
-      Highlight points of greatest significance to the public. 
+      Highlight points of greatest significance. 
       Provide only analysis on the content; the reader already knows the general context.`
     }, {
       role: "user",
