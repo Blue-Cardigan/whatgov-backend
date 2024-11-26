@@ -491,6 +491,7 @@ ${typeSpecificPrompt}
 Generate 3 yes/no questions about this debate. For each question provide:
 1. A clear yes/no question that:
    - Is thought-provoking, provocative, and highlights political differences in British politics
+   - Can be answered by a layman with no specialist knowledge of this topic
    - Reflects this type of parliamentary proceeding
    - Focuses on significant policy implications
    - Uses clear, accessible language
