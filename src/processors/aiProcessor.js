@@ -120,6 +120,7 @@ async function generateCommentThread(text, debateId) {
       - Identify support and opposition to each point and provide up/downvotes accordingly
       - Preserve the speaker's full first and last name
       - Preserve the full first and last name of supporters and opponents
+      - Ensure every speaker is mentioned at least once
       - Include relevant hashtag-style tags if relevant to the comment
       - Balance entertaining social media-style language with complete information`
     }, {
@@ -545,8 +546,8 @@ async function extractKeyPoints(text) {
       content: `You are an expert UK parliamentary analyst. 
       Identify the key points from this debate and the speakers who made them. 
       Phrase the points as though they were made by the speaker themselves.
-
-      Identify other speakers who supported or opposed each point.`
+      Identify other speakers who supported or opposed each point.
+      Ensure every speaker is mentioned at least once.`
     }, {
       role: "user",
       content: text
