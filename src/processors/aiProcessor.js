@@ -355,11 +355,11 @@ async function generateSummary(text, typeSpecificPrompt) {
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: `You are an expert in UK parliamentary procedure and translating parliamentary language into concise media-friendly analysis.
+      content: `You are an expert in UK parliamentary procedure and debate analysis.
       ${typeSpecificPrompt}
       Provide a snappy title and 3 sentence analysis, in the style of a Financial Times article. 
       Highlight points of greatest significance to the public. 
-      Begin your analysis without any introductory text; the reader already knows the title and location.`
+      Provide only analysis on the content; the reader already knows the general context.`
     }, {
       role: "user",
       content: text
