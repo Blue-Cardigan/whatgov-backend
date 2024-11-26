@@ -308,7 +308,7 @@ function processDebateItems(items, memberDetails) {
   items.forEach(item => {
     const cleanText = cleanHtmlTags(item.Value);
     const speaker = item.MemberId ? 
-      `${item.AttributedTo} ${(memberDetails.get(item.MemberId)?.Party) || ''}` : 
+      `${(memberDetails.get(item.MemberId)?.DisplayAs) || ''}, ${(memberDetails.get(item.MemberId)?.Party) || ''}, ${item.AttributedTo.split('Member of Parliament for')[1]?.split('(')[0].trim()}` : 
       item.AttributedTo;
     
     if (!currentGroup || currentGroup.speaker !== speaker) {
@@ -632,6 +632,15 @@ async function generateDivisionQuestions(debate, divisions, memberDetails) {
     const prompt = `
 You are an expert UK parliamentary analyst. Analyze these divisions that occurred during the debate.
 
+For each division above, provide:
+1. The division_id as shown
+2. A clear yes/no question (max 20 words) that MPs were voting on
+3. The main topic category it falls under
+4. A two-sentence explanation of the significance and context of the division
+5. Key arguments for and against
+
+Ensure each response includes the correct division_id to match with the original division.
+
 Debate Title: ${debate.Overview.Title}
 Debate Context:
 ${debateText}
@@ -640,19 +649,8 @@ Divisions:
 ${divisions.map(div => `
 Division ${div.division_number || div.Id}:
 - Division ID: ${div.Id || div.division_id}
-- Text before vote: "${div.text_before_vote}"
-- Text after vote: "${div.text_after_vote}"
 - Result: Ayes: ${div.ayes_count}, Noes: ${div.noes_count}
-`).join('\n')}
-
-For each division above, provide:
-1. The division_id as shown
-2. A clear yes/no question (max 20 words) that MPs were voting on
-3. The main topic category it falls under
-4. A two-sentence explanation of the significance and context of the division
-5. Key arguments for and against
-
-Ensure each response includes the correct division_id to match with the original division.`;
+`).join('\n')}`;
 
     const response = await openai.beta.chat.completions.parse({
       model: "gpt-4o",
