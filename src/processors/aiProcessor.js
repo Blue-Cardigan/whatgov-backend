@@ -2,7 +2,18 @@ import { openai } from '../services/openai.js';
 import { z } from 'zod';
 import { zodResponseFormat } from 'openai/helpers/zod';
 import logger from '../utils/logger.js';
-import us2gbTranslations from './us2gbbig.json' assert { type: 'json' };
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+// Get current file's directory
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+// Load translations
+const us2gbTranslations = JSON.parse(
+  readFileSync(join(__dirname, './us2gbbig.json'), 'utf8')
+);
 
 // Define schemas for each type of response
 const SummarySchema = z.object({
@@ -180,6 +191,15 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         })
       ]);
 
+      // Add null checks before processing
+      if (!questions?.question) {
+        logger.warn('Questions response is missing or malformed', {
+          debateId: debate.Overview?.Id,
+          questions
+        });
+        questions = { question: { text: '', topic: 'Parliamentary Affairs and Governance' } };
+      }
+
       // Handle potential refusals
       if (summary.refusal || questions.refusal || topics.refusal || keyPoints.refusal) {
         logger.warn('AI refused to process some content', {
@@ -209,12 +229,12 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         ].join('\n')
       };
 
-      const translatedQuestions = {
-        questions: questions.questions.map(q => ({
-          ...q,
-          text: handleBritishTranslation(q.text),
-          topic: handleBritishTranslation(q.topic)
-        }))
+      const translatedQuestion = {
+        question: {
+          ...questions.question,
+          text: handleBritishTranslation(questions.question.text),
+          topic: handleBritishTranslation(questions.question.topic)
+        }
       };
 
       const translatedKeyPoints = {
@@ -236,7 +256,7 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
       });
 
       // Format questions into individual fields
-      const questionFields = formatQuestionFields(translatedQuestions.questions);
+      const questionFields = formatQuestionFields(questions.question);
 
       const result = {
         title: translatedSummary.title,
@@ -356,15 +376,97 @@ function formatDebateContext(overview, processedItems) {
 }
 
 async function generateSummary(text, typeSpecificPrompt) {
+  const summaryPrompts = {
+    'Main': `Analyze this main Chamber debate.
+Focus on policy implications, cross-party positions, and ministerial commitments.
+Highlight any significant shifts in government position or cross-party consensus.`,
+
+    'Debated Bill': `Analyze this bill debate.
+Focus on key legislative changes, contentious provisions, and likely impact.
+Highlight significant amendments and level of cross-party support.`,
+
+    'Debated Motion': `Analyze this motion debate.
+Focus on the specific proposal, voting implications, and party positions.
+Highlight whether the motion is binding and its practical consequences.`,
+
+    'Westminster Hall': `Analyze this Westminster Hall debate.
+Focus on constituency impacts, ministerial responses, and backbench concerns.
+Highlight any commitments or promised actions from ministers.`,
+
+    'Prime Minister\'s Questions': `Analyze this PMQs session.
+Focus on key exchanges, significant announcements, and political dynamics.
+Highlight any shifts in government position or notable backbench interventions.`,
+
+    'Department Questions': `Analyze this departmental questions session.
+Focus on policy announcements, ministerial commitments, and emerging issues.
+Highlight any significant revelations or changes in departmental position.`,
+
+    'Delegated Legislation': `Analyze this delegated legislation debate.
+Focus on statutory instrument details, implementation concerns, and scrutiny points.
+Highlight any technical issues or practical implementation challenges raised.`,
+
+    'General Committees': `Analyze this general committee session.
+Focus on detailed scrutiny, expert evidence, and proposed improvements.
+Highlight key areas of concern and cross-party agreement/disagreement.`,
+
+    'Urgent Question': `Analyze this urgent question session.
+Focus on the immediate issue, ministerial response, and follow-up scrutiny.
+Highlight new information revealed and any commitments made.`,
+
+    'Petition': `Analyze this petition debate.
+Focus on public concerns raised, government response, and proposed actions.
+Highlight level of parliamentary support and likely outcomes.`,
+
+    'Department': `Analyze this departmental session.
+Focus on policy implementation, ministerial accountability, and specific commitments.
+Highlight any changes in departmental position or new initiatives.`,
+
+    'Business Without Debate': `Analyze this procedural business.
+Focus on technical changes, administrative matters, and procedural implications.
+Highlight any significant changes to parliamentary operations.`,
+
+    'Opposition Day': `Analyze this Opposition Day debate.
+Focus on opposition critique, government defense, and alternative proposals.
+Highlight voting patterns and any concessions made.`,
+
+    'Statement': `Analyze this ministerial statement.
+Focus on policy announcements, immediate reactions, and implementation plans.
+Highlight any shifts from previous positions or new commitments.`,
+
+    'Question': `Analyze this parliamentary question session.
+Focus on specific issues raised, quality of answers, and follow-up scrutiny.
+Highlight any new information or commitments obtained.`,
+
+    'Bill Procedure': `Analyze this bill procedure debate.
+Focus on legislative process, technical amendments, and procedural implications.
+Highlight any changes to the bill's progression or handling.`,
+
+    'Public Bill Committees': `Analyze this bill committee session.
+Focus on detailed scrutiny, evidence consideration, and proposed amendments.
+Highlight areas of consensus and remaining contentious issues.`,
+
+    'Lords Chamber': `Analyze this Lords Chamber debate.
+Focus on expert scrutiny, constitutional implications, and legislative improvements.
+Highlight cross-party concerns and government responses.`
+  };
+
+  // Catchall prompt for any unrecognized types
+  const defaultPrompt = `Analyze this parliamentary proceeding.
+Focus on key policy points, cross-party positions, and practical implications.
+Highlight significant outcomes and any ministerial commitments made.`;
+
   return await openai.beta.chat.completions.parse({
     model: "gpt-4o",
     messages: [{
       role: "system",
       content: `You are an expert in UK parliamentary procedure and debate analysis.
-      ${typeSpecificPrompt}
-      Provide a snappy title and 3 sentence analysis, in the style of a Financial Times article. 
-      Highlight points of greatest significance. 
-      Provide only analysis on the content; the reader already knows the general context.`
+${summaryPrompts[typeSpecificPrompt] || defaultPrompt}
+Provide:
+- A snappy, newspaper-style title (max 10 words)
+- Three concise, analytical sentences in Financial Times style
+- Tone assessment based on debate dynamics
+
+Remember: Focus on analysis - readers know the context.`
     }, {
       role: "user",
       content: text
@@ -470,7 +572,37 @@ function getTypeSpecificPrompt(debateType, location) {
       - Opposition front bench response
       - Backbench concerns raised
       - Specific commitments or clarifications made
-      Note any departure from previously stated government position.`
+      Note any departure from previously stated government position.`,
+
+    'Main': `
+      This is a main Chamber debate.
+      Focus on:
+      - The core policy or legislative issue under discussion
+      - Key arguments from both government and opposition
+      - Cross-party consensus or areas of disagreement
+      - Specific amendments or changes proposed
+      - Ministerial responses and commitments made
+      Note the significance of main Chamber debates in shaping government policy.`,
+
+    'Debated Bill': `
+      This is a bill debate in the main Chamber.
+      Focus on:
+      - The key provisions and changes proposed in the bill
+      - Major points of contention between parties
+      - Specific amendments being discussed
+      - Government's response to concerns raised
+      - Cross-party support or opposition
+      Note that these debates shape the final form of legislation.`,
+
+    'Debated Motion': `
+      This is a motion debate in the main Chamber.
+      Focus on:
+      - The specific proposal or position being debated
+      - Arguments for and against the motion
+      - Any amendments tabled
+      - Government's stance and response
+      - Likely practical implications if passed
+      Note that while some motions are binding, others are expressions of House opinion.`
   };
 
   return prompts[debateType] || `
@@ -484,15 +616,49 @@ function getTypeSpecificPrompt(debateType, location) {
 }
 
 async function generateQuestions(text, typeSpecificPrompt) {
+  // Only generate questions for specific debate types
+  const allowedTypes = [
+    'Main',
+    'Debated Bill',
+    'Debated Motion',
+    'Westminster Hall',
+    'Statement'
+  ];
+
+  // If not an allowed type, return default empty question
+  if (!allowedTypes.includes(typeSpecificPrompt)) {
+    logger.debug('Skipping question generation for debate type:', typeSpecificPrompt);
+    return {
+      choices: [{
+        message: {
+          parsed: {
+            question: {
+              text: '',
+              topic: 'Parliamentary Affairs and Governance'
+            }
+          }
+        }
+      }]
+    };
+  }
+
+  const questionPrompts = {
+    'Main': `Generate a question about the core policy implications or cross-party positions discussed.`,
+    'Debated Bill': `Generate a question about the key legislative changes or their practical impact.`,
+    'Debated Motion': `Generate a question about the motion's specific proposal or its consequences.`,
+    'Westminster Hall': `Generate a question about the constituency impacts or ministerial commitments made.`,
+    'Statement': `Generate a question about the policy announcement or government position.`
+  };
+
   return await openai.beta.chat.completions.parse({
     model: "gpt-4o",
     messages: [{
       role: "system",
       content: `You are an expert in survey design for the British public.
       
-${typeSpecificPrompt}
+${questionPrompts[typeSpecificPrompt]}
 
-Generate 1 key yes/no question about this debate that:
+Generate a yes/no question about this debate that:
 - Is thought-provoking, provocative, and highlights political differences in British politics
 - Can be answered by a layman with no specialist knowledge of this topic
 - Reflects this type of parliamentary proceeding
@@ -574,9 +740,19 @@ async function extractKeyPoints(text) {
 // Helper function to format questions (moved from inline)
 function formatQuestionFields(question) {
   try {
+    if (!question) {
+      logger.warn('Question object is undefined');
+      return {
+        ai_question: '',
+        ai_question_topic: 'Parliamentary Affairs and Governance',
+        ai_question_ayes: 0,
+        ai_question_noes: 0
+      };
+    }
+    
     return {
-      ai_question: question.text,
-      ai_question_topic: question.topic,
+      ai_question: question.text || '',
+      ai_question_topic: question.topic || 'Parliamentary Affairs and Governance',
       ai_question_ayes: 0,
       ai_question_noes: 0
     };

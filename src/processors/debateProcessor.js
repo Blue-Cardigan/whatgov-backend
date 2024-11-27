@@ -103,6 +103,7 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           
           // Get debate type early
           const debateType = getDebateType(debateDetails.Overview);
+          console.log(debateDetails.Overview);
           
           // Validate content
           const valid = validateDebateContent(debateDetails);
@@ -121,13 +122,13 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           // Generate AI content if enabled
           let aiContent = {};
           if (config.ENABLE_AI_PROCESSING) {
-            console.log(`processing AI content for debate ${debate.Title}, ${debate.ExternalId}`);
+            console.log(`processing AI content for debate ${debateDetails.Overview.Title}, ${debate.ExternalId}`);
             try {
               aiContent = await processAIContent(debateDetails, memberDetails, divisions, debateType);
             } catch (error) {
               logger.error('Failed to generate AI content:', {
                 debateId: debate.ExternalId,
-                debateTitle: debate.Title,
+                debateTitle: debateDetails.Overview.Title,
                 error: error.message,
                 stack: error.stack,
                 cause: error.cause
@@ -139,11 +140,11 @@ export async function processDebates(specificDate = null, specificDebateId = nul
               console.log(`divisions.length: ${divisions.length}`);
               try {
                 await processDivisions(debate, aiContent);
-                logger.debug(`Updated divisions with AI content for debate ${debate.Title}`);
+                logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
               } catch (error) {
                 logger.error('Failed to update divisions with AI content:', {
                   debateId: debate.ExternalId,
-                  debateTitle: debate.Title,
+                  debateTitle: debateDetails.Overview.Title,
                   error: error.message,
                   stack: error.stack,
                   cause: error.cause
