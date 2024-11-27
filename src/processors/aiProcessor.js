@@ -462,7 +462,7 @@ Highlight significant outcomes and any ministerial commitments made.`;
       content: `You are an expert in UK parliamentary procedure and debate analysis.
 ${summaryPrompts[typeSpecificPrompt] || defaultPrompt}
 Provide:
-- A snappy, newspaper-style title (max 10 words)
+- A snappy, newspaper-style, politically neutral title (max 10 words)
 - Three concise, analytical sentences in Financial Times style
 - Tone assessment based on debate dynamics
 
@@ -668,7 +668,7 @@ Generate a yes/no question about this debate that:
 - Avoids leading or biased language
 
 Good phrasing examples:
-- "Should outdated environmental policies be revisited in legislation?"
+- "Should the UK update its environmental laws to address climate change?"
 - "Should obligations to the International Criminal Court be prioritised over diplomatic relations with Israel?"
 - "Should defence spending be increased to strengthen the UK's relationship with the US?"
 
