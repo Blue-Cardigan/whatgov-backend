@@ -660,11 +660,22 @@ ${questionPrompts[typeSpecificPrompt]}
 
 Generate a yes/no question about this debate that:
 - Is thought-provoking, provocative, and highlights political differences in British politics
-- Can be answered by a layman with no specialist knowledge of this topic
+- Is accessible to a person with no specialist knowledge of this topic
+- Is phrased concisely
 - Reflects this type of parliamentary proceeding
 - Focuses on the most significant policy implication
 - Uses clear, accessible language
 - Avoids leading or biased language
+
+Good phrasing examples:
+- "Should outdated environmental policies be revisited in legislation?"
+- "Should obligations to the International Criminal Court be prioritised over diplomatic relations with Israel?"
+- "Should defence spending be increased to strengthen the UK's relationship with the US?"
+
+Bad phrasing examples:
+- "Should the government prioritise revisiting technical amendments in legislation to address outdated environmental policies?"
+- "Should the UK Government prioritise its international obligations to the International Criminal Court over diplomatic relations with countries like Israel?"
+- "Do you believe that the UK should increase its defence spending to strengthen its relationship with the US?"
 
 Format your response as a single question with:
 - text: The yes/no question
