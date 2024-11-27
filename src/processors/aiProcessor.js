@@ -29,7 +29,7 @@ const QuestionSchema = z.object({
 });
 
 const QuestionsSchema = z.object({
-  questions: z.array(QuestionSchema)
+  question: QuestionSchema
 });
 
 const TopicSchema = z.object({
@@ -308,8 +308,13 @@ function processDebateItems(items, memberDetails) {
 
   items.forEach(item => {
     const cleanText = cleanHtmlTags(item.Value);
+    const memberInfo = memberDetails.get(item.MemberId);
+    const party = memberInfo?.Party ? `(${memberInfo.Party})` : '';
+    const constituency = item.AttributedTo.split('Member of Parliament for')[1]?.split('(')[0].trim();
+    
+    // Format speaker with clear party affiliation
     const speaker = item.MemberId ? 
-      `${(memberDetails.get(item.MemberId)?.DisplayAs) || ''}, ${(memberDetails.get(item.MemberId)?.Party) || ''}, ${item.AttributedTo.split('Member of Parliament for')[1]?.split('(')[0].trim()}` : 
+      `${memberInfo?.DisplayAs || ''} ${party}${constituency ? `, ${constituency}` : ''}` : 
       item.AttributedTo;
     
     if (!currentGroup || currentGroup.speaker !== speaker) {
@@ -479,7 +484,6 @@ function getTypeSpecificPrompt(debateType, location) {
 }
 
 async function generateQuestions(text, typeSpecificPrompt) {
-  
   return await openai.beta.chat.completions.parse({
     model: "gpt-4o",
     messages: [{
@@ -488,17 +492,15 @@ async function generateQuestions(text, typeSpecificPrompt) {
       
 ${typeSpecificPrompt}
 
-Generate 3 yes/no questions about this debate. For each question provide:
-1. A clear yes/no question that:
-   - Is thought-provoking, provocative, and highlights political differences in British politics
-   - Can be answered by a layman with no specialist knowledge of this topic
-   - Reflects this type of parliamentary proceeding
-   - Focuses on significant policy implications
-   - Uses clear, accessible language
-   - Avoids leading or biased language
-2. The main topic category it falls under
+Generate 1 key yes/no question about this debate that:
+- Is thought-provoking, provocative, and highlights political differences in British politics
+- Can be answered by a layman with no specialist knowledge of this topic
+- Reflects this type of parliamentary proceeding
+- Focuses on the most significant policy implication
+- Uses clear, accessible language
+- Avoids leading or biased language
 
-Format your response as exactly 3 questions, each with:
+Format your response as a single question with:
 - text: The yes/no question
 - topic: The main topic category`
     }, {
@@ -545,10 +547,22 @@ async function extractKeyPoints(text) {
     messages: [{
       role: "system",
       content: `You are an expert UK parliamentary analyst. 
-      Identify the key points from this debate and the speakers who made them. 
-      Phrase the points as though they were made by the speaker themselves.
-      Identify other speakers who supported or opposed each point.
-      Ensure every speaker is mentioned at least once.`
+      Identify the key points from this debate and the speakers who made them.
+      
+      For each key point:
+      - Phrase the points as though they were made by the speaker themselves
+      - Include the speaker's party affiliation when mentioned in the text
+      - Group support/opposition by party where possible
+      - Consider party dynamics when identifying agreements and disagreements
+      - Ensure every speaker is mentioned at least once
+      - Pay special attention to cross-party agreements and intra-party disagreements
+      - Note if the speaker is from the Government or Opposition front bench
+      
+      When identifying support and opposition:
+      - Consider both explicit and implicit support/opposition
+      - Note if support/opposition follows party lines
+      - Highlight any unexpected cross-party alliances
+      - Include both backbench and frontbench positions`
     }, {
       role: "user",
       content: text
@@ -558,28 +572,18 @@ async function extractKeyPoints(text) {
 }
 
 // Helper function to format questions (moved from inline)
-function formatQuestionFields(questions) {
+function formatQuestionFields(question) {
   try {
-    const questionFields = {};
-    questions.forEach((q, index) => {
-      const num = index + 1;
-      questionFields[`ai_question_${num}`] = q.text;
-      questionFields[`ai_question_${num}_topic`] = q.topic;
-      questionFields[`ai_question_${num}_ayes`] = 0;
-      questionFields[`ai_question_${num}_noes`] = 0;
-    });
-
-    logger.debug('Formatted question fields', {
-      questionCount: questions.length,
-      fieldCount: Object.keys(questionFields).length
-    });
-
-    return questionFields;
+    return {
+      ai_question: question.text,
+      ai_question_topic: question.topic,
+      ai_question_ayes: 0,
+      ai_question_noes: 0
+    };
   } catch (error) {
     logger.error('Failed to format question fields', {
       error: error.message,
-      stack: error.stack,
-      questionCount: questions?.length
+      stack: error.stack
     });
     throw error;
   }

@@ -190,20 +190,10 @@ export function transformDebate(debateDetails) {
         .trim(),
       
       // Individual question fields
-      ai_question_1: debateDetails.ai_question_1 || '',
-      ai_question_1_topic: debateDetails.ai_question_1_topic || '',
-      ai_question_1_ayes: 0,
-      ai_question_1_noes: 0,
-      
-      ai_question_2: debateDetails.ai_question_2 || '',
-      ai_question_2_topic: debateDetails.ai_question_2_topic || '',
-      ai_question_2_ayes: 0,
-      ai_question_2_noes: 0,
-      
-      ai_question_3: debateDetails.ai_question_3 || '',
-      ai_question_3_topic: debateDetails.ai_question_3_topic || '',
-      ai_question_3_ayes: 0,
-      ai_question_3_noes: 0,
+      ai_question: debateDetails.ai_question || '',
+      ai_question_topic: debateDetails.ai_question_topic || '',
+      ai_question_ayes: 0,
+      ai_question_noes: 0,
     };
   } catch (error) {
     console.error('Transform debate error:', {
