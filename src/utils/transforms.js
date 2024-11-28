@@ -111,7 +111,7 @@ function getDebateType(overview) {
   return type;
 }
 
-export function transformDebate(debateDetails) {
+export function transformDebate(debateDetails, memberDetails = new Map()) {
   try {
     const { Navigator = [], Overview = {}, Items = [] } = debateDetails;
     const parent = Navigator[Navigator.length - 2] || {};
@@ -144,11 +144,19 @@ export function transformDebate(debateDetails) {
     // Replace type determination with new helper function
     const type = getDebateType(Overview);
 
-    // Add speakers array extraction
+    // Enhanced speakers array extraction with full details
     const speakers = Items
       .filter(item => item?.ItemType === 'Contribution' && item?.MemberId)
-      .map(item => item?.MemberName || '')
-      .filter((name, index, self) => name && self.indexOf(name) === index); // Get unique non-empty names
+      .map(item => ({
+        member_id: item.MemberId,
+        display_as: item.MemberName || '',
+        party: memberDetails.get(item.MemberId)?.Party || ''
+      }))
+      // Filter unique speakers by member_id
+      .filter((speaker, index, self) => 
+        speaker.member_id && 
+        index === self.findIndex(s => s.member_id === speaker.member_id)
+      );
 
     return {
       ext_id: Overview.ExtId,
@@ -164,12 +172,11 @@ export function transformDebate(debateDetails) {
       ai_summary: debateDetails.summary || '',
       ai_tone: (debateDetails.tone || 'neutral').toLowerCase(),
       ai_topics: Array.isArray(debateDetails.topics) ? debateDetails.topics : [],
-      ai_tags: Array.isArray(debateDetails.tags) ? debateDetails.tags : [],
       ai_key_points: Array.isArray(debateDetails.keyPoints) ? debateDetails.keyPoints : [],
       ai_comment_thread: debateDetails.comment_thread || {},
       
       speaker_count: speakers.length,
-      speakers: speakers,
+      speakers: speakers, // Now contains array of objects with member_id, display_as, and party
       contribution_count: (Items || []).filter(item => item?.ItemType === 'Contribution').length,
       party_count: debateDetails.partyCount || {},
       interest_score: scoreData.score,
@@ -196,11 +203,7 @@ export function transformDebate(debateDetails) {
       ai_question_noes: 0,
     };
   } catch (error) {
-    console.error('Transform debate error:', {
-      error: error.message,
-      overview: debateDetails?.Overview,
-      items: debateDetails?.Items?.length
-    });
+    console.error('Transform debate error:', error);
     throw error;
   }
 }

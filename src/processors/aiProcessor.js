@@ -174,7 +174,7 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         generateSummary(debateText, typeSpecificPrompt).then(res => {
           return res.choices[0].message.parsed;
         }),
-        generateQuestions(debateText, typeSpecificPrompt).then(res => {
+        generateQuestions(debateText, typeSpecificPrompt, debateType).then(res => {
           return res.choices[0].message.parsed;
         }),
         extractTopics(debateText).then(res => {
@@ -270,9 +270,6 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
           speakers: t.speakers
         })),
         keyPoints: translatedKeyPoints.keyPoints,
-        tags: translatedTopics.topics.flatMap(t => 
-          t.subtopics.map(st => handleBritishTranslation(st))
-        ),
         division_questions: divisionQuestions.map(q => ({
           division_id: q.division_id,
           question: handleBritishTranslation(q.question),
@@ -330,12 +327,16 @@ function processDebateItems(items, memberDetails) {
     const cleanText = cleanHtmlTags(item.Value);
     const memberInfo = memberDetails.get(item.MemberId);
     const party = memberInfo?.Party ? `(${memberInfo.Party})` : '';
-    const constituency = item.AttributedTo.split('Member of Parliament for')[1]?.split('(')[0].trim();
     
-    // Format speaker with clear party affiliation
-    const speaker = item.MemberId ? 
-      `${memberInfo?.DisplayAs || ''} ${party}${constituency ? `, ${constituency}` : ''}` : 
-      item.AttributedTo;
+    // Add null check and fallback for AttributedTo
+    const constituency = item.AttributedTo 
+      ? item.AttributedTo.split('Member of Parliament for')[1]?.split('(')[0]?.trim() 
+      : '';
+    
+    // Format speaker with clear party affiliation and handle null AttributedTo
+    const speaker = item.MemberId 
+      ? `${memberInfo?.DisplayAs || ''} ${party}${constituency ? `, ${constituency}` : ''}` 
+      : (item.AttributedTo || '');
     
     if (!currentGroup || currentGroup.speaker !== speaker) {
       if (currentGroup) {
@@ -615,7 +616,7 @@ function getTypeSpecificPrompt(debateType, location) {
     - Practical implications for policy or legislation`;
 }
 
-async function generateQuestions(text, typeSpecificPrompt) {
+async function generateQuestions(text, typeSpecificPrompt, type) {
   // Only generate questions for specific debate types
   const allowedTypes = [
     'Main',
@@ -626,7 +627,7 @@ async function generateQuestions(text, typeSpecificPrompt) {
   ];
 
   // If not an allowed type, return default empty question
-  if (!allowedTypes.includes(typeSpecificPrompt)) {
+  if (!allowedTypes.includes(type)) {
     logger.debug('Skipping question generation for debate type:', typeSpecificPrompt);
     return {
       choices: [{
@@ -689,27 +690,80 @@ Format your response as a single question with:
 }
 
 async function extractTopics(text) {
+  const topicDefinitions = {
+    'Environment and Natural Resources': [
+      'Climate Change and Emissions Policy',
+      'Environmental Protection and Conservation',
+      'Energy Policy and Renewable Resources',
+      'Agriculture and Land Management',
+      'Waste Management and Recycling'
+    ],
+    'Healthcare and Social Welfare': [
+      'National Health Service (NHS)',
+      'Social Care and Support Services',
+      'Mental Health Services',
+      'Public Health Policy',
+      'Disability and Accessibility'
+    ],
+    'Economy, Business, and Infrastructure': [
+      'Fiscal Policy and Public Spending',
+      'Trade and Industry',
+      'Transport and Infrastructure Development',
+      'Employment and Labour Markets',
+      'Regional Development'
+    ],
+    'Science, Technology, and Innovation': [
+      'Research and Development Policy',
+      'Digital Infrastructure and Cybersecurity',
+      'Data Protection and Privacy',
+      'Space and Defense Technology'
+    ],
+    'Legal Affairs and Public Safety': [
+      'Criminal Justice System',
+      'National Security',
+      'Police and Emergency Services',
+      'Civil Rights and Liberties',
+      'Immigration and Border Control'
+    ],
+    'International Relations and Diplomacy': [
+      'Foreign Policy and Treaties',
+      'International Development',
+      'Defense and Military Cooperation',
+      'Trade Agreements',
+      'International Organizations'
+    ],
+    'Parliamentary Affairs and Governance': [
+      'Constitutional Matters',
+      'Electoral Reform',
+      'Devolution and Local Government',
+      'Parliamentary Standards',
+      'Legislative Process'
+    ],
+    'Education, Culture, and Society': [
+      'Primary and Secondary Education',
+      'Higher Education and Skills',
+      'Arts and Heritage',
+      'Media and Broadcasting',
+      'Sports and Recreation'
+    ]
+  };
+
   return await openai.beta.chat.completions.parse({
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: `You are an expert UK parliamentary analyst. Categorize the debate content into the following main topics only:
+      content: `You are an expert UK parliamentary analyst. Categorize the debate content into these main topics and their defined subtopics:
 
-- Environment and Natural Resources
-- Healthcare and Social Welfare
-- Economy, Business, and Infrastructure
-- Science, Technology, and Innovation
-- Legal Affairs and Public Safety
-- International Relations and Diplomacy
-- Parliamentary Affairs and Governance
-- Education, Culture, and Society
+${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
+  `${topic}:\n${subtopics.map(st => `- ${st}`).join('\n')}`
+).join('\n\n')}
 
 For each identified topic:
-1. Include frequency of discussion
+1. Include frequency of discussion (as a number 1-100)
 2. List the speakers who discussed it
-3. Identify distinct subtopics within each main topic. Ensure these do not overlap, and are not subsets of each other.
-
-Select only the most relevant main topics - not all topics need to be used.`
+3. Only select subtopics from the predefined list that were actually discussed
+4. Select only the most relevant main topics - not all topics need to be used
+5. Ensure subtopics are selected from the predefined list only`
     }, {
       role: "user",
       content: text
@@ -755,7 +809,7 @@ function formatQuestionFields(question) {
       logger.warn('Question object is undefined');
       return {
         ai_question: '',
-        ai_question_topic: 'Parliamentary Affairs and Governance',
+        ai_question_topic: '',
         ai_question_ayes: 0,
         ai_question_noes: 0
       };
@@ -763,7 +817,7 @@ function formatQuestionFields(question) {
     
     return {
       ai_question: question.text || '',
-      ai_question_topic: question.topic || 'Parliamentary Affairs and Governance',
+      ai_question_topic: question.topic || '',
       ai_question_ayes: 0,
       ai_question_noes: 0
     };

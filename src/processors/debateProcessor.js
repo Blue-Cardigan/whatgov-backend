@@ -103,7 +103,6 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           
           // Get debate type early
           const debateType = getDebateType(debateDetails.Overview);
-          console.log(debateDetails.Overview);
           
           // Validate content
           const valid = validateDebateContent(debateDetails);
@@ -160,8 +159,8 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           const finalDebate = transformDebate({
             ...debateDetails, 
             ...stats, 
-            ...aiContent
-          });
+            ...aiContent,
+          }, memberDetails);
           
           // Store in Supabase
           await SupabaseService.upsertDebate(finalDebate);
