@@ -188,11 +188,16 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
       ]);
 
       // Remove null check since generateQuestions now always returns valid object
-      const translatedQuestion = {
+      const translatedQuestion = questions?.question ? {
         question: {
           ...questions.question,
-          text: handleBritishTranslation(questions.question.text),
-          topic: handleBritishTranslation(questions.question.topic)
+          text: handleBritishTranslation(questions.question.text) || '',
+          topic: handleBritishTranslation(questions.question.topic) || 'Parliamentary Affairs and Governance'
+        }
+      } : {
+        question: {
+          text: '',
+          topic: ''
         }
       };
 
@@ -246,7 +251,7 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
       const result = {
         title: translatedSummary.title,
         summary: translatedSummary.summary,
-        tone: translatedSummary.tone.toLowerCase(),
+        tone: (translatedSummary.tone || 'neutral').toLowerCase(),
         ai_question: translatedQuestion.question.text,
         ai_question_topic: translatedQuestion.question.topic,
         ai_question_ayes: 0,
@@ -444,24 +449,66 @@ Highlight cross-party concerns and government responses.`
 Focus on key policy points, cross-party positions, and practical implications.
 Highlight significant outcomes and any ministerial commitments made.`;
 
-  return await openai.beta.chat.completions.parse({
-    model: "gpt-4o",
-    messages: [{
-      role: "system",
-      content: `You are an expert in UK parliamentary procedure and debate analysis.
+  try {
+    const response = await openai.beta.chat.completions.parse({
+      model: "gpt-4o",
+      messages: [{
+        role: "system",
+        content: `You are an expert in UK parliamentary procedure and debate analysis.
 ${summaryPrompts[typeSpecificPrompt] || defaultPrompt}
 Provide:
 - A snappy, newspaper-style, politically neutral title (max 10 words)
 - Three concise, analytical sentences in Financial Times style
-- Tone assessment based on debate dynamics
+- Tone assessment (must be one of: neutral, contentious, collaborative)
 
-Remember: Focus on analysis - readers know the context.`
-    }, {
-      role: "user",
-      content: text
-    }],
-    response_format: zodResponseFormat(SummarySchema, 'summary')
-  });
+Remember: Focus on analysis - readers know the context.
+Always include a tone assessment based on:
+- neutral: balanced discussion, general agreement
+- contentious: strong disagreement, heated exchanges
+- collaborative: cross-party cooperation, constructive debate`
+      }, {
+        role: "user",
+        content: text
+      }],
+      response_format: zodResponseFormat(SummarySchema, 'summary')
+    });
+
+    // Validate and normalize tone
+    const validTones = ['neutral', 'contentious', 'collaborative'];
+    let normalizedTone = response?.tone?.toLowerCase() || 'neutral';
+    
+    if (!validTones.includes(normalizedTone)) {
+      logger.warn('Invalid tone received, defaulting to neutral', {
+        receivedTone: normalizedTone,
+        title: response?.title
+      });
+      normalizedTone = 'neutral';
+    }
+
+    return {
+      title: response?.title || 'Summary Unavailable',
+      sentence1: response?.sentence1 || 'Unable to generate summary.',
+      sentence2: response?.sentence2 || 'Please refer to original debate text.',
+      sentence3: response?.sentence3 || 'Technical error occurred during processing.',
+      tone: normalizedTone,
+      wordCount: response?.wordCount || 0
+    };
+
+  } catch (error) {
+    logger.error('Failed to generate summary:', {
+      error: error.message,
+      stack: error.stack
+    });
+    // Return a safe fallback object
+    return {
+      title: 'Summary Unavailable',
+      sentence1: 'Unable to generate summary.',
+      sentence2: 'Please refer to original debate text.',
+      sentence3: 'Technical error occurred during processing.',
+      tone: 'neutral',
+      wordCount: 0
+    };
+  }
 }
 
 function getTypeSpecificPrompt(debateType, location) {
@@ -605,40 +652,41 @@ function getTypeSpecificPrompt(debateType, location) {
 }
 
 async function generateQuestions(text, typeSpecificPrompt, type) {
-  // Only generate questions for specific debate types
-  const allowedTypes = [
-    'Main',
-    'Debated Bill',
-    'Debated Motion',
-    'Westminster Hall',
-    'Statement'
-  ];
+  try {
+    // Only generate questions for specific debate types
+    const allowedTypes = [
+      'Main',
+      'Debated Bill',
+      'Debated Motion',
+      'Westminster Hall',
+      'Statement'
+    ];
 
-  // If not an allowed type, return simplified empty response
-  if (!allowedTypes.includes(type)) {
-    logger.debug('Skipping question generation for debate type:', typeSpecificPrompt);
-    return {
-      question: {
-        text: '',
-        topic: ''
-      }
+    // If not an allowed type, return default response
+    if (!allowedTypes.includes(type)) {
+      logger.debug('Skipping question generation for debate type:', typeSpecificPrompt);
+      return {
+        question: {
+          text: '',
+          topic: 'Parliamentary Affairs and Governance'
+        }
+      };
+    }
+
+    const questionPrompts = {
+      'Main': `Generate a question about the core policy implications or cross-party positions discussed.`,
+      'Debated Bill': `Generate a question about the key legislative changes or their practical impact.`,
+      'Debated Motion': `Generate a question about the motion's specific proposal or its consequences.`,
+      'Westminster Hall': `Generate a question about the constituency impacts or ministerial commitments made.`,
+      'Statement': `Generate a question about the policy announcement or government position.`
     };
-  }
 
-  const questionPrompts = {
-    'Main': `Generate a question about the core policy implications or cross-party positions discussed.`,
-    'Debated Bill': `Generate a question about the key legislative changes or their practical impact.`,
-    'Debated Motion': `Generate a question about the motion's specific proposal or its consequences.`,
-    'Westminster Hall': `Generate a question about the constituency impacts or ministerial commitments made.`,
-    'Statement': `Generate a question about the policy announcement or government position.`
-  };
-
-  return await openai.beta.chat.completions.parse({
-    model: "gpt-4o",
-    messages: [{
-      role: "system",
-      content: `You are an expert in survey design for the British public.
-      
+    const response = await openai.beta.chat.completions.parse({
+      model: "gpt-4o",
+      messages: [{
+        role: "system",
+        content: `You are an expert in survey design for the British public.
+        
 ${questionPrompts[typeSpecificPrompt]}
 
 Generate a yes/no question about this debate that:
@@ -663,12 +711,46 @@ Bad phrasing examples:
 Format your response as a single question with:
 - text: The yes/no question
 - topic: The main topic category`
-    }, {
-      role: "user",
-      content: text
-    }],
-    response_format: zodResponseFormat(QuestionsSchema, 'questions')
-  });
+      }, {
+        role: "user",
+        content: text
+      }],
+      response_format: zodResponseFormat(QuestionsSchema, 'questions')
+    });
+
+    // Extract the parsed question from the OpenAI response
+    const parsedQuestion = response?.choices?.[0]?.message?.parsed;
+
+    // Validate the parsed question
+    if (!parsedQuestion?.question?.text || !parsedQuestion?.question?.topic) {
+      logger.warn('Invalid question structure in response', {
+        type,
+        parsedQuestion
+      });
+      return {
+        question: {
+          text: '',
+          topic: ''
+        }
+      };
+    }
+
+    // Return the valid question
+    return parsedQuestion;
+
+  } catch (error) {
+    logger.error('Failed to generate question:', {
+      error: error.message,
+      stack: error.stack,
+      type
+    });
+    return {
+      question: {
+        text: '',
+        topic: ''
+      }
+    };
+  }
 }
 
 async function extractTopics(text) {
