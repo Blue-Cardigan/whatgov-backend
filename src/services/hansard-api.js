@@ -3,11 +3,23 @@ import logger from '../utils/logger.js';
 const HANSARD_API_BASE = 'https://hansard-api.parliament.uk';
 
 export class HansardAPI {
-  static async fetchWithErrorHandling(url) {
+  static async fetchWithErrorHandling(url, retryCount = 0) {
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 1000; // 1 second
+
     try {
+      // Add delay before each request
+      await new Promise(resolve => setTimeout(resolve, 500));
+      
       const response = await fetch(url);
       
       if (!response.ok) {
+        if (response.status === 429 || response.status === 400) {
+          if (retryCount < MAX_RETRIES) {
+            await new Promise(resolve => setTimeout(resolve, RETRY_DELAY * (retryCount + 1)));
+            return this.fetchWithErrorHandling(url, retryCount + 1);
+          }
+        }
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       
@@ -16,7 +28,8 @@ export class HansardAPI {
       logger.error('API fetch error:', {
         error: error.message,
         stack: error.stack,
-        url
+        url,
+        retryCount
       });
       throw error;
     }
@@ -167,11 +180,9 @@ export class HansardAPI {
 
             if (item.ExternalId) {
               try {
-                const [debateData, speakersData] = await Promise.all([
-                  this.fetchDebate(item.ExternalId),
-                  this.fetchSpeakers(item.ExternalId)
-                ]);
-
+                const debateData = await this.fetchDebate(item.ExternalId);
+                const speakersData = await this.fetchSpeakers(item.ExternalId);
+                
                 debates.push({
                   ...item,
                   parentTitle,
@@ -181,14 +192,12 @@ export class HansardAPI {
                   debate: debateData,
                   speakers: speakersData
                 });
-
+                
                 logger.debug('Processed debate:', { 
                   externalId: item.ExternalId, 
                   title: item.Title,
                   section 
                 });
-
-                await new Promise(resolve => setTimeout(resolve, 500));
               } catch (error) {
                 logger.error('Failed to fetch debate details:', {
                   error: error.message,
