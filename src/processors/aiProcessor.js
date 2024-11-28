@@ -171,12 +171,8 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
     try {
       // Generate all AI responses concurrently
       const [summary, questions, topics, keyPoints, divisionQuestions, commentThread] = await Promise.all([
-        generateSummary(debateText, typeSpecificPrompt).then(res => {
-          return res.choices[0].message.parsed;
-        }),
-        generateQuestions(debateText, typeSpecificPrompt, debateType).then(res => {
-          return res.choices[0].message.parsed;
-        }),
+        generateSummary(debateText, typeSpecificPrompt),
+        generateQuestions(debateText, typeSpecificPrompt, debateType),
         extractTopics(debateText).then(res => {
           return res.choices[0].message.parsed;
         }),
@@ -191,14 +187,14 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         })
       ]);
 
-      // Add null checks before processing
-      if (!questions?.question) {
-        logger.warn('Questions response is missing or malformed', {
-          debateId: debate.Overview?.Id,
-          questions
-        });
-        questions = { question: { text: '', topic: 'Parliamentary Affairs and Governance' } };
-      }
+      // Remove null check since generateQuestions now always returns valid object
+      const translatedQuestion = {
+        question: {
+          ...questions.question,
+          text: handleBritishTranslation(questions.question.text),
+          topic: handleBritishTranslation(questions.question.topic)
+        }
+      };
 
       // Handle potential refusals
       if (summary.refusal || questions.refusal || topics.refusal || keyPoints.refusal) {
@@ -229,14 +225,6 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         ].join('\n')
       };
 
-      const translatedQuestion = {
-        question: {
-          ...questions.question,
-          text: handleBritishTranslation(questions.question.text),
-          topic: handleBritishTranslation(questions.question.topic)
-        }
-      };
-
       const translatedKeyPoints = {
         keyPoints: keyPoints.keyPoints.map(kp => ({
           ...kp,
@@ -255,14 +243,14 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         debateId: debate.Overview?.Id
       });
 
-      // Format questions into individual fields
-      const questionFields = formatQuestionFields(questions.question);
-
       const result = {
         title: translatedSummary.title,
         summary: translatedSummary.summary,
         tone: translatedSummary.tone.toLowerCase(),
-        ...questionFields,
+        ai_question: translatedQuestion.question.text,
+        ai_question_topic: translatedQuestion.question.topic,
+        ai_question_ayes: 0,
+        ai_question_noes: 0,
         topics: translatedTopics.topics.map(t => ({
           name: t.name,
           subtopics: t.subtopics.map(st => handleBritishTranslation(st)),
@@ -626,20 +614,14 @@ async function generateQuestions(text, typeSpecificPrompt, type) {
     'Statement'
   ];
 
-  // If not an allowed type, return default empty question
+  // If not an allowed type, return simplified empty response
   if (!allowedTypes.includes(type)) {
     logger.debug('Skipping question generation for debate type:', typeSpecificPrompt);
     return {
-      choices: [{
-        message: {
-          parsed: {
-            question: {
-              text: '',
-              topic: 'Parliamentary Affairs and Governance'
-            }
-          }
-        }
-      }]
+      question: {
+        text: '',
+        topic: ''
+      }
     };
   }
 
@@ -800,34 +782,6 @@ async function extractKeyPoints(text) {
     }],
     response_format: zodResponseFormat(KeyPointSchema, 'keyPoints')
   });
-}
-
-// Helper function to format questions (moved from inline)
-function formatQuestionFields(question) {
-  try {
-    if (!question) {
-      logger.warn('Question object is undefined');
-      return {
-        ai_question: '',
-        ai_question_topic: '',
-        ai_question_ayes: 0,
-        ai_question_noes: 0
-      };
-    }
-    
-    return {
-      ai_question: question.text || '',
-      ai_question_topic: question.topic || '',
-      ai_question_ayes: 0,
-      ai_question_noes: 0
-    };
-  } catch (error) {
-    logger.error('Failed to format question fields', {
-      error: error.message,
-      stack: error.stack
-    });
-    throw error;
-  }
 }
 
 // Add new helper function to handle translations
