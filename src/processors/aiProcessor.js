@@ -55,9 +55,12 @@ const TopicSchema = z.object({
       'Parliamentary Affairs and Governance',
       'Education, Culture, and Society'
     ]),
-    subtopics: z.array(z.string()),
     frequency: z.number(),
-    speakers: z.array(z.string())
+    speakers: z.array(z.object({
+      name: z.string(),
+      subtopics: z.array(z.string()),
+      frequency: z.number()
+    }))
   }))
 });
 
@@ -128,7 +131,7 @@ async function generateCommentThread(text, debateId) {
       Convert this debate into a threaded comment structure where:
       - Each major point becomes a top-level comment (use index numbers starting from 1)
       - Responses and counterpoints become replies (use parent's index followed by reply number)
-      - Identify support and opposition to each point and provide up/downvotes accordingly
+      - Identify speakers who support and oppose each point and provide up/downvotes accordingly
       - Preserve the speaker's full first and last name
       - Preserve the full first and last name of supporters and opponents
       - Ensure every speaker is mentioned at least once
@@ -258,9 +261,12 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
         ai_question_noes: 0,
         topics: translatedTopics.topics.map(t => ({
           name: t.name,
-          subtopics: t.subtopics.map(st => handleBritishTranslation(st)),
           frequency: t.frequency,
-          speakers: t.speakers
+          speakers: t.speakers.map(s => ({
+            name: s.name,
+            subtopics: s.subtopics,
+            frequency: s.frequency
+          }))
         })),
         keyPoints: translatedKeyPoints.keyPoints,
         division_questions: divisionQuestions.map(q => ({
@@ -486,12 +492,12 @@ Always include a tone assessment based on:
     }
 
     return {
-      title: response?.title || 'Summary Unavailable',
-      sentence1: response?.sentence1 || 'Unable to generate summary.',
-      sentence2: response?.sentence2 || 'Please refer to original debate text.',
-      sentence3: response?.sentence3 || 'Technical error occurred during processing.',
+      title: response?.choices[0].message.parsed.title || 'Summary Unavailable',
+      sentence1: response?.choices[0].message.parsed.sentence1 || 'Unable to generate summary.',
+      sentence2: response?.choices[0].message.parsed.sentence2 || 'Please refer to original debate text.',
+      sentence3: response?.choices[0].message.parsed.sentence3 || 'Technical error occurred during processing.',
       tone: normalizedTone,
-      wordCount: response?.wordCount || 0
+      wordCount: response?.choices[0].message.parsed.wordCount || 0
     };
 
   } catch (error) {
@@ -816,18 +822,20 @@ async function extractTopics(text) {
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: `You are an expert UK parliamentary analyst. Categorize the debate content into these main topics and their defined subtopics:
+      content: `You are an expert UK parliamentary analyst. Analyze each speaker's contributions and categorize them into main topics and subtopics:
 
 ${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
   `${topic}:\n${subtopics.map(st => `- ${st}`).join('\n')}`
 ).join('\n\n')}
 
 For each identified topic:
-1. Include frequency of discussion (as a number 1-100)
-2. List the speakers who discussed it
+1. Include frequency of discussion for each speaker (as a number 1-100)
+2. List the speakers who discussed it, with their individual:
+   - Subtopics from the predefined list
+   - Frequency of discussion for each subtopic (1-100)
 3. Only select subtopics from the predefined list that were actually discussed
 4. Select only the most relevant main topics - not all topics need to be used
-5. Ensure subtopics are selected from the predefined list only`
+5. Ensure accurate speaker attribution and party affiliation when mentioned`
     }, {
       role: "user",
       content: text
@@ -846,8 +854,7 @@ async function extractKeyPoints(text) {
       
       For each key point:
       - Phrase the points as though they were made by the speaker themselves
-      - Include the speaker's party affiliation when mentioned in the text
-      - Group support/opposition by party where possible
+      - Identify speakers who support and oppose each point
       - Consider party dynamics when identifying agreements and disagreements
       - Ensure every speaker is mentioned at least once
       - Pay special attention to cross-party agreements and intra-party disagreements
