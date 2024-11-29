@@ -658,6 +658,7 @@ function getTypeSpecificPrompt(debateType, location) {
 }
 
 async function generateQuestions(text, typeSpecificPrompt, type) {
+  console.log('generateQuestions', type, typeSpecificPrompt.slice(0, 15));
   try {
     // Only generate questions for specific debate types
     const allowedTypes = [
@@ -822,11 +823,7 @@ async function extractTopics(text) {
     model: "gpt-4o",
     messages: [{
       role: "system",
-      content: `You are an expert UK parliamentary analyst. Analyze each speaker's contributions and categorize them into main topics and subtopics:
-
-${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
-  `${topic}:\n${subtopics.map(st => `- ${st}`).join('\n')}`
-).join('\n\n')}
+      content: `You are an expert UK parliamentary analyst. Analyze each speaker's contributions and categorize them into main topics and subtopics.
 
 For each identified topic:
 1. Include frequency of discussion for each speaker (as a number 1-100)
@@ -835,7 +832,12 @@ For each identified topic:
    - Frequency of discussion for each subtopic (1-100)
 3. Only select subtopics from the predefined list that were actually discussed
 4. Select only the most relevant main topics - not all topics need to be used
-5. Ensure accurate speaker attribution and party affiliation when mentioned`
+5. Ensure accurate speaker attribution and party affiliation when mentioned
+
+${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
+  `${topic}:\n${subtopics.map(st => `- ${st}`).join('\n')}`
+).join('\n\n')}
+`
     }, {
       role: "user",
       content: text

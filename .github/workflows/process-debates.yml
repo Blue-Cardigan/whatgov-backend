@@ -2,12 +2,15 @@ name: Process Hansard Debates
 
 on:
   schedule:
-    - cron: '*/30 12-23,0-1 * * 1-5'  # Run every 30 minutes between 1200-0200 on weekdays
-  workflow_dispatch:        # Allow manual triggers
+    - cron: '*/30 12-23,0-1 * * 1-5'  # Default schedule
+    - cron: '*/15 * * * 1-5'           # More frequent schedule (will be conditionally used)
+  workflow_dispatch:
 
 jobs:
   process:
     runs-on: ubuntu-latest
+    outputs:
+      found_debates: ${{ steps.process_debates.outputs.found_debates }}
     
     steps:
       - uses: actions/checkout@v3
@@ -21,8 +24,9 @@ jobs:
         run: npm ci
         
       - name: Process debates
+        id: process_debates
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: node src/index.js 
+        run: node src/index.js

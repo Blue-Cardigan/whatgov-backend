@@ -62,7 +62,7 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           status: error.status,
           response: error.response
         });
-        return;
+        return false;
       }
     } else {
       // Get latest debates from Hansard
@@ -71,7 +71,7 @@ export async function processDebates(specificDate = null, specificDebateId = nul
     
     if (!debatesToProcess?.length) {
       logger.warn('No debates found to process');
-      return;
+      return false;
     }
 
     const results = {
@@ -191,6 +191,8 @@ export async function processDebates(specificDate = null, specificDebateId = nul
       skipped: results.skipped,
       total: debatesToProcess.length
     });
+
+    return true;
 
   } catch (error) {
     logger.error('Failed to process debates:', {
