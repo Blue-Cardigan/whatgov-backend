@@ -149,10 +149,9 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       .filter(item => item?.ItemType === 'Contribution' && item?.MemberId)
       .map(item => ({
         member_id: item.MemberId,
-        display_as: item.MemberName || '',
+        display_as: memberDetails.get(item.MemberId)?.DisplayAs || item.MemberName || '',
         party: memberDetails.get(item.MemberId)?.Party || ''
       }))
-      // Filter unique speakers by member_id
       .filter((speaker, index, self) => 
         speaker.member_id && 
         index === self.findIndex(s => s.member_id === speaker.member_id)
@@ -168,12 +167,25 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       house: Overview.House || '',
       location: Overview.Location || '',
 
-      ai_title: debateDetails.title || '',
-      ai_summary: debateDetails.summary || '',
-      ai_tone: (debateDetails.tone || 'neutral').toLowerCase(),
-      ai_topics: Array.isArray(debateDetails.topics) ? debateDetails.topics : [],
-      ai_key_points: Array.isArray(debateDetails.keyPoints) ? debateDetails.keyPoints : [],
-      ai_comment_thread: debateDetails.comment_thread || {},
+      ai_title: debateDetails.summary?.title || '',
+      ai_summary: [
+        debateDetails.summary?.sentence1 || '',
+        debateDetails.summary?.sentence2 || '',
+        debateDetails.summary?.sentence3 || ''
+      ].join('\n'),
+      ai_tone: (debateDetails.summary?.tone || 'neutral').toLowerCase(),
+      
+      // Properly parse topics according to TopicSchema
+      ai_topics: debateDetails.topics || [],
+      
+      ai_key_points: debateDetails.keyPoints?.keyPoints?.map(point => ({
+        point: point.point,
+        speaker: point.speaker,
+        support: point.support || [],
+        opposition: point.opposition || []
+      })) || [],
+      
+      ai_comment_thread: debateDetails.commentThread?.comments || [],
       
       speaker_count: speakers.length,
       speakers: speakers, // Now contains array of objects with member_id, display_as, and party
@@ -197,8 +209,8 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
         .trim(),
       
       // Individual question fields
-      ai_question: debateDetails.ai_question || '',
-      ai_question_topic: debateDetails.ai_question_topic || '',
+      ai_question: debateDetails.questions?.question?.text || '',
+      ai_question_topic: debateDetails.questions?.question?.topic || '',
       ai_question_ayes: 0,
       ai_question_noes: 0,
     };

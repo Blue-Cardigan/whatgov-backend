@@ -36,7 +36,7 @@ export async function processDivisions(debate, aiContent = {}) {
           const divisionDetails = await HansardAPI.fetchDivisionDetails(division.ExternalId);
           
           // Find matching AI content for this division
-          const aiDivisionContent = aiContent.division_questions?.find(
+          const aiDivisionContent = aiContent.divisionQuestions?.find(
             q => q.division_id === division.Id
           ) || {};
           
@@ -65,7 +65,10 @@ export async function processDivisions(debate, aiContent = {}) {
             ai_question: aiDivisionContent.question || null,
             ai_topic: aiDivisionContent.topic || null,
             ai_context: aiDivisionContent.context || null,
-            ai_key_arguments: aiDivisionContent.key_arguments || null,
+            ai_key_arguments: {
+              for: aiDivisionContent.key_arguments?.for || null,
+              against: aiDivisionContent.key_arguments?.against || null
+            },
             // Store voting records
             aye_members: divisionDetails.AyeMembers.map(member => ({
               member_id: member.MemberId,

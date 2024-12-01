@@ -90,7 +90,7 @@ export async function processDebates(specificDate = null, specificDebateId = nul
 
     // Fetch all member details from Supabase in one go
     const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
-    console.log(`Members fetched: ${memberDetails.size}`);
+    console.log('found member details:', memberDetails.size);
 
     // Process debates in batches to avoid overwhelming APIs
     for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {
@@ -115,11 +115,18 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           // Process divisions first
           const divisions = await processDivisions(debate);
           logger.debug(`Processed divisions for debate ${debate.ExternalId}`, {
-            divisionCount: divisions?.length
+            divisionCount: divisions?.length,
+            debateId: debate.ExternalId,
+            debateTitle: debateDetails.Overview.Title
           });
           
+          if (divisions === null) {
+            logger.warn(`No divisions for debate ${debate.ExternalId}`);
+            // Don't return/skip here, continue processing the debate
+          }
+          
           // Generate AI content if enabled
-          let aiContent = {};
+          let aiContent = null;
           if (config.ENABLE_AI_PROCESSING) {
             console.log(`processing AI content for debate ${debateDetails.Overview.Title}, ${debate.ExternalId}`);
             try {
@@ -132,23 +139,36 @@ export async function processDebates(specificDate = null, specificDebateId = nul
                 stack: error.stack,
                 cause: error.cause
               });
+              // Skip this debate if AI content generation failed
+              results.skipped++;
+              return;
             }
-            
-            // Update divisions with AI content if they exist
-            if (divisions?.length) {
-              console.log(`divisions.length: ${divisions.length}`);
-              try {
-                await processDivisions(debate, aiContent);
-                logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
-              } catch (error) {
-                logger.error('Failed to update divisions with AI content:', {
-                  debateId: debate.ExternalId,
-                  debateTitle: debateDetails.Overview.Title,
-                  error: error.message,
-                  stack: error.stack,
-                  cause: error.cause
-                });
-              }
+          }
+          
+          // Skip if no AI content was generated
+          if (!aiContent) {
+            logger.debug(`Skipping debate ${debate.ExternalId} due to missing AI content`);
+            results.skipped++;
+            return;
+          }
+          
+          // Update divisions with AI content if they exist
+          if (divisions?.length) {
+            console.log(`divisions.length: ${divisions.length}`);
+            try {
+              await processDivisions(debate, aiContent);
+              logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
+            } catch (error) {
+              logger.error('Failed to update divisions with AI content:', {
+                debateId: debate.ExternalId,
+                debateTitle: debateDetails.Overview.Title,
+                error: error.message,
+                stack: error.stack,
+                cause: error.cause
+              });
+              // Skip this debate if division processing failed
+              results.skipped++;
+              return;
             }
           }
           

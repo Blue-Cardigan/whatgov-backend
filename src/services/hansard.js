@@ -6,24 +6,33 @@ export class HansardService {
   static async getLatestDebates(specificDate = null) {
     try {
       let dateToProcess;
+      let existingIds = [];
 
       if (specificDate) {
         dateToProcess = specificDate;
         logger.info(`Processing specific date: ${dateToProcess}`);
       } else {
         // First get latest processed date from Supabase
-        const lastProcessedDate = await SupabaseService.getLastProcessedDate();
-        
-        // Get latest sitting date
-        const latestDate = await HansardAPI.getLastSittingDate();
-        
-        // Only fetch debates if we have new content
-        if (lastProcessedDate && new Date(lastProcessedDate) >= new Date(latestDate)) {
-          logger.info('No new debates to process');
-          return [];
+        try {
+          const lastProcessedDate = await SupabaseService.getLastProcessedDate();
+          
+          // Get latest sitting date
+          const latestDate = await HansardAPI.getLastSittingDate();
+          
+          // Only fetch debates if we have new content
+          if (lastProcessedDate && new Date(lastProcessedDate) >= new Date(latestDate)) {
+            logger.info('No new debates to process');
+            return [];
+          }
+          
+          dateToProcess = latestDate;
+        } catch (error) {
+          logger.warn('Failed to get last processed date, continuing with current date:', {
+            error: error.message
+          });
+          // Fallback to current date if Supabase is unavailable
+          dateToProcess = new Date().toISOString().split('T')[0];
         }
-        
-        dateToProcess = latestDate;
       }
 
       // Get debates from both houses
@@ -35,9 +44,16 @@ export class HansardService {
       logger.info(`Fetched ${commonsDebates.length} Commons debates and ${lordsDebates.length} Lords debates for ${dateToProcess}`);
 
       // Pre-filter debates we already have in database
-      const existingIds = await SupabaseService.getDebateIds(
-        [...commonsDebates, ...lordsDebates].map(d => d.ExternalId)
-      );
+      try {
+        existingIds = await SupabaseService.getDebateIds(
+          [...commonsDebates, ...lordsDebates].map(d => d.ExternalId)
+        );
+      } catch (error) {
+        logger.warn('Failed to get existing debate IDs from Supabase, processing all debates:', {
+          error: error.message
+        });
+        // Continue without filtering if Supabase is unavailable
+      }
 
       const allDebates = [...commonsDebates, ...lordsDebates];
       logger.info(`Total debates before filtering: ${allDebates.length}`);
@@ -58,7 +74,7 @@ export class HansardService {
       const newDebates = allDebates.filter(debate => 
         debate?.ExternalId && 
         debate?.Title &&
-        !existingIds.includes(debate.ExternalId)
+        (!existingIds.length || !existingIds.includes(debate.ExternalId))
       );
 
       logger.info(`Debates after filtering: ${newDebates.length}`);
