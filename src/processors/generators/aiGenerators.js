@@ -237,10 +237,11 @@ For each identified topic:
 2. List the names of the speakers who discussed it, with their individual:
    - Subtopics from the predefined list
    - Frequency of discussion for each subtopic (1-100)
-3. Include only the name of the speaker, not their title
-4. Only select subtopics from the predefined list that were actually discussed
-5. Select only the most relevant main topics - not all topics need to be used
-6. Ensure accurate speaker attribution
+3. Include only the name of the speaker, not their party or title.
+4. Leave titles for Lords speakers e.g Baroness, Lord, etc.
+5. Only select subtopics from the predefined list that were actually discussed
+6. Select only the most relevant main topics - not all topics need to be used
+7. Ensure accurate speaker attribution
 
 Available topics and their required subtopics:
 ${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
