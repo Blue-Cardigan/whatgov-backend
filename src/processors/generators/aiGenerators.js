@@ -16,6 +16,50 @@ import {
 } from '../../schemas/debateSchemas.js';
 import { formatDebateContext, processDebateItems } from '../../utils/debateUtils.js';
 
+function cleanSpeakerName(speakerName) {
+  if (!speakerName) return '';
+  
+  // Handle multiple speakers
+  if (speakerName.includes(',')) {
+    return speakerName.split(',')
+      .map(name => cleanSpeakerName(name.trim()))
+      .filter(Boolean)
+      .join(', ');
+  }
+
+  // Remove common titles and prefixes
+  const titlesToRemove = [
+    'MP for', 'Member for', 'Member of Parliament for',
+    'Sir', 'Dame', 'Dr', 'Dr.', 'Mr', 'Mr.', 'Mrs', 'Mrs.', 'Ms', 'Ms.',
+    'Hon.', 'Right Hon.'
+  ];
+
+  // Remove party affiliations
+  const partyAffiliations = [
+    'Conservative', 'Labour', 'Liberal Democrat', 'SNP', 
+    'Democratic Unionist Party', 'Green Party', 'Sinn Féin'
+  ];
+
+  let cleanedName = speakerName;
+
+  // Remove titles
+  titlesToRemove.forEach(title => {
+    const regex = new RegExp(`^${title}\\s+`, 'i');
+    cleanedName = cleanedName.replace(regex, '');
+  });
+
+  // Remove party affiliations
+  partyAffiliations.forEach(party => {
+    const regex = new RegExp(`\\s*${party}\\s*$`, 'i');
+    cleanedName = cleanedName.replace(regex, '');
+  });
+
+  // Clean up any remaining whitespace
+  cleanedName = cleanedName.trim();
+
+  return cleanedName || speakerName; // Return original if cleaned version is empty
+}
+
 export async function generateSummary(text, typeSpecificPrompt) {
   const defaultPrompt = `Analyze this parliamentary proceeding.
 Focus on key policy points, cross-party positions, and practical implications.
@@ -190,13 +234,15 @@ export async function extractTopics(text) {
 
 For each identified topic:
 1. Include frequency of discussion for each speaker (as a number 1-100)
-2. List the speakers who discussed it, with their individual:
+2. List the names of the speakers who discussed it, with their individual:
    - Subtopics from the predefined list
    - Frequency of discussion for each subtopic (1-100)
-3. Only select subtopics from the predefined list that were actually discussed
-4. Select only the most relevant main topics - not all topics need to be used
-5. Ensure accurate speaker attribution
+3. Include only the name of the speaker, not their title
+4. Only select subtopics from the predefined list that were actually discussed
+5. Select only the most relevant main topics - not all topics need to be used
+6. Ensure accurate speaker attribution
 
+Available topics and their required subtopics:
 ${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
   `${topic}:\n${subtopics.map(st => `- ${st}`).join('\n')}`
 ).join('\n\n')}
@@ -208,11 +254,12 @@ ${Object.entries(topicDefinitions).map(([topic, subtopics]) =>
       response_format: zodResponseFormat(TopicSchema, 'topics')
     });
 
-    // Extract the topics array from the response and validate it
+    // Post-process speaker names in topics
     const validatedTopics = response.choices[0].message.parsed.topics.map(topic => ({
       ...topic,
       speakers: topic.speakers.map(speaker => ({
         ...speaker,
+        name: cleanSpeakerName(speaker.name || speaker.speaker_name),
         subtopics: speaker.subtopics.filter(subtopic => 
           topicDefinitions[topic.name]?.includes(subtopic)
         )
@@ -261,6 +308,17 @@ export async function extractKeyPoints(text) {
       }],
       response_format: zodResponseFormat(KeyPointSchema, 'keyPoints')
     });
+
+    // Post-process speaker names in keyPoints
+    if (response?.choices?.[0]?.message?.parsed?.keyPoints) {
+      response.choices[0].message.parsed.keyPoints = 
+        response.choices[0].message.parsed.keyPoints.map(keyPoint => ({
+          ...keyPoint,
+          speaker: cleanSpeakerName(keyPoint.speaker),
+          support: keyPoint.support.map(cleanSpeakerName),
+          opposition: keyPoint.opposition.map(cleanSpeakerName)
+        }));
+    }
 
     // Handle potential undefined or invalid responses
     if (!response?.choices?.[0]?.message?.parsed?.keyPoints) {
