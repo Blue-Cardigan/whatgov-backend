@@ -195,7 +195,7 @@ For each identified topic:
    - Frequency of discussion for each subtopic (1-100)
 3. Only select subtopics from the predefined list that were actually discussed
 4. Select only the most relevant main topics - not all topics need to be used
-5. Ensure accurate speaker attribution and party affiliation when mentioned
+5. Ensure accurate speaker attribution
 
 ${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
   `${topic}:\n${subtopics.map(st => `- ${st}`).join('\n')}`

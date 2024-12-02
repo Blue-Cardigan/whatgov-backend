@@ -11,6 +11,7 @@ export const config = {
   // API Keys
   SUPABASE_URL: process.env.SUPABASE_URL,
   SUPABASE_KEY: process.env.SUPABASE_KEY,
+  SERVICE_KEY: process.env.SERVICE_KEY,
   OPENAI_API_KEY: process.env.OPENAI_API_KEY,
   HANSARD_API_KEY: process.env.HANSARD_API_KEY,
 
