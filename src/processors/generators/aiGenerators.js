@@ -101,7 +101,18 @@ Generate a yes/no question about this debate that:
 
 You must return:
 - A question text string
-- A topic from the predefined list`
+- A topic from the predefined list
+- One or more subtopics that MUST be chosen from the predefined subtopics for that topic
+
+Available topics and their required subtopics:
+${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
+  `${topic}:\n${subtopics.map(st => `- ${st}`).join('\n')}`
+).join('\n\n')}
+
+Note: 
+- Select ONLY relevant subtopics that apply to the question
+- Each subtopic MUST be exactly as written in the list above for the chosen topic
+- Include at least one subtopic`
       }, {
         role: "user",
         content: text
@@ -111,15 +122,45 @@ You must return:
 
     // Handle potential undefined or invalid responses
     if (!response?.choices?.[0]?.message?.parsed?.question) {
+      logger.warn('No question generated, returning default empty response');
       return {
         question: {
           text: '',
-          topic: ''
+          topic: Object.keys(topicDefinitions)[0],
+          subtopics: [topicDefinitions[Object.keys(topicDefinitions)[0]][0]]
         }
       };
     }
 
-    return response.choices[0].message.parsed;
+    const question = response.choices[0].message.parsed.question;
+    
+    // Validate that the topic exists
+    if (!topicDefinitions[question.topic]) {
+      logger.warn('Invalid topic received, using first available topic', {
+        invalidTopic: question.topic
+      });
+      question.topic = Object.keys(topicDefinitions)[0];
+      question.subtopics = [topicDefinitions[question.topic][0]];
+      return { question };
+    }
+
+    // Validate subtopics and filter out invalid ones
+    const validSubtopics = question.subtopics.filter(subtopic => 
+      topicDefinitions[question.topic].includes(subtopic)
+    );
+
+    // If no valid subtopics remain, use the first available one
+    if (validSubtopics.length === 0) {
+      logger.warn('No valid subtopics found, using first available subtopic', {
+        topic: question.topic,
+        invalidSubtopics: question.subtopics,
+        availableSubtopics: topicDefinitions[question.topic]
+      });
+      validSubtopics.push(topicDefinitions[question.topic][0]);
+    }
+
+    question.subtopics = validSubtopics;
+    return { question };
 
   } catch (error) {
     logger.error('Failed to generate question:', {
@@ -127,10 +168,13 @@ You must return:
       stack: error.stack,
       type
     });
+    // Return first available topic and subtopic as fallback
+    const firstTopic = Object.keys(topicDefinitions)[0];
     return {
       question: {
         text: '',
-        topic: ''
+        topic: firstTopic,
+        subtopics: [topicDefinitions[firstTopic][0]]
       }
     };
   }
@@ -198,7 +242,7 @@ export async function extractKeyPoints(text) {
         For each key point:
         - Phrase it as though it was made by the speaker themselves
         - Include all specific details in clear, concise language
-        - Identify speakers who support and oppose each point
+        - Identify named speakers who support and oppose each point
         
         When identifying support and opposition:
         - Consider both explicit and implicit support/opposition
@@ -209,8 +253,8 @@ export async function extractKeyPoints(text) {
         You must return at least one key point with:
         - A point string
         - A speaker string
-        - Support array (can be empty)
-        - Opposition array (can be empty)`
+        - Support array with speakers' names (can be empty)
+        - Opposition array with speakers' names (can be empty)`
       }, {
         role: "user",
         content: text

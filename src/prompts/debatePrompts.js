@@ -90,62 +90,103 @@ export const questionPrompts = {
 };
 
 export const topicDefinitions = {
-  'Environment and Natural Resources': [
+    'Environment and Natural Resources': [
       'Climate Change and Emissions Policy',
       'Environmental Protection and Conservation',
       'Energy Policy and Renewable Resources',
       'Agriculture and Land Management',
-      'Waste Management and Recycling'
+      'Waste Management and Recycling',
+      'Marine and Coastal Protection',
+      'Air Quality and Pollution Control',
+      'Biodiversity and Wildlife Protection',
+      'Flood Management and Water Resources',
+      'Green Infrastructure and Urban Planning'
     ],
     'Healthcare and Social Welfare': [
       'National Health Service (NHS)',
       'Social Care and Support Services',
       'Mental Health Services',
       'Public Health Policy',
-      'Disability and Accessibility'
+      'Disability and Accessibility',
+      'Healthcare Workforce and Training',
+      'Pharmaceutical Policy and Drug Pricing',
+      'Child and Family Services',
+      'Elder Care Services',
+      'Health Insurance and Private Healthcare'
     ],
     'Economy, Business, and Infrastructure': [
       'Fiscal Policy and Public Spending',
       'Trade and Industry',
       'Transport and Infrastructure Development',
       'Employment and Labour Markets',
-      'Regional Development'
+      'Regional Development',
+      'Banking and Financial Services',
+      'Small Business Support',
+      'Competition Policy',
+      'Housing and Property Markets',
+      'Digital Economy and Innovation'
     ],
     'Science, Technology, and Innovation': [
       'Research and Development Policy',
       'Digital Infrastructure and Cybersecurity',
       'Data Protection and Privacy',
-      'Space and Defense Technology'
+      'Space and Defense Technology',
+      'Artificial Intelligence and Automation',
+      'Biotechnology and Life Sciences',
+      'Technology Education and Skills',
+      'Innovation Funding and Support',
+      'Scientific Research Ethics',
+      'Telecommunications Policy'
     ],
     'Legal Affairs and Public Safety': [
       'Criminal Justice System',
       'National Security',
       'Police and Emergency Services',
       'Civil Rights and Liberties',
-      'Immigration and Border Control'
+      'Immigration and Border Control',
+      'Court System and Legal Aid',
+      'Prison Reform and Rehabilitation',
+      'Anti-terrorism and Security Measures',
+      'Data Privacy and Surveillance',
+      'Consumer Protection Law'
     ],
     'International Relations and Diplomacy': [
       'Foreign Policy and Treaties',
       'International Development',
       'Defense and Military Cooperation',
       'Trade Agreements',
-      'International Organizations'
+      'International Organizations',
+      'Human Rights and Democracy Promotion',
+      'Diplomatic Relations',
+      'International Security Cooperation',
+      'Global Economic Relations',
+      'Cross-border Environmental Cooperation'
     ],
     'Parliamentary Affairs and Governance': [
       'Constitutional Matters',
       'Electoral Reform',
       'Devolution and Local Government',
       'Parliamentary Standards',
-      'Legislative Process'
+      'Legislative Process',
+      'Ministerial Accountability',
+      'Civil Service Reform',
+      'Public Consultation Processes',
+      'Parliamentary Committees',
+      'Inter-governmental Relations'
     ],
     'Education, Culture, and Society': [
       'Primary and Secondary Education',
       'Higher Education and Skills',
       'Arts and Heritage',
       'Media and Broadcasting',
-      'Sports and Recreation'
+      'Sports and Recreation',
+      'Religious Affairs and Faith Communities',
+      'Youth Services and Development',
+      'Adult Education and Lifelong Learning',
+      'Cultural Industries and Creative Sector',
+      'Community Cohesion and Integration'
     ]
-};
+  };
 
 export const locationPrompts = {
   'Lords Chamber': `

@@ -10,20 +10,6 @@ export const SummarySchema = z.object({
     wordCount: z.number()
   });
   
-export const QuestionSchema = z.object({
-    text: z.string(),
-    topic: z.enum([
-      'Environment and Natural Resources',
-      'Healthcare and Social Welfare',
-      'Economy, Business, and Infrastructure',
-      'Science, Technology, and Innovation',
-      'Legal Affairs and Public Safety',
-      'International Relations and Diplomacy',
-      'Parliamentary Affairs and Governance',
-      'Education, Culture, and Society'
-    ]),
-  });
-  
 export const QuestionsSchema = z.object({
     question: z.object({
       text: z.string(),
@@ -36,9 +22,10 @@ export const QuestionsSchema = z.object({
         'International Relations and Diplomacy',
         'Parliamentary Affairs and Governance',
         'Education, Culture, and Society'
-      ])
+      ]),
+      subtopics: z.array(z.string())
     })
-  });
+});
   
 export const TopicSchema = z.object({
   topics: z.array(

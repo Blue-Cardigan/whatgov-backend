@@ -211,6 +211,7 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       // Individual question fields
       ai_question: debateDetails.questions?.question?.text || '',
       ai_question_topic: debateDetails.questions?.question?.topic || '',
+      ai_question_subtopics: debateDetails.questions?.question?.subtopics || [],
       ai_question_ayes: 0,
       ai_question_noes: 0,
     };
