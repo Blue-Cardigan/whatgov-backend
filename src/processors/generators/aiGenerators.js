@@ -285,24 +285,28 @@ export async function extractKeyPoints(text) {
       messages: [{
         role: "system",
         content: `You are an expert UK parliamentary analyst. 
-        Identify the key points made by each speaker. Include at least one key point by every speaker.
+        Extract and clarify all substantive points made during the debate, maintaining the flow of discussion.
         
-        For each key point:
-        - Phrase it as though it was made by the speaker themselves
-        - Include all specific details in clear, concise language
-        - Identify named speakers who support and oppose each point
+        For each point:
+        - Preserve the original meaning but clarify any unclear language or references
+        - Keep the speaker's original intent and tone
+        - Include all specific details, facts, figures, and proposals
+        - Note any direct responses or rebuttals to previous points
+        - Identify any speakers who explicitly agree or disagree
         
-        When identifying support and opposition:
-        - Consider both explicit and implicit support/opposition
-        - Note if support/opposition follows party lines
-        - Highlight any unexpected cross-party alliances
-        - Include both backbench and frontbench positions
+        Guidelines:
+        - Include ALL substantive points, not just the key ones
+        - Maintain the chronological order of the debate
+        - Preserve technical details and specific policy proposals
+        - Note any procedural or parliamentary process points
+        - Include questions asked and answers given
         
-        You must return at least one key point with:
-        - A point string
-        - A speaker string
-        - Support array with speakers' names (can be empty)
-        - Opposition array with speakers' names (can be empty)`
+        You must return each point with:
+        - A point string (the clarified statement)
+        - A speaker string (the name of who made it)
+        - Support array (names of explicit supporters)
+        - Opposition array (names of explicit opponents)
+        - Context string (optional: references to previous points being addressed)`
       }, {
         role: "user",
         content: text
@@ -317,7 +321,8 @@ export async function extractKeyPoints(text) {
           ...keyPoint,
           speaker: cleanSpeakerName(keyPoint.speaker),
           support: keyPoint.support.map(cleanSpeakerName),
-          opposition: keyPoint.opposition.map(cleanSpeakerName)
+          opposition: keyPoint.opposition.map(cleanSpeakerName),
+          context: keyPoint.context || null // Add context field
         }));
     }
 
@@ -329,7 +334,7 @@ export async function extractKeyPoints(text) {
     return response.choices[0].message.parsed;
 
   } catch (error) {
-    logger.error('Failed to extract key points:', {
+    logger.error('Failed to extract points:', {
       error: error.message,
       stack: error.stack
     });

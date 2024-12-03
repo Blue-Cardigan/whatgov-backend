@@ -55,7 +55,8 @@ export const KeyPointSchema = z.object({
       point: z.string(),
       speaker: z.string(),
       support: z.array(z.string()),
-      opposition: z.array(z.string())
+      opposition: z.array(z.string()),
+      context: z.string().nullable()
     }))
   });
   

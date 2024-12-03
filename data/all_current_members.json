@@ -1,0 +1,5852 @@
+[
+  {
+    "memberId": 5142,
+    "name": "Abtisam Mohamed",
+    "constituency": "Sheffield Central",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5191,
+    "name": "Adam Dance",
+    "constituency": "Yeovil",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5168,
+    "name": "Adam Jogee",
+    "constituency": "Newcastle-under-Lyme",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5044,
+    "name": "Adam Thompson",
+    "constituency": "Erewash",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5320,
+    "name": "Adrian Ramsay",
+    "constituency": "Waveney Valley",
+    "party": "Green Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4671,
+    "name": "Afzal Khan",
+    "constituency": "Manchester Rusholme",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5235,
+    "name": "Al Carns",
+    "constituency": "Birmingham Selly Oak",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5185,
+    "name": "Alan Gemmell",
+    "constituency": "Central Ayrshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4484,
+    "name": "Alan Mak",
+    "constituency": "Havant",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5080,
+    "name": "Alan Strickland",
+    "constituency": "Newton Aycliffe and Spennymoor",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4439,
+    "name": "Alberto Costa",
+    "constituency": "South Leicestershire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5173,
+    "name": "Alex Baker",
+    "constituency": "Aldershot",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5238,
+    "name": "Alex Ballinger",
+    "constituency": "Halesowen",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5263,
+    "name": "Alex Brewer",
+    "constituency": "North East Hampshire",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4613,
+    "name": "Alex Burghart",
+    "constituency": "Brentwood and Ongar",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4849,
+    "name": "Alex Davies-Jones",
+    "constituency": "Pontypridd",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5262,
+    "name": "Alex Easton",
+    "constituency": "North Down",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5141,
+    "name": "Alex Mayer",
+    "constituency": "Dunstable and Leighton Buzzard",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5349,
+    "name": "Alex McIntyre",
+    "constituency": "Gloucester",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4641,
+    "name": "Alex Norris",
+    "constituency": "Nottingham North and Kimberley",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4658,
+    "name": "Alex Sobel",
+    "constituency": "Leeds Central and Headingley",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5133,
+    "name": "Alice Macdonald",
+    "constituency": "Norwich North",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4805,
+    "name": "Alicia Kearns",
+    "constituency": "Rutland and Stamford",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5283,
+    "name": "Alison Bennett",
+    "constituency": "Mid Sussex",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5203,
+    "name": "Alison Griffiths",
+    "constituency": "Bognor Regis and Littlehampton",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5254,
+    "name": "Alison Hume",
+    "constituency": "Scarborough and Whitby",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4083,
+    "name": "Alison McGovern",
+    "constituency": "Birkenhead",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5093,
+    "name": "Alison Taylor",
+    "constituency": "Paisley and Renfrewshire North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5000,
+    "name": "Alistair Strathern",
+    "constituency": "Hitchin",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2023-10-19T00:00:00"
+  },
+  {
+    "memberId": 5149,
+    "name": "Amanda Hack",
+    "constituency": "North West Leicestershire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5294,
+    "name": "Amanda Martin",
+    "constituency": "Portsmouth North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4601,
+    "name": "Andrew Bowie",
+    "constituency": "West Aberdeenshire and Kincardine",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5195,
+    "name": "Andrew Cooper",
+    "constituency": "Mid Cheshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 227,
+    "name": "Andrew George",
+    "constituency": "St Ives",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4874,
+    "name": "Andrew Griffith",
+    "constituency": "Arundel and South Downs",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 1506,
+    "name": "Andrew Gwynne",
+    "constituency": "Gorton and Denton",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5061,
+    "name": "Andrew Lewin",
+    "constituency": "Welwyn Hatfield",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5243,
+    "name": "Andrew Pakes",
+    "constituency": "Peterborough",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5046,
+    "name": "Andrew Ranger",
+    "constituency": "Wrexham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1447,
+    "name": "Andrew Rosindell",
+    "constituency": "Romford",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 4979,
+    "name": "Andrew Western",
+    "constituency": "Stretford and Urmston",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2022-12-15T00:00:00"
+  },
+  {
+    "memberId": 5134,
+    "name": "Andy MacNae",
+    "constituency": "Rossendale and Darwen",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4269,
+    "name": "Andy McDonald",
+    "constituency": "Middlesbrough and Thornaby East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2012-11-29T00:00:00"
+  },
+  {
+    "memberId": 1516,
+    "name": "Andy Slaughter",
+    "constituency": "Hammersmith and Chiswick",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 4356,
+    "name": "Angela Rayner",
+    "constituency": "Ashton-under-Lyne",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5177,
+    "name": "Ann Davies",
+    "constituency": "Caerfyrddin",
+    "party": "Plaid Cymru",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5281,
+    "name": "Anna Dixon",
+    "constituency": "Shipley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5353,
+    "name": "Anna Gelderd",
+    "constituency": "South East Cornwall",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4632,
+    "name": "Anna McMorrin",
+    "constituency": "Cardiff North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5286,
+    "name": "Anna Sabine",
+    "constituency": "Frome and East Somerset",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4449,
+    "name": "Anna Turley",
+    "constituency": "Redcar",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4657,
+    "name": "Anneliese Dodds",
+    "constituency": "Oxford East",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5038,
+    "name": "Anneliese Midgley",
+    "constituency": "Knowsley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5048,
+    "name": "Antonia Bance",
+    "constituency": "Tipton and Wednesbury",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5241,
+    "name": "Aphra Brandreth",
+    "constituency": "Chester South and Eddisbury",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4790,
+    "name": "Apsana Begum",
+    "constituency": "Poplar and Limehouse",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4981,
+    "name": "Ashley Dalton",
+    "constituency": "West Lancashire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2023-02-09T00:00:00"
+  },
+  {
+    "memberId": 5357,
+    "name": "Ayoub Khan",
+    "constituency": "Birmingham Perry Barr",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5176,
+    "name": "Baggy Shanker",
+    "constituency": "Derby South",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4610,
+    "name": "Bambos Charalambous",
+    "constituency": "Southgate and Wood Green",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 146,
+    "name": "Barry Gardiner",
+    "constituency": "Brent West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 5181,
+    "name": "Becky Gittins",
+    "constituency": "Clwyd East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4764,
+    "name": "Bell Ribeiro-Addy",
+    "constituency": "Clapham and Brixton Hill",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5344,
+    "name": "Ben Coleman",
+    "constituency": "Chelsea and Fulham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5205,
+    "name": "Ben Goldsborough",
+    "constituency": "South Norfolk",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4630,
+    "name": "Ben Lake",
+    "constituency": "Ceredigion Preseli",
+    "party": "Plaid Cymru",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5350,
+    "name": "Ben Maguire",
+    "constituency": "North Cornwall",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5089,
+    "name": "Ben Obese-Jecty",
+    "constituency": "Huntingdon",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4061,
+    "name": "Bill Esterson",
+    "constituency": "Sefton Central",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5076,
+    "name": "Blair McDougall",
+    "constituency": "East Renfrewshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5100,
+    "name": "Blake Stephenson",
+    "constituency": "Mid Bedfordshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4005,
+    "name": "Bob Blackman",
+    "constituency": "Harrow East",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5083,
+    "name": "Bobby Dean",
+    "constituency": "Carshalton and Wallington",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5186,
+    "name": "Bradley Thomas",
+    "constituency": "Bromsgrove",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4371,
+    "name": "Brendan O'Hara",
+    "constituency": "Argyll, Bute and South Lochaber",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5196,
+    "name": "Brian Leishman",
+    "constituency": "Alloa and Grangemouth",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5214,
+    "name": "Brian Mathew",
+    "constituency": "Melksham and Devizes",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4046,
+    "name": "Bridget Phillipson",
+    "constituency": "Houghton and Sunderland South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5193,
+    "name": "Callum Anderson",
+    "constituency": "Buckingham and Bletchley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5346,
+    "name": "Calum Miller",
+    "constituency": "Bicester and Woodstock",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5354,
+    "name": "Cameron Thomas",
+    "constituency": "Tewkesbury",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5102,
+    "name": "Carla Denyer",
+    "constituency": "Bristol Central",
+    "party": "Green Party",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4857,
+    "name": "Carla Lockhart",
+    "constituency": "Upper Bann",
+    "party": "Democratic Unionist Party",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4048,
+    "name": "Caroline Nokes",
+    "constituency": "Romsey and Southampton North",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5216,
+    "name": "Caroline Voaden",
+    "constituency": "South Devon",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4480,
+    "name": "Carolyn Harris",
+    "constituency": "Neath and Swansea East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5293,
+    "name": "Cat Eccles",
+    "constituency": "Stourbridge",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4436,
+    "name": "Cat Smith",
+    "constituency": "Lancaster and Wyre",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5143,
+    "name": "Catherine Atkinson",
+    "constituency": "Derby North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5291,
+    "name": "Catherine Fookes",
+    "constituency": "Monmouthshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4125,
+    "name": "Catherine McKinnell",
+    "constituency": "Newcastle upon Tyne North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4523,
+    "name": "Catherine West",
+    "constituency": "Hornsey and Friern Barnet",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5169,
+    "name": "Charlie Dewhirst",
+    "constituency": "Bridlington and The Wolds",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5325,
+    "name": "Charlie Maynard",
+    "constituency": "Witney",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5182,
+    "name": "Charlotte Cane",
+    "constituency": "Ely and East Cambridgeshire",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4799,
+    "name": "Charlotte Nichols",
+    "constituency": "Warrington North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4124,
+    "name": "Chi Onwurah",
+    "constituency": "Newcastle upon Tyne Central and West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5109,
+    "name": "Chris Bloore",
+    "constituency": "Redditch",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1446,
+    "name": "Chris Bryant",
+    "constituency": "Rhondda and Ogmore",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 5198,
+    "name": "Chris Coghlan",
+    "constituency": "Dorking and Horley",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5118,
+    "name": "Chris Curtis",
+    "constituency": "Milton Keynes North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4572,
+    "name": "Chris Elmore",
+    "constituency": "Bridgend",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2016-05-05T00:00:00"
+  },
+  {
+    "memberId": 4040,
+    "name": "Chris Evans",
+    "constituency": "Caerphilly",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4636,
+    "name": "Chris Hazzard",
+    "constituency": "South Down",
+    "party": "Sinn Féin",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5244,
+    "name": "Chris Hinchliff",
+    "constituency": "North East Hertfordshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5155,
+    "name": "Chris Kane",
+    "constituency": "Stirling and Strathallan",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4403,
+    "name": "Chris Law",
+    "constituency": "Dundee Central",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5116,
+    "name": "Chris McDonald",
+    "constituency": "Stockton North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5245,
+    "name": "Chris Murray",
+    "constituency": "Edinburgh East and Musselburgh",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4503,
+    "name": "Chris Philp",
+    "constituency": "Croydon South",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5237,
+    "name": "Chris Vince",
+    "constituency": "Harlow",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5276,
+    "name": "Chris Ward",
+    "constituency": "Brighton Kemptown and Peacehaven",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5025,
+    "name": "Chris Webb",
+    "constituency": "Blackpool South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-05-02T00:00:00"
+  },
+  {
+    "memberId": 4871,
+    "name": "Christian Wakeford",
+    "constituency": "Bury South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4634,
+    "name": "Christine Jardine",
+    "constituency": "Edinburgh West",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4806,
+    "name": "Claire Coutinho",
+    "constituency": "East Surrey",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4827,
+    "name": "Claire Hanna",
+    "constituency": "Belfast South and Mid Down",
+    "party": "Social Democratic & Labour Party",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5306,
+    "name": "Claire Hazelgrove",
+    "constituency": "Filton and Bradley Stoke",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5113,
+    "name": "Claire Hughes",
+    "constituency": "Bangor Aberconwy",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5140,
+    "name": "Claire Young",
+    "constituency": "Thornbury and Yate",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 165,
+    "name": "Clive Efford",
+    "constituency": "Eltham and Chislehurst",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 5207,
+    "name": "Clive Jones",
+    "constituency": "Wokingham",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4500,
+    "name": "Clive Lewis",
+    "constituency": "Norwich South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4846,
+    "name": "Colum Eastwood",
+    "constituency": "Foyle",
+    "party": "Social Democratic & Labour Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5273,
+    "name": "Connor Naismith",
+    "constituency": "Crewe and Nantwich",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5292,
+    "name": "Dáire Hughes",
+    "constituency": "Newry and Armagh",
+    "party": "Sinn Féin",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4769,
+    "name": "Daisy Cooper",
+    "constituency": "St Albans",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 491,
+    "name": "Dame Angela Eagle",
+    "constituency": "Wallasey",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "1992-04-09T00:00:00"
+  },
+  {
+    "memberId": 4008,
+    "name": "Dame Caroline Dinenage",
+    "constituency": "Gosport",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 1533,
+    "name": "Dame Diana Johnson",
+    "constituency": "Kingston upon Hull North and Cottingham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 4107,
+    "name": "Dame Harriett Baldwin",
+    "constituency": "West Worcestershire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4110,
+    "name": "Dame Karen Bradley",
+    "constituency": "Staffordshire Moorlands",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 1524,
+    "name": "Dame Meg Hillier",
+    "constituency": "Hackney South and Shoreditch",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 1541,
+    "name": "Dame Nia Griffith",
+    "constituency": "Llanelli",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 193,
+    "name": "Dame Siobhain McDonagh",
+    "constituency": "Mitcham and Morden",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 3969,
+    "name": "Damian Hinds",
+    "constituency": "East Hampshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5010,
+    "name": "Damien Egan",
+    "constituency": "Bristol North East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-02-15T00:00:00"
+  },
+  {
+    "memberId": 5172,
+    "name": "Dan Aldridge",
+    "constituency": "Weston-super-Mare",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4651,
+    "name": "Dan Carden",
+    "constituency": "Liverpool Walton",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4243,
+    "name": "Dan Jarvis",
+    "constituency": "Barnsley North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2011-03-03T00:00:00"
+  },
+  {
+    "memberId": 221,
+    "name": "Dan Norris",
+    "constituency": "North East Somerset and Hanham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5282,
+    "name": "Dan Tomlinson",
+    "constituency": "Chipping Barnet",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5184,
+    "name": "Daniel Francis",
+    "constituency": "Bexleyheath and Crayford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4382,
+    "name": "Daniel Zeichner",
+    "constituency": "Cambridge",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5339,
+    "name": "Danny Beales",
+    "constituency": "Uxbridge and South Ruislip",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4858,
+    "name": "Danny Kruger",
+    "constituency": "East Wiltshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4621,
+    "name": "Darren Jones",
+    "constituency": "Bristol North West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5270,
+    "name": "Darren Paffey",
+    "constituency": "Southampton Itchen",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4736,
+    "name": "Dave Doogan",
+    "constituency": "Angus and Perthshire Glens",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5126,
+    "name": "Dave Robertson",
+    "constituency": "Lichfield",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5092,
+    "name": "David Baines",
+    "constituency": "St Helens North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5106,
+    "name": "David Burton-Sampson",
+    "constituency": "Southend West and Leigh",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5284,
+    "name": "David Chadwick",
+    "constituency": "Brecon, Radnor and Cwm Tawe",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 373,
+    "name": "David Davis",
+    "constituency": "Goole and Pocklington",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2008-07-10T00:00:00"
+  },
+  {
+    "memberId": 1512,
+    "name": "David Mundell",
+    "constituency": "Dumfriesshire, Clydesdale and Tweeddale",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5360,
+    "name": "David Pinto-Duschinsky",
+    "constituency": "Hendon",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5347,
+    "name": "David Reed",
+    "constituency": "Exmouth and Exeter East",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4872,
+    "name": "David Simmonds",
+    "constituency": "Ruislip, Northwood and Pinner",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5218,
+    "name": "David Smith",
+    "constituency": "North Northumberland",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5348,
+    "name": "David Taylor",
+    "constituency": "Hemel Hempstead",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5151,
+    "name": "David Williams",
+    "constituency": "Stoke-on-Trent North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1489,
+    "name": "Dawn Butler",
+    "constituency": "Brent East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4212,
+    "name": "Debbie Abrahams",
+    "constituency": "Oldham East and Saddleworth",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2011-01-13T00:00:00"
+  },
+  {
+    "memberId": 5075,
+    "name": "Deirdre Costigan",
+    "constituency": "Ealing Southall",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 429,
+    "name": "Derek Twigg",
+    "constituency": "Widnes and Halewood",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 5057,
+    "name": "Douglas McAllister",
+    "constituency": "West Dunbartonshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5288,
+    "name": "Dr Al Pinkerton",
+    "constituency": "Surrey Heath",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5334,
+    "name": "Dr Allison Gardner",
+    "constituency": "Stoke-on-Trent South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1466,
+    "name": "Dr Andrew Murrison",
+    "constituency": "South West Wiltshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 5307,
+    "name": "Dr Beccy Cooper",
+    "constituency": "Worthing West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4785,
+    "name": "Dr Ben Spencer",
+    "constituency": "Runnymede and Weybridge",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4592,
+    "name": "Dr Caroline Johnson",
+    "constituency": "Sleaford and North Hykeham",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2016-12-08T00:00:00"
+  },
+  {
+    "memberId": 5304,
+    "name": "Dr Danny Chambers",
+    "constituency": "Winchester",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5259,
+    "name": "Dr Jeevun Sandher",
+    "constituency": "Loughborough",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4860,
+    "name": "Dr Kieran Mullan",
+    "constituency": "Bexhill and Battle",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5269,
+    "name": "Dr Lauren Sullivan",
+    "constituency": "Gravesham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4781,
+    "name": "Dr Luke Evans",
+    "constituency": "Hinckley and Bosworth",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5098,
+    "name": "Dr Marie Tidball",
+    "constituency": "Penistone and Stocksbridge",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4853,
+    "name": "Dr Neil Hudson",
+    "constituency": "Epping Forest",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5197,
+    "name": "Dr Neil Shastri-Hurst",
+    "constituency": "Solihull West and Shirley",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4573,
+    "name": "Dr Rosena Allin-Khan",
+    "constituency": "Tooting",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2016-06-16T00:00:00"
+  },
+  {
+    "memberId": 5352,
+    "name": "Dr Roz Savage",
+    "constituency": "South Cotswolds",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4511,
+    "name": "Dr Rupa Huq",
+    "constituency": "Ealing Central and Acton",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5212,
+    "name": "Dr Scott Arthur",
+    "constituency": "Edinburgh South West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5030,
+    "name": "Dr Simon Opher",
+    "constituency": "Stroud",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5213,
+    "name": "Dr Zubir Ahmed",
+    "constituency": "Glasgow South West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 188,
+    "name": "Ed Davey",
+    "constituency": "Kingston and Surbiton",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 1510,
+    "name": "Ed Miliband",
+    "constituency": "Doncaster North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 4362,
+    "name": "Edward Argar",
+    "constituency": "Melton and Syston",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5326,
+    "name": "Edward Morello",
+    "constituency": "West Dorset",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5206,
+    "name": "Elaine Stewart",
+    "constituency": "Ayr, Carrick and Cumnock",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5249,
+    "name": "Ellie Chowns",
+    "constituency": "North Herefordshire",
+    "party": "Green Party",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4620,
+    "name": "Ellie Reeves",
+    "constituency": "Lewisham West and East Dulwich",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5139,
+    "name": "Emily Darlington",
+    "constituency": "Milton Keynes Central",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1536,
+    "name": "Emily Thornberry",
+    "constituency": "Islington South and Finsbury",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5029,
+    "name": "Emma Foody",
+    "constituency": "Cramlington and Killingworth",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4645,
+    "name": "Emma Hardy",
+    "constituency": "Kingston upon Hull West and Haltemprice",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4077,
+    "name": "Emma Reynolds",
+    "constituency": "Wycombe",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4084,
+    "name": "Esther McVey",
+    "constituency": "Tatton",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5110,
+    "name": "Euan Stainbank",
+    "constituency": "Falkirk",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 415,
+    "name": "Fabian Hamilton",
+    "constituency": "Leeds North East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 4822,
+    "name": "Feryal Clark",
+    "constituency": "Enfield North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4788,
+    "name": "Fleur Anderson",
+    "constituency": "Putney",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4870,
+    "name": "Florence Eshalomi",
+    "constituency": "Vauxhall and Camberwell Green",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5183,
+    "name": "Frank McNally",
+    "constituency": "Coatbridge and Bellshill",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5174,
+    "name": "Fred Thomas",
+    "constituency": "Plymouth Moor View",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5296,
+    "name": "Freddie van Mierlo",
+    "constituency": "Henley and Thame",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4798,
+    "name": "Gareth Bacon",
+    "constituency": "Orpington",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4850,
+    "name": "Gareth Davies",
+    "constituency": "Grantham and Bourne",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4595,
+    "name": "Gareth Snell",
+    "constituency": "Stoke-on-Trent Central",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 177,
+    "name": "Gareth Thomas",
+    "constituency": "Harrow West",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 4360,
+    "name": "Gavin Robinson",
+    "constituency": "Belfast East",
+    "party": "Democratic Unionist Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5011,
+    "name": "Gen Kitchen",
+    "constituency": "Wellingborough and Rushden",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-02-15T00:00:00"
+  },
+  {
+    "memberId": 4020,
+    "name": "George Freeman",
+    "constituency": "Mid Norfolk",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5305,
+    "name": "Georgia Gould",
+    "constituency": "Queen's Park and Maida Vale",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4501,
+    "name": "Gerald Jones",
+    "constituency": "Merthyr Tydfil and Aberdare",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5250,
+    "name": "Gideon Amos",
+    "constituency": "Taunton and Wellington",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4571,
+    "name": "Gill Furniss",
+    "constituency": "Sheffield Brightside and Hillsborough",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2016-05-05T00:00:00"
+  },
+  {
+    "memberId": 5104,
+    "name": "Gill German",
+    "constituency": "Clwyd North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5189,
+    "name": "Gordon McKee",
+    "constituency": "Glasgow South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5275,
+    "name": "Graeme Downie",
+    "constituency": "Dunfermline and Dollar",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5277,
+    "name": "Graham Leadbitter",
+    "constituency": "Moray West, Nairn and Strathspey",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 449,
+    "name": "Graham Stringer",
+    "constituency": "Blackley and Middleton South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 1482,
+    "name": "Graham Stuart",
+    "constituency": "Beverley and Holderness",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 3973,
+    "name": "Grahame Morris",
+    "constituency": "Easington",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4778,
+    "name": "Greg Smith",
+    "constituency": "Mid Buckinghamshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5167,
+    "name": "Gregor Poynton",
+    "constituency": "Livingston",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5351,
+    "name": "Gregory Stafford",
+    "constituency": "Farnham and Bordon",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5059,
+    "name": "Gurinder Singh Josan",
+    "constituency": "Smethwick",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5289,
+    "name": "Harpreet Uppal",
+    "constituency": "Huddersfield",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5311,
+    "name": "Harriet Cross",
+    "constituency": "Gordon and Buchan",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4038,
+    "name": "Heidi Alexander",
+    "constituency": "Swindon South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4018,
+    "name": "Helen Grant",
+    "constituency": "Maidstone and Malling",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4510,
+    "name": "Helen Hayes",
+    "constituency": "Dulwich and West Norwood",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5336,
+    "name": "Helen Maguire",
+    "constituency": "Epsom and Ewell",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4934,
+    "name": "Helen Morgan",
+    "constituency": "North Shropshire",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2021-12-16T00:00:00"
+  },
+  {
+    "memberId": 4527,
+    "name": "Helen Whately",
+    "constituency": "Faversham and Mid Kent",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5192,
+    "name": "Helena Dollimore",
+    "constituency": "Hastings and Rye",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5121,
+    "name": "Henry Tufnell",
+    "constituency": "Mid and South Pembrokeshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 413,
+    "name": "Hilary Benn",
+    "constituency": "Leeds South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1999-06-10T00:00:00"
+  },
+  {
+    "memberId": 4831,
+    "name": "Ian Byrne",
+    "constituency": "Liverpool West Derby",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4139,
+    "name": "Ian Lavery",
+    "constituency": "Blyth and Ashington",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 3966,
+    "name": "Ian Murray",
+    "constituency": "Edinburgh South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5138,
+    "name": "Ian Roome",
+    "constituency": "North Devon",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5096,
+    "name": "Ian Sollom",
+    "constituency": "St Neots and Mid Cambridgeshire",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5136,
+    "name": "Imogen Walker",
+    "constituency": "Hamilton and Clyde Valley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4394,
+    "name": "Imran Hussain",
+    "constituency": "Bradford East",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5268,
+    "name": "Iqbal Mohamed",
+    "constituency": "Dewsbury and Batley",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5145,
+    "name": "Irene Campbell",
+    "constituency": "North Ayrshire and Arran",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5131,
+    "name": "Jack Abbott",
+    "constituency": "Ipswich",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5340,
+    "name": "Jack Rankin",
+    "constituency": "Windsor",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5077,
+    "name": "Jacob Collier",
+    "constituency": "Burton and Uttoxeter",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5236,
+    "name": "Jade Botterill",
+    "constituency": "Ossett and Denby Dale",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5082,
+    "name": "Jake Richards",
+    "constituency": "Rother Valley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5211,
+    "name": "James Asser",
+    "constituency": "West Ham and Beckton",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4519,
+    "name": "James Cartlidge",
+    "constituency": "South Suffolk",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5265,
+    "name": "James MacCleary",
+    "constituency": "Lewes",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5361,
+    "name": "James McMurdock",
+    "constituency": "South Basildon and East Thurrock",
+    "party": "Reform UK",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4797,
+    "name": "James Murray",
+    "constituency": "Ealing North",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5047,
+    "name": "James Naish",
+    "constituency": "Rushcliffe",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4787,
+    "name": "James Wild",
+    "constituency": "North West Norfolk",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4612,
+    "name": "Jamie Stone",
+    "constituency": "Caithness, Sutherland and Easter Ross",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4698,
+    "name": "Janet Daby",
+    "constituency": "Lewisham East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2018-06-14T00:00:00"
+  },
+  {
+    "memberId": 5227,
+    "name": "Jas Athwal",
+    "constituency": "Ilford South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5279,
+    "name": "Jayne Kirkham",
+    "constituency": "Truro and Falmouth",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4456,
+    "name": "Jeff Smith",
+    "constituency": "Manchester Withington",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5056,
+    "name": "Jen Craft",
+    "constituency": "Thurrock",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5160,
+    "name": "Jenny Riddell-Carpenter",
+    "constituency": "Suffolk Coastal",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 185,
+    "name": "Jeremy Corbyn",
+    "constituency": "Islington North",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1983-06-09T00:00:00"
+  },
+  {
+    "memberId": 1572,
+    "name": "Jeremy Hunt",
+    "constituency": "Godalming and Ash",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 4739,
+    "name": "Jerome Mayhew",
+    "constituency": "Broadland and Fakenham",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5156,
+    "name": "Jess Asato",
+    "constituency": "Lowestoft",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5335,
+    "name": "Jess Brown-Fuller",
+    "constituency": "Chichester",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4370,
+    "name": "Jess Phillips",
+    "constituency": "Birmingham Yardley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 3991,
+    "name": "Jesse Norman",
+    "constituency": "Hereford and South Herefordshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 1548,
+    "name": "Jessica Morden",
+    "constituency": "Newport East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5202,
+    "name": "Jessica Toale",
+    "constituency": "Bournemouth West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5356,
+    "name": "Jim Allister",
+    "constituency": "North Antrim",
+    "party": "Traditional Unionist Voice",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5223,
+    "name": "Jim Dickson",
+    "constituency": "Dartford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4569,
+    "name": "Jim McMahon",
+    "constituency": "Oldham West, Chadderton and Royton",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-12-03T00:00:00"
+  },
+  {
+    "memberId": 4131,
+    "name": "Jim Shannon",
+    "constituency": "Strangford",
+    "party": "Democratic Unionist Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4673,
+    "name": "Jo Platt",
+    "constituency": "Leigh and Atherton",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4425,
+    "name": "Jo Stevens",
+    "constituency": "Cardiff East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5105,
+    "name": "Jo White",
+    "constituency": "Bassetlaw",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5079,
+    "name": "Joani Reid",
+    "constituency": "East Kilbride and Strathaven",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5036,
+    "name": "Jodie Gosling",
+    "constituency": "Nuneaton",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5081,
+    "name": "Joe Morris",
+    "constituency": "Hexham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5229,
+    "name": "Joe Powell",
+    "constituency": "Kensington and Bayswater",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5255,
+    "name": "Joe Robertson",
+    "constituency": "Isle of Wight East",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5063,
+    "name": "Johanna Baxter",
+    "constituency": "Paisley and Renfrewshire South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5358,
+    "name": "John Cooper",
+    "constituency": "Dumfries and Galloway",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4823,
+    "name": "John Finucane",
+    "constituency": "Belfast North",
+    "party": "Sinn Féin",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4051,
+    "name": "John Glen",
+    "constituency": "Salisbury",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5170,
+    "name": "John Grady",
+    "constituency": "Glasgow East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 400,
+    "name": "John Healey",
+    "constituency": "Rawmarsh and Conisbrough",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 4608,
+    "name": "John Lamont",
+    "constituency": "Berwickshire, Roxburgh and Selkirk",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 178,
+    "name": "John McDonnell",
+    "constituency": "Hayes and Harlington",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 5329,
+    "name": "John Milne",
+    "constituency": "Horsham",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5127,
+    "name": "John Slinger",
+    "constituency": "Rugby",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5342,
+    "name": "John Whitby",
+    "constituency": "Derbyshire Dales",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5115,
+    "name": "Jon Pearce",
+    "constituency": "High Peak",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 410,
+    "name": "Jon Trickett",
+    "constituency": "Normanton and Hemsworth",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1996-02-01T00:00:00"
+  },
+  {
+    "memberId": 5256,
+    "name": "Jonathan Davies",
+    "constituency": "Mid Derbyshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5264,
+    "name": "Jonathan Hinder",
+    "constituency": "Pendle and Clitheroe",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4119,
+    "name": "Jonathan Reynolds",
+    "constituency": "Stalybridge and Hyde",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5086,
+    "name": "Josh Babarinde",
+    "constituency": "Eastbourne",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5187,
+    "name": "Josh Dean",
+    "constituency": "Hertford and Stortford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5295,
+    "name": "Josh Fenton-Glynn",
+    "constituency": "Calder Valley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5033,
+    "name": "Josh MacAlister",
+    "constituency": "Whitehaven and Workington",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5034,
+    "name": "Josh Newbury",
+    "constituency": "Cannock Chase",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5060,
+    "name": "Josh Simons",
+    "constituency": "Makerfield",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4759,
+    "name": "Joy Morrissey",
+    "constituency": "Beaconsfield",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4391,
+    "name": "Judith Cummins",
+    "constituency": "Bradford South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5171,
+    "name": "Julia Buckley",
+    "constituency": "Shrewsbury",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4647,
+    "name": "Julia Lopez",
+    "constituency": "Hornchurch and Upminster",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5058,
+    "name": "Juliet Campbell",
+    "constituency": "Broxtowe",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4418,
+    "name": "Justin Madders",
+    "constituency": "Ellesmere Port and Bromborough",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5039,
+    "name": "Kanishka Narayan",
+    "constituency": "Vale of Glamorgan",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4444,
+    "name": "Karin Smyth",
+    "constituency": "Bristol South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4030,
+    "name": "Karl Turner",
+    "constituency": "Kingston upon Hull East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5224,
+    "name": "Kate Dearden",
+    "constituency": "Halifax",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4515,
+    "name": "Kate Osamor",
+    "constituency": "Edmonton and Winchmore Hill",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4783,
+    "name": "Kate Osborne",
+    "constituency": "Jarrow and Gateshead East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5285,
+    "name": "Katie Lam",
+    "constituency": "Weald of Kent",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5260,
+    "name": "Katie White",
+    "constituency": "Leeds North West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5309,
+    "name": "Katrina Murray",
+    "constituency": "Cumbernauld and Kirkintilloch",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4993,
+    "name": "Keir Mather",
+    "constituency": "Selby",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2023-07-20T00:00:00"
+  },
+  {
+    "memberId": 5200,
+    "name": "Kenneth Stevenson",
+    "constituency": "Airdrie and Shotts",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1491,
+    "name": "Kerry McCarthy",
+    "constituency": "Bristol East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5051,
+    "name": "Kevin Bonavia",
+    "constituency": "Stevenage",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4474,
+    "name": "Kevin Hollinrake",
+    "constituency": "Thirsk and Malton",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5300,
+    "name": "Kevin McKenna",
+    "constituency": "Sittingbourne and Sheppey",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4824,
+    "name": "Kim Johnson",
+    "constituency": "Liverpool Riverside",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4923,
+    "name": "Kim Leadbeater",
+    "constituency": "Spen Valley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2021-07-01T00:00:00"
+  },
+  {
+    "memberId": 5095,
+    "name": "Kirith Entwistle",
+    "constituency": "Bolton North East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5179,
+    "name": "Kirsteen Sullivan",
+    "constituency": "Bathgate and Linlithgow",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4357,
+    "name": "Kirsty Blackman",
+    "constituency": "Aberdeen North",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5114,
+    "name": "Kirsty McNeill",
+    "constituency": "Midlothian",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4495,
+    "name": "Kit Malthouse",
+    "constituency": "North West Hampshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5341,
+    "name": "Laura Kyrke-Smith",
+    "constituency": "Aylesbury",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4780,
+    "name": "Laura Trott",
+    "constituency": "Sevenoaks",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5298,
+    "name": "Lauren Edwards",
+    "constituency": "Rochester and Strood",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5234,
+    "name": "Laurence Turner",
+    "constituency": "Birmingham Northfield",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4656,
+    "name": "Layla Moran",
+    "constituency": "Oxford West and Abingdon",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4743,
+    "name": "Lee Anderson",
+    "constituency": "Ashfield",
+    "party": "Reform UK",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5315,
+    "name": "Lee Barron",
+    "constituency": "Corby and East Northamptonshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5233,
+    "name": "Lee Pitcher",
+    "constituency": "Doncaster East and the Isle of Axholme",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5290,
+    "name": "Leigh Ingham",
+    "constituency": "Stafford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5028,
+    "name": "Lewis Atkinson",
+    "constituency": "Sunderland Central",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5050,
+    "name": "Lewis Cocking",
+    "constituency": "Broxbourne",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1171,
+    "name": "Liam Byrne",
+    "constituency": "Birmingham Hodge Hill and Solihull North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2004-07-15T00:00:00"
+  },
+  {
+    "memberId": 5132,
+    "name": "Liam Conlon",
+    "constituency": "Beckenham and Penge",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4029,
+    "name": "Lilian Greenwood",
+    "constituency": "Nottingham South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5043,
+    "name": "Lillian Jones",
+    "constituency": "Kilmarnock and Loudoun",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5332,
+    "name": "Lincoln Jopp",
+    "constituency": "Spelthorne",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5107,
+    "name": "Linsey Farnsworth",
+    "constituency": "Amber Valley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4082,
+    "name": "Lisa Nandy",
+    "constituency": "Wigan",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5070,
+    "name": "Lisa Smart",
+    "constituency": "Hazel Grove",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5040,
+    "name": "Liz Jarvis",
+    "constituency": "Eastleigh",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4026,
+    "name": "Liz Kendall",
+    "constituency": "Leicester West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4521,
+    "name": "Liz Saville Roberts",
+    "constituency": "Dwyfor Meirionnydd",
+    "party": "Plaid Cymru",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4618,
+    "name": "Liz Twist",
+    "constituency": "Blaydon and Consett",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5225,
+    "name": "Lizzi Collinge",
+    "constituency": "Morecambe and Lunesdale",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5085,
+    "name": "Llinos Medi",
+    "constituency": "Ynys Môn",
+    "party": "Plaid Cymru",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5217,
+    "name": "Lloyd Hatton",
+    "constituency": "South Dorset",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5037,
+    "name": "Lola McEvoy",
+    "constituency": "Darlington",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5232,
+    "name": "Lorraine Beavers",
+    "constituency": "Blackpool North and Fleetwood",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4473,
+    "name": "Louise Haigh",
+    "constituency": "Sheffield Heeley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5258,
+    "name": "Louise Jones",
+    "constituency": "North East Derbyshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4263,
+    "name": "Lucy Powell",
+    "constituency": "Manchester Central",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2012-11-15T00:00:00"
+  },
+  {
+    "memberId": 5333,
+    "name": "Lucy Rigby",
+    "constituency": "Northampton North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5112,
+    "name": "Luke Akehurst",
+    "constituency": "North Durham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5248,
+    "name": "Luke Murphy",
+    "constituency": "Basingstoke",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5147,
+    "name": "Luke Myer",
+    "constituency": "Middlesbrough South and East Cleveland",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4682,
+    "name": "Luke Pollard",
+    "constituency": "Plymouth Sutton and Devonport",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5103,
+    "name": "Luke Taylor",
+    "constituency": "Sutton and Cheam",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5122,
+    "name": "Manuela Perteghella",
+    "constituency": "Stratford-on-Avon",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5272,
+    "name": "Margaret Mullane",
+    "constituency": "Dagenham and Rainham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 483,
+    "name": "Maria Eagle",
+    "constituency": "Liverpool Garston",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 5073,
+    "name": "Marie Goldman",
+    "constituency": "Chelmsford",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5031,
+    "name": "Mark Ferguson",
+    "constituency": "Gateshead Central and Whickham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4074,
+    "name": "Mark Garnier",
+    "constituency": "Wyre Forest",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 1576,
+    "name": "Mark Pritchard",
+    "constituency": "The Wrekin",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5166,
+    "name": "Mark Sewards",
+    "constituency": "Leeds South West and Morley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1383,
+    "name": "Mark Tami",
+    "constituency": "Alyn and Deeside",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 5124,
+    "name": "Markus Campbell-Savours",
+    "constituency": "Penrith and Solway",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4676,
+    "name": "Marsha De Cordova",
+    "constituency": "Battersea",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5129,
+    "name": "Martin McCluskey",
+    "constituency": "Inverclyde and Renfrewshire West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5251,
+    "name": "Martin Rhodes",
+    "constituency": "Glasgow North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 3957,
+    "name": "Martin Vickers",
+    "constituency": "Brigg and Immingham",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5111,
+    "name": "Martin Wrigley",
+    "constituency": "Newton Abbot",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1579,
+    "name": "Mary Creagh",
+    "constituency": "Coventry East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4126,
+    "name": "Mary Glindon",
+    "constituency": "Newcastle upon Tyne East and Wallsend",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4753,
+    "name": "Mary Kelly Foy",
+    "constituency": "City of Durham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5323,
+    "name": "Matt Bishop",
+    "constituency": "Forest of Dean",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4654,
+    "name": "Matt Rodda",
+    "constituency": "Reading Central",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5130,
+    "name": "Matt Turmaine",
+    "constituency": "Watford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4844,
+    "name": "Matt Vickers",
+    "constituency": "Stockton West",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4617,
+    "name": "Matt Western",
+    "constituency": "Warwick and Leamington",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5162,
+    "name": "Matthew Patrick",
+    "constituency": "Wirral West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4520,
+    "name": "Matthew Pennycook",
+    "constituency": "Greenwich and Woolwich",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5137,
+    "name": "Maureen Burke",
+    "constituency": "Glasgow North East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5055,
+    "name": "Max Wilkinson",
+    "constituency": "Cheltenham",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5228,
+    "name": "Maya Ellis",
+    "constituency": "Ribble Valley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 3935,
+    "name": "Mel Stride",
+    "constituency": "Central Devon",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4464,
+    "name": "Melanie Onn",
+    "constituency": "Great Grimsby and Cleethorpes",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5240,
+    "name": "Melanie Ward",
+    "constituency": "Cowdenbeath and Kirkcaldy",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5099,
+    "name": "Miatta Fahnbulleh",
+    "constituency": "Peckham",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5146,
+    "name": "Michael Payne",
+    "constituency": "Gedling",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4998,
+    "name": "Michael Shanks",
+    "constituency": "Rutherglen",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2023-10-05T00:00:00"
+  },
+  {
+    "memberId": 5242,
+    "name": "Michael Wheeler",
+    "constituency": "Worsley and Eccles",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5049,
+    "name": "Michelle Scrogham",
+    "constituency": "Barrow and Furness",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5226,
+    "name": "Michelle Welsh",
+    "constituency": "Sherwood Forest",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4667,
+    "name": "Mike Amesbury",
+    "constituency": "Runcorn and Helsby",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4316,
+    "name": "Mike Kane",
+    "constituency": "Wythenshawe and Sale East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2014-02-13T00:00:00"
+  },
+  {
+    "memberId": 5219,
+    "name": "Mike Martin",
+    "constituency": "Tunbridge Wells",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5316,
+    "name": "Mike Reader",
+    "constituency": "Northampton South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5266,
+    "name": "Mike Tapp",
+    "constituency": "Dover and Deal",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4384,
+    "name": "Mike Wood",
+    "constituency": "Kingswinford and South Staffordshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4513,
+    "name": "Mims Davies",
+    "constituency": "East Grinstead and Uckfield",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4598,
+    "name": "Mohammad Yasin",
+    "constituency": "Bedford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5299,
+    "name": "Monica Harding",
+    "constituency": "Esher and Walton",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5231,
+    "name": "Mr Adnan Hussain",
+    "constituency": "Blackburn",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5175,
+    "name": "Mr Alex Barros-Curtis",
+    "constituency": "Cardiff West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1442,
+    "name": "Mr Alistair Carmichael",
+    "constituency": "Orkney and Shetland",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 1211,
+    "name": "Mr Andrew Mitchell",
+    "constituency": "Sutton Coldfield",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 5072,
+    "name": "Mr Andrew Snowden",
+    "constituency": "Fylde",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5362,
+    "name": "Mr Angus MacDonald",
+    "constituency": "Inverness, Skye and West Ross-shire",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5097,
+    "name": "Mr Bayo Alaba",
+    "constituency": "Southend East and Rochford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5054,
+    "name": "Mr Calvin Bailey",
+    "constituency": "Leyton and Wanstead",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5153,
+    "name": "Mr Cathal Mallaghan",
+    "constituency": "Mid Ulster",
+    "party": "Sinn Féin",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 394,
+    "name": "Mr Clive Betts",
+    "constituency": "Sheffield South East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1992-04-09T00:00:00"
+  },
+  {
+    "memberId": 5159,
+    "name": "Mr Connor Rand",
+    "constituency": "Altrincham and Sale West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 206,
+    "name": "Mr David Lammy",
+    "constituency": "Tottenham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2000-06-22T00:00:00"
+  },
+  {
+    "memberId": 632,
+    "name": "Mr Douglas Alexander",
+    "constituency": "Lothian East",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4804,
+    "name": "Mr Gagan Mohindra",
+    "constituency": "South West Hertfordshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 1409,
+    "name": "Mr Gregory Campbell",
+    "constituency": "East Londonderry",
+    "party": "Democratic Unionist Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 5148,
+    "name": "Mr Hamish Falconer",
+    "constituency": "Lincoln",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4366,
+    "name": "Mr James Cleverly",
+    "constituency": "Braintree",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4637,
+    "name": "Mr James Frith",
+    "constituency": "Bury North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5045,
+    "name": "Mr Jonathan Brash",
+    "constituency": "Hartlepool",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5343,
+    "name": "Mr Joshua Reynolds",
+    "constituency": "Maidenhead",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5310,
+    "name": "Mr Lee Dillon",
+    "constituency": "Newbury",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4932,
+    "name": "Mr Louie French",
+    "constituency": "Old Bexley and Sidcup",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2021-12-02T00:00:00"
+  },
+  {
+    "memberId": 5199,
+    "name": "Mr Luke Charters",
+    "constituency": "York Outer",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1444,
+    "name": "Mr Mark Francois",
+    "constituency": "Rayleigh and Wickford",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 5074,
+    "name": "Mr Paul Foster",
+    "constituency": "South Ribble",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5321,
+    "name": "Mr Paul Kohler",
+    "constituency": "Wimbledon",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5330,
+    "name": "Mr Peter Bedford",
+    "constituency": "Mid Leicestershire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4813,
+    "name": "Mr Richard Holden",
+    "constituency": "Basildon and Billericay",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5144,
+    "name": "Mr Richard Quigley",
+    "constituency": "Isle of Wight West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4638,
+    "name": "Mr Tanmanjeet Singh Dhesi",
+    "constituency": "Slough",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 3952,
+    "name": "Mr Toby Perkins",
+    "constituency": "Chesterfield",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5322,
+    "name": "Mr Will Forster",
+    "constituency": "Woking",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5084,
+    "name": "Mrs Elsie Blundell",
+    "constituency": "Heywood and Middleton North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4277,
+    "name": "Mrs Emma Lewell-Buck",
+    "constituency": "South Shields",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2013-05-02T00:00:00"
+  },
+  {
+    "memberId": 4597,
+    "name": "Mrs Kemi Badenoch",
+    "constituency": "North West Essex",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5324,
+    "name": "Mrs Sarah Russell",
+    "constituency": "Congleton",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1521,
+    "name": "Mrs Sharon Hodgson",
+    "constituency": "Washington and Gateshead South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5152,
+    "name": "Mrs Sureena Brackenridge",
+    "constituency": "Wolverhampton North East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4820,
+    "name": "Ms Abena Oppong-Asare",
+    "constituency": "Erith and Thamesmead",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 172,
+    "name": "Ms Diane Abbott",
+    "constituency": "Hackney North and Stoke Newington",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "1987-06-11T00:00:00"
+  },
+  {
+    "memberId": 5094,
+    "name": "Ms Julie Minns",
+    "constituency": "Carlisle",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4457,
+    "name": "Ms Marie Rimmer",
+    "constituency": "St Helens South and Whiston",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4460,
+    "name": "Ms Nusrat Ghani",
+    "constituency": "Sussex Weald",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5123,
+    "name": "Ms Polly Billington",
+    "constituency": "East Thanet",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4088,
+    "name": "Ms Stella Creasy",
+    "constituency": "Walthamstow",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4776,
+    "name": "Munira Wilson",
+    "constituency": "Twickenham",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4869,
+    "name": "Nadia Whittome",
+    "constituency": "Nottingham East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5053,
+    "name": "Natalie Fleet",
+    "constituency": "Bolsover",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5119,
+    "name": "Natasha Irons",
+    "constituency": "Croydon East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5215,
+    "name": "Naushabah Khan",
+    "constituency": "Gillingham and Rainham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4811,
+    "name": "Navendu Mishra",
+    "constituency": "Stockport",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4409,
+    "name": "Naz Shah",
+    "constituency": "Bradford West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4368,
+    "name": "Neil Coyle",
+    "constituency": "Bermondsey and Old Southwark",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5359,
+    "name": "Neil Duncan-Jordan",
+    "constituency": "Poole",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4679,
+    "name": "Neil O'Brien",
+    "constituency": "Harborough, Oadby and Wigston",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5180,
+    "name": "Nesil Caliskan",
+    "constituency": "Barking",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 3928,
+    "name": "Nick Smith",
+    "constituency": "Blaenau Gwent and Rhymney",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4479,
+    "name": "Nick Thomas-Symonds",
+    "constituency": "Torfaen",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5062,
+    "name": "Nick Timothy",
+    "constituency": "West Suffolk",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5091,
+    "name": "Nigel Farage",
+    "constituency": "Clacton",
+    "party": "Reform UK",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4407,
+    "name": "Nigel Huddleston",
+    "constituency": "Droitwich and Evesham",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5302,
+    "name": "Noah Law",
+    "constituency": "St Austell and Newquay",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5135,
+    "name": "Oliver Ryan",
+    "constituency": "Burnley",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5337,
+    "name": "Olivia Bailey",
+    "constituency": "Reading West and Mid Berkshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4864,
+    "name": "Olivia Blake",
+    "constituency": "Sheffield Hallam",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5318,
+    "name": "Olly Glover",
+    "constituency": "Didcot and Wantage",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4697,
+    "name": "Órfhlaith Begley",
+    "constituency": "West Tyrone",
+    "party": "Sinn Féin",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2018-05-03T00:00:00"
+  },
+  {
+    "memberId": 5042,
+    "name": "Pam Cox",
+    "constituency": "Colchester",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 3909,
+    "name": "Pamela Nash",
+    "constituency": "Motherwell, Wishaw and Carluke",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5261,
+    "name": "Pat Cullen",
+    "constituency": "Fermanagh and South Tyrone",
+    "party": "Sinn Féin",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1587,
+    "name": "Pat McFadden",
+    "constituency": "Wolverhampton South East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5190,
+    "name": "Patricia Ferguson",
+    "constituency": "Glasgow West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5052,
+    "name": "Patrick Hurley",
+    "constituency": "Southport",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5303,
+    "name": "Patrick Spencer",
+    "constituency": "Central Suffolk and North Ipswich",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5317,
+    "name": "Paul Davies",
+    "constituency": "Colne Valley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4803,
+    "name": "Paul Holmes",
+    "constituency": "Hamble Valley",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4245,
+    "name": "Paul Maskey",
+    "constituency": "Belfast West",
+    "party": "Sinn Féin",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2011-06-09T00:00:00"
+  },
+  {
+    "memberId": 5071,
+    "name": "Paul Waugh",
+    "constituency": "Rochdale",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4828,
+    "name": "Paula Barker",
+    "constituency": "Liverpool Wavertree",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4938,
+    "name": "Paulette Hamilton",
+    "constituency": "Birmingham Erdington",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2022-03-03T00:00:00"
+  },
+  {
+    "memberId": 5208,
+    "name": "Perran Moon",
+    "constituency": "Camborne and Redruth",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1440,
+    "name": "Pete Wishart",
+    "constituency": "Perth and Kinross-shire",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2001-06-07T00:00:00"
+  },
+  {
+    "memberId": 4397,
+    "name": "Peter Dowd",
+    "constituency": "Bootle",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5209,
+    "name": "Peter Fortune",
+    "constituency": "Bromley and Biggin Hill",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4505,
+    "name": "Peter Kyle",
+    "constituency": "Hove and Portslade",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5345,
+    "name": "Peter Lamb",
+    "constituency": "Crawley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5163,
+    "name": "Peter Prinsley",
+    "constituency": "Bury St Edmunds and Stowmarket",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5165,
+    "name": "Peter Swallow",
+    "constituency": "Bracknell",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5128,
+    "name": "Phil Brickell",
+    "constituency": "Bolton West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5078,
+    "name": "Pippa Heylings",
+    "constituency": "South Cambridgeshire",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4603,
+    "name": "Preet Kaur Gill",
+    "constituency": "Birmingham Edgbaston",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4066,
+    "name": "Priti Patel",
+    "constituency": "Witham",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4471,
+    "name": "Rachael Maskell",
+    "constituency": "York Central",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5257,
+    "name": "Rachel Blake",
+    "constituency": "Cities of London and Westminster",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5252,
+    "name": "Rachel Gilmour",
+    "constituency": "Tiverton and Minehead",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4873,
+    "name": "Rachel Hopkins",
+    "constituency": "Luton South and South Bedfordshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4031,
+    "name": "Rachel Reeves",
+    "constituency": "Leeds West and Pudsey",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5065,
+    "name": "Rachel Taylor",
+    "constituency": "North Warwickshire and Bedworth",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 3948,
+    "name": "Rebecca Harris",
+    "constituency": "Castle Point",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4396,
+    "name": "Rebecca Long Bailey",
+    "constituency": "Salford",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5297,
+    "name": "Rebecca Paul",
+    "constituency": "Reigate",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5301,
+    "name": "Rebecca Smith",
+    "constituency": "South West Devon",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5253,
+    "name": "Richard Baker",
+    "constituency": "Glenrothes and Mid Fife",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4493,
+    "name": "Richard Burgon",
+    "constituency": "Leeds East",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4942,
+    "name": "Richard Foord",
+    "constituency": "Honiton and Sidmouth",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2022-06-23T00:00:00"
+  },
+  {
+    "memberId": 3912,
+    "name": "Richard Fuller",
+    "constituency": "North Bedfordshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5161,
+    "name": "Richard Tice",
+    "constituency": "Boston and Skegness",
+    "party": "Reform UK",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4483,
+    "name": "Rishi Sunak",
+    "constituency": "Richmond and Northallerton",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4861,
+    "name": "Robbie Moore",
+    "constituency": "Keighley and Ilkley",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4320,
+    "name": "Robert Jenrick",
+    "constituency": "Newark",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2014-06-05T00:00:00"
+  },
+  {
+    "memberId": 5319,
+    "name": "Robin Swann",
+    "constituency": "South Antrim",
+    "party": "Ulster Unionist Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4616,
+    "name": "Rosie Duffield",
+    "constituency": "Canterbury",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5331,
+    "name": "Rosie Wrighting",
+    "constituency": "Kettering",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5158,
+    "name": "Rupert Lowe",
+    "constituency": "Great Yarmouth",
+    "party": "Reform UK",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4138,
+    "name": "Rushanara Ali",
+    "constituency": "Bethnal Green and Stepney",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4389,
+    "name": "Ruth Cadbury",
+    "constituency": "Brentford and Isleworth",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4716,
+    "name": "Ruth Jones",
+    "constituency": "Newport West and Islwyn",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-04-04T00:00:00"
+  },
+  {
+    "memberId": 5312,
+    "name": "Sadik Al-Hassan",
+    "constituency": "North Somerset",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5178,
+    "name": "Sally Jameson",
+    "constituency": "Doncaster Central",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5308,
+    "name": "Sam Carling",
+    "constituency": "North West Cambridgeshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5108,
+    "name": "Sam Rushworth",
+    "constituency": "Bishop Auckland",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4976,
+    "name": "Samantha Dixon",
+    "constituency": "Chester North and Neston",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2022-12-01T00:00:00"
+  },
+  {
+    "memberId": 5150,
+    "name": "Samantha Niblett",
+    "constituency": "South Derbyshire",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1593,
+    "name": "Sammy Wilson",
+    "constituency": "East Antrim",
+    "party": "Democratic Unionist Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 4818,
+    "name": "Saqib Bhatti",
+    "constituency": "Meriden and Solihull East",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5355,
+    "name": "Sarah Bool",
+    "constituency": "South Northamptonshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4267,
+    "name": "Sarah Champion",
+    "constituency": "Rotherham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2012-11-29T00:00:00"
+  },
+  {
+    "memberId": 5088,
+    "name": "Sarah Coombes",
+    "constituency": "West Bromwich",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4995,
+    "name": "Sarah Dyke",
+    "constituency": "Glastonbury and Somerton",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2023-07-20T00:00:00"
+  },
+  {
+    "memberId": 5001,
+    "name": "Sarah Edwards",
+    "constituency": "Tamworth",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2023-10-19T00:00:00"
+  },
+  {
+    "memberId": 5239,
+    "name": "Sarah Gibson",
+    "constituency": "Chippenham",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4918,
+    "name": "Sarah Green",
+    "constituency": "Chesham and Amersham",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2021-06-17T00:00:00"
+  },
+  {
+    "memberId": 5154,
+    "name": "Sarah Hall",
+    "constituency": "Warrington South",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4631,
+    "name": "Sarah Jones",
+    "constituency": "Croydon West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4591,
+    "name": "Sarah Olney",
+    "constituency": "Richmond Park",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4777,
+    "name": "Sarah Owen",
+    "constituency": "Luton North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5204,
+    "name": "Sarah Sackman",
+    "constituency": "Finchley and Golders Green",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5117,
+    "name": "Sarah Smith",
+    "constituency": "Hyndburn",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5271,
+    "name": "Satvir Kaur",
+    "constituency": "Southampton Test",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5280,
+    "name": "Seamus Logan",
+    "constituency": "Aberdeenshire North and Moray East",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5328,
+    "name": "Sean Woodcock",
+    "constituency": "Banbury",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4253,
+    "name": "Seema Malhotra",
+    "constituency": "Feltham and Heston",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2011-12-15T00:00:00"
+  },
+  {
+    "memberId": 3914,
+    "name": "Shabana Mahmood",
+    "constituency": "Birmingham Ladywood",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5041,
+    "name": "Shaun Davies",
+    "constituency": "Telford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5068,
+    "name": "Shivani Raja",
+    "constituency": "Leicester East",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5120,
+    "name": "Shockat Adam",
+    "constituency": "Leicester South",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5314,
+    "name": "Siân Berry",
+    "constituency": "Brighton Pavilion",
+    "party": "Green Party",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4494,
+    "name": "Simon Hoare",
+    "constituency": "North Dorset",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4943,
+    "name": "Simon Lightwood",
+    "constituency": "Wakefield and Rothwell",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2022-06-23T00:00:00"
+  },
+  {
+    "memberId": 529,
+    "name": "Sir Alan Campbell",
+    "constituency": "Tynemouth",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 3997,
+    "name": "Sir Alec Shelbrooke",
+    "constituency": "Wetherby and Easingwold",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5101,
+    "name": "Sir Ashley Fox",
+    "constituency": "Bridgwater",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 40,
+    "name": "Sir Bernard Jenkin",
+    "constituency": "Harwich and North Essex",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1992-04-09T00:00:00"
+  },
+  {
+    "memberId": 242,
+    "name": "Sir Christopher Chope",
+    "constituency": "Christchurch",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 55,
+    "name": "Sir Desmond Swayne",
+    "constituency": "New Forest West",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 345,
+    "name": "Sir Edward Leigh",
+    "constituency": "Gainsborough",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1983-06-09T00:00:00"
+  },
+  {
+    "memberId": 4108,
+    "name": "Sir Gavin Williamson",
+    "constituency": "Stone, Great Wyrley and Penkridge",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 249,
+    "name": "Sir Geoffrey Clifton-Brown",
+    "constituency": "North Cotswolds",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1992-04-09T00:00:00"
+  },
+  {
+    "memberId": 1508,
+    "name": "Sir Geoffrey Cox",
+    "constituency": "Torridge and Tavistock",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 152,
+    "name": "Sir Iain Duncan Smith",
+    "constituency": "Chingford and Woodford Green",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1992-04-09T00:00:00"
+  },
+  {
+    "memberId": 1560,
+    "name": "Sir Jeremy Wright",
+    "constituency": "Kenilworth and Southam",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 350,
+    "name": "Sir John Hayes",
+    "constituency": "South Holland and The Deepings",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 39,
+    "name": "Sir John Whittingdale",
+    "constituency": "Maldon",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1992-04-09T00:00:00"
+  },
+  {
+    "memberId": 54,
+    "name": "Sir Julian Lewis",
+    "constituency": "New Forest East",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 4118,
+    "name": "Sir Julian Smith",
+    "constituency": "Skipton and Ripon",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4514,
+    "name": "Sir Keir Starmer",
+    "constituency": "Holborn and St Pancras",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 467,
+    "name": "Sir Lindsay Hoyle",
+    "constituency": "Chorley",
+    "party": "Speaker",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 473,
+    "name": "Sir Mark Hendrick",
+    "constituency": "Preston",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2000-11-23T00:00:00"
+  },
+  {
+    "memberId": 4056,
+    "name": "Sir Nicholas Dakin",
+    "constituency": "Scunthorpe",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4441,
+    "name": "Sir Oliver Dowden",
+    "constituency": "Hertsmere",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 87,
+    "name": "Sir Roger Gale",
+    "constituency": "Herne Bay and Sandwich",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1983-06-09T00:00:00"
+  },
+  {
+    "memberId": 163,
+    "name": "Sir Stephen Timms",
+    "constituency": "East Ham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "1994-06-09T00:00:00"
+  },
+  {
+    "memberId": 5247,
+    "name": "Sojan Joseph",
+    "constituency": "Ashford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5274,
+    "name": "Sonia Kumar",
+    "constituency": "Dudley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5125,
+    "name": "Sorcha Eastwood",
+    "constituency": "Lagan Valley",
+    "party": "Alliance",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5164,
+    "name": "Steff Aquarone",
+    "constituency": "North Norfolk",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4607,
+    "name": "Stephanie Peacock",
+    "constituency": "Barnsley South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4264,
+    "name": "Stephen Doughty",
+    "constituency": "Cardiff South and Penarth",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2012-11-15T00:00:00"
+  },
+  {
+    "memberId": 4735,
+    "name": "Stephen Flynn",
+    "constituency": "Aberdeen South",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4434,
+    "name": "Stephen Gethins",
+    "constituency": "Arbroath and Broughty Ferry",
+    "party": "Scottish National Party",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4359,
+    "name": "Stephen Kinnock",
+    "constituency": "Aberafan Maesteg",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4653,
+    "name": "Stephen Morgan",
+    "constituency": "Portsmouth South",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4095,
+    "name": "Steve Barclay",
+    "constituency": "North East Cambridgeshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5066,
+    "name": "Steve Darling",
+    "constituency": "Torbay",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5064,
+    "name": "Steve Race",
+    "constituency": "Exeter",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4268,
+    "name": "Steve Reed",
+    "constituency": "Streatham and Croydon North",
+    "party": "Labour (Co-op)",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2012-11-29T00:00:00"
+  },
+  {
+    "memberId": 5221,
+    "name": "Steve Witherden",
+    "constituency": "Montgomeryshire and Glyndŵr",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5194,
+    "name": "Steve Yemm",
+    "constituency": "Mansfield",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4742,
+    "name": "Stuart Anderson",
+    "constituency": "South Shropshire",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4032,
+    "name": "Stuart Andrew",
+    "constituency": "Daventry",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4475,
+    "name": "Suella Braverman",
+    "constituency": "Fareham and Waterlooville",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5157,
+    "name": "Susan Murray",
+    "constituency": "Mid Dunbartonshire",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4747,
+    "name": "Tahir Ali",
+    "constituency": "Birmingham Hall Green and Moseley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4779,
+    "name": "Taiwo Owatemi",
+    "constituency": "Coventry North West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5338,
+    "name": "Terry Jermy",
+    "constituency": "South West Norfolk",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4089,
+    "name": "Tessa Munt",
+    "constituency": "Wells and Mendip Hills",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 1591,
+    "name": "Tim Farron",
+    "constituency": "Westmorland and Lonsdale",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2005-05-05T00:00:00"
+  },
+  {
+    "memberId": 5287,
+    "name": "Tim Roca",
+    "constituency": "Macclesfield",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5087,
+    "name": "Tom Collins",
+    "constituency": "Worcester",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5032,
+    "name": "Tom Gordon",
+    "constituency": "Harrogate and Knaresborough",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5210,
+    "name": "Tom Hayes",
+    "constituency": "Bournemouth East",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5090,
+    "name": "Tom Morrison",
+    "constituency": "Cheadle",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5222,
+    "name": "Tom Rutland",
+    "constituency": "East Worthing and Shoreham",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4462,
+    "name": "Tom Tugendhat",
+    "constituency": "Tonbridge",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4623,
+    "name": "Tonia Antoniazzi",
+    "constituency": "Gower",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 5067,
+    "name": "Tony Vaughan",
+    "constituency": "Folkestone and Hythe",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5246,
+    "name": "Torcuil Crichton",
+    "constituency": "Na h-Eileanan an Iar",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5069,
+    "name": "Torsten Bell",
+    "constituency": "Swansea West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5188,
+    "name": "Tracy Gilbert",
+    "constituency": "Edinburgh North and Leith",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5220,
+    "name": "Tristan Osborne",
+    "constituency": "Chatham and Aylesford",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4518,
+    "name": "Tulip Siddiq",
+    "constituency": "Hampstead and Highgate",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5278,
+    "name": "Uma Kumaran",
+    "constituency": "Stratford and Bow",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4076,
+    "name": "Valerie Vaz",
+    "constituency": "Walsall and Bloxwich",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 4491,
+    "name": "Vicky Foxcroft",
+    "constituency": "Lewisham North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4399,
+    "name": "Victoria Atkins",
+    "constituency": "Louth and Horncastle",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5201,
+    "name": "Victoria Collins",
+    "constituency": "Harpenden and Berkhamsted",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5327,
+    "name": "Vikki Slade",
+    "constituency": "Mid Dorset and North Poole",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 5230,
+    "name": "Warinder Juss",
+    "constituency": "Wolverhampton West",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 4765,
+    "name": "Wendy Chamberlain",
+    "constituency": "North East Fife",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 4358,
+    "name": "Wendy Morton",
+    "constituency": "Aldridge-Brownhills",
+    "party": "Conservative",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 4602,
+    "name": "Wera Hobhouse",
+    "constituency": "Bath",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2017-06-08T00:00:00"
+  },
+  {
+    "memberId": 4504,
+    "name": "Wes Streeting",
+    "constituency": "Ilford North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2015-05-07T00:00:00"
+  },
+  {
+    "memberId": 5035,
+    "name": "Will Stone",
+    "constituency": "Swindon North",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "M",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 3924,
+    "name": "Yasmin Qureshi",
+    "constituency": "Bolton South and Walkden",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2010-05-06T00:00:00"
+  },
+  {
+    "memberId": 5267,
+    "name": "Yuan Yang",
+    "constituency": "Earley and Woodley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  },
+  {
+    "memberId": 420,
+    "name": "Yvette Cooper",
+    "constituency": "Pontefract, Castleford and Knottingley",
+    "party": "Labour",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "1997-05-01T00:00:00"
+  },
+  {
+    "memberId": 4786,
+    "name": "Zarah Sultana",
+    "constituency": "Coventry South",
+    "party": "Independent",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2019-12-12T00:00:00"
+  },
+  {
+    "memberId": 5313,
+    "name": "Zöe Franklin",
+    "constituency": "Guildford",
+    "party": "Liberal Democrat",
+    "house": "Commons",
+    "gender": "F",
+    "startDate": "2024-07-04T00:00:00"
+  }
+]
