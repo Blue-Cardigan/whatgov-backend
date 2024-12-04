@@ -28,7 +28,7 @@ async function fetchMembersFromSupabase(memberIds) {
   }
 }
 
-export async function processDebates(specificDate = null, specificDebateId = null) {
+export async function processDebates(specificDate = null, specificDebateId = null, aiProcess = null) {
   try {
     let debatesToProcess = [];
     
@@ -146,7 +146,8 @@ export async function processDebates(specificDate = null, specificDebateId = nul
                 debateDetails,
                 memberDetails,
                 divisions,
-                debateType
+                debateType,
+                aiProcess
               );
             } catch (error) {
               logger.error('Failed to generate AI content:', {

@@ -3,10 +3,21 @@ import logger from '../utils/logger.js';
 import { SupabaseService } from '../services/supabase.js';
 
 export class HansardService {
-  static async getLatestDebates(specificDate = null) {
+  static async getLatestDebates({ specificDate = null, specificDebateId = null, aiProcess = null }) {
     try {
       let dateToProcess;
       let existingIds = [];
+
+      if (specificDebateId) {
+        // Fetch a specific debate by its ID
+        const debateDetails = await this.getDebateDetails(specificDebateId);
+        if (!debateDetails) {
+          logger.warn(`No debate found with ID: ${specificDebateId}`);
+          return [];
+        }
+        logger.info(`Processing specific debate ID: ${specificDebateId}`);
+        return [debateDetails];
+      }
 
       if (specificDate) {
         dateToProcess = specificDate;
@@ -70,11 +81,11 @@ export class HansardService {
         logger.info(`Found ${existingDebatesCount} debates that already exist in database`);
       }
 
-      // Filter out existing debates and invalid ones
+      // Filter out invalid debates, but keep existing ones if aiProcess is specified
       const newDebates = allDebates.filter(debate => 
         debate?.ExternalId && 
         debate?.Title &&
-        (!existingIds.length || !existingIds.includes(debate.ExternalId))
+        (aiProcess || !existingIds.includes(debate.ExternalId))
       );
 
       logger.info(`Debates after filtering: ${newDebates.length}`);

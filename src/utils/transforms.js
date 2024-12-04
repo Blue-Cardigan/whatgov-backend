@@ -1,4 +1,5 @@
 import { calculateDebateScore } from './scoreCalculator.js';
+import { cleanHtmlTags } from './debateUtils.js';
 
 export function validateDebateContent(debateDetails) {
   try {
@@ -34,7 +35,8 @@ export function validateDebateContent(debateDetails) {
         }
       } else if (Overview.House === 'Lords') {
         // Lords-specific check - more lenient on MemberId requirement
-        if (contributionItems.every(item => !item.Value?.trim())) {
+        if (contributionItems.every(item => !item.Value?.trim()) && 
+            !Overview.PreviousDebateExtId) {
           return null;
         }
       }
