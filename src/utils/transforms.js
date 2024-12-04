@@ -132,7 +132,6 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
     let dayOfWeek = '';
     try {
       dayOfWeek = new Date(Overview.Date).toLocaleDateString('en-UK', { weekday: 'long' }).trim();
-      // Verify we got a valid day (in case date parsing succeeded but gave wrong date)
       if (dayOfWeek === 'Invalid Date') {
         throw new Error('Invalid date');
       }
@@ -141,21 +140,42 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       dayOfWeek = '';
     }
 
-    // Replace type determination with new helper function
     const type = getDebateType(Overview);
 
     // Enhanced speakers array extraction with full details
     const speakers = Items
-      .filter(item => item?.ItemType === 'Contribution' && item?.MemberId)
-      .map(item => ({
-        member_id: item.MemberId,
-        display_as: memberDetails.get(item.MemberId)?.DisplayAs || item.MemberName || '',
-        party: memberDetails.get(item.MemberId)?.Party || ''
-      }))
+      .filter(item => item?.ItemType === 'Contribution')
+      .map(item => {
+        const memberInfo = memberDetails.get(item.MemberId);
+        return {
+          name: memberInfo?.DisplayAs || item.MemberName || '',
+          memberId: item.MemberId || null,
+          party: memberInfo?.Party || null,
+          constituency: memberInfo?.MemberFrom || null
+        };
+      })
       .filter((speaker, index, self) => 
-        speaker.member_id && 
-        index === self.findIndex(s => s.member_id === speaker.member_id)
+        index === self.findIndex(s => 
+          s.name === speaker.name && 
+          s.memberId === speaker.memberId
+        )
       );
+
+    // Enhanced search text generation
+    const searchText = Items
+      .filter(item => item?.ItemType === 'Contribution')
+      .map(item => {
+        const memberInfo = memberDetails.get(item.MemberId);
+        const speakerDetails = [
+          memberInfo?.DisplayAs || item.MemberName || item.AttributedTo,
+          memberInfo?.Party,
+          memberInfo?.MemberFrom
+        ].filter(Boolean).join(' ');
+        
+        return `[${speakerDetails}] ${cleanHtmlTags(item.Value || '')}`;
+      })
+      .join('\n')
+      .trim();
 
     return {
       ext_id: Overview.ExtId,
@@ -175,40 +195,83 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       ].join('\n'),
       ai_tone: (debateDetails.summary?.tone || 'neutral').toLowerCase(),
       
-      // Properly parse topics according to TopicSchema
-      ai_topics: debateDetails.topics || [],
+      // Updated topics with full speaker details
+      ai_topics: (debateDetails.topics || []).map(topic => ({
+        ...topic,
+        speakers: topic.speakers.map(speaker => ({
+          name: speaker.name,
+          memberId: speaker.memberId,
+          party: speaker.party,
+          constituency: speaker.constituency,
+          subtopics: speaker.subtopics,
+          frequency: speaker.frequency
+        }))
+      })),
       
+      // Updated key points with full speaker details
       ai_key_points: debateDetails.keyPoints?.keyPoints?.map(point => ({
         point: point.point,
-        speaker: point.speaker,
-        support: point.support || [],
-        opposition: point.opposition || []
+        speaker: {
+          name: point.speaker.name,
+          memberId: point.speaker.memberId,
+          party: point.speaker.party,
+          constituency: point.speaker.constituency
+        },
+        support: point.support.map(supporter => ({
+          name: supporter.name,
+          memberId: supporter.memberId,
+          party: supporter.party,
+          constituency: supporter.constituency
+        })),
+        opposition: point.opposition.map(opposer => ({
+          name: opposer.name,
+          memberId: opposer.memberId,
+          party: opposer.party,
+          constituency: opposer.constituency
+        })),
+        context: point.context
       })) || [],
       
-      ai_comment_thread: debateDetails.commentThread?.comments || [],
+      // Updated comment thread with full speaker details
+      ai_comment_thread: (debateDetails.commentThread?.comments || []).map(comment => ({
+        ...comment,
+        author: {
+          name: comment.author.name,
+          memberId: comment.author.memberId,
+          party: comment.author.party,
+          constituency: comment.author.constituency
+        },
+        votes: {
+          ...comment.votes,
+          upvotes_speakers: comment.votes.upvotes_speakers.map(speaker => ({
+            name: speaker.name,
+            memberId: speaker.memberId,
+            party: speaker.party,
+            constituency: speaker.constituency
+          })),
+          downvotes_speakers: comment.votes.downvotes_speakers.map(speaker => ({
+            name: speaker.name,
+            memberId: speaker.memberId,
+            party: speaker.party,
+            constituency: speaker.constituency
+          }))
+        }
+      })),
       
       speaker_count: speakers.length,
-      speakers: speakers, // Now contains array of objects with member_id, display_as, and party
-      contribution_count: (Items || []).filter(item => item?.ItemType === 'Contribution').length,
+      speakers: speakers,
+      contribution_count: Items.filter(item => item?.ItemType === 'Contribution').length,
       party_count: debateDetails.partyCount || {},
       interest_score: scoreData.score,
       interest_factors: scoreData.factors,
       
-      // Navigation
       parent_ext_id: parent.ExternalId || '',
       parent_title: parent.Title || '',
       prev_ext_id: Overview.PreviousDebateExtId || null,
       next_ext_id: Overview.NextDebateExtId || null,
       
-      // Search optimization
-      search_text: (Items || [])
-        .filter(item => item?.ItemType === 'Contribution')
-        .map(item => item?.Value || '')
-        .join(' ')
-        .replace(/<[^>]*>/g, '')
-        .trim(),
+      search_text: searchText,
       
-      // Individual question fields
       ai_question: debateDetails.questions?.question?.text || '',
       ai_question_topic: debateDetails.questions?.question?.topic || '',
       ai_question_subtopics: debateDetails.questions?.question?.subtopics || [],
@@ -223,10 +286,10 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
 
 export function transformSpeaker(apiSpeaker) {
   return {
-    member_id: apiSpeaker.MemberId,
-    name: apiSpeaker.DisplayAs,
-    party: apiSpeaker.Party,
-    constituency: apiSpeaker.MemberFrom
+    name: apiSpeaker.DisplayAs || '',
+    memberId: apiSpeaker.MemberId || null,
+    party: apiSpeaker.Party || null,
+    constituency: apiSpeaker.MemberFrom || null
   };
 }
 

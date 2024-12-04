@@ -43,6 +43,9 @@ export const TopicSchema = z.object({
       frequency: z.number(),
       speakers: z.array(z.object({
         name: z.string(),
+        memberId: z.string().nullable(),
+        party: z.string().nullable(),
+        constituency: z.string().nullable(),
         subtopics: z.array(z.string()),
         frequency: z.number()
       }))
@@ -50,15 +53,22 @@ export const TopicSchema = z.object({
   )
 });
   
+export const SpeakerDetailsSchema = z.object({
+  name: z.string(),
+  memberId: z.string().nullable(),
+  party: z.string().nullable(),
+  constituency: z.string().nullable()
+});
+
 export const KeyPointSchema = z.object({
-    keyPoints: z.array(z.object({
-      point: z.string(),
-      speaker: z.string(),
-      support: z.array(z.string()),
-      opposition: z.array(z.string()),
-      context: z.string().nullable()
-    }))
-  });
+  keyPoints: z.array(z.object({
+    point: z.string(),
+    speaker: SpeakerDetailsSchema,
+    support: z.array(SpeakerDetailsSchema),
+    opposition: z.array(SpeakerDetailsSchema),
+    context: z.string().nullable()
+  }))
+});
   
   // Add new schema for division questions
 export const DivisionQuestionSchema = z.object({
@@ -88,14 +98,13 @@ export const CommentThreadSchema = z.object({
     comments: z.array(z.object({
       id: z.string(),
       parent_id: z.string().nullable(),
-      author: z.string(),
-      party: z.string().nullable(),
+      author: SpeakerDetailsSchema,
       content: z.string(),
       votes: z.object({
         upvotes: z.number(),
-        upvotes_speakers: z.array(z.string()),
+        upvotes_speakers: z.array(SpeakerDetailsSchema),
         downvotes: z.number(),
-        downvotes_speakers: z.array(z.string())
+        downvotes_speakers: z.array(SpeakerDetailsSchema)
       }),
       tags: z.array(z.string())
     }))

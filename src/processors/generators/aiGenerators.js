@@ -234,14 +234,17 @@ export async function extractTopics(text) {
 
 For each identified topic:
 1. Include frequency of discussion for each speaker (as a number 1-100)
-2. List the names of the speakers who discussed it, with their individual:
+2. List the speakers who discussed it, with their complete details:
+   - Full name as provided
+   - Party affiliation (if mentioned)
+   - Constituency (if mentioned)
+   - Member ID (if provided in the original text)
+   And their individual:
    - Subtopics from the predefined list
    - Frequency of discussion for each subtopic (1-100)
-3. Include only the name of the speaker, not their party or title.
-4. Leave titles for Lords speakers e.g Baroness, Lord, etc.
-5. Only select subtopics from the predefined list that were actually discussed
-6. Select only the most relevant main topics - not all topics need to be used
-7. Ensure accurate speaker attribution
+4. Only select subtopics from the predefined list that were actually discussed
+5. Select only the most relevant main topics - not all topics need to be used
+6. Ensure accurate speaker attribution with complete details
 
 Available topics and their required subtopics:
 ${Object.entries(topicDefinitions).map(([topic, subtopics]) => 
@@ -255,15 +258,18 @@ ${Object.entries(topicDefinitions).map(([topic, subtopics]) =>
       response_format: zodResponseFormat(TopicSchema, 'topics')
     });
 
-    // Post-process speaker names in topics
+    // Post-process speaker details in topics
     const validatedTopics = response.choices[0].message.parsed.topics.map(topic => ({
       ...topic,
       speakers: topic.speakers.map(speaker => ({
-        ...speaker,
-        name: cleanSpeakerName(speaker.name || speaker.speaker_name),
+        name: cleanSpeakerName(speaker.name),
+        memberId: speaker.memberId || null,
+        party: speaker.party || null,
+        constituency: speaker.constituency || null,
         subtopics: speaker.subtopics.filter(subtopic => 
           topicDefinitions[topic.name]?.includes(subtopic)
-        )
+        ),
+        frequency: speaker.frequency
       }))
     }));
 
@@ -287,12 +293,18 @@ export async function extractKeyPoints(text) {
         content: `You are an expert UK parliamentary analyst. 
         Extract and clarify all substantive points made during the debate, maintaining the flow of discussion.
         
+        For each point, capture complete speaker details including:
+        - Full name as stated in the debate
+        - Party affiliation (if mentioned)
+        - Constituency (if mentioned)
+        - Member ID (if provided in the original text)
+        
         For each point:
         - Preserve the original meaning but clarify any unclear language or references
         - Keep the speaker's original intent and tone
         - Include all specific details, facts, figures, and proposals
         - Note any direct responses or rebuttals to previous points
-        - Identify any speakers who explicitly agree or disagree
+        - Identify any speakers who explicitly agree or disagree (including their full details)
         
         Guidelines:
         - Include ALL substantive points, not just the key ones
@@ -300,13 +312,14 @@ export async function extractKeyPoints(text) {
         - Preserve technical details and specific policy proposals
         - Note any procedural or parliamentary process points
         - Include questions asked and answers given
+        - Always include complete speaker details for main speaker and any supporting/opposing speakers
         
-        You must return each point with:
+        Return each point with:
         - A point string (the clarified statement)
-        - A speaker string (the name of who made it)
-        - Support array (names of explicit supporters)
-        - Opposition array (names of explicit opponents)
-        - Context string (optional: references to previous points being addressed)`
+        - Speaker details (name, memberId, party, constituency)
+        - Support array (full details of explicit supporters)
+        - Opposition array (full details of explicit opponents)
+        - Context string (references to previous points being addressed)`
       }, {
         role: "user",
         content: text
@@ -314,15 +327,24 @@ export async function extractKeyPoints(text) {
       response_format: zodResponseFormat(KeyPointSchema, 'keyPoints')
     });
 
-    // Post-process speaker names in keyPoints
+    // Post-process speaker details
     if (response?.choices?.[0]?.message?.parsed?.keyPoints) {
       response.choices[0].message.parsed.keyPoints = 
         response.choices[0].message.parsed.keyPoints.map(keyPoint => ({
           ...keyPoint,
-          speaker: cleanSpeakerName(keyPoint.speaker),
-          support: keyPoint.support.map(cleanSpeakerName),
-          opposition: keyPoint.opposition.map(cleanSpeakerName),
-          context: keyPoint.context || null // Add context field
+          speaker: {
+            ...keyPoint.speaker,
+            name: cleanSpeakerName(keyPoint.speaker.name)
+          },
+          support: keyPoint.support.map(supporter => ({
+            ...supporter,
+            name: cleanSpeakerName(supporter.name)
+          })),
+          opposition: keyPoint.opposition.map(opposer => ({
+            ...opposer,
+            name: cleanSpeakerName(opposer.name)
+          })),
+          context: keyPoint.context || null
         }));
     }
 
@@ -358,10 +380,13 @@ export async function generateCommentThread(text, debateId) {
       Convert this debate into a threaded comment structure where:
       - Each major point becomes a top-level comment (use index numbers starting from 1)
       - Responses and counterpoints become replies (use parent's index followed by reply number)
-      - Identify speakers who support and oppose each point and provide up/downvotes accordingly
-      - Preserve the speaker's full first and last name
-      - Preserve the full first and last name of supporters and opponents
-      - Ensure every speaker is mentioned at least once
+      - For each speaker, include complete details:
+        * Full name as provided
+        * Party affiliation (if mentioned)
+        * Constituency (if mentioned)
+        * Member ID (if provided in the original text)
+      - Identify speakers who support and oppose each point with their complete details
+      - Ensure every speaker is mentioned at least once with full details
       - Include relevant hashtag-style tags if relevant to the comment
       - Balance entertaining social media-style language with complete information`
     }, {
@@ -371,11 +396,35 @@ export async function generateCommentThread(text, debateId) {
     response_format: zodResponseFormat(CommentThreadSchema, 'comment_thread')
   });
 
+  // Post-process the comments to ensure complete speaker details
   return {
     ...response.choices[0].message.parsed,
     comments: response.choices[0].message.parsed.comments.map((comment, index) => ({
-      ...comment,
-      id: generateCommentId(index + 1, comment.parent_id)
+      id: generateCommentId(index + 1, comment.parent_id),
+      parent_id: comment.parent_id,
+      author: {
+        name: cleanSpeakerName(comment.author.name),
+        memberId: comment.author.memberId || null,
+        party: comment.author.party || null,
+        constituency: comment.author.constituency || null
+      },
+      content: comment.content,
+      votes: {
+        ...comment.votes,
+        upvotes_speakers: comment.votes.upvotes_speakers.map(speaker => ({
+          name: cleanSpeakerName(speaker.name),
+          memberId: speaker.memberId || null,
+          party: speaker.party || null,
+          constituency: speaker.constituency || null
+        })),
+        downvotes_speakers: comment.votes.downvotes_speakers.map(speaker => ({
+          name: cleanSpeakerName(speaker.name),
+          memberId: speaker.memberId || null,
+          party: speaker.party || null,
+          constituency: speaker.constituency || null
+        }))
+      },
+      tags: comment.tags
     }))
   };
 }

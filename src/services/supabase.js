@@ -76,7 +76,7 @@ export class SupabaseService {
     try {
       const { data, error } = await supabase
         .from('members')
-        .select('member_id, display_as, party')
+        .select('member_id, display_as, party, constituency')
         .in('member_id', memberIds);
 
       if (error) throw error;

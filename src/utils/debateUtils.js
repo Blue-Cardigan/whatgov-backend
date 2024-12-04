@@ -41,19 +41,17 @@ export function processDebateItems(items, memberDetails) {
   items.forEach(item => {
     const cleanText = cleanHtmlTags(item.Value);
     const memberInfo = memberDetails.get(item.MemberId);
-    const party = memberInfo?.Party ? `(${memberInfo.Party})` : '';
+    const party = memberInfo?.Party || null;
+    const constituency = memberInfo?.MemberFrom || null; // Corrected to MemberFrom
     
-    // Add null check and fallback for AttributedTo
-    const constituency = item.AttributedTo 
-      ? item.AttributedTo.split('Member of Parliament for')[1]?.split('(')[0]?.trim() 
-      : '';
+    const speaker = {
+      name: item.MemberId ? memberInfo?.DisplayAs || '' : (item.AttributedTo || ''),
+      memberId: item.MemberId || null,
+      party,
+      constituency
+    };
     
-    // Format speaker with clear party affiliation and handle null AttributedTo
-    const speaker = item.MemberId 
-      ? `${memberInfo?.DisplayAs || ''} ${party}${constituency ? `, ${constituency}` : ''}` 
-      : (item.AttributedTo || '');
-    
-    if (!currentGroup || currentGroup.speaker !== speaker) {
+    if (!currentGroup || currentGroup.speaker.name !== speaker.name) {
       if (currentGroup) {
         processed.push(currentGroup);
       }
@@ -84,7 +82,7 @@ export function formatDebateContext(overview, processedItems) {
     `House: ${overview.Location?.includes('Lords') ? 'House of Lords' : 'House of Commons'}`,
     '\nDebate Transcript:',
     ...processedItems.map(group => 
-      `${group.speaker}:\n${group.text.join('\n')}`
+      `Speaker [ID: ${group.speaker.memberId || 'N/A'}]: ${group.speaker.name}, Party: ${group.speaker.party}, Constituency: ${group.speaker.constituency}\n${group.text.join('\n')}`
     )
   ];
   

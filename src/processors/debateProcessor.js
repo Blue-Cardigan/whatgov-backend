@@ -10,16 +10,16 @@ import { processDivisions } from './divisionsProcessor.js';
 
 async function fetchMembersFromSupabase(memberIds) {
   try {
-    // Get only the fields we need
     const { data, error } = await SupabaseService.getMemberDetails(memberIds);
     
     if (error) throw error;
     
-    // Create map of results with only required fields
     return new Map(
       data.map(member => [member.member_id, {
         DisplayAs: member.display_as,
-        Party: member.party
+        MemberId: member.member_id,
+        Party: member.party,
+        MemberFrom: member.constituency
       }])
     );
   } catch (error) {
@@ -90,7 +90,11 @@ export async function processDebates(specificDate = null, specificDebateId = nul
 
     // Fetch all member details from Supabase in one go
     const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
-    console.log('found member details:', memberDetails.size);
+    
+    logger.debug('Fetched member details:', {
+      count: memberDetails.size,
+      sample: Array.from(memberDetails.entries()).slice(0, 2)
+    });
 
     // Process debates in batches to avoid overwhelming APIs
     for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {
@@ -128,18 +132,30 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           // Generate AI content if enabled
           let aiContent = null;
           if (config.ENABLE_AI_PROCESSING) {
-            console.log(`processing AI content for debate ${debateDetails.Overview.Title}, ${debate.ExternalId}`);
+            logger.debug(`Processing AI content for debate`, {
+              title: debateDetails.Overview.Title,
+              id: debate.ExternalId,
+              memberCount: memberDetails.size,
+              speakerCount: debateDetails.Items.filter(item => 
+                item.ItemType === 'Contribution' && item.MemberId
+              ).length
+            });
+
             try {
-              aiContent = await processAIContent(debateDetails, memberDetails, divisions, debateType);
+              aiContent = await processAIContent(
+                debateDetails,
+                memberDetails,
+                divisions,
+                debateType
+              );
             } catch (error) {
               logger.error('Failed to generate AI content:', {
                 debateId: debate.ExternalId,
                 debateTitle: debateDetails.Overview.Title,
                 error: error.message,
-                stack: error.stack,
-                cause: error.cause
+                memberDetailsSize: memberDetails.size,
+                sampleMember: memberDetails.get([...memberDetails.keys()][0])
               });
-              // Skip this debate if AI content generation failed
               results.skipped++;
               return;
             }
