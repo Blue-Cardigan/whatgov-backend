@@ -48,12 +48,12 @@ async function processDateRange(startDate, endDate, aiProcess) {
 
 async function main() {
   try {
-    const [startDateArg, endDateArg, aiProcess] = process.argv.slice(2);
-    
-    // Handle single debate ID case
-    if (startDateArg && startDateArg.match(/^\d+$/)) {
+    const [startDateArg, endDateArg, aiProcessArg] = process.argv.slice(2);
+
+    // Check if the first argument is a debate ID
+    if (startDateArg && startDateArg.match(/^[0-9a-fA-F-]{36}$/)) {
       logger.info(`Processing single debate: ${startDateArg}`);
-      const results = await processDebates(null, startDateArg, aiProcess);
+      const results = await processDebates(null, startDateArg, aiProcessArg);
       
       if (process.env.GITHUB_OUTPUT) {
         fs.appendFileSync(
@@ -67,8 +67,12 @@ async function main() {
 
     // Handle date range processing
     if (startDateArg) {
-      const startDate = await parseDate(startDateArg);
-      const endDate = endDateArg ? await parseDate(endDateArg) : startDate;
+      const startDate = new Date(startDateArg);
+      const endDate = endDateArg ? new Date(endDateArg) : startDate;
+
+      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+        throw new Error('Invalid date format');
+      }
 
       if (endDate < startDate) {
         throw new Error('End date must be after start date');
@@ -77,10 +81,10 @@ async function main() {
       logger.info('Processing date range:', {
         startDate: startDate.toISOString().split('T')[0],
         endDate: endDate.toISOString().split('T')[0],
-        aiProcess: aiProcess || 'all'
+        aiProcess: aiProcessArg || 'all'
       });
 
-      const results = await processDateRange(startDate, endDate, aiProcess);
+      const results = await processDateRange(startDate, endDate, aiProcessArg);
       
       // Log results summary
       const summary = results.reduce((acc, result) => {
@@ -91,7 +95,7 @@ async function main() {
       logger.info('Processing complete:', {
         dateRange: `${startDate.toISOString().split('T')[0]} to ${endDate.toISOString().split('T')[0]}`,
         summary,
-        aiProcess: aiProcess || 'all'
+        aiProcess: aiProcessArg || 'all'
       });
 
       if (process.env.GITHUB_OUTPUT) {
@@ -119,7 +123,10 @@ async function main() {
     process.exit(results ? 0 : 1);
 
   } catch (error) {
-    logger.error('Failed to process debates:', error);
+    logger.error('Failed to process debates:', {
+      error: error.message,
+      stack: error.stack
+    });
     process.exit(1);
   }
 }

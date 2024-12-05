@@ -28,6 +28,21 @@ export class OpenAIService {
       throw error;
     }
   }
+
+  static async generateEmbedding(text) {
+    try {
+      const response = await openai.embeddings.create({
+        model: "text-embedding-3-small",
+        input: text,
+        encoding_format: "float"
+      });
+
+      return response.data[0].embedding;
+    } catch (error) {
+      logger.error('OpenAI Embedding API error:', error);
+      throw error;
+    }
+  }
 }
 
 export { openai }; 

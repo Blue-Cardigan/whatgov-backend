@@ -173,6 +173,65 @@ export class SupabaseService {
       return { data: null, error };
     }
   }
+
+  static async upsertEmbedding(debateId, embedding) {
+    try {
+      const { data, error } = await supabase
+        .from('debate_embeddings')
+        .upsert({
+          debate_id: debateId,
+          embedding,
+          updated_at: new Date().toISOString()
+        }, {
+          onConflict: 'debate_id',
+          returning: true
+        });
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to upsert embedding:', error);
+      return { data: null, error };
+    }
+  }
+
+  static async getDebatesWithoutEmbeddings() {
+    try {
+      const { data: embeddingIds, error: embeddingError } = await supabase
+        .from('debate_embeddings')
+        .select('debate_id');
+
+      if (embeddingError) throw embeddingError;
+
+      const embeddingIdList = embeddingIds.map(e => e.debate_id);
+
+      const query = supabase
+        .from('debates')
+        .select(`
+          id,
+          ext_id,
+          title,
+          ai_summary,
+          ai_key_points,
+          ai_topics,
+          type,
+          date,
+          speakers
+        `);
+
+      if (embeddingIdList.length > 0) {
+        query.not('id', 'in', embeddingIdList);
+      }
+
+      const { data, error } = await query;
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to get debates without embeddings:', error);
+      return { data: [], error };
+    }
+  }
 }
 
 export { supabase }; 

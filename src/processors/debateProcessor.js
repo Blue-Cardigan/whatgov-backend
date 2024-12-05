@@ -7,6 +7,7 @@ import { transformDebate, validateDebateContent, getDebateType } from '../utils/
 import logger from '../utils/logger.js';
 import { config } from '../config/config.js';
 import { processDivisions } from './divisionsProcessor.js';
+import { EmbeddingService } from '../services/embeddingService.js';
 
 async function fetchMembersFromSupabase(memberIds) {
   try {
@@ -99,14 +100,12 @@ export async function processDebates(specificDate = null, specificDebateId = nul
     // Collect all unique member IDs across filtered debates
     const allMemberIds = new Set();
     debatesToProcess.forEach(debate => {
-      // Handle both direct Items and nested debate structure
       const items = debate.Items || debate.debate?.Items || [];
       
       items
         .filter(item => item.ItemType === 'Contribution' && item.MemberId)
         .forEach(item => allMemberIds.add(item.MemberId));
       
-      // Also check child debates if they exist
       if (debate.ChildDebates) {
         debate.ChildDebates.forEach(childDebate => {
           const childItems = childDebate.Items || [];
@@ -117,7 +116,6 @@ export async function processDebates(specificDate = null, specificDebateId = nul
       }
     });
 
-    // Log the structure for debugging
     logger.debug('Debate structure:', {
       sampleDebate: debatesToProcess[0] ? {
         hasItems: Boolean(debatesToProcess[0].Items),
@@ -127,7 +125,6 @@ export async function processDebates(specificDate = null, specificDebateId = nul
       } : null
     });
 
-    // Fetch all member details from Supabase in one go
     const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
     
     logger.debug('Fetched member details:', {
@@ -135,19 +132,14 @@ export async function processDebates(specificDate = null, specificDebateId = nul
       sample: Array.from(memberDetails.entries()).slice(0, 2)
     });
 
-    // Process debates in batches to avoid overwhelming APIs
     for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {
       const batch = debatesToProcess.slice(i, i + config.BATCH_SIZE);
       
-      // Process batch in parallel
       const promises = batch.map(async (debate) => {
         try {
           const debateDetails = debate.debate;
-          
-          // Get debate type early
           const debateType = getDebateType(debateDetails.Overview);
           
-          // Validate content
           const valid = validateDebateContent(debateDetails);
           if (valid === null) {
             logger.debug(`Skipping empty debate ${debate.ExternalId}`);
@@ -155,7 +147,6 @@ export async function processDebates(specificDate = null, specificDebateId = nul
             return;
           }
           
-          // Process divisions first
           const divisions = await processDivisions(debate);
           logger.debug(`Processed divisions for debate ${debate.ExternalId}`, {
             divisionCount: divisions?.length,
@@ -165,11 +156,17 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           
           if (divisions === null) {
             logger.warn(`No divisions for debate ${debate.ExternalId}`);
-            // Don't return/skip here, continue processing the debate
           }
           
-          // Generate AI content if enabled
-          let aiContent = null;
+          if (aiProcess === 'embeddings') {
+            await EmbeddingService.generateAndStoreChunkEmbeddings({
+              extId: debate.ExternalId
+            });
+            console.log(`Generating embeddings for debate ${debate.ExternalId}`);
+            results.success++;
+            return;
+          }
+
           if (config.ENABLE_AI_PROCESSING) {
             logger.debug(`Processing AI content for debate`, {
               title: debateDetails.Overview.Title,
@@ -180,6 +177,7 @@ export async function processDebates(specificDate = null, specificDebateId = nul
               ).length
             });
 
+            let aiContent;
             try {
               aiContent = await processAIContent(
                 debateDetails,
@@ -199,50 +197,44 @@ export async function processDebates(specificDate = null, specificDebateId = nul
               results.skipped++;
               return;
             }
-          }
-          
-          // Skip if no AI content was generated
-          if (!aiContent) {
-            logger.debug(`Skipping debate ${debate.ExternalId} due to missing AI content`);
-            results.skipped++;
-            return;
-          }
-          
-          // Update divisions with AI content if they exist
-          if (divisions?.length) {
-            console.log(`divisions.length: ${divisions.length}`);
-            try {
-              await processDivisions(debate, aiContent);
-              logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
-            } catch (error) {
-              logger.error('Failed to update divisions with AI content:', {
-                debateId: debate.ExternalId,
-                debateTitle: debateDetails.Overview.Title,
-                error: error.message,
-                stack: error.stack,
-                cause: error.cause
-              });
-              // Skip this debate if division processing failed
+            
+            if (!aiContent) {
+              logger.debug(`Skipping debate ${debate.ExternalId} due to missing AI content`);
               results.skipped++;
               return;
             }
+            
+            if (divisions?.length) {
+              try {
+                await processDivisions(debate, aiContent);
+                logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
+              } catch (error) {
+                logger.error('Failed to update divisions with AI content:', {
+                  debateId: debate.ExternalId,
+                  debateTitle: debateDetails.Overview.Title,
+                  error: error.message,
+                  stack: error.stack,
+                  cause: error.cause
+                });
+                results.skipped++;
+                return;
+              }
+            }
+            
+            const stats = await calculateStats(debateDetails, memberDetails);
+            logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
+            
+            const finalDebate = transformDebate({
+              ...debateDetails, 
+              ...stats, 
+              ...aiContent,
+            }, memberDetails);
+            
+            await SupabaseService.upsertDebate(finalDebate);
+            logger.debug(`Stored debate ${debate.ExternalId} in database`);
+            
+            results.success++;
           }
-          
-          // Calculate statistics using debate details, member info, and divisions
-          const stats = await calculateStats(debateDetails, memberDetails);
-          logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
-          
-          const finalDebate = transformDebate({
-            ...debateDetails, 
-            ...stats, 
-            ...aiContent,
-          }, memberDetails);
-          
-          // Store in Supabase
-          await SupabaseService.upsertDebate(finalDebate);
-          logger.debug(`Stored debate ${debate.ExternalId} in database`);
-          
-          results.success++;
         } catch (error) {
           logger.error(`Failed to process debate ${debate.ExternalId}:`, {
             error: error.message,
@@ -252,10 +244,8 @@ export async function processDebates(specificDate = null, specificDebateId = nul
         }
       });
 
-      // Wait for batch to complete
       await Promise.all(promises);
       
-      // Add small delay between batches
       if (i + config.BATCH_SIZE < debatesToProcess.length) {
         await new Promise(resolve => setTimeout(resolve, config.RETRY_DELAY));
       }
