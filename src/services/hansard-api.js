@@ -8,9 +8,6 @@ export class HansardAPI {
     const RETRY_DELAY = 1000; // 1 second
 
     try {
-      // Add delay before each request
-      await new Promise(resolve => setTimeout(resolve, 500));
-      
       const response = await fetch(url);
       
       if (!response.ok) {
@@ -149,79 +146,43 @@ export class HansardAPI {
 
   static async processHouseDebates(date, house) {
     try {
-      const debates = [];
       const sections = await this.getAvailableSections(date, house);
-
-      // Process each section
-      for (const section of sections) {
-        const sectionData = await this.fetchSectionTrees({
-          format: 'json',
-          house,
-          date,
-          section
-        });
-
-        if (!Array.isArray(sectionData)) {
-          logger.warn('Invalid section data:', { section, house, date });
-          continue;
-        }
-
-        // Process section tree items recursively
-        const processItems = async (items, parentTitle = '') => {
-          if (!Array.isArray(items)) return;
-
-          for (const item of items) {
-            if (item.ParentId === null) {
-              if (item.SectionTreeItems) {
-                await processItems(item.SectionTreeItems, item.Title);
-              }
-              continue;
-            }
-
-            if (item.ExternalId) {
-              try {
-                const debateData = await this.fetchDebate(item.ExternalId);
-                const speakersData = await this.fetchSpeakers(item.ExternalId);
-                
-                debates.push({
-                  ...item,
-                  parentTitle,
-                  debateDate: date,
-                  house,
-                  section,
-                  debate: debateData,
-                  speakers: speakersData
-                });
-                
-                logger.debug('Processed debate:', { 
-                  externalId: item.ExternalId, 
-                  title: item.Title,
-                  section 
-                });
-              } catch (error) {
-                logger.error('Failed to fetch debate details:', {
-                  error: error.message,
-                  stack: error.stack,
-                  externalId: item.ExternalId,
-                  section
-                });
-              }
-            }
-
-            if (item.SectionTreeItems) {
-              await processItems(item.SectionTreeItems, item.Title);
-            }
+      
+      // Process sections in parallel batches
+      const batchSize = 5; // Adjust based on API limits
+      const debates = [];
+      
+      for (let i = 0; i < sections.length; i += batchSize) {
+        const batch = sections.slice(i, i + batchSize);
+        const batchPromises = batch.map(async (section) => {
+          const sectionData = await this.fetchSectionTrees({
+            format: 'json',
+            house,
+            date,
+            section
+          });
+          
+          if (!Array.isArray(sectionData)) {
+            logger.warn('Invalid section data:', { section, house, date });
+            return [];
           }
-        };
-
-        await processItems(sectionData);
+          
+          return this.processItems(sectionData, '', { date, house, section });
+        });
+        
+        const batchResults = await Promise.all(batchPromises);
+        debates.push(...batchResults.flat());
+        
+        // Add small delay between batches to avoid rate limiting
+        if (i + batchSize < sections.length) {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+        }
       }
       
       return debates;
     } catch (error) {
       logger.error('Failed to process house debates:', {
         error: error.message,
-        stack: error.stack,
         date,
         house
       });
@@ -229,24 +190,74 @@ export class HansardAPI {
     }
   }
 
+  static async processItems(items, parentTitle = '', context = {}) {
+    if (!Array.isArray(items)) return [];
+
+    // Process all items in parallel
+    const promises = items.map(async (item) => {
+      if (item.ExternalId) {
+        try {
+          // Make API calls in parallel
+          const [debateData, speakersData] = await Promise.all([
+            HansardAPI.fetchDebate(item.ExternalId),
+            HansardAPI.fetchSpeakers(item.ExternalId)
+          ]);
+          
+          // Ensure we have the correct structure
+          return {
+            ExternalId: item.ExternalId,
+            Title: item.Title,
+            parentTitle,
+            debateDate: context.date,
+            house: context.house,
+            section: context.section,
+            Items: debateData.Items || [],
+            Overview: debateData.Overview,
+            ChildDebates: debateData.ChildDebates || [],
+            speakers: speakersData,
+            // Include the raw debate data for compatibility
+            debate: debateData
+          };
+        } catch (error) {
+          logger.error('Failed to fetch debate details:', {
+            error: error.message,
+            externalId: item.ExternalId,
+            itemStructure: Object.keys(item)
+          });
+          return null;
+        }
+      }
+      
+      if (item.SectionTreeItems) {
+        return HansardAPI.processItems(item.SectionTreeItems, item.Title, context);
+      }
+      
+      return null;
+    });
+
+    // Wait for all promises to resolve
+    const results = await Promise.all(promises);
+    return results.flat().filter(Boolean);
+  }
+
   static async getDebateDetails(debateSectionExtId) {
     try {
-      
-      const [debate, speakers] = await Promise.all([
+      const [debateData, speakers] = await Promise.all([
         this.fetchDebate(debateSectionExtId),
         this.fetchSpeakers(debateSectionExtId)
       ]);
 
       return {
-        debate,
-        speakers,
+        ExternalId: debateSectionExtId,
+        Title: debateData.Title,
+        Items: debateData.Items,
+        Overview: debateData.Overview,
+        speakers
       };
     } catch (error) {
       logger.error('Failed to get debate details:', {
         error: error.message,
-        stack: error.stack,
-        debateSectionExtId,
-        details: error.details || {}
+        debateSectionExtId
       });
       throw error;
     }

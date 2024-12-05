@@ -4,13 +4,14 @@ import logger from '../utils/logger.js';
 
 export async function processDivisions(debate, aiContent = {}) {
   try {
-    // Get the debate's external ID from the debate object
-    const debateExternalId = debate.ExternalId || debate.debate?.ExternalId;
+    const debateExternalId = debate.ExternalId;
+    const debateItems = debate.Items;
     
-    if (!debateExternalId) {
-      logger.error('No external ID found for debate');
-      return null;
-    }
+    logger.debug('Processing divisions for debate:', {
+      externalId: debateExternalId,
+      hasItems: !!debateItems,
+      itemsCount: debateItems?.length
+    });
 
     // Get divisions list for the debate
     const divisions = await HansardAPI.fetchDivisionsList(debateExternalId);
@@ -100,7 +101,10 @@ export async function processDivisions(debate, aiContent = {}) {
     return validDivisions;
 
   } catch (error) {
-    logger.error(`Failed to process divisions for debate ${debateExternalId}:`, error);
+    logger.error(`Failed to process divisions for debate ${debateExternalId}:`, {
+      error,
+      debate: debate?.ExternalId || debate?.debate?.ExternalId
+    });
     return null;
   }
 } 

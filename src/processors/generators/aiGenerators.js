@@ -122,7 +122,7 @@ Always include a tone assessment based on:
   }
 }
 
-export async function generateQuestions(text, typeSpecificPrompt, type) {
+export async function generateQuestions(text, type) {
   try {
     const defaultPrompt = `Generate a question about the key policy implications or decisions discussed.`;
 
@@ -153,10 +153,11 @@ ${Object.entries(topicDefinitions).map(([topic, subtopics]) =>
   `${topic}:\n${subtopics.map(st => `- ${st}`).join('\n')}`
 ).join('\n\n')}
 
-Note: 
-- Select ONLY relevant subtopics that apply to the question
-- Each subtopic MUST be exactly as written in the list above for the chosen topic
-- Include at least one subtopic`
+Important:
+- Choose only relevant subtopics from the list above
+- Do not create new subtopics or modify existing ones
+- If no exact match exists, choose the closest matching subtopic from the list
+- Include at least one valid subtopic from the chosen topic's list`
       }, {
         role: "user",
         content: text
@@ -181,7 +182,8 @@ Note:
     // Validate that the topic exists
     if (!topicDefinitions[question.topic]) {
       logger.warn('Invalid topic received, using first available topic', {
-        invalidTopic: question.topic
+        invalidTopic: question.topic,
+        availableTopics: Object.keys(topicDefinitions)
       });
       question.topic = Object.keys(topicDefinitions)[0];
       question.subtopics = [topicDefinitions[question.topic][0]];
@@ -193,9 +195,8 @@ Note:
       topicDefinitions[question.topic].includes(subtopic)
     );
 
-    // If no valid subtopics remain, use the first available one
     if (validSubtopics.length === 0) {
-      logger.warn('No valid subtopics found, using first available subtopic', {
+      logger.warn('No valid subtopics found, using default subtopic', {
         topic: question.topic,
         invalidSubtopics: question.subtopics,
         availableSubtopics: topicDefinitions[question.topic]
@@ -203,22 +204,25 @@ Note:
       validSubtopics.push(topicDefinitions[question.topic][0]);
     }
 
-    question.subtopics = validSubtopics;
-    return { question };
+    // Return validated question
+    return {
+      question: {
+        ...question,
+        subtopics: validSubtopics
+      }
+    };
 
   } catch (error) {
-    logger.error('Failed to generate question:', {
+    logger.error('Failed to generate questions:', {
       error: error.message,
-      stack: error.stack,
-      type
+      stack: error.stack
     });
-    // Return first available topic and subtopic as fallback
-    const firstTopic = Object.keys(topicDefinitions)[0];
+    // Return a safe default response
     return {
       question: {
         text: '',
-        topic: firstTopic,
-        subtopics: [topicDefinitions[firstTopic][0]]
+        topic: Object.keys(topicDefinitions)[0],
+        subtopics: [topicDefinitions[Object.keys(topicDefinitions)[0]][0]]
       }
     };
   }
@@ -300,7 +304,7 @@ export async function extractKeyPoints(text) {
         - Member ID (if provided in the original text)
         
         For each point:
-        - Preserve the original meaning but clarify any unclear language or references
+        - Preserve the important details of the contribution, with clear and concise language
         - Keep the speaker's original intent and tone
         - Include all specific details, facts, figures, and proposals
         - Note any direct responses or rebuttals to previous points
@@ -430,16 +434,23 @@ export async function generateCommentThread(text, debateId) {
 }
 
 export async function generateDivisionQuestions(debate, divisions, memberDetails) {
-  if (!divisions?.length) {
-    logger.debug('No divisions to process for questions', {
-      debateId: debate.Overview?.Id
+  // Early return if no divisions or invalid debate data
+  if (!divisions?.length || !debate?.Overview) {
+    logger.debug('No divisions or invalid debate data to process for questions', {
+      hasDebate: !!debate,
+      hasOverview: !!debate?.Overview,
+      divisionsCount: divisions?.length || 0
     });
     return [];
   }
 
   try {
-    const processedItems = processDebateItems(debate.Items, memberDetails);
-    const debateText = formatDebateContext(debate.Overview, processedItems);
+    // Safely process items and create debate text
+    const processedItems = processDebateItems(debate.Items || [], memberDetails);
+    const debateText = formatDebateContext({
+      Title: debate.Overview.Title || 'Untitled Debate',
+      Location: debate.Overview.Location || 'Unknown Location'
+    }, processedItems);
 
     const response = await openai.beta.chat.completions.parse({
       model: "gpt-4o",
@@ -460,26 +471,41 @@ For each division above, provide:
 
 Ensure each response includes the correct division_id to match with the original division.
 
-Debate Title: ${debate.Overview.Title}
+Debate Title: ${debate.Overview.Title || 'Untitled Debate'}
 Debate Context:
 ${debateText}
 
 Divisions:
 ${divisions.map(div => `
-Division ${div.division_number || div.Id}:
-- Division ID: ${div.Id || div.division_id}
-- Result: Ayes: ${div.ayes_count}, Noes: ${div.noes_count}
+Division ${div.division_number || div.Id || 'Unknown'}:
+- Division ID: ${div.Id || div.division_id || 'Unknown'}
+- Result: Ayes: ${div.ayes_count || 0}, Noes: ${div.noes_count || 0}
 `).join('\n')}`
       }],
       response_format: zodResponseFormat(DivisionQuestionSchema, 'division_questions')
     });
 
-    return response.choices[0].message.parsed.questions;
+    // Validate and clean the response
+    const questions = response.choices[0].message.parsed.questions || [];
+    return questions.map(question => ({
+      ...question,
+      division_id: question.division_id || 'unknown',
+      question_text: question.question_text || 'Question unavailable',
+      topic: question.topic || 'other',
+      explanation: question.explanation || 'No explanation available',
+      arguments: {
+        for: question.arguments?.for || [],
+        against: question.arguments?.against || []
+      }
+    }));
+
   } catch (error) {
     logger.error('Failed to generate division questions:', {
       error: error.message,
       stack: error.stack,
-      debateId: debate.Overview?.Id
+      debateId: debate.Overview?.Id,
+      debateTitle: debate.Overview?.Title,
+      divisionsCount: divisions?.length
     });
     return [];
   }

@@ -3,8 +3,34 @@ import logger from '../utils/logger.js';
 import { SupabaseService } from '../services/supabase.js';
 
 export class HansardService {
-  static async getLatestDebates({ specificDate = null, specificDebateId = null, aiProcess = null }) {
+  static async getLatestDebates(options = {}) {
     try {
+      const { specificDate, specificDebateId, aiProcess } = options;
+
+      // Cache date checks to avoid redundant API calls
+      if (!global.dateCache) {
+        global.dateCache = {
+          timestamp: Date.now(),
+          lastProcessedDate: null,
+          latestSittingDate: null
+        };
+      }
+
+      // Refresh cache if older than 1 hour
+      if (Date.now() - global.dateCache.timestamp > 3600000) {
+        global.dateCache = {
+          timestamp: Date.now(),
+          lastProcessedDate: await SupabaseService.getLastProcessedDate(),
+          latestSittingDate: await HansardAPI.getLastSittingDate()
+        };
+      }
+
+      logger.debug('Getting latest debates with options:', {
+        specificDate,
+        specificDebateId,
+        aiProcess: aiProcess || 'all'
+      });
+
       let dateToProcess;
       let existingIds = [];
 
@@ -85,7 +111,7 @@ export class HansardService {
       const newDebates = allDebates.filter(debate => 
         debate?.ExternalId && 
         debate?.Title &&
-        (aiProcess || !existingIds.includes(debate.ExternalId))
+        (options.aiProcess || !existingIds.includes(debate.ExternalId))
       );
 
       logger.info(`Debates after filtering: ${newDebates.length}`);
@@ -94,7 +120,8 @@ export class HansardService {
     } catch (error) {
       logger.error('Failed to fetch latest debates:', {
         error: error.message,
-        stack: error.stack
+        stack: error.stack,
+        options
       });
       throw error;
     }

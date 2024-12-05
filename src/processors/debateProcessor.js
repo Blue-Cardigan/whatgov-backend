@@ -10,17 +10,33 @@ import { processDivisions } from './divisionsProcessor.js';
 
 async function fetchMembersFromSupabase(memberIds) {
   try {
-    const { data, error } = await SupabaseService.getMemberDetails(memberIds);
+    // Cache member details in memory for the duration of the process
+    if (!global.memberDetailsCache) {
+      global.memberDetailsCache = new Map();
+    }
+
+    // Filter out already cached members
+    const uncachedIds = memberIds.filter(id => !global.memberDetailsCache.has(id));
     
-    if (error) throw error;
+    if (uncachedIds.length > 0) {
+      const { data, error } = await SupabaseService.getMemberDetails(uncachedIds);
+      if (error) throw error;
+      
+      // Add to cache
+      data.forEach(member => {
+        global.memberDetailsCache.set(member.member_id, {
+          DisplayAs: member.display_as,
+          MemberId: member.member_id,
+          Party: member.party,
+          MemberFrom: member.constituency
+        });
+      });
+    }
     
+    // Return map of requested members from cache
     return new Map(
-      data.map(member => [member.member_id, {
-        DisplayAs: member.display_as,
-        MemberId: member.member_id,
-        Party: member.party,
-        MemberFrom: member.constituency
-      }])
+      memberIds.map(id => [id, global.memberDetailsCache.get(id)])
+        .filter(([, member]) => member !== undefined)
     );
   } catch (error) {
     logger.error('Failed to fetch member details from Supabase:', error);
@@ -83,9 +99,32 @@ export async function processDebates(specificDate = null, specificDebateId = nul
     // Collect all unique member IDs across filtered debates
     const allMemberIds = new Set();
     debatesToProcess.forEach(debate => {
-      debate.debate.Items
+      // Handle both direct Items and nested debate structure
+      const items = debate.Items || debate.debate?.Items || [];
+      
+      items
         .filter(item => item.ItemType === 'Contribution' && item.MemberId)
         .forEach(item => allMemberIds.add(item.MemberId));
+      
+      // Also check child debates if they exist
+      if (debate.ChildDebates) {
+        debate.ChildDebates.forEach(childDebate => {
+          const childItems = childDebate.Items || [];
+          childItems
+            .filter(item => item.ItemType === 'Contribution' && item.MemberId)
+            .forEach(item => allMemberIds.add(item.MemberId));
+        });
+      }
+    });
+
+    // Log the structure for debugging
+    logger.debug('Debate structure:', {
+      sampleDebate: debatesToProcess[0] ? {
+        hasItems: Boolean(debatesToProcess[0].Items),
+        hasDebateItems: Boolean(debatesToProcess[0].debate?.Items),
+        hasChildDebates: Boolean(debatesToProcess[0].ChildDebates),
+        structure: Object.keys(debatesToProcess[0])
+      } : null
     });
 
     // Fetch all member details from Supabase in one go
