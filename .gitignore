@@ -29,4 +29,7 @@ coverage/
 
 # OS
 .DS_Store
-Thumbs.db 
+Thumbs.db vectors/
+
+# Vector store files
+vectors/
