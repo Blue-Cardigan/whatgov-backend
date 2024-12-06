@@ -1,0 +1,27 @@
+Title: Joint Committee Appointments
+Date: 2024-12-03 (Tuesday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- Unknown (null, null)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Parliamentary Committees
+
+Tone: collaborative
+
+Summary:
+The House of Commons has appointed members to join two Joint Committees with the Lords, focusing on Human Rights and National Security Strategy.
+The commitment to collaborate on these critical areas underscores a strategic cross-party approach to address both domestic and international concerns.
+Setting up these Joint Committees could enhance parliamentary oversight and inform policy development on human rights and national security issues.
+
+Topics:
+Parliamentary Affairs and Governance:
+  Parliamentary Committees
+
+Key Points:
+Unknown (null, null):
+    A message from the House of Commons was delivered stating their appointment of a Select Committee consisting of six Members to join with the Lords' Committee for the Joint Committee on Human Rights. Additionally, a Select Committee of twelve Members will join the Lords for the Joint Committee on the National Security Strategy.
+    
+Keywords: Commons message, Joint Committee, Human Rights, National Security Strategy, Committee appointments

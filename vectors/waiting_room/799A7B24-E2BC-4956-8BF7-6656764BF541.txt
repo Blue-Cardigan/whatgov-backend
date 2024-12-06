@@ -1,0 +1,136 @@
+Title: Georgia: Political Situation
+Date: 2024-12-04 (Wednesday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- Lord Harries of Pentregarth (Crossbench, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties, Diplomatic Relations
+- Baroness Chapman of Darlington (Labour, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties, Diplomatic Relations, International Security Cooperation
+- Lord Blencathra (Conservative, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Diplomatic Relations, International Security Cooperation
+- Lord Purvis of Tweed (Liberal Democrat, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties, Diplomatic Relations
+- Lord Cromwell (Crossbench, Excepted Hereditary)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties
+- Lord Callanan (Conservative, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: International Security Cooperation
+- Lord Dodds of Duncairn (Democratic Unionist Party, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties, Diplomatic Relations
+- Lord West of Spithead (Labour, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: International Security Cooperation
+- Lord Ahmad of Wimbledon (Conservative, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: International Security Cooperation
+
+Tone: collaborative
+
+Summary:
+The UK government expressed deep concerns over Georgian electoral irregularities and Russian interference, highlighting calls for Georgian authorities to investigate election-related issues, align with European values and safeguard democratic processes.
+Cross-party discussions recognised alarming intimidation tactics by the Georgian Dream party and underscored the United Kingdom's commitment to working with international partners to counter Russian malevolent activities impacting democratic systems.
+Ministerial responses committed to bolstering civil society in Georgia with efforts to protect NGOs, reinforce cybersecurity, and ensure that Georgian territorial sovereignty is respected amidst geopolitical tensions.
+
+Topics:
+International Relations and Diplomacy:
+  Foreign Policy and Treaties, Diplomatic Relations, International Security Cooperation
+
+Key Points:
+Lord Harries of Pentregarth (Crossbench, Life peer):
+    Lord Harries of Pentregarth asked what representations the UK Government is making to Georgia following its recent elections, noting concerns about political manipulation by President Putin and the influence of Bidzina Ivanishvili over Georgian politics.
+    
+Keywords: UK Government representations, Georgia elections, Bidzina Ivanishvili, President Putin, political situation
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman of Darlington informed that the UK's Minister of State raised concerns with Georgia’s Foreign Minister about the country's political trajectory and supported election observation findings, calling for an investigation into any irregularities.
+    
+Keywords: UK concerns, Georgia's political trajectory, election irregularities, Minister of State, European values
+
+Lord Harries of Pentregarth (Crossbench, Life peer):
+    Lord Harries of Pentregarth suggested sanctions against Bidzina Ivanishvili, referencing the Baltic states' approach, to counteract the influence of Russia and protect Georgian democracy.
+    Context: Support highlighted concerns on Russian interference in Georgia and potential sanctions.
+Keywords: sanctions, Bidzina Ivanishvili, Baltic states, Russian interference, Georgian democracy
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman of Darlington responded that while specific sanctions are not pre-announced, the UK is aware of Russia's interference in democratic processes, including in Georgia, and highlighted the OSCE report on election concerns.
+    Context: Response to sanctions against Bidzina Ivanishvili.
+Keywords: sanctions policy, Russia's interference, OSCE report, Georgia elections, democracy
+
+Lord Blencathra (Conservative, Life peer):
+    Lord Blencathra shared his experience as an election observer in Georgia, expressing concerns over personal intimidation and the role of Georgian Dream in election malpractices, supported by a PACE report on state-level intimidation.
+    Context: First-hand election monitoring experience in Georgia.
+Keywords: election observer, personal intimidation, Georgian Dream, PACE report, state-level intimidation
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman of Darlington acknowledged the issues raised by Lord Blencathra and committed to reading the PACE report in full. She stated concerns about voter intimidation and election atmosphere and thanked Lord Blencathra for his contributions.
+    Context: Response to Lord Blencathra's observations.
+Keywords: PACE report, voter intimidation, election atmosphere, observer contributions, Georgia elections
+
+Lord Purvis of Tweed (Liberal Democrat, Life peer):
+    Lord Purvis of Tweed highlighted the commendable efforts of young Georgians exercising their democratic rights and mentioned US sanctions on individuals persecuting them. He questioned visa access for Georgian officials involved in these actions.
+    Context: Commending Georgian youth and discussing sanctions.
+Keywords: Georgian youth, US sanctions, democratic rights, visa access, officials' actions
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman of Darlington responded to Lord Purvis, emphasising the importance of free choice for the Georgian people and stating that the UK examines allies' actions, without confirming specific measures on visa restrictions.
+    Context: Reply to potential visa restrictions for Georgia officials.
+Keywords: Georgia's free choice, allies' actions, visa restrictions, democratic process, UK policy
+
+Lord Cromwell (Crossbench, Excepted Hereditary):
+    Lord Cromwell pointed out the irony of UK involvement in EU accession issues while stressing the importance of pressing the Georgian Dream party on candidate status for EU membership, noting protests related to it.
+    Context: Comment on EU relations and Georgia.
+Keywords: EU accession, Georgian Dream, candidate status, UK involvement, protests
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman reiterated the importance of choices being democratic and free of external interference, affirming that the UK respects Georgia's autonomy in its EU accession ambitions.
+    Context: Response on UK's stance about Georgian EU accession.
+Keywords: democratic choice, external interference, Georgia autonomy, EU accession, UK stance
+
+Lord Callanan (Conservative, Life peer):
+    Lord Callanan discussed the flawed nature of Georgia's recent elections, citing reports of Russian interference. He asked if the UK is collaborating with international partners to combat such effects on democratic systems.
+    Context: Discussing Russian interference and flawed elections.
+Keywords: Russian interference, flawed elections, international collaboration, democracy, Georgia
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman confirmed ongoing UK collaborations with international partners to counter Russian influence and protect democracy, referencing efforts by Minister of State Mr. Doughty.
+    Context: Response to collaboration against Russian interference.
+Keywords: international collaboration, Russian influence, UK efforts, democracy protection, Minister of State
+
+Lord Dodds of Duncairn (Democratic Unionist Party, Life peer):
+    Lord Dodds of Duncairn highlighted the courage of NGOs and young people in Georgia against election malpractices. He asked for ways to strengthen NGO support in Georgia with international partners.
+    Context: Support for NGOs against election malpractice.
+Keywords: NGOs support, election malpractice, Georgian civil society, international partners, democratic efforts
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman acknowledged the challenges faced by Georgian NGOs and civil society, reiterating UK commitment to supporting them amidst electoral and cybersecurity challenges.
+    Context: Response on support for Georgian NGOs.
+Keywords: NGOs support, cybersecurity, civil society, electoral challenges, UK commitment
+
+Lord West of Spithead (Labour, Life peer):
+    Lord West of Spithead connected the issue in Georgia to larger Russian influences, suggesting that thwarting Putin in Ukraine can help mitigate his impact elsewhere, like in Georgia.
+    Context: Linking Georgia's situation to Russian influence via Ukraine.
+Keywords: Putin influence, Ukraine conflict, Russian impact, Georgia, thwarting Putin
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman reiterated the UK Government's strong support for Ukraine and acknowledged the spillover effects of Russia's actions on other states, affirming the importance of local choice in governance.
+    Context: Acknowledging Russia's broader effects on governance choices.
+Keywords: UK support Ukraine, Russia's spillover effects, local governance choice, Russian interference, Georgia
+
+Lord Ahmad of Wimbledon (Conservative, Life peer):
+    Lord Ahmad of Wimbledon agreed with earlier points on Russian aggression having first impacted Georgia with South Ossetia and Abkhazia. He queried the UK Government's assessment on protecting Georgia's territorial integrity.
+    Context: Concern over territorial integrity regarding Russian aggression.
+Keywords: territorial integrity, Russian aggression, South Ossetia, Abkhazia, Georgia protection
+
+Baroness Chapman of Darlington (Labour, Life peer):
+    Baroness Chapman confirmed the UK's firm position on respecting Georgia's territorial integrity and maintained that Georgia must not face aggression from other states, especially Russia.
+    Context: Commitment to protect Georgia's territorial integrity.
+Keywords: territorial integrity, state aggression, UK firm position, Russia, Georgia borders

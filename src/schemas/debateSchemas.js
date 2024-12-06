@@ -66,7 +66,8 @@ export const KeyPointSchema = z.object({
     speaker: SpeakerDetailsSchema,
     support: z.array(SpeakerDetailsSchema),
     opposition: z.array(SpeakerDetailsSchema),
-    context: z.string().nullable()
+    context: z.string().nullable(),
+    keywords: z.array(z.string())
   }))
 });
   

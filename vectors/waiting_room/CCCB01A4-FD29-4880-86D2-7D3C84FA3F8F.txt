@@ -1,0 +1,89 @@
+Title: Proceeds of Crime Act 2002 (Search, Seizure and Detention of Property: Code of Practice) (Northern Ireland) Order 2024
+Date: 2024-12-02 (Monday)
+Type: New Debate
+Location: Grand Committee
+House: Lords
+
+Speakers:
+- Lord Hanson of Flint (Labour, Life peer)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System, Police and Emergency Services, Court System and Legal Aid, Anti-terrorism and Security Measures, Consumer Protection Law
+- Baroness Ritchie of Downpatrick (Labour, Life peer)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System, Police and Emergency Services
+- Lord Empey (Ulster Unionist Party, Life peer)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System, National Security, Police and Emergency Services, Anti-terrorism and Security Measures
+- Lord Browne of Belmont (Democratic Unionist Party, Life peer)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System, Police and Emergency Services, Anti-terrorism and Security Measures
+- Lord Morrow (Democratic Unionist Party, Life peer)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System, Police and Emergency Services
+- Lord McCrea of Magherafelt and Cookstown (Democratic Unionist Party, Life peer)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System, Police and Emergency Services
+- Lord Hay of Ballyore (Democratic Unionist Party, Life peer)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Police and Emergency Services
+- The Earl of Effingham (Conservative, Excepted Hereditary)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System
+
+Tone: collaborative
+
+Summary:
+The UK Parliament debated the introduction of a revised code of practise to enhance law enforcement capabilities in Northern Ireland under the Proceeds of Crime Act 2002, specifically targeting the seizure and detention of illegally obtained crypto assets.
+Cross-party contributions highlighted support for the code, though concerns regarding the adequacy of resources for law enforcement and the need for international cooperation were raised by various peers, reflecting a nuanced view on practical implementation challenges.
+Ministerial commitments included potential collaboration with Northern Ireland's counterparts to address resource concerns and ensure effective enforcement, signalling an ongoing dialogue between national and devolved bodies.
+
+Topics:
+Legal Affairs and Public Safety:
+  Criminal Justice System, Police and Emergency Services, Court System and Legal Aid, Anti-terrorism and Security Measures, Consumer Protection Law, National Security
+
+Key Points:
+Lord Hanson of Flint (Labour, Life peer):
+    Lord Hanson of Flint moved the debate on the Proceeds of Crime Act 2002 (Search, Seizure and Detention of Property: Code of practise) Order 2024, stating it complements the Economic Crime and Corporate Transparency Act 2023. This Act reforms corporate transparency, targeting money laundering and introducing powers to tackle criminal use of crypto assets. The debated order applies these powers in Northern Ireland through a new code of practise, clarifying conditions for their use and ensuring they are applied consistently and proportionately.
+    
+Supported by: Baroness Ritchie of Downpatrick (Labour, Life peer)
+Keywords: Proceeds of Crime Act 2002, Economic Crime Act 2023, Crypto assets, Code of practise, Northern Ireland
+
+Baroness Ritchie of Downpatrick (Labour, Life peer):
+    Baroness Ritchie of Downpatrick supports the statutory instrument, emphasising its importance in moving towards a normal society in Northern Ireland by addressing crime associated with paramilitarism. She questions when the Department of Justice in Northern Ireland will publish the code and whether there is an assessment of the Act's success in the region. She also raises concerns about the lack of an impact assessment and the adequacy of police resources from Northern Ireland's block grant.
+    Context: Following Lord Hanson of Flint's introduction of the order
+Keywords: paramilitarism, Northern Ireland, code of practise, impact assessment, police resources
+
+Lord Empey (Ulster Unionist Party, Life peer):
+    Lord Empey expresses concern about the interface between devolved and national issues, particularly regarding resource allocation. He highlights the sophistication of criminal use of crypto assets and questions the adequacy of the current capabilities to address these offenses. He also advocates for better international cooperation, especially with Ireland, to combat cross-border crimes.
+    Context: Further discussion on resources and implementation raised by Baroness Ritchie
+Keywords: devolved issues, national issues, crypto assets, resource allocation, international cooperation
+
+Lord Browne of Belmont (Democratic Unionist Party, Life peer):
+    Lord Browne of Belmont supports the order, noting that it enables law enforcement to address the organised and sophisticated criminal activities, including those by paramilitary groups using cryptocurrencies. He questions if there has been consultation with the Republic of Ireland’s Garda Síochána and whether Northern Ireland law enforcement is well-resourced to enact these powers.
+    Context: Continues discussion on sophistication of crime and cross-border cooperation
+Keywords: law enforcement, paramilitary groups, cryptocurrencies, consultation with Garda Síochána, Northern Ireland resources
+
+Lord Morrow (Democratic Unionist Party, Life peer):
+    Lord Morrow raises the issue of political restraint affecting law enforcement effectiveness in the past and hopes for genuine efforts to co-operate across borders to halt smuggling and other illegal activities. He underlines the need for cooperation between security forces in Northern Ireland and the Republic to bring criminal activities, like smuggling, to an end.
+    Context: Continuation of the debate on implementation and cross-border cooperation
+Keywords: political restraint, cross-border cooperation, smuggling, law enforcement, security forces coordination
+
+Lord McCrea of Magherafelt and Cookstown (Democratic Unionist Party, Life peer):
+    Lord McCrea of Magherafelt and Cookstown stresses the importance of removing criminals’ financial benefits. He wants assurance that all proceeds of crime are recoverable and clearly distributed. He queries the advisability of considering community impacts when executing powers, fearing that political considerations may hinder law enforcement.
+    Context: Requesting clarification on the practical implications of enforcement
+Keywords: crime proceeds, community impact assessment, law enforcement, political influence, resources for law enforcement
+
+Lord Hay of Ballyore (Democratic Unionist Party, Life peer):
+    Lord Hay of Ballyore reiterates concerns about resource constraints, emphasising the need for sufficient resources to combat criminal gangs in Northern Ireland and the importance of coordination with English authorities to enhance efficacy.
+    Context: Building on previous arguments about resource issues and cross-border crime
+Keywords: resource constraints, criminal gangs, Northern Ireland, cross-border crime, law enforcement resources
+
+The Earl of Effingham (Conservative, Excepted Hereditary):
+    The Earl of Effingham, representing the Opposition, welcomes the order but seeks clarity on specific issues including the extent of criminal activity involving crypto assets in Northern Ireland and the relationship between seizure orders and sentencing policies. He also questions guidance under the order regarding asset control.
+    Context: Opposition's official stance and queries on crypto assets and enforcement
+Keywords: crypto assets, criminal activity, seizure orders, sentencing policies, asset control guidance
+
+Lord Hanson of Flint (Labour, Life peer):
+    Lord Hanson of Flint reiterates the code's purpose to provide a legal framework ensuring accountability and preventing misuse of powers. He addresses various concerns including the implementation timeline, public consultation, lack of impact assessment, and cooperation between UK and Irish authorities as well as resource issues. He assures future discussions with Northern Ireland counterparts.
+    Context: Response to queries and closure of debate
+Keywords: accountability, legal framework, UK-Irish cooperation, public consultation, resource issues

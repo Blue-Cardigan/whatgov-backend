@@ -1,0 +1,89 @@
+Title: Homelessness Reduction
+Date: 2024-12-02 (Monday)
+Type: Question
+Location: Commons Chamber
+House: Commons
+
+Speakers:
+- Rushanara Ali (Labour, Bethnal Green and Stepney)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Housing and Property Markets, Fiscal Policy and Public Spending
+- Chris Webb (Labour, Blackpool South)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Housing and Property Markets
+- Steve Race (Labour, Exeter)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Fiscal Policy and Public Spending
+- Warinder Juss (Labour, Wolverhampton West)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Housing and Property Markets
+- Clive Jones (Liberal Democrat, Wokingham)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Fiscal Policy and Public Spending
+- Tim Farron (Liberal Democrat, Westmorland and Lonsdale)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Housing and Property Markets
+- Sarah Dyke (Liberal Democrat, Glastonbury and Somerton)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Housing and Property Markets
+- Paul Holmes (Conservative, Hamble Valley)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Fiscal Policy and Public Spending
+- Steve Race (Labour, Exeter)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Civil Rights and Liberties
+- Warinder Juss (Labour, Wolverhampton West)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Civil Rights and Liberties
+- Rushanara Ali (Labour, Bethnal Green and Stepney)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Civil Rights and Liberties
+
+Tone: contentious
+
+Summary:
+The UK government's strategy to tackle homelessness focuses on increasing the funding for local councils, abolishing no-fault evictions, and boosting social housing builds, with an ambitious £233 million increment aiming to aggregate to nearly £1 billion by the financial year 2025-26.
+Contention arose over the effectiveness and sufficiency of these measures, with Labour MPs challenging the impact of historical Conservative reforms and the removal of specific financial protections for homelessness funding.
+Despite these tensions, responses from Labour ministers noted a commitment to cross-departmental collaboration and consultation with councils to address the multifaceted nature of homelessness, integrating wider social, economic, and environmental concerns.
+
+Topics:
+Economy, Business, and Infrastructure:
+  Housing and Property Markets, Fiscal Policy and Public Spending
+Legal Affairs and Public Safety:
+  Civil Rights and Liberties
+
+Key Points:
+Chris Webb (Labour, Blackpool South):
+    Chris Webb raised a concern regarding a 50% increase in homelessness in Blackpool over the past two years, emphasising the need for more support for local efforts in tackling homelessness. He acknowledged the good work done by Blackpool's homelessness partnership involving the council and third sector but highlighted that more support is needed to provide immediate and long-term solutions for vulnerable individuals.
+    
+Keywords: homelessness increase, Blackpool, local efforts, vulnerable individuals, support needs
+
+Rushanara Ali (Labour, Bethnal Green and Stepney):
+    Rushanara Ali responded by mentioning that the government has made an additional £10 million available to local authorities, including Blackpool, to address rough sleeping pressures this winter. She noted a £547 million rough sleeping initiative that funds tailored services, including £313,000 for Blackpool council in 2024-25.
+    Context: In response to Chris Webb's inquiry on support for homelessness in Blackpool.
+Keywords: government funding, rough sleeping, local authorities, Blackpool funding, homelessness services
+
+Steve Race (Labour, Exeter):
+    Steve Race expressed concerns about the implications of the Localism Act 2011, which removed the ring-fence around homelessness funding. He criticised Devon county council for consulting on eliminating its homelessness support budget, which could severely impact Exeter. He emphasised the need to invest in homelessness services instead of redirecting funds elsewhere.
+    
+Keywords: Localism Act 2011, homelessness funding, Exeter, Devon council budget, service investment
+
+Warinder Juss (Labour, Wolverhampton West):
+    Warinder Juss highlighted success in tackling homelessness through Wolverhampton council's strategy. However, he raised an issue with constituents struggling to find permanent housing after fleeing domestic violence. Citing a 15% increase in children in temporary accommodation, he called for more support for councils dealing with the societal and economic causes of homelessness.
+    
+Keywords: Wolverhampton, domestic violence, temporary accommodation, child homelessness, council support
+
+Clive Jones (Liberal Democrat, Wokingham):
+    Clive Jones brought up financial pressures Wokingham borough council is facing, affecting homelessness reduction efforts. He pointed out that the new fundings for local government might not cover increased costs from national insurance and minimum wage. He requested a meeting with the Minister to discuss Wokingham's financial future and homelessness reduction strategies.
+    
+Keywords: Wokingham, financial pressure, national insurance, minimum wage, homelessness strategy
+
+Tim Farron (Liberal Democrat, Westmorland and Lonsdale):
+    Tim Farron highlighted a 40% increase in rural homelessness over five years, with a disparity between house prices and local incomes, as well as insufficient housing supply. He proposed giving local authorities planning powers to designate lands for social rented housing, preventing developments for expensive housing.
+    
+Keywords: rural homelessness, house price disparity, planning powers, social housing, local authority
+
+Paul Holmes (Conservative, Hamble Valley):
+    Paul Holmes criticised the government's broken promises on national insurance, impacting homeless charities' funding, projecting a 27% increase in homelessness. He urged the Minister to address the concerns that £50-60 million could be lost, termed as potentially "the final nail in the coffin" for the charity sector. He challenged the government to back investments made for tackling homelessness.
+    
+Keywords: national insurance rise, homeless charities, funding crisis, homelessness projection, investment challenge

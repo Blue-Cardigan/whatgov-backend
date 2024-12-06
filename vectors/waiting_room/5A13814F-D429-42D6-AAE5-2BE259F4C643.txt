@@ -1,0 +1,58 @@
+Title: Departmental Office Closures
+Date: 2024-12-02 (Monday)
+Type: Question
+Location: Commons Chamber
+House: Commons
+
+Speakers:
+- Mary Glindon (Labour, Newcastle upon Tyne East and Wallsend)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Public Consultation Processes, Inter-governmental Relations
+- Angela Rayner (Labour, Ashton-under-Lyne)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Public Consultation Processes, Inter-governmental Relations
+- Gavin Williamson (Conservative, Stone, Great Wyrley and Penkridge)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Inter-governmental Relations
+
+Tone: neutral
+
+Summary:
+The government is proposing the closure of six departmental offices, retaining 16, as part of a workforce and location strategy aimed at consolidating operations while ensuring engagement with trade unions and staff consulted on impact. 
+Concerns were raised about potential commuting challenges and discrimination issues for staff in affected areas, receiving assurances of equality impact assessments and support for workers with protected characteristics. 
+There is a cross-party consensus on the decentralisation strategy to spread governmental presence beyond London, while further clarification is sought on developing regional hubs like Wolverhampton.
+
+Topics:
+Parliamentary Affairs and Governance:
+  Public Consultation Processes, Inter-governmental Relations
+
+Key Points:
+Mary Glindon (Labour, Newcastle upon Tyne East and Wallsend):
+    Mary Glindon inquired about what consultations had been conducted with staff regarding the closure of six departmental offices.
+    
+Keywords: office closures, staff consultation, departmental strategy
+
+Angela Rayner (Labour, Ashton-under-Lyne):
+    Angela Rayner explained that the department plans to retain 16 out of 22 offices, closing six over two years. Staff engagement is ongoing, and consultations with trade unions are starting this month. There will be no compulsory redundancies, and support will be provided to affected staff.
+    Context: Response to Mary Glindon's question about consultation.
+Keywords: departmental office closure, staff engagement, trade union consultation, job security
+
+Mary Glindon (Labour, Newcastle upon Tyne East and Wallsend):
+    Mary Glindon raised concerns over the 40-mile commute from Newcastle to Darlington for those who cannot work from home, emphasising the need for an equality impact assessment to address the needs of individuals with protected characteristics and caring responsibilities.
+    Context: Following Angela Rayner's explanation of the office closure strategy.
+Keywords: equality impact assessment, commute issues, protected characteristics
+
+Angela Rayner (Labour, Ashton-under-Lyne):
+    Angela Rayner highlighted the preparation of an initial equality impact assessment before the location strategy's announcement. She assured that it will be developed further with input from staff and trade unions to support those affected.
+    Context: In response to Mary Glindon's concerns about equality and commuting.
+Keywords: equality impact assessment, flexible working, staff support
+
+Gavin Williamson (Conservative, Stone, Great Wyrley and Penkridge):
+    Sir Gavin Williamson emphasised the importance of expanding departmental offices outside London, specifically referencing Wolverhampton. He inquired about the strategy to develop and grow the office presence in Wolverhampton.
+    
+Keywords: decentralisation, Wolverhampton office, regional development
+
+Angela Rayner (Labour, Ashton-under-Lyne):
+    Angela Rayner outlined that the strategy aims to create a coherent office estate with strong communities and clear career pathways, ensuring representation across all UK regions and nations.
+    Context: In response to Sir Gavin Williamson's question about regional office development.
+Keywords: regional representation, office estate strategy, career pathways

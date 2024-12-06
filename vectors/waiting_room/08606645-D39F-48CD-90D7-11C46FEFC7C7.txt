@@ -1,0 +1,117 @@
+Title: Economic Productivity
+Date: 2024-12-05 (Thursday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- Baroness Neville-Rolfe (Conservative, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Fiscal Policy and Public Spending, Trade and Industry, Transport and Infrastructure Development, Small Business Support
+- Lord Livermore (Labour, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Fiscal Policy and Public Spending, Trade and Industry, Transport and Infrastructure Development, Small Business Support
+- Lord Sahota (Labour, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Small Business Support
+- Lord Fox (Liberal Democrat, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Lord Londesborough (Crossbench, Excepted Hereditary)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Lord Blunkett (Labour, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Fiscal Policy and Public Spending
+- Lord Howell of Guildford (Conservative, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Baroness Kramer (Liberal Democrat, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Small Business Support
+- Lord Tyrie (Non-affiliated, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Lord Brooke of Alverthorpe (Labour, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Fiscal Policy and Public Spending
+- The Lord Bishop of London (Bishops, Bishops)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Healthcare Workforce and Training
+- Lord Livermore (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Healthcare Workforce and Training
+
+Tone: collaborative
+
+Summary:
+The UK government outlined its strategy for boosting productivity, focusing on planning reforms, skills improvement, labor market adjustments, and increased R&D investment.
+Cross-party dialogue highlighted the need for balanced approaches to public and private sector productivity, with emphasis on planning reforms and support for small businesses.
+Ministerial commitments included introducing a 10-year NHS plan to enhance productivity, alongside a pledge to meet established efficiency targets across government departments.
+
+Topics:
+Economy, Business, and Infrastructure:
+  Fiscal Policy and Public Spending, Trade and Industry, Transport and Infrastructure Development, Small Business Support
+Healthcare and Social Welfare:
+  National Health Service (NHS), Healthcare Workforce and Training
+
+Key Points:
+Baroness Neville-Rolfe (Conservative, Life peer):
+    Baroness Neville-Rolfe asked the government about their plans to increase productivity in the UK economy. She criticised the lack of productivity conditions on public sector pay rises and expressed concern about public sector productivity lagging behind the private sector. She emphasised simplifying planning and reducing business electricity costs as solutions.
+    
+Opposed by: Lord Livermore (Labour, Life peer)
+Keywords: productivity conditions, public sector pay, planning reform, electricity costs, private sector productivity
+
+Lord Livermore (Labour, Life peer):
+    Lord Livermore responded, highlighting a 2% efficiency and productivity target in the NHS, extended to all government departments. He mentioned recent significant planning reforms undertaken by the Chancellor.
+    Context: Response to Baroness Neville-Rolfe's criticism of productivity conditions and planning reforms.
+Opposed by: Baroness Neville-Rolfe (Conservative, Life peer)
+Keywords: NHS productivity target, government departments, planning reforms, efficiency, Chancellor
+
+Lord Sahota (Labour, Life peer):
+    Lord Sahota welcomed the increase in the national insurance contributions threshold and reduced business rates for small businesses. He asked if more support for small businesses is forthcoming.
+    Context: Discussion on government support for small businesses.
+Supported by: Lord Livermore (Labour, Life peer)
+Keywords: small businesses, national insurance, business rates, Labour government, financial support
+
+Lord Fox (Liberal Democrat, Life peer):
+    Lord Fox inquired about the timeline for the impact of new skills initiatives announced by the Government, emphasising their importance for productivity.
+    Context: Focus on skills as a factor in improving productivity.
+Supported by: Lord Livermore (Labour, Life peer)
+Keywords: skills initiatives, training programmes, workforce development, Labour and Liberal Democrats, Skills England
+
+Lord Londesborough (Crossbench, Excepted Hereditary):
+    Lord Londesborough expressed concerns about the impact of remote work at the Office for National Statistics on productivity. He questioned if the Government plans to study the public sector impact of remote work.
+    Context: Discussion on remote work's impact on productivity.
+Opposed by: Lord Livermore (Labour, Life peer)
+Keywords: remote work, Office for National Statistics, productivity puzzle, public sector study, industrial action
+
+Lord Blunkett (Labour, Life peer):
+    Lord Blunkett pointed out that current productivity assessments can be misleading, such as in education and policing. He advocated for more practical evaluation methods.
+    Context: Critique of public sector productivity metrics focusing on practical common sense.
+Opposed by: Lord Livermore (Labour, Life peer)
+Keywords: public sector productivity, education, policing, common sense, assessment
+
+Lord Howell of Guildford (Conservative, Life peer):
+    Lord Howell of Guildford advocated for attracting foreign direct investment (FDI) to boost productivity, citing the successful Japanese investments in the 1970s. He urged for a budget that encourages international investments.
+    Context: Discussion on FDI as a vehicle for improving productivity.
+Opposed by: Lord Livermore (Labour, Life peer)
+Keywords: foreign direct investment, productivity boost, Japanese investment, motor industry, international investors
+
+The Lord Bishop of London (Bishops, Bishops):
+    The Lord Bishop of London emphasised morale and workforce motivation within the NHS as keys to improving productivity. She asked about government efforts in this area beyond targets.
+    Context: Focus on NHS workforce morale and motivation for productivity improvements.
+Opposed by: Lord Livermore (Labour, Life peer)
+Keywords: NHS productivity, morale, workforce motivation, soft leadership, industrial relations
+
+Lord Tyrie (Non-affiliated, Life peer):
+    Lord Tyrie raised concerns about the impact of the budget on business confidence and hence investment, questioning if it negatively affects productivity growth.
+    Context: Concerns about the budget's impact on productivity and investment.
+Opposed by: Lord Livermore (Labour, Life peer)
+Keywords: business confidence, investment impact, productivity growth, budget effect, economic forecasts
+
+Lord Brooke of Alverthorpe (Labour, Life peer):
+    Lord Brooke of Alverthorpe suggested reducing headcount in the Chamber to set an example in improving productivity and cutting costs, specifically targeting those who claim expenses without contributing.
+    Context: Proposal for internal reform as a means to boost productivity and reduce costs.
+Opposed by: Lord Livermore (Labour, Life peer)
+Keywords: headcount reduction, cost cutting, productivity improvement, expense claims, accountability

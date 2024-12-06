@@ -1,0 +1,104 @@
+Title: North-West Syria
+Date: 2024-12-02 (Monday)
+Type: Debated Bill
+Location: Commons Chamber
+House: Commons
+
+Speakers:
+- Hamish Falconer (Labour, Lincoln)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties, International Development, Diplomatic Relations, International Security Cooperation
+- Priti Patel (Conservative, Witham)
+  Topics: International Relations and Diplomacy
+  Subtopics: Diplomatic Relations, International Security Cooperation
+- Emily Thornberry (Labour, Islington South and Finsbury)
+  Topics: International Relations and Diplomacy
+  Subtopics: International Development
+- Calum Miller (Liberal Democrat, Bicester and Woodstock)
+  Topics: International Relations and Diplomacy
+  Subtopics: Diplomatic Relations, International Development
+- Stephen Gethins (Scottish National Party, Arbroath and Broughty Ferry)
+  Topics: International Relations and Diplomacy
+  Subtopics: Diplomatic Relations, International Security Cooperation
+- John Slinger (Labour, Rugby)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties, Diplomatic Relations
+- Hamish Falconer (Labour, Lincoln)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System, Civil Rights and Liberties, National Security, Consumer Protection Law
+- Priti Patel (Conservative, Witham)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: National Security, Civil Rights and Liberties
+- Calum Miller (Liberal Democrat, Bicester and Woodstock)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: National Security, Civil Rights and Liberties
+- Blair McDougall (Labour, East Renfrewshire)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System
+- Jim Shannon (Democratic Unionist Party, Strangford)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System, Civil Rights and Liberties
+- Hamish Falconer (Labour, Lincoln)
+  Topics: Healthcare and Social Welfare
+  Subtopics: Public Health Policy, Child and Family Services
+- Priti Patel (Conservative, Witham)
+  Topics: Healthcare and Social Welfare
+  Subtopics: Public Health Policy
+- Sarah Champion (Labour, Rotherham)
+  Topics: Healthcare and Social Welfare
+  Subtopics: Public Health Policy, Disability and Accessibility
+- Emily Thornberry (Labour, Islington South and Finsbury)
+  Topics: Healthcare and Social Welfare
+  Subtopics: Child and Family Services
+- Hamish Falconer (Labour, Lincoln)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Ministerial Accountability, Parliamentary Committees
+- Sarah Champion (Labour, Rotherham)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Parliamentary Committees
+- Calum Miller (Liberal Democrat, Bicester and Woodstock)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Ministerial Accountability
+
+Tone: collaborative
+
+Summary:
+The parliamentary debate underscored cross-party agreement on the gravity of recent conflict escalations in Syria, with calls for a political solution under UN Security Council resolution 2254 and humanitarian aid continuity prioritised.
+Labour's Mr. Falconer emphasised regional coordination and support for humanitarian actors, despite challenges posed by rapidly shifting frontlines and geopolitical tensions involving Russia and Iran.
+Ministerial commitments included ongoing engagement with international partners and NGOs, alongside monitoring the destabilisation risks to regional and international security.
+
+Topics:
+International Relations and Diplomacy:
+  Foreign Policy and Treaties, International Development, Diplomatic Relations, International Security Cooperation
+Legal Affairs and Public Safety:
+  Criminal Justice System, Civil Rights and Liberties, National Security, Consumer Protection Law
+Healthcare and Social Welfare:
+  Public Health Policy, Child and Family Services, Disability and Accessibility
+Parliamentary Affairs and Governance:
+  Ministerial Accountability, Parliamentary Committees
+
+Key Points:
+Hamish Falconer (Labour, Lincoln):
+    Mr Hamish Falconer highlighted a major offensive by opposition groups in north-west Syria, particularly Hay’at Tahrir al-Sham (HTS), who have taken control of Aleppo and Saraqeb. In response, Russian airstrikes have increased and Iranian-aligned groups are aiding the Assad regime. Falconer stressed the urgent need for adherence to international humanitarian law to protect civilians and ensure humanitarian assistance. The UK, along with partners like the US, Germany, and France, called for de-escalation and continuation of a Syrian-led political solution as outlined in UN Security Council resolution 2254. Falconer also noted the challenges in providing consular support and highlighted the UK's financial contributions towards humanitarian aid since 2011, amounting to over £4 billion, with a recent addition of £3 million for emergency assistance in the region.
+    
+Keywords: Hay’at Tahrir al-Sham, international humanitarian law, UK humanitarian aid, Syrian-led political solution, UN Security Council resolution 2254
+
+Priti Patel (Conservative, Witham):
+    Priti Patel expressed grave concern over the developments in Syria, highlighting the humanitarian catastrophe and the extremist threat posed by HTS. She called for clarity on UK protection responses and actions against drug and arms smuggling, and emphasised the need for Government support to prevent conflict proliferation, as well as the importance of safeguarding aid. Patel questioned the security implications of the conflict and called for future planning and supporting political solutions.
+    Context: Responding to Mr Hamish Falconer's initial statement about the offensive in north-west Syria.
+Keywords: humanitarian catastrophe, extremist threat, drug smuggling, aid safeguarding, political solutions in Syria
+
+Hamish Falconer (Labour, Lincoln):
+    Mr Hamish Falconer responded to Priti Patel, clarifying that the UK does not engage with HTS or the Assad regime but coordinates with regional and international partners. He acknowledged the challenge in maintaining humanitarian access due to shifting frontlines and reiterated the need for a coordinated terror response. Falconer emphasised the importance of monitoring changes in regional dynamics, particularly with Iran and Russia's involvement.
+    Context: In response to Priti Patel's concerns about UK protection responses and international coordination.
+Keywords: regional coordination, humanitarian access, terror response, Iran and Russia's involvement, HTS non-engagement
+
+Emily Thornberry (Labour, Islington South and Finsbury):
+    Emily Thornberry raised the issue of displaced Syrians, stressing the compounded trauma faced by those forced into repeated displacement. She sought clarity on the UK government's efforts to support these vulnerable groups.
+    Context: Discussing the humanitarian impact of repeated displacement on Syrian civilians.
+Keywords: displaced Syrians, trauma of displacement, vulnerable groups support, UK government efforts, humanitarian impact
+
+Hamish Falconer (Labour, Lincoln):
+    Mr Hamish Falconer acknowledged the severe challenges in providing sustained care for displaced Syrians, noting the current conflict exacerbates vulnerabilities. He assured ongoing assessments to determine necessary aid.
+    Context: Responding to concerns about providing sustained care to displaced Syrians raised by Emily Thornberry.
+Keywords: displaced Syrians care, vulnerabilities assessment, aid provision, humanitarian challenges, ongoing assessments

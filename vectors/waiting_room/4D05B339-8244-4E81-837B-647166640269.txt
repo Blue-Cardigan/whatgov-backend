@@ -1,0 +1,26 @@
+Title: Prime Minister
+Date: 2024-12-04 (Wednesday)
+Type: Prime Minister's Questions
+Location: Commons Chamber
+House: Commons
+
+Speakers:
+- Unknown (null, null)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties, Diplomatic Relations
+
+Tone: contentious
+
+Summary:
+The Prime Minister's responses highlighted the government's commitment to addressing economic challenges, focusing on sustainable growth and fiscal responsibility. Cross-party lines presented divergent views on taxation policies and public spending priorities, reflecting underlying ideological differences. Ministerial assurances were given on prioritising infrastructure investment and healthcare funding, signifying a strategic alignment with public concerns.
+Cross-party lines presented divergent views on taxation policies and public spending priorities, reflecting underlying ideological differences.
+Ministerial assurances were given on prioritising infrastructure investment and healthcare funding, signifying a strategic alignment with public concerns.
+
+Topics:
+International Relations and Diplomacy:
+  Foreign Policy and Treaties, Diplomatic Relations
+
+Key Points:
+Unknown (null, null):
+    The Prime Minister was asked to provide details regarding the government's response to the ongoing energy crisis, highlighting any specific measures being taken to support households and businesses facing increased costs.
+    

@@ -1,0 +1,149 @@
+Title: Great British Nuclear: Modular Reactors
+Date: 2024-12-02 (Monday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- Baroness Bloomfield of Hinton Waldrist (Conservative, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Lord Hunt of Kings Heath (Labour, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Lord Jones (Labour, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Lord Ravensdale (Crossbench, Excepted Hereditary)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Lord Wigley (Plaid Cymru, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Earl Russell (Liberal Democrat, Excepted Hereditary)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Lord Offord of Garvel (Conservative, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Lord Spellar (Labour, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Baroness Bennett of Manor Castle (Green Party, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Lord Howell of Guildford (Conservative, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+
+Tone: contentious
+
+Summary:
+The House of Lords debated the progress and implementation challenges regarding Great British Nuclear's (GBN) deployment plans for small and advanced modular reactors, highlighting ongoing negotiations and evaluation processes ahead of expected decisions in spring.
+Cross-party discussions underscored the potential socioeconomic benefits of nuclear developments, notably in regions like north-west Wales, and urged further advancement in domestic production to reduce reliance on Russian nuclear fuel and meet healthcare needs.
+Ministerial responses indicated cautious optimism about future policies and international collaboration but acknowledged challenges in administrative processes and the need for enhanced security measures for small modular reactors.
+
+Topics:
+Environment and Natural Resources:
+  Energy Policy and Renewable Resources
+
+Key Points:
+Baroness Bloomfield of Hinton Waldrist (Conservative, Life peer):
+    Baroness Bloomfield of Hinton Waldrist inquired about the progress of Great British Nuclear (GBN) in deploying small modular reactors (SMRs) and advanced modular reactors (AMRs), and examined the process for evaluating their design and manufacturing.
+    
+Keywords: Great British Nuclear, small modular reactors, advanced modular reactors, design evaluation, manufacturing process
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt of Kings Heath responded, stating that GBN is progressing with negotiations for SMR deployment, with final decisions expected in the spring. The government is exploring alternative routes for AMRs and will announce its policy stance soon.
+    
+Keywords: GBN progress, SMR deployment, AMR policy, nuclear negotiations, government exploration
+
+Baroness Bloomfield of Hinton Waldrist (Conservative, Life peer):
+    Baroness Bloomfield questioned the delay in GBN's schedule, speculating staff shortages, underfunding, approval layers, or underestimated workload as possible causes.
+    Context: Original inquiry about GBN's delays
+Keywords: GBN schedule, staff shortages, underfunding, workload, Whitehall approval
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt defended GBN's process, noting prior 16 months under Conservative administration and that GBN has shortlisted four technologies. Key discussions are ongoing, aiming for springtime decisions.
+    Context: Responding to Baroness Bloomfield's inquiry on delays
+Keywords: GBN process, shortlisting technologies, nuclear discussions, Conservative administration
+
+Lord Jones (Labour, Life peer):
+    Lord Jones raised concerns about the economically deprived areas in north-west Wales, specifically the dormant Wylfa and Trawsfynydd sites. He argues for investment due to high-quality job prospects nuclear sites provide.
+    
+Keywords: Wylfa nuclear site, Trawsfynydd site, north-west Wales, investment in nuclear, job creation
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt acknowledged the potential for high-quality jobs that new nuclear sites like Wylfa could bring, and mentioned ongoing efforts to make siting policies more flexible to explore future opportunities.
+    Context: Response to Lord Jones’ call for nuclear investment in Wales
+Keywords: nuclear job creation, nuclear siting policy, Wylfa redevelopment, future opportunities
+
+Lord Ravensdale (Crossbench, Excepted Hereditary):
+    Lord Ravensdale expressed concern about reliance on Russian nuclear fuel and inquired about plans to legislate for a near-term ban on Russian imports for security and industry benefits.
+    
+Keywords: Russian nuclear fuel, import ban, national security, nuclear industry, fuel legislation
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt confirmed discussions about moving the 2030 cut-off for Russian fuel imports forward, considering international agreements and U.S. actions.
+    Context: Response to Lord Ravensdale's query on Russian fuel ban
+Keywords: Russian fuel cut-off, international agreements, nuclear fuel security
+
+Lord Wigley (Plaid Cymru, Life peer):
+    Lord Wigley highlighted a feasibility study for a radioisotope production plant at Trawsfynydd, funded by Welsh Government and Egino, to address global shortages and enhance local economy with SMR relevance.
+    
+Keywords: radioisotope production, Trawsfynydd SMR relevance, Welsh Government, healthcare supply, local economic boost
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt acknowledged the merit of establishing a radioisotope plant in Trawsfynydd and mentioned ongoing discussions with Welsh Government and Department of Health but noted no definitive outcomes yet.
+    Context: Response to Lord Wigley's proposal for a radioisotope plant
+Keywords: radioisotope plant, Welsh Government discussions, nuclear site development
+
+Earl Russell (Liberal Democrat, Excepted Hereditary):
+    Earl Russell brought up an agreement with the United States to expedite advanced nuclear technology deployment to aid industry decarbonisation by 2030, and sought confirmation of its importance and potential deployment.
+    
+Keywords: advanced nuclear technology, US-UK agreement, industry decarbonisation, nuclear deployment
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt described the US agreement as crucial to enhancing civil nuclear relations and noted new global commitments to increase nuclear power by 2050, reflecting a global nuclear renaissance.
+    Context: Affirming Earl Russell's inquiry on US agreement impact
+Keywords: US nuclear agreement, global nuclear power commitments, civil nuclear relations
+
+Lord Offord of Garvel (Conservative, Life peer):
+    Lord Offord of Garvel questioned whether the government is prioritising SMRs and nuclear energy following a reference by Baroness Smith of Basildon in a previous session.
+    
+Keywords: SMR priority, nuclear energy focus, government strategy, previous debates
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt confirmed the government's recognition of SMRs' importance, emphasising the advantages of off-site assembly and the UK's potential in this nuclear technology.
+    Context: Clarification in response to Lord Offord's inquiry on SMR focus
+Keywords: SMR advantages, nuclear technology, UK industrial potential
+
+Lord Spellar (Labour, Life peer):
+    Lord Spellar expressed frustration over delays in reactor development and emphasised the need for the existing UK nuclear contractor, which services submarines, to also serve the civil sector and compete internationally as the US is advancing rapidly.
+    
+Keywords: nuclear reactor development, UK contractor capabilities, international competitiveness, US nuclear advancement
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt reassured that the UK's nuclear development pace is appropriate, highlighting synergy between civil and defence sectors, and stressing the importance of leveraging technological strengths.
+    Context: Addressing Lord Spellar's concerns on UK nuclear pace
+Keywords: UK nuclear pace, civil-defence synergy, technological strengths
+
+Baroness Bennett of Manor Castle (Green Party, Life peer):
+    Baroness Bennett of Manor Castle raised a security concern from academic research about SMRs, questioning the government's approach to ensuring security alongside safety in nuclear technology.
+    
+Keywords: SMR security concerns, nuclear safety, government assurance, academic research
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt assured that security is a key factor in both SMR and AMR development, aligning with community safety concerns.
+    Context: Reassurance following Baroness Bennett's inquiry on security
+Keywords: SMR security, AMR security, community safety
+
+Lord Howell of Guildford (Conservative, Life peer):
+    Lord Howell of Guildford challenged the strategy of prioritising SMR development given their rapid build capabilities and investment attraction, contrasting the expensive larger reactors like Sizewell which burden taxpayers.
+    
+Keywords: SMR prioritisation, large reactor costs, investment potential, Sizewell financial implications
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt responded that the UK is well-positioned in SMR development, and as projects gain momentum, improvements in efficiency and programme benefits will materialise, acknowledging investment challenges but expressing optimism about the programme's potential.
+    Context: Contradicting Lord Howell's view on SMR strategy and efficiency
+Keywords: SMR development progress, programme efficiency, investment challenges, UK nuclear position

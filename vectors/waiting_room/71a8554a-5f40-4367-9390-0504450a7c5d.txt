@@ -1,0 +1,121 @@
+Title: Employment Rights Bill (Fifth sitting)
+Date: 2024-12-03 (Tuesday)
+Type: Public Bill Committees
+Location: Public Bill Committees
+House: Commons
+
+Speakers:
+- Greg Smith (Conservative, Mid Buckinghamshire)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets, Trade and Industry
+- Justin Madders (Labour, Ellesmere Port and Bromborough)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Alex McIntyre (Labour, Gloucester)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Jon Pearce (Labour, High Peak)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Michael Wheeler (Labour, Worsley and Eccles)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Laurence Turner (Labour, Birmingham Northfield)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Sarah Gibson (Liberal Democrat, Chippenham)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Ashley Fox (Conservative, Bridgwater)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Alex McIntyre (Labour, Gloucester)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System
+- Laurence Turner (Labour, Birmingham Northfield)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Civil Rights and Liberties
+- Justin Madders (Labour, Ellesmere Port and Bromborough)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Criminal Justice System
+- Michael Wheeler (Labour, Worsley and Eccles)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Civil Rights and Liberties
+- Greg Smith (Conservative, Mid Buckinghamshire)
+  Topics: Legal Affairs and Public Safety
+  Subtopics: Civil Rights and Liberties
+- Justin Madders (Labour, Ellesmere Port and Bromborough)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Legislative Process
+- Laurence Turner (Labour, Birmingham Northfield)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Legislative Process
+- Greg Smith (Conservative, Mid Buckinghamshire)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Legislative Process
+- Alex McIntyre (Labour, Gloucester)
+  Topics: Education, Culture, and Society
+  Subtopics: Sports and Recreation
+- Chris Law (Scottish National Party, Dundee Central)
+  Topics: Education, Culture, and Society
+  Subtopics: Community Cohesion and Integration
+- Laurence Turner (Labour, Birmingham Northfield)
+  Topics: Healthcare and Social Welfare
+  Subtopics: Social Care and Support Services
+- Sarah Gibson (Liberal Democrat, Chippenham)
+  Topics: Healthcare and Social Welfare
+  Subtopics: Social Care and Support Services
+
+Tone: contentious
+
+Summary:
+The discussion centred on amendments to the Employment Rights Bill, with a focus on whether small and medium-sized enterprises (SMEs) should be exempt from provisions concerning guaranteed hours, unfair dismissal, and third-party harassment, among others.
+The Conservative Opposition argued for exemptions to prevent undue burdens on SMEs, citing concerns about the economic impact and potential loopholes that could incentivise businesses to exploit smaller structures to evade regulations.
+The government defended a universal approach, maintaining that all workers deserve the same rights and protections, and highlighted the need for consultation to fine-tune specific aspects like 'low-hours' definitions and reference periods for guaranteed hours, indicating a commitment to thorough examination before finalising regulations.
+
+Topics:
+Economy, Business, and Infrastructure:
+  Employment and Labour Markets, Trade and Industry
+Legal Affairs and Public Safety:
+  Criminal Justice System, Civil Rights and Liberties
+Parliamentary Affairs and Governance:
+  Legislative Process
+Education, Culture, and Society:
+  Sports and Recreation, Community Cohesion and Integration
+Healthcare and Social Welfare:
+  Social Care and Support Services
+
+Key Points:
+Greg Smith (Conservative, Mid Buckinghamshire):
+    Greg Smith proposed an amendment to exclude small and medium-sized enterprises (SMEs), defined as businesses with 500 or fewer employees, from the provisions of the Employment Rights Bill related to zero-hours contracts. He emphasised that these provisions could impose a significant bureaucratic burden on smaller businesses without the substantial HR or legal resources that larger companies possess.
+    
+Supported by: Peter Bedford (Conservative, Mid Leicestershire)
+Opposed by: Justin Madders (Labour, Ellesmere Port and Bromborough), Jon Pearce (Labour, High Peak), Alex McIntyre (Labour, Gloucester), Sarah Gibson (Liberal Democrat, Chippenham), Laurence Turner (Labour, Birmingham Northfield), Michael Wheeler (Labour, Worsley and Eccles)
+Keywords: zero-hours contracts, small and medium-sized enterprises, bureaucratic burden, Employment Rights Bill, SMEs exclusion
+
+Justin Madders (Labour, Ellesmere Port and Bromborough):
+    Justin Madders opposed the amendment, arguing against a two-tier workforce system. He emphasised the importance of maintaining consistent employment rights and protections across all businesses regardless of size. He also pointed out that flexible work arrangements are not creating unreasonable burdens according to available evidence, encouraging transparency and fairness in flexible work practises.
+    Context: Responding to Greg Smith's amendment to exclude SMEs from certain provisions.
+Supported by: Jon Pearce (Labour, High Peak), Laurence Turner (Labour, Birmingham Northfield)
+Opposed by: Greg Smith (Conservative, Mid Buckinghamshire)
+Keywords: employment rights, flexible working, two-tier workforce, consistency, fairness
+
+Alex McIntyre (Labour, Gloucester):
+    Alex McIntyre shared his personal experience with zero-hours contracts, emphasising the potential for exploitation such as managers varying hours based on favoritism. He argued against exempting small businesses from protections, as size alone does not eliminate the possibility of abuse, particularly in offering regular hours and preventing harassment.
+    Context: Discussing the impact of zero-hours contracts and protections for workers in SMEs.
+Supported by: Laurence Turner (Labour, Birmingham Northfield)
+Opposed by: Greg Smith (Conservative, Mid Buckinghamshire), Peter Bedford (Conservative, Mid Leicestershire)
+Keywords: zero-hours contracts, worker exploitation, employment protections, fixed-term contract, third-party harassment
+
+Sarah Gibson (Liberal Democrat, Chippenham):
+    Sarah Gibson expressed concern about the negative impact on small businesses if they were excluded from workforce protections, suggesting that employees might prefer to work for larger companies where rights are assured. She highlighted the challenge of HR navigation for small businesses and suggested a lower employee threshold for exemption.
+    Context: Responding to Greg Smith's proposal to exempt SMEs from Bill provisions.
+Supported by: Laurence Turner (Labour, Birmingham Northfield)
+Opposed by: Greg Smith (Conservative, Mid Buckinghamshire)
+Keywords: small businesses, worker rights, HR challenges, employee retention, legal threshold
+
+Chris Law (Scottish National Party, Dundee Central):
+    Chris Law asked for clarification on how 'low hours' contracts would be defined and regulated, emphasising the need for the Bill to clearly safeguard against misuse, particularly concerning short-term contracts to avoid offering guaranteed hours.
+    Context: Questioning Greg Smith's probing amendment defining low-hours contracts at two hours a week.
+Opposed by: Justin Madders (Labour, Ellesmere Port and Bromborough)
+Keywords: low-hours contracts, Bill clarification, contract regulations, guaranteed hours, employment definitions

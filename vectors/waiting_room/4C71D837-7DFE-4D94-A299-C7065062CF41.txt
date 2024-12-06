@@ -1,0 +1,119 @@
+Title: Political Donations: Cap
+Date: 2024-12-05 (Thursday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- Lord Rennard (Liberal Democrat, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform, Legislative Process
+- Lord Khan of Burnley (Labour, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform, Legislative Process, Ministerial Accountability
+- Baroness Hodge of Barking (Labour, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform
+- Lord Forsyth of Drumlean (Conservative, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform
+- Lord Beamish (Labour, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform
+- Baroness Finn (Conservative, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform
+- Lord Dodds of Duncairn (Democratic Unionist Party, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform
+- Lord Taylor of Goss Moor (Liberal Democrat, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform
+- Lord Hayward (Conservative, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform, Parliamentary Standards
+- Lord Grocott (Labour, Life peer)
+  Topics: Parliamentary Affairs and Governance
+  Subtopics: Electoral Reform
+
+Tone: collaborative
+
+Summary:
+The UK Government is considering reforms to political finance rules, aiming to protect against foreign interference while not limiting domestic fundraising capabilities.
+Cross-party Lords raised concerns around transparency, unincorporated associations, and foreign donations, with advocacy for caps on individual contributions and stronger enforcement measures.
+The Government committed to exploring evidence from stakeholders and developing proposals, but no immediate legislative timetable was set for these electoral reforms.
+
+Topics:
+Parliamentary Affairs and Governance:
+  Electoral Reform, Legislative Process, Ministerial Accountability, Parliamentary Standards
+
+Key Points:
+Lord Rennard (Liberal Democrat, Life peer):
+    Lord Rennard inquired about the government's plans to cap political party donations.
+    
+Keywords: political donations cap, government plans, Lord Rennard
+
+Lord Khan of Burnley (Labour, Life peer):
+    Lord Khan of Burnley stated that the government is considering reforms to protect the political finance system from foreign interference, with potential changes to donation rules being evaluated.
+    
+Keywords: political finance reform, foreign interference, donation rules
+
+Lord Rennard (Liberal Democrat, Life peer):
+    Lord Rennard expressed concern over the lack of donation limits, citing reports by Transparency International and Unlock Democracy. He urged the government to adopt a £10,000 donation cap as recommended by the Committee on Standards in Public Life.
+    Context: Replying to Lord Khan's earlier comments on reform proposals.
+Keywords: donation limits, Transparency International, £10,000 cap
+
+Baroness Hodge of Barking (Labour, Life peer):
+    Baroness Hodge argued for greater transparency in donations, suggesting a ban on foreign donations, mandatory disclosure for donations over £200, and enhanced powers for the Electoral Commission.
+    
+Keywords: donation transparency, foreign donations ban, Electoral Commission powers
+
+Lord Khan of Burnley (Labour, Life peer):
+    Lord Khan agreed with Baroness Hodge on the need for enhanced donation rules and emphasised the government's manifesto commitment to protect democracy by enhancing donation regulations against foreign interference.
+    Context: Responding to Baroness Hodge's call for increased transparency and regulation of donations.
+Keywords: democracy protection, foreign interference, donation regulations
+
+Lord Forsyth of Drumlean (Conservative, Life peer):
+    Lord Forsyth raised the issue of past fraudulent donations to the Liberal Party and suggested that parties be obliged to return such funds to fraud victims.
+    
+Keywords: fraudulent donations, Liberal Party, fund returns
+
+Lord Beamish (Labour, Life peer):
+    Lord Beamish highlighted the need for transparency in donation sources, particularly targeting unincorporated associations used extensively by the Conservative Party to obscure funding origins.
+    
+Keywords: donation transparency, unincorporated associations, Conservative Party funding
+
+Baroness Finn (Conservative, Life peer):
+    Baroness Finn questioned the inclusion of gifts such as clothes and glasses in the potential donation cap.
+    
+Keywords: donation cap, gifts, political donations
+
+Lord Dodds of Duncairn (Democratic Unionist Party, Life peer):
+    Lord Dodds of Duncairn raised concerns about foreign donations entering Northern Ireland politics via the Republic of Ireland, requesting government action on this loophole.
+    
+Keywords: foreign donations, Northern Ireland, Republic of Ireland loophole
+
+Lord Khan of Burnley (Labour, Life peer):
+    Lord Khan promised to investigate the foreign donation loophole in Northern Ireland as highlighted by Lord Dodds.
+    Context: In response to Lord Dodds' concerns about foreign donations affecting Northern Ireland politics.
+Keywords: foreign donation loophole, Northern Ireland, government investigation
+
+Lord Taylor of Goss Moor (Liberal Democrat, Life peer):
+    Lord Taylor emphasised the importance of restricting large donations to cultivate party membership and engagement, suggesting it would also affect the House of Lords' composition.
+    
+Keywords: party membership, large donations cap, House of Lords representation
+
+Lord Hayward (Conservative, Life peer):
+    Lord Hayward requested that the government ensure the Electoral Commission has the powers needed to address issues with anonymous polling and campaigning, suggesting legislative changes if necessary.
+    
+Keywords: Electoral Commission, anonymous polling, campaigning regulation
+
+Lord Grocott (Labour, Life peer):
+    Lord Grocott inquired about the enfranchisement of overseas voters, their numbers, costs, and voting engagement, seeking a detailed written response from Lord Khan.
+    
+Keywords: overseas voters, electoral costs, voter engagement
+
+Lord Khan of Burnley (Labour, Life peer):
+    Lord Khan responded affirming the number of registered overseas voters and the legality of their donations but promised to provide further information in writing.
+    Context: Replying to Lord Grocott's questions about overseas voter participation and related matters.
+Keywords: overseas voter data, legal donations, written response

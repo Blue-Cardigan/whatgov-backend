@@ -1,0 +1,56 @@
+Title: Greenhouse Gas Emissions Trading Scheme (Amendment) (No. 2) Order 2024
+Date: 2024-12-02 (Monday)
+Type: New Debate
+Location: Grand Committee
+House: Lords
+
+Speakers:
+- Lord Hunt of Kings Heath (Labour, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Climate Change and Emissions Policy, Energy Policy and Renewable Resources, Air Quality and Pollution Control, Biodiversity and Wildlife Protection
+- Baroness McIntosh of Pickering (Conservative, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Climate Change and Emissions Policy, Energy Policy and Renewable Resources
+- Earl Russell (Liberal Democrat, Excepted Hereditary)
+  Topics: Environment and Natural Resources
+  Subtopics: Climate Change and Emissions Policy
+- Lord Offord of Garvel (Conservative, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Climate Change and Emissions Policy
+
+Tone: collaborative
+
+Summary:
+The parliamentary debate focused on amending the UK Emissions Trading Scheme (ETS) to align with net-zero targets by capping emissions, extending carbon pricing to vented CO2 in oil and gas, and broadening the scheme's reach, including flights from Northern Ireland to Switzerland.
+Cross-party support was evident, with concerns raised about the interplay of environmental and economic priorities, particularly regarding industry caps and the potential financial impact on specific sectors like upstream oil and gas.
+The government committed to expanding the ETS scope and ensuring compliance with international carbon pricing cooperation, while addressing technicalities around monitoring emissions and ensuring a smooth transition for the oil and gas sector.
+
+Topics:
+Environment and Natural Resources:
+  Climate Change and Emissions Policy, Energy Policy and Renewable Resources, Air Quality and Pollution Control, Biodiversity and Wildlife Protection
+
+Key Points:
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt of Kings Heath presented the Greenhouse Gas Emissions Trading Scheme (Amendment) (No. 2) Order 2024. This statutory instrument aims to reset the UK Emissions Trading Scheme (ETS) cap to align with the net-zero consistent range, reduce the industry cap while increasing its proportion of the total cap, and introduce penalties and a deficit notice for enforcement. It also incorporates CO2 venting from the upstream oil and gas sector into the ETS scope. Legislative amendments from previous years are extended to Northern Ireland, and flights from Northern Ireland to Switzerland are included in the ETS.
+    
+Keywords: Greenhouse Gas Emissions Trading Scheme, UK ETS cap, net-zero target, CO2 venting, Northern Ireland
+
+Baroness McIntosh of Pickering (Conservative, Life peer):
+    Baroness McIntosh of Pickering questioned the Government's stance on fracking, referencing past concerns in North Yorkshire. She inquired whether the cost impacts of the cap changes will align with past assessments. She also asked why flights to Switzerland from Great Britain were initially excluded from the ETS and requested confirmation if all major EU and Swiss flights are included.
+    Context: Following Lord Hunt of Kings Heath's presentation on the ETS amendment.
+Keywords: fracking moratorium, cap impact assessment, flights to Switzerland, UK ETS, EU flights inclusion
+
+Earl Russell (Liberal Democrat, Excepted Hereditary):
+    Earl Russell expressed general support for the SI, noting it resets the ETS cap in line with net-zero targets. He questioned why the previous scheme was not aligned with the net-zero trajectory and sought details on Government plans to monitor venting and flaring. He also asked about future inclusion of new industries in the ETS and any convergence plans with the EU ETS to prevent carbon leakage.
+    Context: Following Baroness McIntosh of Pickering's inquiries and comments.
+Keywords: net-zero trajectory, venting and flaring monitoring, industry inclusion, EU ETS convergence, carbon leakage prevention
+
+Lord Offord of Garvel (Conservative, Life peer):
+    Lord Offord of Garvel supported the order for expanding the ETS to include carbon venting and flaring but cautioned against economic impacts from rising carbon prices. He stressed the necessity of balancing climate policy with industry viability, particularly highlighting the heavy tax burden on the North Sea oil industry and its potential repercussions on employment and innovation in renewables.
+    Context: After Earl Russell's comments on the ETS and its industry impacts.
+Keywords: carbon price, UK ETS expansion, North Sea oil industry, economic impacts, renewable investment
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt of Kings Heath responded to points raised, affirming the Government's commitment to expanding the ETS and addressing sectoral decarbonisation challenges. He clarified intentions to extend the ETS to energy from waste and confirmed an ongoing fracking moratorium. He assured that past impact assessments remained valid and that changes adhered to consultation feedback. The UK aims to maintain international cooperation in carbon pricing.
+    Context: In response to queries from Baroness McIntosh, Earl Russell, and Lord Offord of Garvel.
+Keywords: ETS expansion, sector decarbonisation, fracking moratorium, impact assessment, international carbon pricing cooperation

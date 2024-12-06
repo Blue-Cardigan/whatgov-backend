@@ -1,0 +1,82 @@
+Title: Road Transport (International Passenger Services) (Amendment) Regulations 2024
+Date: 2024-12-02 (Monday)
+Type: New Debate
+Location: Grand Committee
+House: Lords
+
+Speakers:
+- Lord Hendy of Richmond Hill (Labour, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: International organisation., Diplomatic Relations, Trade Agreements
+- Baroness Randerson (Liberal Democrat, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Trade Agreements
+- Lord Empey (Ulster Unionist Party, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Diplomatic Relations
+- Lord Moylan (Conservative, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Trade Agreements, Diplomatic Relations
+- Lord Hendy of Richmond Hill (Labour, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Transport and Infrastructure Development
+- Baroness Randerson (Liberal Democrat, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Transport and Infrastructure Development
+- Lord Moylan (Conservative, Life peer)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Transport and Infrastructure Development
+
+Tone: collaborative
+
+Summary:
+The debate focused on transitioning UK bus and coach operators' market access arrangements from the EU-UK Trade and Cooperation Agreement to the RSR protocol, with ministerial assurance of continued access from April 2025.
+Key regulatory changes include revoking EU operators' cabotage rights within the UK, a move aimed at leveling competition with UK operators, despite potential reductions in service frequency for certain routes.
+While the discussion was largely technical, cross-party input highlighted both logistical concerns and broad agreement on the necessity of updating domestic legislation to maintain international service continuity.
+
+Topics:
+International Relations and Diplomacy:
+  International organisation., Diplomatic Relations, Trade Agreements
+Economy, Business, and Infrastructure:
+  Transport and Infrastructure Development
+
+Key Points:
+Lord Hendy of Richmond Hill (Labour, Life peer):
+    Lord Hendy of Richmond Hill introduced the Road Transport (International Passenger Services) (Amendment) Regulations 2024, which aims to amend domestic legislation to allow the UK to ratify the regular and special regular protocol (RSR protocol) to the Interbus agreement. This protocol extends the agreement to cover regular and special regular coach services. The UK will replace temporary market access arrangements with the EU following the expiration of the EU-UK Trade and Cooperation Agreement provisions on 31 March 2025. This change will maintain market access for UK bus and coach operators to the EU and other Interbus contracting parties post-2025.
+    
+Keywords: RSR protocol, Interbus agreement, TCA expiration, UK market access, bus and coach services
+
+Lord Hendy of Richmond Hill (Labour, Life peer):
+    The amendments will apply across Great Britain and Northern Ireland, ensuring operators from all UK regions continue international operations. The regulation updates journey authorisation processes and updates offenses for enforcement by the authorities. It will revoke certain EU regulations from UK law, aligning passenger service operator entitlements between the UK and EU.
+    
+Keywords: journey authorisation, offenses enforcement, EU regulations revocation, UK legislation, International operations
+
+Lord Hendy of Richmond Hill (Labour, Life peer):
+    This instrument maintains the right for occasional services to transit through one party to a non-contracting Interbus party, like UK coaches passing through the EU to Switzerland. It permits RSR services to transit through the EU and retain cabotage rights specifically for the island of Ireland.
+    
+Keywords: occasional services, transit rights, cabotage rights, Interbus, Switzerland transit
+
+Lord Hendy of Richmond Hill (Labour, Life peer):
+    The instrument revokes assimilated EU regulations, which will remove cabotage rights for EU operators using EU-registered vehicles to run entirely within the UK, creating a level playing field for UK operators. However, special provisions remain for the island of Ireland under the TCA, unaffected by this change.
+    
+Keywords: cabotage rights, UK operators, EU regulations, level playing field, island of Ireland
+
+Baroness Randerson (Liberal Democrat, Life peer):
+    Baroness Randerson expressed that while the SI maintains the status quo, it was critically developed post-Brexit, stressing the importance of UK's alignment. She welcomes the integration with specific countries like Moldova and Bosnia and Herzegovina and inquires about the frequency of cabotage by EU operators and consultations regarding the SI.
+    Context: Baroness Randerson was responding to Lord Hendy's introduction, focusing on post-Brexit negotiations and specific implications of the SI.
+Keywords: Brexit implications, cabotage frequency, Moldova, Bosnia and Herzegovina, consultations
+
+Lord Empey (Ulster Unionist Party, Life peer):
+    Lord Empey raised concerns about the need for electronic travel authorisations for buses travelling from Great Britain to Northern Ireland via the Republic of Ireland, suggesting it could be seen as an obstacle to tourism.
+    Context: He was questioning the potential impact of new regulations on tourism flow between Ireland and Northern Ireland.
+Keywords: electronic travel authorisation, tourism obstacle, Northern Ireland, Great Britain, Republic of Ireland
+
+Lord Moylan (Conservative, Life peer):
+    Lord Moylan supports the instrument, emphasising its role in removing EU legislation influence. He criticises the focus on foreign operators' business models over benefiting UK operators, promoting more independence under the Interbus agreement.
+    Context: His comments addressed Baroness Randerson's concerns, arguing the benefits of UK autonomy post-Brexit.
+Keywords: EU legislation influence, UK autonomy, Interbus, foreign operators, Brexit benefits
+
+Lord Hendy of Richmond Hill (Labour, Life peer):
+    Lord Hendy clarified aspects about Northern Ireland's specific provisions and the impact on UK operators, highlighting potential benefits even with minimal impact from removing cabotage rights, ensuring continuity post-March 2025 without transport disruptions.
+    Context: Responding to multiple questions regarding international implications and operational changes post-Brexit.
+Keywords: continuity post-Brexit, Northern Ireland provisions, cabotage rights removal, UK operators, transport disruptions

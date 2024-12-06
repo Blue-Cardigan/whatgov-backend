@@ -122,7 +122,7 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
     const debateNode = Navigator.find(n => n.ExternalId === Overview.ExtId);
     const startTime = debateNode?.Timecode || null;
 
-    // Validate required fields
+    // Validate required fields g
     if (!Overview.ExtId || !Overview.Title || !Overview.Date) {
       throw new Error('Missing required fields in Overview');
     }
@@ -231,6 +231,7 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
           party: opposer.party,
           constituency: opposer.constituency
         })),
+        keywords: point.keywords || [],
         context: point.context
       })) || [],
       
@@ -278,7 +279,7 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       ai_question_topic: debateDetails.questions?.question?.topic || '',
       ai_question_subtopics: debateDetails.questions?.question?.subtopics || [],
       ai_question_ayes: 0,
-      ai_question_noes: 0,
+      ai_question_noes: 0
     };
   } catch (error) {
     console.error('Transform debate error:', error);

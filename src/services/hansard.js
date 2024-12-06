@@ -5,6 +5,7 @@ import { SupabaseService } from '../services/supabase.js';
 export class HansardService {
   static async getLatestDebates(options = {}) {
     try {
+      options = options || {};
       const { specificDate, specificDebateId, aiProcess } = options;
 
       // Cache date checks to avoid redundant API calls

@@ -1,0 +1,55 @@
+{
+  "vectorStoreId": "vs_NlZ1KHiDJGYdr7ZzirHLEIzR",
+  "week": "2024-12-02",
+  "files": [
+    {
+      "id": "file-NfMY6YQmcdtfjCHisMQ4NB",
+      "filename": "0A09BE11-9B02-468E-8BEC-B1E7A6C93146.txt",
+      "uploadedAt": "2024-12-05T22:24:29.187Z"
+    },
+    {
+      "id": "file-XWsh7Hi9xhMUTohXLtria7",
+      "filename": "0AA3572C-27E8-4B8A-91CA-AEBB7BA4C337.txt",
+      "uploadedAt": "2024-12-05T22:35:07.638Z"
+    },
+    {
+      "id": "file-Jnm6Zszo9QDVf1ZjB8CQe8",
+      "filename": "0AFA0327-EA7E-4F4B-B3FF-029194681CD8.txt",
+      "uploadedAt": "2024-12-05T22:35:52.198Z"
+    },
+    {
+      "id": "file-RHrKopC9Pw9UA9uvjCsHNA",
+      "filename": "0BBBF05B-44DF-461E-AC46-BB2CD0D7288A.txt",
+      "uploadedAt": "2024-12-05T22:35:52.987Z"
+    },
+    {
+      "id": "file-3BTALr3TDkS1sDUbvqQ7bz",
+      "filename": "0F9E7BED-7E4F-4708-922F-0A97BED31252.txt",
+      "uploadedAt": "2024-12-05T22:35:53.482Z"
+    },
+    {
+      "id": "file-6cecEyLDfLgvaXm8PH2qf3",
+      "filename": "1A87905A-AD7B-48BF-8B71-026ECF87BF89.txt",
+      "uploadedAt": "2024-12-05T22:44:12.308Z"
+    },
+    {
+      "id": "file-G93WEfyVoQ4DQJjj1LFN1X",
+      "filename": "1B0E6DF5-2E1D-424F-BAC5-B02167167928.txt",
+      "uploadedAt": "2024-12-05T22:51:18.720Z",
+      "date": "2024-11-29 (Friday)",
+      "type": "Petition",
+      "house": "Commons",
+      "location": "Commons Chamber"
+    },
+    {
+      "id": "file-ToH4B7iNbV1ar9eLAX2fG4",
+      "filename": "1C9A901F-8193-424B-AFFC-16FE870CCAFA.txt",
+      "uploadedAt": "2024-12-05T22:55:50.902Z",
+      "date": "2024-12-02 (Monday)",
+      "type": "Lords Chamber",
+      "house": "Lords",
+      "location": "Lords Chamber"
+    }
+  ],
+  "lastUpdated": "2024-12-05T22:55:57.545Z"
+}

@@ -1,0 +1,46 @@
+Title: Genomics Databases
+Date: 2024-12-05 (Thursday)
+Type: Question
+Location: Commons Chamber
+House: Commons
+
+Speakers:
+- Alistair Carmichael (Liberal Democrat, Orkney and Shetland)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Biotechnology and Life Sciences, Data Protection and Privacy
+- Pat McFadden (Labour, Wolverhampton South East)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Biotechnology and Life Sciences, Data Protection and Privacy, Digital Infrastructure and Cybersecurity
+- Alistair Carmichael (Liberal Democrat, Orkney and Shetland)
+  Topics: International Relations and Diplomacy
+  Subtopics: Diplomatic Relations
+
+Tone: contentious
+
+Summary:
+The debate centred around whether genomics databases should be designated as critical national infrastructure, with Liberal Democrat MP Alistair Carmichael pressing for clarity from the government.
+Labour's Pat McFadden emphasised the importance of these databases to the UK's bio-economy and outlined measures to ensure data protection and security, although did not confirm any change in their infrastructure status.
+The discussion highlighted national security concerns, particularly regarding Chinese companies, with commitments from McFadden to ensure ongoing protection measures aligning with economic growth objectives.
+
+Topics:
+Science, Technology, and Innovation:
+  Biotechnology and Life Sciences, Data Protection and Privacy, Digital Infrastructure and Cybersecurity
+International Relations and Diplomacy:
+  Diplomatic Relations
+
+Key Points:
+Alistair Carmichael (Liberal Democrat, Orkney and Shetland):
+    Mr Alistair Carmichael asked about recent discussions regarding the designation of genomics databases as critical national infrastructure.
+    
+
+Pat McFadden (Labour, Wolverhampton South East):
+    Pat McFadden highlighted the significance of genomics as a British success storey and emphasised the necessity of data protection to minimise risks associated with genomics databases. He stated that the government is working across departments to protect the bio-economy.
+    Context: In response to Mr Alistair Carmichael's question about genomics databases.
+
+Alistair Carmichael (Liberal Democrat, Orkney and Shetland):
+    Mr Alistair Carmichael interpreted that genomics databases will not be designated as critical national infrastructure. He expressed concern about the UK-China relationship, particularly criticising the behaviour of Chinese companies like BGI and stressed the need to protect British genomics interests.
+    Context: Following Pat McFadden's remarks about data protection and national security.
+
+Pat McFadden (Labour, Wolverhampton South East):
+    Pat McFadden addressed Mr Carmichael's concerns by affirming the importance of balancing national security and economic growth. He indicated that the UK works with organisation. holding genomic data to ensure robust protection systems, with security services providing regular advice.
+    Context: In response to Mr Alistair Carmichael's concerns about national security in the context of relations with China and BGI.

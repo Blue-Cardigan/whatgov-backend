@@ -10,7 +10,7 @@ export class OpenAIService {
   static async generateCompletion(prompt, options = {}) {
     try {
       const response = await openai.chat.completions.create({
-        model: options.model || "gpt-4-turbo-preview",
+        model: options.model || "gpt-4o",
         messages: [{
           role: "system",
           content: options.systemPrompt || "You are analyzing parliamentary debates."

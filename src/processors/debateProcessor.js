@@ -8,6 +8,8 @@ import logger from '../utils/logger.js';
 import { config } from '../config/config.js';
 import { processDivisions } from './divisionsProcessor.js';
 import { EmbeddingService } from '../services/embeddingService.js';
+import { createAndUploadVectorFile } from './vectorProcessor.js';
+import { openai } from '../services/openai.js';
 
 async function fetchMembersFromSupabase(memberIds) {
   try {
@@ -82,8 +84,12 @@ export async function processDebates(specificDate = null, specificDebateId = nul
         return false;
       }
     } else {
-      // Get latest debates from Hansard
-      debatesToProcess = await HansardService.getLatestDebates(specificDate);
+      // Get latest debates from Hansard with options
+      debatesToProcess = await HansardService.getLatestDebates({
+        specificDate,
+        specificDebateId,
+        aiProcess
+      });
     }
     
     if (!debatesToProcess?.length) {
@@ -131,6 +137,46 @@ export async function processDebates(specificDate = null, specificDebateId = nul
       count: memberDetails.size,
       sample: Array.from(memberDetails.entries()).slice(0, 2)
     });
+
+    const mondayDate = new Date();
+    mondayDate.setDate(mondayDate.getDate() - mondayDate.getDay() + 1);
+    const mondayDateString = mondayDate.toISOString().split('T')[0];
+
+    // Get or create vector store for this week
+    let vectorStore;
+    try {
+      const existingStores = await openai.beta.vectorStores.list();
+      vectorStore = existingStores.data.find(store => 
+        store.name === `Parliamentary Debates - Week of ${mondayDateString}`
+      );
+
+      if (!vectorStore) {
+        vectorStore = await openai.beta.vectorStores.create({
+          name: `Parliamentary Debates - Week of ${mondayDateString}`
+        });
+        logger.info(`Created new vector store for week of ${mondayDateString}`);
+      }
+    } catch (error) {
+      logger.error('Failed to setup vector store:', error);
+      // Continue processing without vector store
+    }
+
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 2000; // 2 seconds
+
+    async function retryUpsert(debate, retries = 0) {
+      try {
+        await SupabaseService.upsertDebate(debate);
+        return true;
+      } catch (error) {
+        if (error.code === '57014' && retries < MAX_RETRIES) { // Statement timeout
+          logger.warn(`Database timeout, retrying upsert (attempt ${retries + 1}/${MAX_RETRIES})...`);
+          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+          return retryUpsert(debate, retries + 1);
+        }
+        throw error;
+      }
+    }
 
     for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {
       const batch = debatesToProcess.slice(i, i + config.BATCH_SIZE);
@@ -221,25 +267,72 @@ export async function processDebates(specificDate = null, specificDebateId = nul
               }
             }
             
+            let fileId = null;
+            
+            // Only create vector file if we have all required AI content
+            if (vectorStore && 
+              aiContent.summary && 
+              aiContent.topics?.length > 0 && 
+              aiContent.keyPoints?.keyPoints?.length > 0) {
+            
+              const vectorFile = await createAndUploadVectorFile({
+                ...debateDetails,
+                ...aiContent
+              }, memberDetails);
+              
+              if (vectorFile) {
+                fileId = vectorFile.id;
+                try {
+                  await openai.beta.vectorStores.fileBatches.createAndPoll(
+                    vectorStore.id,
+                    { file_ids: [fileId] }
+                  );
+                  logger.debug(`Added file ${fileId} to vector store ${vectorStore.id}`);
+                } catch (error) {
+                  logger.error('Failed to add file to vector store:', error);
+                  fileId = null; // Reset fileId if vector store addition fails
+                }
+              }
+            } else {
+              logger.debug(`Skipping vector file creation for debate ${debate.ExternalId} - missing required AI content`);
+            }
+
+            // Process divisions if present
+            if (divisions?.length) {
+              try {
+                await processDivisions(debate, aiContent);
+                logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
+              } catch (error) {
+                logger.error('Failed to update divisions with AI content:', error);
+                results.skipped++;
+                return;
+              }
+            }
+            
             const stats = await calculateStats(debateDetails, memberDetails);
             logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
-            
+
             const finalDebate = transformDebate({
               ...debateDetails, 
               ...stats, 
-              ...aiContent,
+              ...aiContent
             }, memberDetails);
-            
-            await SupabaseService.upsertDebate(finalDebate);
-            logger.debug(`Stored debate ${debate.ExternalId} in database`);
-            
-            results.success++;
+
+            // Add fileId and retry upsert if needed
+            try {
+              await retryUpsert({
+                ...finalDebate,
+                file_id: fileId
+              });
+              logger.debug(`Successfully stored debate ${debate.ExternalId} in database`);
+              results.success++;
+            } catch (error) {
+              logger.error(`Failed to store debate ${debate.ExternalId} after ${MAX_RETRIES} attempts:`, error);
+              results.failed++;
+            }
           }
         } catch (error) {
-          logger.error(`Failed to process debate ${debate.ExternalId}:`, {
-            error: error.message,
-            stack: error.stack
-          });
+          logger.error(`Failed to process debate ${debate.ExternalId}:`, error);
           results.failed++;
         }
       });
@@ -261,10 +354,7 @@ export async function processDebates(specificDate = null, specificDebateId = nul
     return true;
 
   } catch (error) {
-    logger.error('Failed to process debates:', {
-      error: error.message,
-      stack: error.stack
-    });
+    logger.error('Failed to process debates:', error);
     throw error;
   }
 } 

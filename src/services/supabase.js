@@ -174,6 +174,22 @@ export class SupabaseService {
     }
   }
 
+  static async getCurrentWeekDebates() {
+    try {
+      const { data, error } = await supabase
+        .from('debates')
+        .select('*')
+        .gte('date', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString())
+        .order('date', { ascending: true });
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to get current week debates:', error);
+      return { data: [], error };
+    }
+  }
+
   static async upsertEmbedding(debateId, embedding) {
     try {
       const { data, error } = await supabase
@@ -230,6 +246,22 @@ export class SupabaseService {
     } catch (error) {
       logger.error('Failed to get debates without embeddings:', error);
       return { data: [], error };
+    }
+  }
+
+  static async getDebateByExtId(extId) {
+    try {
+      const { data, error } = await supabase
+        .from('debates')
+        .select('*')
+        .eq('ext_id', extId)
+        .limit(1);
+
+      if (error) throw error;
+      return { data, error: null };
+    } catch (error) {
+      logger.error('Failed to get debate by ext_id:', error);
+      return { data: null, error };
     }
   }
 }

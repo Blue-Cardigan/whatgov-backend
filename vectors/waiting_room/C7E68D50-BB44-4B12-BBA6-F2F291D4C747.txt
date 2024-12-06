@@ -1,0 +1,48 @@
+Title: Contracts for Difference (Miscellaneous Amendments) Regulations 2024
+Date: 2024-12-02 (Monday)
+Type: New Debate
+Location: Grand Committee
+House: Lords
+
+Speakers:
+- Lord Hunt of Kings Heath (Labour, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Earl Russell (Liberal Democrat, Excepted Hereditary)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+- Lord Offord of Garvel (Conservative, Life peer)
+  Topics: Environment and Natural Resources
+  Subtopics: Energy Policy and Renewable Resources
+
+Tone: collaborative
+
+Summary:
+The House of Lords Grand Committee discussed the 2024 Contracts for Difference amendments, which aim to enhance low-carbon electricity generation, with cross-party support highlighting its strategic necessity for achieving clean power goals by 2030.
+Key amendments introduced include phased contracts for floating offshore wind projects and eligibility for repowered onshore wind projects, which are expected to provide investors with more confidence and boost the UK’s renewable capacity.
+The amendments received broad support across parties, emphasising the regulations' potential for consumer savings and increased competition among renewable energy projects, supported by ongoing industry consultation.
+
+Topics:
+Environment and Natural Resources:
+  Energy Policy and Renewable Resources
+
+Key Points:
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt of Kings Heath introduces the Contracts for Difference (Miscellaneous Amendments) Regulations 2024, emphasising their importance in the government's strategy to boost low-carbon electricity generation in the UK. The contracts for difference (CfD) scheme is the primary mechanism supporting new low-carbon projects. The sixth allocation round awarded contracts to 128 clean energy projects amounting to 9.6 gigawatts, equating to power for 11 million homes. The amendments propose extending phased contracts to floating offshore wind and making repowered onshore wind projects eligible for CfDs.
+    
+Keywords: Contracts for Difference, low-carbon electricity, floating offshore wind, repowered onshore wind, clean energy projects
+
+Earl Russell (Liberal Democrat, Excepted Hereditary):
+    Earl Russell supports the amendment and questions the government on measures to ensure consumer value for money within these contracts and the balance of value in the repowering process between government interests and onshore wind development.
+    
+Keywords: consumer value for money, repowering process, onshore wind development, government measures, Contracts for Difference
+
+Lord Offord of Garvel (Conservative, Life peer):
+    Lord Offord of Garvel expresses support for the draft regulations, highlighting their role in supporting further construction in the wind sector. He emphasises that CfDs derisk renewable projects like wind farms, which have high initial costs. He acknowledges the previous effectiveness of CfDs since 2014 in contributing to the net zero goal.
+    
+Keywords: wind energy, Contracts for Difference, net zero, renewable investment, regulations support
+
+Lord Hunt of Kings Heath (Labour, Life peer):
+    Lord Hunt of Kings Heath responds to questions, emphasising that value for money is crucial. He notes that onshore wind (ONW) has a competitive clearing price and anticipates repowering will boost competition, leading to lower prices and consumer savings. Additionally, he addresses potential nuclear extensions, hinting at comprehensive support for extending operational capacities where feasible.
+    Context: Response to Earl Russell's questions about consumer value for money.
+Keywords: consumer savings, value for money, onshore wind, nuclear extension, competitive pricing

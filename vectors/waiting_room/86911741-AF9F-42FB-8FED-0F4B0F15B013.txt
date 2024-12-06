@@ -1,0 +1,103 @@
+Title: North-west Syria
+Date: 2024-12-03 (Tuesday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- The Earl of Effingham (Conservative, Excepted Hereditary)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties, International Security Cooperation
+- Lord Purvis of Tweed (Liberal Democrat, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: defence and Military Cooperation, International Security Cooperation, Human Rights and Democracy Promotion
+- Lord Collins of Highbury (Labour, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: International organisation., Diplomatic Relations, defence and Military Cooperation
+- Lord Alton of Liverpool (Crossbench, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Human Rights and Democracy Promotion, International Security Cooperation
+- Lord McInnes of Kilwinning (Conservative, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Human Rights and Democracy Promotion
+- Lord Howell of Guildford (Conservative, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties
+- Lord Deben (Conservative, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: Foreign Policy and Treaties
+- Lord Dodds of Duncairn (Democratic Unionist Party, Life peer)
+  Topics: International Relations and Diplomacy
+  Subtopics: International Security Cooperation
+- The Earl of Effingham (Conservative, Excepted Hereditary)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+- Lord Collins of Highbury (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: Public Health Policy
+- Lord Alton of Liverpool (Crossbench, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: 
+- Lord Dodds of Duncairn (Democratic Unionist Party, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: 
+
+Tone: contentious
+
+Summary:
+In this debate, the UK government underscored the escalating conflict in north-west Syria, highlighting the control gains by Hay’at Tahrir al-Sham and the repercussions of intensified Russian airstrikes.
+Key points of discussion included the humanitarian impact, the strategic positioning of regional powers, and the UK's commitment to continue its extensive humanitarian aid efforts, totaling over £4 billion since 2011.
+Ministerial commitments focused on diplomatic engagement with international partners, prioritising humanitarian access, and maintaining stringent arms control policies, amidst critiques of Syria's ongoing instability and complex geopolitical entanglements.
+
+Topics:
+International Relations and Diplomacy:
+  Foreign Policy and Treaties, International Security Cooperation, defence and Military Cooperation, Human Rights and Democracy Promotion, International organisation., Diplomatic Relations
+Healthcare and Social Welfare:
+  National Health Service (NHS), Public Health Policy
+
+Key Points:
+Unknown (null, null):
+    The UK government has issued statements condemning large-scale attacks on civilians by the Assad regime and Russian forces in Syria, calling for de-escalation and protection of civilians to prevent further displacement. They emphasise the need for a Syrian-led political solution in line with UN Security Council Resolution 2254.
+    
+Supported by: The Earl of Effingham (Conservative, Excepted Hereditary)
+Keywords: de-escalation, civilians protection, political solution, UN Resolution 2254, Syrian conflict
+
+The Earl of Effingham (Conservative, Excepted Hereditary):
+    The Earl of Effingham highlights the serious humanitarian threat posed by the actions of extremist rebels and Russian airstrikes on civilians in Aleppo. He questions the government on the impact of these events on regional stability and drug trafficking, specifically Captagon, noting the need for security assessments regarding the conflict.
+    Context: Following statement on Syria by unknown speaker outlining recent developments.
+Keywords: extremist rebels, humanitarian threat, Aleppo, Captagon, security assessments
+
+Lord Purvis of Tweed (Liberal Democrat, Life peer):
+    Lord Purvis of Tweed notes the surprise advance of Hay’at Tahrir al-Sham in Syria and discusses regional implications involving Israel, Lebanon, and Turkey. He requests details on governmental security assessments regarding HTS's activities and highlights the need for armament concerns with the UAE and sanctions consistency.
+    Context: In response to the initial statement detailing the Syrian conflict escalation.
+Keywords: HTS advance, regional implications, security assessments, UAE arms export, sanctions
+
+Lord Collins of Highbury (Labour, Life peer):
+    Lord Collins of Highbury emphasises the need for diplomatic engagement and talks to ensure de-escalation and humanitarian aid delivery in Syria. He responds to questions about sanctions allowing NGOs to function without impediments and maintains that the UK will hold those responsible for humanitarian law violations accountable.
+    Context: Addressing questions from The Earl of Effingham and Lord Purvis of Tweed about Syrian humanitarian situation and security concerns.
+Keywords: diplomatic engagement, humanitarian aid, sanctions exemption, humanitarian law violations, NGOs in Syria
+
+Lord Alton of Liverpool (Crossbench, Life peer):
+    Lord Alton of Liverpool raises concerns about the renewed threats to Kurdish and other minority communities from proxy groups amid the Syrian conflict escalation. He suggests increased diplomatic support to protect these communities from existential threats and questions the UK's long-term strategy for stability in northern Syria and Iraq.
+    Context: contextualising the impact of the escalating conflict on minorities after Lord Collins's responses.
+Keywords: Kurdish community, minority threats, diplomatic support, northern Syria, northern Iraq
+
+Lord McInnes of Kilwinning (Conservative, Life peer):
+    Lord McInnes of Kilwinning asks about potential support for relocating Armenian communities in Aleppo threatened by ongoing conflict. He notes that the Armenian government has offered relocation to Armenia, stressing the need for international support if threats to the community persist.
+    Context: Following up on concerns about minority protection raised by Lord Alton of Liverpool.
+Keywords: Armenian community, conflict relocation, international support, Aleppo, minority protection
+
+Lord Howell of Guildford (Conservative, Life peer):
+    Lord Howell of Guildford reflects on the persistent cycle of conflicts influenced by digital and geopolitical dynamics. He questions the effectiveness of the UK's global communication strategies and advocates for utilising modern technology to promote democratic values and counter periodic regional conflicts.
+    Context: Discussing global context and communication strategies following Lord Collins's statements.
+Keywords: digital age, conflict cycles, communication strategy, democratic values, UK foreign policy
+
+Lord Winston (Labour, Life peer):
+    Lord Winston highlights the alarming potential of Captagon, a drug connected to terrorist groups in Syria, to fuel conflict. He questions UK border security measures against such threats and urges heightened awareness and protection against drug infiltration.
+    Context: Inquiring about Captagon in response to its mention in previous statements regarding Syria.
+Keywords: Captagon drug, terrorism, border security, drug threat, UK protection
+
+Lord Collins of Highbury (Labour, Life peer):
+    Lord Collins of Highbury assures that the UK is monitoring Captagon trafficking and enhancing international awareness of its risks. He details ongoing sanctions efforts with the US against individuals facilitating the Captagon trade in Syria as part of broader security measures.
+    Context: In response to Lord Winston's concerns about Captagon.
+Keywords: Captagon trafficking, international awareness, US sanctions, drug trade, security measures

@@ -2,6 +2,8 @@ import { processDebates } from './processors/debateProcessor.js';
 import logger from './utils/logger.js';
 import fs from 'fs';
 
+const VALID_AI_PROCESSES = ['summary', 'questions', 'topics', 'keypoints', 'divisions', 'comments'];
+
 async function parseDate(dateStr) {
   try {
     const date = new Date(dateStr);
@@ -50,9 +52,14 @@ async function main() {
   try {
     const [startDateArg, endDateArg, aiProcessArg] = process.argv.slice(2);
 
+    // Validate aiProcess if provided
+    if (aiProcessArg && !VALID_AI_PROCESSES.includes(aiProcessArg)) {
+      throw new Error(`Invalid AI process. Must be one of: ${VALID_AI_PROCESSES.join(', ')}`);
+    }
+
     // Check if the first argument is a debate ID
     if (startDateArg && startDateArg.match(/^[0-9a-fA-F-]{36}$/)) {
-      logger.info(`Processing single debate: ${startDateArg}`);
+      logger.info(`Processing single debate: ${startDateArg}`, { aiProcess: aiProcessArg });
       const results = await processDebates(null, startDateArg, aiProcessArg);
       
       if (process.env.GITHUB_OUTPUT) {

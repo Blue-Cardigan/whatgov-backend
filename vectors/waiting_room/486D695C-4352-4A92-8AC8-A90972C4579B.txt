@@ -1,0 +1,129 @@
+Title: Critical Minerals:  Domestic Production
+Date: 2024-12-03 (Tuesday)
+Type: Debated Bill
+Location: Westminster Hall
+House: Commons
+
+Speakers:
+- Perran Moon (Labour, Camborne and Redruth)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry, Transport and Infrastructure Development, Employment and Labour Markets, Regional Development
+- Luke Myer (Labour, Middlesbrough South and East Cleveland)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Luke Murphy (Labour, Basingstoke)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Alistair Strathern (Labour, Hitchin)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Regional Development
+- Alex Sobel (Labour (Co-op), Leeds Central and Headingley)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Jim Shannon (Democratic Unionist Party, Strangford)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry, Regional Development
+- Tom Hayes (Labour, Bournemouth East)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry, Regional Development, Transport and Infrastructure Development
+- Noah Law (Labour, St Austell and Newquay)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry, Regional Development, Transport and Infrastructure Development, Employment and Labour Markets
+- Andrew George (Liberal Democrat, St Ives)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry, Regional Development
+- James Wild (Conservative, North West Norfolk)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry, Transport and Infrastructure Development
+- Sam Rushworth (Labour, Bishop Auckland)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry
+- Sarah Jones (Labour, Croydon West)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Trade and Industry, Transport and Infrastructure Development, Regional Development
+
+Tone: collaborative
+
+Summary:
+In a recent parliamentary debate, MPs from various constituencies discussed the critical minerals sector's potential in boosting the UK’s energy transition and economic security, emphasising the necessity of establishing a domestic supply chain.
+Labour MPs highlighted the importance of local extraction and production, particularly in Cornwall and other UK regions, and underscored the sector’s breadth of job creation and socioeconomic benefits.
+The discussion saw broad support for developing a comprehensive critical minerals strategy, with calls for government incentives and support mechanisms to avoid reliance on foreign imports, particularly from China-dominated supply chains.
+
+Topics:
+Economy, Business, and Infrastructure:
+  Trade and Industry, Transport and Infrastructure Development, Employment and Labour Markets, Regional Development
+
+Key Points:
+Perran Moon (Labour, Camborne and Redruth):
+    The debate is opened by Perran Moon who highlights the significance of critical minerals for the UK's energy transition, economic security, and industrial growth. He defines critical minerals as materials vulnerable to supply chain insecurity and crucial for the transition to a net-zero economy, citing a recent British Geological Survey identifying 34 critical materials vital for the economy.
+    
+
+Luke Myer (Labour, Middlesbrough South and East Cleveland):
+    Luke Myer suggests that the UK's critical minerals list should evolve to match increasing demands and include minerals produced domestically, such as polyhalite, which is crucial for food security.
+    Context: Perran Moon's introduction on the critical minerals list.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+Perran Moon (Labour, Camborne and Redruth):
+    Perran Moon agrees with Luke Myer and emphasises the need for a dynamic dialogue about the critical minerals list, underscoring their significance for clean energy technologies and pointing out the UK's heavy reliance on imports, which poses risks due to concentrated supply chains.
+    Context: Luke Myer's point on evolving the critical minerals list.
+Supported by: Luke Myer (Labour, Middlesbrough South and East Cleveland)
+
+Luke Murphy (Labour, Basingstoke):
+    Luke Murphy highlights the importance of reducing dependency on China for critical minerals and acknowledges a recent memorandum between Cornish Lithium and LevertonHELM as a positive step for UK lithium supply and the automotive sector.
+    Context: Perran Moon's discussion on reliance on imports and China's dominance.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+Perran Moon (Labour, Camborne and Redruth):
+    Perran Moon reiterates the urgency for developing domestic extraction to lessen carbon emissions and secure local supply chains, focusing on lithium and tin resources in Cornwall and other parts of the UK.
+    Context: Luke Murphy emphasised the risk of over-reliance on China.
+
+Alistair Strathern (Labour, Hitchin):
+    Alistair Strathern concurs with the economic implications and supports government action on critical minerals strategy, mentioning potential benefits for companies like Panther Metals.
+    Context: Perran Moon emphasises benefits from developing a domestic critical minerals industry.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+Perran Moon (Labour, Camborne and Redruth):
+    Perran Moon describes Cornwall's mining potential and historical context, emphasising lithium's importance for the battery industry and need to develop supply chains to comply with EU regulations by 2027.
+    Context: Alistair Strathern supports domestic production strategies.
+
+Alex Sobel (Labour (Co-op), Leeds Central and Headingley):
+    Alex Sobel warns against repeating Australia's mistake of exporting raw minerals with no domestic battery production, urging the UK to build upstream demand and domestic production capabilities.
+    Context: Perran Moon discusses Cornwall's critical mineral resources.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+Jim Shannon (Democratic Unionist Party, Strangford):
+    Jim Shannon stresses the importance of considering Northern Ireland's potential in critical minerals, citing historical mining and emphasising collaboration between Northern Ireland and the UK.
+    Context: Perran Moon's focus on UK's general potential including Cornwall.
+
+Tom Hayes (Labour, Bournemouth East):
+    Tom Hayes underscores the benefits of critical minerals for green economy development in the south-west and discusses the Camborne School of Mines' role in advancing related projects.
+    Context: Jim Shannon discusses Northern Ireland's potential in critical minerals.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+Noah Law (Labour, St Austell and Newquay):
+    Noah Law stresses the importance of supporting lithium production in St Austell and Newquay, highlighting its role in green energy transition while addressing national security concerns due to reliance on foreign imports.
+    Context: Tom Hayes discusses the regional benefits of critical minerals for the economy.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+Andrew George (Liberal Democrat, St Ives):
+    Andrew George complements the discussions by acknowledging conservation efforts amid mining activities and suggests that modern extraction techniques mitigate environmental impacts.
+    Context: Noah Law highlights the economic and defence implications of lithium production.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+James Wild (Conservative, North West Norfolk):
+    James Wild points out the need for the UK to reduce its reliance on international supply chains for critical minerals, based on increasing global demand, especially referencing China's dominance in refining operations.
+    Context: Andrew George addresses environmental concerns related to mineral extraction.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+Sam Rushworth (Labour, Bishop Auckland):
+    Sam Rushworth highlights issues with regulatory delays impacting companies like Weardale Lithium, and criticises the lack of ambition in UK's EV targets to allow companies to meet these earlier.
+    Context: James Wild recognises UK's strategic needs for developing critical minerals.
+
+Sarah Jones (Labour, Croydon West):
+    Sarah Jones discusses plans to publish a new critical minerals strategy focusing on domestic production, recycling efforts, and international partnerships, emphasising the UK’s potential and strategy accountability.
+    Context: Sam Rushworth addresses regulatory issues faced by companies like Weardale Lithium.
+Supported by: Perran Moon (Labour, Camborne and Redruth)
+
+Perran Moon (Labour, Camborne and Redruth):
+    Perran Moon thanks participants for their contributions, emphasises the need to maximise UK domestic critical mineral production to boost the economy and supply chain security, and criticises the opposition for their lack of progress over the past years.
+    Context: Sarah Jones outlines the Government’s upcoming critical mineral strategy.

@@ -309,6 +309,7 @@ export async function extractKeyPoints(text) {
         - Include all specific details, facts, figures, and proposals
         - Note any direct responses or rebuttals to previous points
         - Identify any speakers who explicitly agree or disagree (including their full details)
+        - Extract 3-5 relevant keywords that capture the main topics and themes
         
         Guidelines:
         - Include ALL substantive points, not just the key ones
@@ -317,13 +318,15 @@ export async function extractKeyPoints(text) {
         - Note any procedural or parliamentary process points
         - Include questions asked and answers given
         - Always include complete speaker details for main speaker and any supporting/opposing speakers
+        - Keywords should be specific and searchable (e.g., "supporting vulnerable groups", "cost of living", "community benefit funds")
         
         Return each point with:
         - A point string (the clarified statement)
         - Speaker details (name, memberId, party, constituency)
-        - Support array (full details of explicit supporters)
-        - Opposition array (full details of explicit opponents)
-        - Context string (references to previous points being addressed)`
+        - Support array (full speaker details of supporters)
+        - Opposition array (full speaker details of opponents)
+        - Context string (references to previous points being addressed)
+        - Keywords array (3-5 relevant search terms)`
       }, {
         role: "user",
         content: text
@@ -348,7 +351,8 @@ export async function extractKeyPoints(text) {
             ...opposer,
             name: cleanSpeakerName(opposer.name)
           })),
-          context: keyPoint.context || null
+          context: keyPoint.context || null,
+          keywords: keyPoint.keywords || []
         }));
     }
 

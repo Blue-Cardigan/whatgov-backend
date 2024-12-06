@@ -1,0 +1,85 @@
+Title: Employment Rights Bill (Sixth sitting)
+Date: 2024-12-03 (Tuesday)
+Type: Public Bill Committees
+Location: Public Bill Committees
+House: Commons
+
+Speakers:
+- Justin Madders (Labour, Ellesmere Port and Bromborough)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets, Fiscal Policy and Public Spending
+- Greg Smith (Conservative, Mid Buckinghamshire)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Alex McIntyre (Labour, Gloucester)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Sarah Gibson (Liberal Democrat, Chippenham)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Michael Wheeler (Labour, Worsley and Eccles)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Steve Darling (Liberal Democrat, Torbay)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Ashley Fox (Conservative, Bridgwater)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Laurence Turner (Labour, Birmingham Northfield)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Jon Pearce (Labour, High Peak)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Nick Timothy (Conservative, West Suffolk)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+- Anneliese Midgley (Labour, Knowsley)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Employment and Labour Markets
+
+Tone: contentious
+
+Summary:
+The Employment Rights Bill aims to enhance job security and predictability for workers by introducing measures such as guaranteed hours and reasonable notice for shifts.
+While the government argues that these changes will benefit low-income workers faced with precarious employment conditions, opposition critiques centre on the potential burden for small businesses lacking resources to adapt easily to new regulations.
+Amendments increased protection for workers but sparked debate over their necessity and potential impacts on businesses, with some concerns about ambiguous regulations that remain unresolved.
+
+Topics:
+Economy, Business, and Infrastructure:
+  Employment and Labour Markets, Fiscal Policy and Public Spending
+
+Key Points:
+Justin Madders (Labour, Ellesmere Port and Bromborough):
+    Justin Madders moved Government amendments to clarify that employers must notify workers of when a shift starts and ends, and ensure that workers are given notice if shift hours are reduced in the middle. These changes are aimed at closing loopholes where workers could be called in with vague notification of shift timing changes or gaps, thus preventing unpaid breaks or confusion about working hours.
+    Context: Government amendments discussed to ensure workers receive clearer notification of shift timings.
+Supported by: Anneliese Midgley (Labour, Knowsley), Sarah Gibson (Liberal Democrat, Chippenham)
+Keywords: shift notification, work hours, employment rights, labour rights, Bill amendment
+
+Greg Smith (Conservative, Mid Buckinghamshire):
+    Greg Smith raised concerns about the impact of the Employment Rights Bill on small businesses, especially regarding the rigidity of proposed notice requirements for shift changes or cancellations. He argued that unforeseen circumstances could unfairly burden small businesses with costs for shifts not worked, suggesting flexibility or exceptions for force majeure situations.
+    Context: Discussion around amendments affecting shift notice requirements under the Employment Rights Bill.
+Opposed by: Alex McIntyre (Labour, Gloucester), Sarah Gibson (Liberal Democrat, Chippenham)
+Keywords: small businesses, shift cancellation, employment burden, force majeure, workplace flexibility
+
+Alex McIntyre (Labour, Gloucester):
+    Alex McIntyre argued that the Bill’s provisions are crucial for ensuring worker security, emphasising the financial insecurities faced by employees due to last-minute shift changes. He rebuffed concerns about business burdens, emphasising that the proposed measures aim to balance the rights between workers and employers.
+    Context: Debate on burden of shift notice requirements, with emphasis on worker rights.
+Supported by: Anneliese Midgley (Labour, Knowsley)
+Opposed by: Greg Smith (Conservative, Mid Buckinghamshire)
+Keywords: worker security, financial insecurity, shift changes, employment rights, business impact
+
+Justin Madders (Labour, Ellesmere Port and Bromborough):
+    Justin Madders justified extending tribunal claim time limits from three to six months, aligning with Law Commission recommendations. He noted this change aims to improve justice access for workers and provide more time to resolve employment disputes before resorting to litigation. This comes in light of previous government commitments and tribunal backlog concerns.
+    Context: Extension of time limits for employment tribunal claims discussed in light of recommendations and court backlogs.
+Supported by: Alex McIntyre (Labour, Gloucester), Uma Kumaran (Labour, Stratford and Bow)
+Opposed by: Greg Smith (Conservative, Mid Buckinghamshire)
+Keywords: tribunal time limits, access to justice, employment disputes, Law Commission, tribunal backlog
+
+Justin Madders (Labour, Ellesmere Port and Bromborough):
+    The debate highlighted contrasting views on the impact of clause 1 of the Employment Rights Bill, particularly the uncertainty faced by businesses regarding low-hours contracts and worker guarantees. Supporters emphasised the need for worker security, while opponents raised concerns about regulatory burdens and potential job losses.
+    Context: Clause 1 of the Employment Rights Bill discussed with focus on worker protections and business impacts.
+Supported by: Sarah Gibson (Liberal Democrat, Chippenham), Laurence Turner (Labour, Birmingham Northfield)
+Opposed by: Greg Smith (Conservative, Mid Buckinghamshire)
+Keywords: Employment Rights Bill, worker security, business regulation, low-hours contracts, job security

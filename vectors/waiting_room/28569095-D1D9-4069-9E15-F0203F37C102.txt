@@ -1,0 +1,158 @@
+Title: NHS Plan: Consultation
+Date: 2024-12-02 (Monday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- The Lord Bishop of London (Bishops, Bishops)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Baroness Merron (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Baroness Coussins (Crossbench, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Baroness Pitkeathley (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Lord Scriven (Liberal Democrat, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Lord Turnberg (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Lord Bailey of Paddington (Conservative, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Baroness Winterton of Doncaster (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Lord Kamall (Conservative, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Baroness Bull (Crossbench, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+
+Tone: collaborative
+
+Summary:
+Baroness Merron emphasised the government’s commitment to ensuring the NHS 10-year consultation reaches underrepresented and seldom-heard groups, leveraging integrated care systems and community engagement toolkits.
+Cross-party questions highlighted the necessity of accommodating linguistic diversity, the inclusion of unpaid carers, and addressing regional health inequalities, indicating widespread concern for equity in healthcare access and services.
+Practical measures were proposed, including multi-language resources, direct community engagement, and monitoring of respondent demographics, reflecting a concerted effort to incorporate diverse inputs into the NHS's strategic framework.
+
+Topics:
+Healthcare and Social Welfare:
+  National Health Service (NHS)
+
+Key Points:
+The Lord Bishop of London (Bishops, Bishops):
+    The Lord Bishop of London asked the government about steps to ensure that the NHS 10-year consultation plan reaches all communities, especially those with limited interaction with the health service.
+    
+Keywords: NHS 10-year plan, community engagement, health service access
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron emphasised the importance of including patient voices, especially from underrepresented groups, in the NHS consultation plan. The government partners with charities, faith groups, and local entities to ensure broad participation in the consultation process, which will end in spring 2025.
+    
+Keywords: patient voices, underrepresented groups, NHS consultation
+
+The Lord Bishop of London (Bishops, Bishops):
+    The Lord Bishop of London highlighted the need for long-term and systematic community engagement by Integrated Care Boards (ICBs) for prevention rather than just treating sickness, and inquired about government resources for such initiatives.
+    Context: Response to Baroness Merron's outline of the consultation plan's inclusive approach.
+Keywords: long-term engagement, Integrated Care Boards, community health prevention
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron agreed with the Lord Bishop of London on the need for systematic engagement by ICBs. She introduced the "workshop in a box" toolkit to facilitate local community discussions and support their engagement with seldom-heard groups.
+    Context: Agreement on the need for systematic community engagement for health prevention.
+Supported by: The Lord Bishop of London (Bishops, Bishops)
+Keywords: systematic engagement, workshop in a box, community discussions
+
+Baroness Coussins (Crossbench, Life peer):
+    Baroness Coussins asked if the consultation documents would be available in multiple languages and if public service interpreters working in NHS settings would be consulted to ensure inclusivity for people whose first language is not English.
+    Context: Addressing the inclusivity of non-English speakers in the consultation process.
+Keywords: multilingual consultation, NHS interpreters, language accessibility
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron confirmed the availability of consultation in multiple languages, including easy-read and British Sign Language, with considerations for non-English speakers and inclusion of interpreters in workshops.
+    Context: Response to Baroness Coussins' question about language accessibility in the consultation.
+Supported by: Baroness Coussins (Crossbench, Life peer)
+Keywords: language accessibility, British Sign Language, multilingual engagement
+
+Baroness Pitkeathley (Labour, Life peer):
+    Baroness Pitkeathley emphasised the importance of including unpaid carers in the NHS consultation, noting they often struggle to engage with healthcare professionals despite their significant contributions.
+    
+Keywords: unpaid carers, healthcare engagement, NHS consultation
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron agreed on the need to include unpaid carers in the consultation, ensuring efforts are tailored to engage underrepresented groups like unpaid carers in the process.
+    Context: Agreement with Baroness Pitkeathley on engaging unpaid carers in NHS consultation.
+Supported by: Baroness Pitkeathley (Labour, Life peer)
+Keywords: unpaid carers, tailored engagement, underrepresented groups
+
+Lord Scriven (Liberal Democrat, Life peer):
+    Lord Scriven raised concerns about the health inequities faced by people with learning disabilities, who have a significantly lower life expectancy, highlighting the need for their inclusion and attention in the NHS plan.
+    
+Keywords: learning disabilities, health inequities, NHS inclusion
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron assured that those with learning disabilities will be included in the consultation process, emphasising the importance of workshop tools to engage and listen to this community effectively.
+    Context: Responding to Lord Scriven's concerns about inclusion of people with learning disabilities.
+Supported by: Lord Scriven (Liberal Democrat, Life peer)
+Keywords: learning disabilities inclusion, community engagement, workshop tools
+
+Lord Turnberg (Labour, Life peer):
+    Lord Turnberg addressed regional health inequalities, noting residents in the north have shorter life expectancies than those in the south due to fewer healthcare resources, and asked what measures are being taken to address this imbalance.
+    
+Keywords: regional health inequalities, resource imbalance, life expectancy
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron responded by stating that the government aims to address social determinants of health to halve the disparity in life expectancy between the richest and poorest regions, identifying it as a key focus of the consultation.
+    Context: Addressing Lord Turnberg's question on regional health inequalities.
+Supported by: Lord Turnberg (Labour, Life peer)
+Keywords: social determinants of health, life expectancy disparity, regional health focus
+
+Lord Bailey of Paddington (Conservative, Life peer):
+    Lord Bailey of Paddington inquired about efforts to engage with young people, including those leaving care or prison and those from deprived communities, who often do not interact with the NHS but may need services in the future.
+    
+Keywords: engagement with young people, deprived communities, future NHS services
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron highlighted current efforts to engage underrepresented groups, noting the least engaged demographics in NHS consultations have been men, those under 35, and black Asian and black British people, thus prompting stepped-up outreach efforts.
+    Context: Responding to Lord Bailey's inquiry on reaching young and underserved groups.
+Supported by: Lord Bailey of Paddington (Conservative, Life peer)
+Keywords: NHS outreach, underrepresented demographics, engagement efforts
+
+Baroness Winterton of Doncaster (Labour, Life peer):
+    Baroness Winterton of Doncaster suggested utilising pharmacists in the NHS consultation due to their regular community interactions, potentially enhancing the consultation's reach.
+    
+Keywords: pharmacists, community interaction, consultation reach enhancement
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron acknowledged the role of pharmacists and noted their participation has contributed to the NHS consultation receiving over 60,000 responses and 1 million visits, making it the largest in NHS history.
+    Context: Incorporating Baroness Winterton's suggestion of pharmacists' role in the consultation process.
+Supported by: Baroness Winterton of Doncaster (Labour, Life peer)
+Keywords: NHS consultation size, pharmacist involvement, community reach
+
+Lord Kamall (Conservative, Life peer):
+    Lord Kamall asked about lessons from the COVID-19 vaccine rollout in reaching hesitant or excluded communities, and how these strategies can inform the NHS 10-year plan consultation to ensure wide community engagement.
+    
+Keywords: COVID-19 lessons, community engagement, vaccine hesitation
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron described using multiple consultation methods, drawing on lessons from the COVID-19 vaccine rollout, to engage diverse and previously hard-to-reach communities, ensuring broader input for the NHS plan.
+    Context: Applying Lord Kamall's question regarding strategies from the COVID vaccine rollout to the consultation.
+Supported by: Lord Kamall (Conservative, Life peer)
+Keywords: diverse engagement, consultation strategies, lessons learned
+
+Baroness Bull (Crossbench, Life peer):
+    Baroness Bull addressed the complex health needs of homeless people, emphasising the necessity for their voices to be heard in the NHS consultation due to their vulnerability and chronic health issues.
+    
+Keywords: homeless health needs, vulnerability, NHS consultation
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron acknowledged the challenges faced by the homeless and identified them as a key group for engagement through the consultation, utilising integrated care systems to effectively reach this and other marginalised communities.
+    Context: Addressing Baroness Bull's concerns about including homeless people in the NHS consultation.
+Supported by: Baroness Bull (Crossbench, Life peer)
+Keywords: integrated care systems, marginalised communities, homeless engagement

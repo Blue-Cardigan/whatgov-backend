@@ -1,0 +1,117 @@
+Title: Fracture Liaison Services
+Date: 2024-12-04 (Wednesday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- Lord Black of Brentwood (Conservative, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy, Elder Care Services
+- Baroness Donaghy (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy, Elder Care Services
+- Baroness Bull (Crossbench, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+- Lord Shinkwin (Conservative, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+- The Lord Bishop of London (Bishops, Bishops)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+- Baroness Ritchie of Downpatrick (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+- Lord Brownlow of Shurlock Row (Conservative, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS)
+- Baroness Quin (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+- Lord Rennard (Liberal Democrat, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+- Lord Kamall (Conservative, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+- Baroness Merron (Labour, Life peer)
+  Topics: Healthcare and Social Welfare
+  Subtopics: National Health Service (NHS), Public Health Policy
+
+Tone: collaborative
+
+Summary:
+The House of Lords debate highlighted cross-party consensus to expedite the implementation of fracture liaison services (FLS) across the UK, recognising them as cost-effective, preventive healthcare measures essential for tackling osteoporosis-related fractures.
+Calls for immediate action include allocating pump-priming funds to support six integrated care boards in commissioning FLS, alongside the establishment of a national rollout plan to achieve universal provision by 2030.
+Significant ministerial commitment was noted, with the government reiterating its election pledge and acknowledging the need for strategic implementation, but concrete details on funding and timelines are pending.
+
+Topics:
+Healthcare and Social Welfare:
+  National Health Service (NHS), Public Health Policy, Elder Care Services
+
+Key Points:
+Lord Black of Brentwood (Conservative, Life peer):
+    Lord Black of Brentwood introduces the debate by discussing the aim of ensuring universal fracture liaison services (FLS) in England by 2030. He highlights the significant impact of osteoporosis-related fractures on individuals, the NHS, and social care. Hip fractures are noted as a major cost to the NHS, and FLS is presented as a preventive measure that can reduce these costs and improve patient outcomes. He calls for immediate government action, citing the savings in hospital bed days and lives, if the rollout plan is implemented swiftly.
+    
+Supported by: Baroness Donaghy (Labour, Life peer), Baroness Bull (Crossbench, Life peer), Lord Shinkwin (Conservative, Life peer)
+Keywords: fracture liaison services, osteoporosis prevention, NHS cost savings, universal provision, healthcare policy
+
+Baroness Donaghy (Labour, Life peer):
+    Baroness Donaghy emphasises the need for immediate action, including the release of transformation funds to pump-prime FLS. She highlights the challenges of patient adherence to osteoporosis medication and regional disparities in access to diagnostic services like DEXA scans. Her personal connexion to osteoporosis through her brother underlines the need for better awareness and treatment accessibility.
+    Context: In support of Lord Black's call for universal FLS by 2030.
+Supported by: Lord Black of Brentwood (Conservative, Life peer)
+Keywords: transformation funds, osteoporosis medication adherence, DXA scan access, healthcare inequality, FLS funding
+
+Baroness Bull (Crossbench, Life peer):
+    Baroness Bull praises the Welsh model where universal FLS coverage was achieved with pump-priming, stressing that such services should be supported by strong leadership and initial funding. She advocates for a 'fracture tsar' to ensure dedicated oversight and coordination of FLS.
+    Context: Drawing on the success of Wales' approach to FLS.
+Supported by: Lord Black of Brentwood (Conservative, Life peer)
+Keywords: Welsh FLS model, healthcare leadership, pump-priming services, fracture tsar, osteoporosis advocacy
+
+Lord Shinkwin (Conservative, Life peer):
+    Lord Shinkwin shares personal experiences with fractures due to a bone condition, reinforcing the need for urgent rollout of FLS. He criticises delays in service provision, highlighting the unnecessary human and financial costs of not expanding FLS coverage.
+    Context: Highlighting personal impact to support universal FLS argument.
+Supported by: Lord Black of Brentwood (Conservative, Life peer)
+Keywords: bone conditions, fracture pain, delay costs, osteoporosis impact, FLS expansion
+
+The Lord Bishop of London (Bishops, Bishops):
+    The Lord Bishop of London discusses the broader benefits of FLS, emphasising their preventive value and how they fit into the broader NHS strategy of shifting from sickness to prevention. He highlights inequality issues, particularly how deprivation compounds health outcomes, and urges the inclusion of FLS in the NHS 10-year plan.
+    Context: Supporting prevention-focused healthcare policy.
+Supported by: Lord Black of Brentwood (Conservative, Life peer), Baroness Donaghy (Labour, Life peer)
+Keywords: health inequality, prevention in healthcare, NHS strategy, FLS benefits, socioeconomic factors
+
+Baroness Ritchie of Downpatrick (Labour, Life peer):
+    Baroness Ritchie of Downpatrick highlights Northern Ireland's 100% FLS coverage as a model for England, emphasising the importance of early adoption and phased rollout. She stresses the need for immediate pump-priming funds to achieve cost savings and improve health outcomes.
+    Context: Using Northern Ireland's success to advocate for England's FLS rollout.
+Supported by: Lord Black of Brentwood (Conservative, Life peer), Baroness Bull (Crossbench, Life peer)
+Keywords: Northern Ireland model, early adoption, phased rollout, healthcare savings, FLS advocacy
+
+Lord Brownlow of Shurlock Row (Conservative, Life peer):
+    Lord Brownlow emphasises the business case for FLS, urging the government to follow through on previous commitments to expand these services. He acknowledges Queen Camilla's long-standing support for osteoporosis causes.
+    Context: Reaffirming the financial benefits of FLS expansion.
+Keywords: business case for FLS, government commitments, Queen Camilla support, FLS expansion, osteoporosis advocacy
+
+Baroness Quin (Labour, Life peer):
+    Baroness Quin recalls past debates on NHS osteoporosis provision, expressing frustration over continuing postcode lotteries in England. She highlights the need for equitable healthcare service distribution and praises the Royal Osteoporosis Society for its advocacy efforts.
+    Context: contextualising current efforts within a history of advocacy.
+Supported by: Lord Black of Brentwood (Conservative, Life peer)
+Keywords: postcode lottery, equitable healthcare, FLS coverage, osteoporosis awareness, Royal Osteoporosis Society
+
+Lord Rennard (Liberal Democrat, Life peer):
+    Lord Rennard highlights the progress needed to achieve universal FLS coverage in England by 2030, noting the disparity compared to other UK regions. He stresses the economic efficiency of FLS and the need for immediate investment to prevent fractures and reduce NHS burdens.
+    Context: emphasising economic rationale for FLS against backdrop of UK disparities.
+Supported by: Lord Black of Brentwood (Conservative, Life peer)
+Keywords: economic efficiency, investment in FLS, NHS burdens, UK regional disparities, osteoporosis prevention
+
+Lord Kamall (Conservative, Life peer):
+    Lord Kamall, recalling past governmental promises, queries the current Government's plan for a timely rollout of FLS. He emphasises the multi-party agreement on the necessity of FLS in preventive healthcare and urges transparency about the upcoming strategy.
+    Context: Seeking clarity on rollout strategy amidst government transition.
+Supported by: Lord Black of Brentwood (Conservative, Life peer)
+Keywords: government plan, preventive healthcare, FLS rollout, multi-party consensus, healthcare strategy
+
+Baroness Merron (Labour, Life peer):
+    Baroness Merron acknowledges the debate's consensus on the need for FLS, detailing government plans to expand services and engage the public in NHS reforms. She calls for a realistic approach to tackling healthcare challenges while upholding commitments for improved patient access.
+    Context: Outlining government approach post-election commitment.
+Supported by: Lord Black of Brentwood (Conservative, Life peer)
+Keywords: NHS reform, public engagement, healthcare challenges, patient access, FLS expansion

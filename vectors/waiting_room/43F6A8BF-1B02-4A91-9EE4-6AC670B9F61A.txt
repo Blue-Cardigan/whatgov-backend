@@ -1,0 +1,53 @@
+Title: Social Housing: Service Charges
+Date: 2024-12-02 (Monday)
+Type: Question
+Location: Commons Chamber
+House: Commons
+
+Speakers:
+- Paul Kohler (Liberal Democrat, Wimbledon)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Housing and Property Markets
+- Matthew Pennycook (Labour, Greenwich and Woolwich)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Housing and Property Markets
+- Emily Darlington (Labour, Milton Keynes Central)
+  Topics: Economy, Business, and Infrastructure
+  Subtopics: Housing and Property Markets
+
+Tone: collaborative
+
+Summary:
+The debate highlighted cross-party concerns about the impact of rising service charges on social housing residents, with MPs advocating for greater transparency and fairness.
+The Minister acknowledged the financial pressure on households and pointed to upcoming measures in the Leasehold and Freehold Reform Act 2024 aimed at increasing transparency and providing redress avenues.
+There was a call for potential extension of regulatory regimes from social to private sector housing, suggesting that regulatory reforms may be reconsidered for broader application.
+
+Topics:
+Economy, Business, and Infrastructure:
+  Housing and Property Markets
+
+Key Points:
+Matthew Pennycook (Labour, Greenwich and Woolwich):
+    The Government acknowledges the financial pressure that increasing service charges exert on leaseholders, including those under social housing landlords. By law, these charges must be reasonable, and they can be contested through tribunals. The housing ombudsman can examine the fairness of these charges, and further measures are being considered to strengthen leaseholder protections against exorbitant increases.
+    Context: Paul Kohler asked about the impact of service charges on social housing residents.
+Keywords: service charges, leaseholders, housing ombudsman, financial strain, protection
+
+Paul Kohler (Liberal Democrat, Wimbledon):
+    Paul Kohler expressed concern about the increased service charges levied by Clarion Housing Association, noting a significant rise in costs from initial estimates, with some residents facing over £1,000 increases. He advocates for transparency with charges and asks for more power for the housing ombudsman to enforce compensation.
+    Context: In response to Matthew Pennycook's acknowledgment of service charge issues.
+Keywords: service charges, Clarion Housing Association, transparency, housing ombudsman, compensation
+
+Matthew Pennycook (Labour, Greenwich and Woolwich):
+    Matthew Pennycook acknowledges Paul Kohler's concerns and highlights the Leasehold and Freehold Reform Act 2024, which aims to enhance transparency and challengeability of service charges. He refers to a written ministerial statement for further details on implementing these provisions.
+    Context: Following up on Paul Kohler's concerns about service charges.
+Keywords: Leasehold and Freehold Reform Act, transparency, service charges, challenge mechanism, ministerial statement
+
+Emily Darlington (Labour, Milton Keynes Central):
+    Emily Darlington notes that social housing providers and councils follow a regulated service charge regime that prevents profit-making and seeks to address complaints via the Housing Ombudsman Service. She suggests consideration of similar regulations for the private sector to protect consumers.
+    Context: Adding to the discussion on service charge regulation.
+Keywords: regulated service charge, Housing Ombudsman Service, profit restrictions, private sector, consumer protection
+
+Matthew Pennycook (Labour, Greenwich and Woolwich):
+    Matthew Pennycook reiterates existing redress mechanisms and the intent to activate parts of the Leasehold and Freehold Reform Act. He is willing to discuss further protections for leaseholders, emphasising a collaborative approach to enhancing safety nets.
+    Context: Responding to Emily Darlington's point about extending regulations to the private sector.
+Keywords: Leasehold and Freehold Reform Act, redress mechanisms, leaseholder protection, collaboration, regulatory discussions

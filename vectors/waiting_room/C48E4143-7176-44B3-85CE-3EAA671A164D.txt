@@ -1,0 +1,175 @@
+Title: Undersea Cables
+Date: 2024-12-03 (Tuesday)
+Type: Lords Chamber
+Location: Lords Chamber
+House: Lords
+
+Speakers:
+- Lord Harris of Haringey (Labour, Life peer)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Lord Vallance of Balham (Labour, Life peer)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Lord Stirrup (Crossbench, Life peer)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Earl Attlee (Conservative, Excepted Hereditary)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Lord Anderson of Swansea (Labour, Life peer)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Earl Russell (Liberal Democrat, Excepted Hereditary)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Lord West of Spithead (Labour, Life peer)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Lord Rogan (Ulster Unionist Party, Life peer)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Viscount Camrose (Conservative, Excepted Hereditary)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Lord Trefgarne (Conservative, Excepted Hereditary)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Baroness Stuart of Edgbaston (Crossbench, Life peer)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+- Lord Fox (Liberal Democrat, Life peer)
+  Topics: Science, Technology, and Innovation
+  Subtopics: Digital Infrastructure and Cybersecurity
+
+Tone: collaborative
+
+Summary:
+The House of Lords engaged in a detailed examination of the UK's undersea cable infrastructure, focusing on security and resilience in light of recent Baltic incidents.
+Ministerial responses ensured that collaboration with international partners and continuous risk assessments are central to maintaining the cables' integrity, with private-sector funding for rapid repairs being emphasised.
+Cross-party queries highlighted concerns about potential threats and the adequacy of current protections, with assurances of ongoing reviews but no immediate commitment to systemic changes beyond existing measures.
+
+Topics:
+Science, Technology, and Innovation:
+  Digital Infrastructure and Cybersecurity
+
+Key Points:
+Lord Harris of Haringey (Labour, Life peer):
+    Lord Harris of Haringey asked the government what assessment they have made of the severing of two fibre optic cables in the Baltic Sea and the arrangements in place to protect UK undersea cables.
+    
+Keywords: undersea cables, Baltic Sea, UK infrastructure, national security, fibre optic cables
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham stated that the UK is collaborating with international partners after undersea cables in the Baltic Sea were damaged. He emphasised the importance of letting investigations proceed and reassured that the UK is committed to securing its telecommunications infrastructure.
+    Context: Response to Lord Harris of Haringey's question.
+Keywords: telecommunications, security, international collaboration, investigations, UK infrastructure
+
+Lord Harris of Haringey (Labour, Life peer):
+    Lord Harris of Haringey inquired about the UK's plans to ensure quick recovery if cables are disrupted, and whether the UK is considering measures similar to Australia's licensing requirements which include immediate repair arrangements.
+    Context: Follow-up question regarding UK's preparedness for cable disruptions.
+Keywords: recovery measures, repair arrangements, Australia model, UK preparedness, licensing requirements
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham clarified that the UK has 64 cable systems involving 116 cables, with 10 to 20 breaks per year mainly due to fishing, anchors, and natural events. A repair fund exists to cover 24/7 repair readiness, and while aware of the Australian model, specific circumstances limit its application in the UK.
+    Context: Response to Lord Harris of Haringey on cable repair readiness and Australia's model.
+Keywords: cable repair, UK infrastructure, Australian model, repair fund, telecommunications
+
+Lord Stirrup (Crossbench, Life peer):
+    Lord Stirrup asked about stress-testing for undersea infrastructure and its resilience, and what measures are necessary to reduce impacts from interruptions.
+    
+Keywords: stress-testing, resilience, infrastructure, impact reduction, undersea interruptions
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham explained that cable systems are regularly reviewed as part of the national risk assessment, focusing on risks from fishing, anchors, and landslips. The departments involved ensure a resilient system is maintained.
+    Context: Response to Lord Stirrup regarding resilience and risk assessment of cable systems.
+Keywords: resilience, risk assessment, fishing impact, infrastructure review, UK cables
+
+Earl Attlee (Conservative, Excepted Hereditary):
+    Earl Attlee inquired if there is an agreed doctrine for retaliation in case of hostile attacks on undersea cables.
+    
+Keywords: retaliation, hostile attacks, undersea cables, national security, defence doctrine
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham responded that most cable breaks are due to non-hostile causes and emphasised that any decision on a retaliation doctrine would depend on investigation outcomes of current breaks.
+    Context: Response to Earl Attlee regarding retaliation for cable breaks.
+Keywords: retaliation, investigation, non-hostile causes, sea cable breaks, security policy
+
+Lord Anderson of Swansea (Labour, Life peer):
+    Lord Anderson of Swansea mentioned the German Defence Minister's view on sabotage and asked if the UK attributes the damage to any states such as China or Russia.
+    
+Keywords: sabotage, Germany, state actors, China, Russia
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham confirmed no attribution to specific states as investigations by several European nations are ongoing, advising against speculation until official reports are available.
+    Context: Response to Lord Anderson of Swansea on damage attribution.
+Keywords: investigations, Baltic Sea, state attribution, speculation, international inquiry
+
+Earl Russell (Liberal Democrat, Excepted Hereditary):
+    Earl Russell raised concerns about UK energy security and asked about government actions to protect undersea energy infrastructure given recent suspicious activities near Norwegian gas hubs.
+    
+Keywords: energy security, gas pipelines, electricity interconnectors, Russian activity, UK infrastructure
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham assured that regular reviews of undersea risks are part of the national risk assessment, with collaboration with NATO to enhance detection and response systems for critical infrastructure.
+    Context: Response to Earl Russell regarding protection of energy infrastructure.
+Keywords: NATO, risk assessment, infrastructure protection, detection systems, UK energy
+
+Lord West of Spithead (Labour, Life peer):
+    Lord West of Spithead highlighted the role of maritime operations and intelligence centres in monitoring ships in the UK Exclusive Economic Zone, and questioned the procurement of additional ships to protect cable infrastructure.
+    
+Keywords: maritime operations, intelligence, EEZ, ship procurement, cable protection
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham stated ship acquisition as outside his direct remit in DSIT but promised to find someone to address the query about the procurement of additional maritime support vessels.
+    Context: Response to Lord West of Spithead regarding maritime support vessels.
+Keywords: ship acquisition, DSIT, maritime support, intelligence, cable protection
+
+Lord Rogan (Ulster Unionist Party, Life peer):
+    Lord Rogan pointed out the heavy reliance on UK waters for transatlantic cables and questioned the capability and funding responsibility concerning their protection, especially regarding Ireland's minimal defence spending.
+    
+Keywords: transatlantic cables, Ireland defence, funding responsibility, protection capability, UK waters
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham explained that cable break detection is managed from land but repair is funded by commercial companies which maintain a 24/7 standby for ship-based repairs, alleviating direct UK governmental fiscal responsibility.
+    Context: Response to Lord Rogan regarding cable protection funding and detection responsibilities.
+Keywords: cable repair, commercial funding, detection, UK infrastructure, protection
+
+Viscount Camrose (Conservative, Excepted Hereditary):
+    Viscount Camrose expressed concern about increased Russian military activity near undersea cables and inquired about the nature and frequency of risk assessments by the UK government.
+    
+Keywords: Russian military, risk assessment, UK government, undersea cables, infrastructure security
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham detailed that national risk assessments are conducted regularly by the Cabinet Office, with DSIT responsible for assessing cable risks in coordination with the MoD, ensuring comprehensive reviews beyond usual disturbances.
+    Context: Response to Viscount Camrose on risk assessments for cable security.
+Keywords: national risk assessment, Cabinet Office, DSIT, MoD, comprehensive reviews
+
+Lord Trefgarne (Conservative, Excepted Hereditary):
+    Lord Trefgarne sought to clarify whether the cables serve both civilian and military purposes.
+    
+Keywords: cable usage, civilian purposes, military purposes, telecommunications, dual-use
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham confirmed that undersea cables are used for all telecommunications purposes, supporting both civilian and military communications.
+    Context: Response to Lord Trefgarne regarding the usage of undersea cables.
+Keywords: civilian and military, telecommunications, undersea cables, communication, dual-use
+
+Baroness Stuart of Edgbaston (Crossbench, Life peer):
+    Baroness Stuart of Edgbaston questioned the adequacy of naval support for protecting cable infrastructure, urging the consideration of additional vessels beyond the RFA 'Proteus.'
+    
+Keywords: naval support, RFA 'Proteus', cable protection, strategic defence, additional vessels
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham indicated there are two specialised vessels: 'Sovereign' for repairs, funded by cable companies, and 'Proteus,' an MoD vessel handling broader underwater responsibilities, suggesting current arrangements cater to infrastructure protection needs.
+    Context: Response to Baroness Stuart on naval support for cable infrastructure.
+Keywords: Sovereign, Proteus, MoD, naval vessels, infrastructure protection
+
+Lord Fox (Liberal Democrat, Life peer):
+    Lord Fox emphasised the importance of redundancy in cable infrastructure to mitigate risk, questioning how the Department for Science, Innovation and Technology (DSIT) ensures sufficient redundancy despite cost concerns for commercial operators.
+    
+Keywords: cable redundancy, DSIT, commercial cost, risk mitigation, infrastructure
+
+Lord Vallance of Balham (Labour, Life peer):
+    Lord Vallance of Balham reassured that the UK infrastructure has significant redundancy through diverse geographical placement and numerous cable systems, ensuring continuity despite breaks, with emergency repair measures enabled by planning consents in place.
+    Context: Response to Lord Fox regarding redundancy and risk mitigation.
+Keywords: redundancy, geographical diversity, emergency repair, cable systems, UK infrastructure

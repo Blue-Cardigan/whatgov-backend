@@ -5,7 +5,7 @@ DROP MATERIALIZED VIEW IF EXISTS public.mp_key_points;
 
 -- Create materialized view with a unique index (required for concurrent refresh)
 CREATE MATERIALIZED VIEW public.mp_key_points AS
-SELECT DISTINCT ON (d.id)
+SELECT
   d.id as debate_id,
   d.ext_id as debate_ext_id,
   d.title as debate_title,
@@ -23,13 +23,16 @@ SELECT DISTINCT ON (d.id)
   m.party as speaker_party,
   m.constituency as speaker_constituency,
   m.house as speaker_house,
-  m.twfy_image_url as speaker_image_url,
   m.full_title as speaker_full_title,
   kp->'support' as support,
   kp->'opposition' as opposition,
+  kp->'keywords' as keywords,
   d.ai_topics,
   d.ai_summary,
-  d.interest_score
+  d.ai_tone,
+  d.party_count,
+  d.speaker_count,
+  d.contribution_count
 FROM 
   public.debates d
   CROSS JOIN LATERAL jsonb_array_elements(d.ai_key_points) as kp
@@ -42,7 +45,7 @@ WHERE
   kp->'speaker'->>'memberId' IS NOT NULL
   AND kp->'speaker'->>'memberId' != 'N/A'
 ORDER BY 
-  d.id, d.date DESC;
+  d.date DESC;
 
 -- Set ownership and permissions immediately
 ALTER MATERIALIZED VIEW public.mp_key_points OWNER TO postgres;
