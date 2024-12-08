@@ -62,13 +62,53 @@ function cleanSpeakerName(speakerName) {
 export async function generateSummary(context, typePrompt) {
   // Calculate appropriate token length based on context length
   const contextWords = context.split(/\s+/).length;
+  const SHORT_DEBATE_THRESHOLD = 500;
   
-  // Formula for scaling tokens:
-  // - Base tokens: 800
-  // - Additional tokens: 1 token per 4 words of input
-  // - Min tokens: 800
-  // - Max tokens: 2500
-  const baseTokens = 100;
+  // For short debates, use fewer tokens since we only need overview
+  if (contextWords <= SHORT_DEBATE_THRESHOLD) {
+    logger.debug('Short debate detected, generating overview only:', {
+      contextWords,
+      threshold: SHORT_DEBATE_THRESHOLD
+    });
+
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [{ 
+        role: "user", 
+        content: `As an expert in UK parliament, provide a concise analysis of this short debate.
+  
+Context: ${context}
+Type: ${typePrompt}
+
+Guidelines:
+- Provide a clear, engaging overview of the main points and outcomes
+- Maintain an objective tone while capturing the debate's atmosphere
+- Identify main speakers and their key contributions
+- Note any decisions or conclusions reached
+
+You must return:
+- title: A snappy, politically-neutral title for the debate
+- overview: A well-structured overview that captures all key points
+- tone: The overall tone (neutral/contentious/collaborative)
+- keyThemes: Array of main themes discussed
+- mainSpeakers: Array of key participants and their contributions
+- wordCount: Total words in the overview` 
+      }],
+      temperature: 0.4,
+      max_tokens: 150,
+      response_format: zodResponseFormat(SummarySchema, 'summary')
+    });
+
+    const result = JSON.parse(response.choices[0].message.content);
+    // For short debates, use the overview as the summary
+    return SummarySchema.parse({
+      ...result,
+      summary: result.overview
+    });
+  }
+  
+  // For longer debates, use the original scaling formula
+  const baseTokens = 300;
   const scalingFactor = 0.2; // 1/5 token per word
   const maxTokens = 2500;
   
@@ -80,7 +120,7 @@ export async function generateSummary(context, typePrompt) {
     )
   );
 
-  logger.debug('Calculated summary tokens:', {
+  logger.debug('Calculated summary tokens for full debate:', {
     contextWords,
     calculatedTokens,
     scaling: `${scalingFactor} tokens per word`
