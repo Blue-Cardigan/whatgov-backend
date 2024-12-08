@@ -58,10 +58,9 @@ function formatDebateForVector(debate, memberDetails) {
       title: 'Summary',
       content: [
         summary?.title || '',
-        summary?.sentence1 || '',
-        summary?.sentence2 || '',
-        summary?.sentence3 || '',
-        `Tone: ${summary?.tone || 'neutral'}`
+        summary?.tone ? `Tone: ${summary.tone}` : '',
+        summary?.overview || '',
+        summary?.summary || '',
       ].filter(Boolean).join('\n\n')
     },
 
