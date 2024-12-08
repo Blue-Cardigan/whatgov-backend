@@ -3,11 +3,17 @@ import { z } from 'zod';
 // Define schemas for each type of response
 export const SummarySchema = z.object({
     title: z.string(),
-    sentence1: z.string(),
-    sentence2: z.string(),
-    sentence3: z.string(),
+    overview: z.string(),
+    summary: z.string(),
     tone: z.enum(['neutral', 'contentious', 'collaborative']),
-    wordCount: z.number()
+    wordCount: z.number(),
+    keyThemes: z.array(z.string()).optional(),
+    mainSpeakers: z.array(z.object({
+      name: z.string(),
+      role: z.string().optional(),
+      party: z.string().optional(),
+      contribution: z.string().optional()
+    })).optional()
   });
   
 export const QuestionsSchema = z.object({

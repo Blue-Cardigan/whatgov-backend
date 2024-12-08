@@ -84,9 +84,9 @@ export function cleanHtmlTags(text) {
 export function formatDebateContext(overview, processedItems) {
   try {
     const context = [
-      `Title: ${overview?.Title || 'Untitled'}`,
-      `Location: ${overview?.Location || 'Unknown Location'}`,
-      `House: ${overview?.Location?.includes('Lords') ? 'House of Lords' : 'House of Commons'}`,
+      `Title: ${overview?.Title || ''}`,
+      `Type: ${overview?.Type || ''}`,
+      `House: ${overview?.House?.includes('Lords') ? 'House of Lords' : 'House of Commons'}`,
       '\nDebate Transcript:'
     ];
 

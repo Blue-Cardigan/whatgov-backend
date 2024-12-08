@@ -1,6 +1,7 @@
 import { HansardAPI } from './hansard-api.js';
 import logger from '../utils/logger.js';
 import { SupabaseService } from '../services/supabase.js';
+import { getDebateType, validateDebateContent } from '../utils/transforms.js';
 
 export class HansardService {
   static async getLatestDebates(options = {}) {
@@ -17,8 +18,8 @@ export class HansardService {
         };
       }
 
-      // Refresh cache if older than 1 hour
-      if (Date.now() - global.dateCache.timestamp > 3600000) {
+      // Refresh cache if older than 30 minutes
+      if (Date.now() - global.dateCache.timestamp > 1800000) {
         global.dateCache = {
           timestamp: Date.now(),
           lastProcessedDate: await SupabaseService.getLastProcessedDate(),
@@ -81,35 +82,33 @@ export class HansardService {
 
       logger.info(`Fetched ${commonsDebates.length} Commons debates and ${lordsDebates.length} Lords debates for ${dateToProcess}`);
 
+      // Add debate type and validate each debate
+      const processedDebates = [...commonsDebates, ...lordsDebates]
+        .map(debate => {
+          if (debate?.Overview) {
+            debate.Overview.Type = getDebateType(debate.Overview);
+          }
+          return debate;
+        })
+        .filter(debate => {
+          const isValid = validateDebateContent(debate);
+          if (!isValid) {
+            logger.debug(`Filtered out invalid debate: ${debate?.ExternalId}`);
+          }
+          return isValid !== null;
+        });
+
       // Pre-filter debates we already have in database
       try {
         existingIds = await SupabaseService.getDebateIds(
-          [...commonsDebates, ...lordsDebates].map(d => d.ExternalId)
+          processedDebates.map(d => d.ExternalId)
         );
       } catch (error) {
-        logger.warn('Failed to get existing debate IDs from Supabase, processing all debates:', {
-          error: error.message
-        });
-        // Continue without filtering if Supabase is unavailable
+        logger.warn('Failed to get existing debate IDs from Supabase:', error);
       }
 
-      const allDebates = [...commonsDebates, ...lordsDebates];
-      logger.info(`Total debates before filtering: ${allDebates.length}`);
-      
-      // Log debates without ExternalId or Title
-      const invalidDebates = allDebates.filter(debate => !debate?.ExternalId || !debate?.Title);
-      if (invalidDebates.length > 0) {
-        logger.warn(`Found ${invalidDebates.length} debates with missing ExternalId or Title`);
-      }
-
-      // Log debates that already exist
-      const existingDebatesCount = allDebates.filter(d => existingIds.includes(d.ExternalId)).length;
-      if (existingDebatesCount > 0) {
-        logger.info(`Found ${existingDebatesCount} debates that already exist in database`);
-      }
-
-      // Filter out invalid debates, but keep existing ones if aiProcess is specified
-      const newDebates = allDebates.filter(debate => 
+      // Filter out debates that already exist (unless reprocessing)
+      const newDebates = processedDebates.filter(debate => 
         debate?.ExternalId && 
         debate?.Title &&
         (options.aiProcess || !existingIds.includes(debate.ExternalId))
@@ -119,11 +118,7 @@ export class HansardService {
       
       return newDebates;
     } catch (error) {
-      logger.error('Failed to fetch latest debates:', {
-        error: error.message,
-        stack: error.stack,
-        options
-      });
+      logger.error('Failed to fetch latest debates:', error);
       throw error;
     }
   }

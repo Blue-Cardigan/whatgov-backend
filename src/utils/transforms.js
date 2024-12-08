@@ -189,10 +189,9 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
 
       ai_title: debateDetails.summary?.title || '',
       ai_summary: [
-        debateDetails.summary?.sentence1 || '',
-        debateDetails.summary?.sentence2 || '',
-        debateDetails.summary?.sentence3 || ''
+        debateDetails.summary?.summary
       ].join('\n'),
+      ai_overview: debateDetails.summary?.overview || '',
       ai_tone: (debateDetails.summary?.tone || 'neutral').toLowerCase(),
       
       // Updated topics with full speaker details

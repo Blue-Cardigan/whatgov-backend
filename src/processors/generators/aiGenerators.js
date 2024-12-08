@@ -2,7 +2,6 @@ import { openai } from '../../services/openai.js';
 import { zodResponseFormat } from 'openai/helpers/zod';
 import logger from '../../utils/logger.js';
 import { 
-  summaryPrompts, 
   questionPrompts, 
   topicDefinitions 
 } from '../../prompts/debatePrompts.js';
@@ -60,65 +59,77 @@ function cleanSpeakerName(speakerName) {
   return cleanedName || speakerName; // Return original if cleaned version is empty
 }
 
-export async function generateSummary(text, typeSpecificPrompt) {
-  const defaultPrompt = `Analyze this parliamentary proceeding.
-Focus on key policy points, cross-party positions, and practical implications.
-Highlight significant outcomes and any ministerial commitments made.`;
+export async function generateSummary(context, typePrompt) {
+  // Calculate appropriate token length based on context length
+  const contextWords = context.split(/\s+/).length;
+  
+  // Formula for scaling tokens:
+  // - Base tokens: 800
+  // - Additional tokens: 1 token per 4 words of input
+  // - Min tokens: 800
+  // - Max tokens: 2500
+  const baseTokens = 100;
+  const scalingFactor = 0.2; // 1/5 token per word
+  const maxTokens = 2500;
+  
+  const calculatedTokens = Math.min(
+    maxTokens,
+    Math.max(
+      baseTokens,
+      baseTokens + Math.floor(contextWords * scalingFactor)
+    )
+  );
+
+  logger.debug('Calculated summary tokens:', {
+    contextWords,
+    calculatedTokens,
+    scaling: `${scalingFactor} tokens per word`
+  });
+
+  const prompt = `As an expert in UK parliament, provide a comprehensive analysis of the following debate. 
+  
+Context: ${context}
+Type: ${typePrompt}
+
+Guidelines:
+- Begin with a clear, engaging overview of the main discussion points and outcomes
+- Highlight key arguments, data, and significant exchanges between members
+- Include relevant policy implications or outcomes
+- Maintain an objective tone while capturing the debate's atmosphere
+- Identify main speakers and their key contributions
+- Note any significant decisions, votes, or conclusions reached
+- Highlight cross-party agreements or notable disagreements
+- Include relevant contextual information (e.g., historical context, related legislation)
+
+You must return:
+- title: A snappy, politically-neutral title for the debate
+- overview: A well-structured overview of the debate
+- summary: A well-structured summary of appropriate length
+- tone: The overall tone (neutral/contentious/collaborative)
+- keyThemes: Array of main themes discussed
+- mainSpeakers: Array of key participants and their contributions
+- wordCount: Total words in the summary
+
+Focus on accuracy and clarity while preserving the parliamentary context.`;
 
   try {
-    const response = await openai.beta.chat.completions.parse({
+    const response = await openai.chat.completions.create({
       model: "gpt-4o",
-      messages: [{
-        role: "system",
-        content: `You are an expert in UK parliamentary procedure and debate analysis.
-${summaryPrompts[typeSpecificPrompt] || defaultPrompt}
-Provide:
-- A snappy, newspaper-style, politically neutral title (max 10 words)
-- Three concise, analytical sentences in Financial Times style
-- Tone assessment (must be one of: neutral, contentious, collaborative)
-
-Remember: Focus on analysis - readers know the context.
-Always include a tone assessment based on:
-- neutral: balanced discussion, general agreement
-- contentious: strong disagreement, heated exchanges
-- collaborative: cross-party cooperation, constructive debate`
-      }, {
-        role: "user",
-        content: text
-      }],
+      messages: [{ role: "user", content: prompt }],
+      temperature: 0.2,
+      max_tokens: calculatedTokens,
       response_format: zodResponseFormat(SummarySchema, 'summary')
     });
 
-    // Validate and normalize tone
-    const validTones = ['neutral', 'contentious', 'collaborative'];
-    let normalizedTone = response?.choices[0].message.parsed.tone?.toLowerCase() || 'neutral';
-    
-    if (!validTones.includes(normalizedTone)) {
-      logger.warn('Invalid tone received, defaulting to neutral', {
-        receivedTone: normalizedTone,
-        title: response?.choices[0].message.parsed.title
-      });
-      normalizedTone = 'neutral';
-    }
-
-    return {
-      ...response.choices[0].message.parsed,
-      tone: normalizedTone
-    };
-
+    const result = JSON.parse(response.choices[0].message.content);
+    return SummarySchema.parse(result);
   } catch (error) {
     logger.error('Failed to generate summary:', {
       error: error.message,
-      stack: error.stack
+      contextWords,
+      calculatedTokens
     });
-    return {
-      title: 'Summary Unavailable',
-      sentence1: 'Unable to generate summary.',
-      sentence2: 'Please refer to original debate text.',
-      sentence3: 'Technical error occurred during processing.',
-      tone: 'neutral',
-      wordCount: 0
-    };
+    throw error;
   }
 }
 

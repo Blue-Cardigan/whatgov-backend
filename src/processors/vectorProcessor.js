@@ -1,11 +1,10 @@
 import { openai } from '../services/openai.js';
 import { File } from 'buffer';
 import logger from '../utils/logger.js';
-import { getDebateType } from '../utils/transforms.js';
 
 function formatDebateForVector(debate, memberDetails) {
   const { Overview, Items = [], summary, keyPoints, topics = [] } = debate;
-  const type = getDebateType(Overview);
+  const type = Overview.Type;
 
   // Extract and deduplicate keywords from key points
   const keywords = Array.from(new Set(
