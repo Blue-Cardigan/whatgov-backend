@@ -73,26 +73,25 @@ export const KeyPointSchema = z.object({
   
   // Add new schema for division questions
 export const DivisionQuestionSchema = z.object({
-    questions: z.array(z.object({
-      division_id: z.number(),
-      question: z.string(),
-      topic: z.enum([
-        'Environment and Natural Resources',
-        'Healthcare and Social Welfare',
-        'Economy, Business, and Infrastructure',
-        'Science, Technology, and Innovation',
-        'Legal Affairs and Public Safety',
-        'International Relations and Diplomacy',
-        'Parliamentary Affairs and Governance',
-        'Education, Culture, and Society'
-      ]),
-      context: z.string(),
-      key_arguments: z.object({
-        for: z.string(),
-        against: z.string()
-      })
-    }))
-  });
+  questions: z.array(z.object({
+    question_text: z.string(),
+    topic: z.enum([
+      'Environment and Natural Resources',
+      'Healthcare and Social Welfare',
+      'Economy, Business, and Infrastructure',
+      'Science, Technology, and Innovation',
+      'Legal Affairs and Public Safety',
+      'International Relations and Diplomacy',
+      'Parliamentary Affairs and Governance',
+      'Education, Culture, and Society'
+    ]),
+    explanation: z.string(),
+    arguments: z.object({
+      for: z.array(z.string()),
+      against: z.array(z.string())
+    })
+  }))
+});
   
   // Add new schema after existing schemas
 export const CommentThreadSchema = z.object({

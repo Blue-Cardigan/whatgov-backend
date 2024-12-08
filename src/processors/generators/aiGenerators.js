@@ -309,7 +309,7 @@ export async function extractKeyPoints(text) {
         - Include all specific details, facts, figures, and proposals
         - Note any direct responses or rebuttals to previous points
         - Identify any speakers who explicitly agree or disagree (including their full details)
-        - Extract 3-5 relevant keywords that capture the main topics and themes
+        - Extract 3-5 searchable keywords that capture the main topics
         
         Guidelines:
         - Include ALL substantive points, not just the key ones
@@ -438,16 +438,6 @@ export async function generateCommentThread(text, debateId) {
 }
 
 export async function generateDivisionQuestions(debate, divisions, memberDetails) {
-  // Early return if no divisions or invalid debate data
-  if (!divisions?.length || !debate?.Overview) {
-    logger.debug('No divisions or invalid debate data to process for questions', {
-      hasDebate: !!debate,
-      hasOverview: !!debate?.Overview,
-      divisionsCount: divisions?.length || 0
-    });
-    return [];
-  }
-
   try {
     // Safely process items and create debate text
     const processedItems = processDebateItems(debate.Items || [], memberDetails);
@@ -466,42 +456,44 @@ export async function generateDivisionQuestions(debate, divisions, memberDetails
         content: `
 Analyze these divisions that occurred during the debate.
 
-For each division above, provide:
-1. The division_id as shown
-2. A clear yes/no question (max 20 words) that MPs were voting on
-3. The main topic category it falls under
-4. A two-sentence explanation of the significance and context of the division
-5. Key arguments for and against
-
-Ensure each response includes the correct division_id to match with the original division.
+For each division, provide:
+1. A clear yes/no question (max 20 words) that MPs were voting on
+2. The main topic category it falls under
+3. A two-sentence explanation of the significance and context of the division
+4. Key arguments for and against
 
 Debate Title: ${debate.Overview.Title || 'Untitled Debate'}
 Debate Context:
 ${debateText}
 
 Divisions:
-${divisions.map(div => `
-Division ${div.division_number || div.Id || 'Unknown'}:
-- Division ID: ${div.Id || div.division_id || 'Unknown'}
+${divisions.map((div, index) => `
+Division ${index + 1}:
 - Result: Ayes: ${div.ayes_count || 0}, Noes: ${div.noes_count || 0}
 `).join('\n')}`
       }],
       response_format: zodResponseFormat(DivisionQuestionSchema, 'division_questions')
     });
 
-    // Validate and clean the response
-    const questions = response.choices[0].message.parsed.questions || [];
-    return questions.map(question => ({
-      ...question,
-      division_id: question.division_id || 'unknown',
-      question_text: question.question_text || 'Question unavailable',
-      topic: question.topic || 'other',
-      explanation: question.explanation || 'No explanation available',
-      arguments: {
-        for: question.arguments?.for || [],
-        against: question.arguments?.against || []
-      }
-    }));
+    // Get the AI generated content
+    const aiQuestions = response.choices[0].message.parsed.questions || [];
+
+    // Map the AI responses back to the original divisions using array index
+    return divisions.map((division, index) => {
+      const aiContent = aiQuestions[index] || {};
+      return {
+        division_id: division.Id,
+        external_id: division.ExternalId,
+        debate_section_ext_id: division.DebateSectionExtId || debate.Overview.ExtId,
+        question_text: aiContent.question_text || 'Question unavailable',
+        topic: aiContent.topic || 'other',
+        explanation: aiContent.explanation || 'No explanation available',
+        arguments: {
+          for: aiContent.arguments?.for || [],
+          against: aiContent.arguments?.against || []
+        }
+      };
+    });
 
   } catch (error) {
     logger.error('Failed to generate division questions:', {

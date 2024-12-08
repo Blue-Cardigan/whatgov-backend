@@ -65,13 +65,11 @@ export function validateDebateContent(debateDetails) {
 // Add new helper function
 function getDebateType(overview) {
   // Check for Lords debates first based on location
-  if (overview.Location?.includes('Lords')) {
-    if (overview.Location?.includes('Grand Committee')) {
-      return 'Grand Committee';
-    }
-    if (overview.Location?.includes('Chamber')) {
-      return 'Lords Chamber';
-    }
+  if (overview.Location?.includes('Grand Committee')) {
+    return 'Grand Committee';
+  }
+  if (overview.Location?.includes('Chamber')) {
+    return 'Lords Chamber';
   }
 
   if (overview.Title?.includes('Prime Minister')) {

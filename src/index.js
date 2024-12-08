@@ -118,7 +118,8 @@ async function main() {
 
     // Default case - process today's debates
     logger.info('Processing debates for today');
-    const results = await processDebates();
+    const today = new Date().toISOString().split('T')[0];
+    const results = await processDebates(today);
     
     if (process.env.GITHUB_OUTPUT) {
       fs.appendFileSync(

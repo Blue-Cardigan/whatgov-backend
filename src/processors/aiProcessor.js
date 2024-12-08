@@ -58,7 +58,7 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
     }
 
     if (divisions?.length && (!aiProcess || aiProcess === 'divisions')) {
-      content.divisionQuestions = await generateDivisionQuestions(context, divisions);
+      content.divisionQuestions = await generateDivisionQuestions(debate, divisions, memberDetails);
       logger.debug('Generated division questions');
     }
 
