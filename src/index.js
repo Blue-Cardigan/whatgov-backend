@@ -50,17 +50,20 @@ async function processDateRange(startDate, endDate, aiProcess) {
 
 async function main() {
   try {
-    const [startDateArg, endDateArg, aiProcessArg] = process.argv.slice(2);
+    const [arg1, arg2, aiProcessArg] = process.argv.slice(2);
 
     // Validate aiProcess if provided
     if (aiProcessArg && !VALID_AI_PROCESSES.includes(aiProcessArg)) {
       throw new Error(`Invalid AI process. Must be one of: ${VALID_AI_PROCESSES.join(', ')}`);
     }
 
-    // Check if the first argument is a debate ID
-    if (startDateArg && startDateArg.match(/^[0-9a-fA-F-]{36}$/)) {
-      logger.info(`Processing single debate: ${startDateArg}`, { aiProcess: aiProcessArg });
-      const results = await processDebates(null, startDateArg, aiProcessArg);
+    // Check if either of the first two arguments is a debate ID
+    const debateIdArg = [arg1, arg2].find(arg => arg && arg.match(/^[0-9a-fA-F-]{36}$/));
+    const dateArg = [arg1, arg2].find(arg => arg && !arg.match(/^[0-9a-fA-F-]{36}$/));
+
+    if (debateIdArg) {
+      logger.info(`Processing single debate: ${debateIdArg}`, { aiProcess: aiProcessArg });
+      const results = await processDebates(null, debateIdArg, aiProcessArg);
       
       if (process.env.GITHUB_OUTPUT) {
         fs.appendFileSync(
@@ -73,9 +76,9 @@ async function main() {
     }
 
     // Handle date range processing
-    if (startDateArg) {
-      const startDate = new Date(startDateArg);
-      const endDate = endDateArg ? new Date(endDateArg) : startDate;
+    if (dateArg) {
+      const startDate = new Date(dateArg);
+      const endDate = arg2 && !arg2.match(/^[0-9a-fA-F-]{36}$/) ? new Date(arg2) : startDate;
 
       if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
         throw new Error('Invalid date format');

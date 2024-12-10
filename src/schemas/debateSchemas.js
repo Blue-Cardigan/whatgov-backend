@@ -93,8 +93,8 @@ export const DivisionQuestionSchema = z.object({
     ]),
     explanation: z.string(),
     arguments: z.object({
-      for: z.array(z.string()),
-      against: z.array(z.string())
+      for: z.string(),
+      against: z.string()
     })
   }))
 });

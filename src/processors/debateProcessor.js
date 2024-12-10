@@ -7,7 +7,6 @@ import { transformDebate } from '../utils/transforms.js';
 import logger from '../utils/logger.js';
 import { config } from '../config/config.js';
 import { processDivisions } from './divisionsProcessor.js';
-import { EmbeddingService } from '../services/embeddingService.js';
 import { createAndUploadVectorFile } from './vectorProcessor.js';
 import { openai } from '../services/openai.js';
 
@@ -186,143 +185,96 @@ export async function processDebates(specificDate = null, specificDebateId = nul
           const debateDetails = debate.debate;
           const debateType = debateDetails.Overview.Type;
           
+          // 1. First, get the raw divisions data
           const divisions = await processDivisions(debate);
-          logger.debug(`Processed divisions for debate ${debate.ExternalId}`, {
-            divisionCount: divisions?.length,
-            debateId: debate.ExternalId,
-            debateTitle: debateDetails.Overview.Title
-          });
-          
-          if (divisions === null) {
-            logger.warn(`No divisions for debate ${debate.ExternalId}`);
-          }
-          
-          if (aiProcess === 'embeddings') {
-            await EmbeddingService.generateAndStoreChunkEmbeddings({
-              extId: debate.ExternalId
-            });
-            console.log(`Generating embeddings for debate ${debate.ExternalId}`);
-            results.success++;
+
+          // 2. Generate AI content including division questions
+          let aiContent;
+          try {
+            aiContent = await processAIContent(
+              debateDetails,
+              memberDetails,
+              divisions,
+              debateType,
+              aiProcess
+            );
+          } catch (error) {
+            logger.error('Failed to generate AI content:', error);
+            results.skipped++;
             return;
           }
 
-          if (config.ENABLE_AI_PROCESSING) {
-            logger.debug(`Processing AI content for debate`, {
-              title: debateDetails.Overview.Title,
-              id: debate.ExternalId,
-              memberCount: memberDetails.size,
-              speakerCount: debateDetails.Items.filter(item => 
-                item.ItemType === 'Contribution' && item.MemberId
-              ).length
-            });
-
-            let aiContent;
+          // 3. Update divisions in database with AI content
+          if (divisions?.length && aiContent?.divisionQuestions) {
             try {
-              aiContent = await processAIContent(
-                debateDetails,
-                memberDetails,
-                divisions,
-                debateType,
-                aiProcess
-              );
-            } catch (error) {
-              logger.error('Failed to generate AI content:', {
-                debateId: debate.ExternalId,
-                debateTitle: debateDetails.Overview.Title,
-                error: error.message,
-                memberDetailsSize: memberDetails.size,
-                sampleMember: memberDetails.get([...memberDetails.keys()][0])
-              });
-              results.skipped++;
-              return;
-            }
-            
-            if (!aiContent) {
-              logger.debug(`Skipping debate ${debate.ExternalId} due to missing AI content`);
-              results.skipped++;
-              return;
-            }
-            
-            if (divisions?.length) {
-              try {
-                await processDivisions(debate, aiContent);
-                logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
-              } catch (error) {
-                logger.error('Failed to update divisions with AI content:', {
-                  debateId: debate.ExternalId,
-                  debateTitle: debateDetails.Overview.Title,
-                  error: error.message,
-                  stack: error.stack,
-                  cause: error.cause
-                });
-                results.skipped++;
-                return;
-              }
-            }
-            
-            let fileId = null;
-            
-            // Only create vector file if we have all required AI content
-            if (vectorStore && 
-              aiContent.summary && 
-              aiContent.topics?.length > 0 && 
-              aiContent.keyPoints?.keyPoints?.length > 0) {
-            
-              const vectorFile = await createAndUploadVectorFile({
-                ...debateDetails,
-                ...aiContent
-              }, memberDetails);
-              
-              if (vectorFile) {
-                fileId = vectorFile.id;
-                try {
-                  await openai.beta.vectorStores.fileBatches.createAndPoll(
-                    vectorStore.id,
-                    { file_ids: [fileId] }
+              await SupabaseService.upsertDivisions(
+                divisions.map(division => {
+                  const aiDivisionContent = aiContent.divisionQuestions.find(
+                    q => q.division_id === division.Id
                   );
-                  logger.debug(`Added file ${fileId} to vector store ${vectorStore.id}`);
-                } catch (error) {
-                  logger.error('Failed to add file to vector store:', error);
-                  fileId = null; // Reset fileId if vector store addition fails
-                }
-              }
-            } else {
-              logger.debug(`Skipping vector file creation for debate ${debate.ExternalId} - missing required AI content`);
-            }
-
-            // Process divisions if present
-            if (divisions?.length) {
-              try {
-                await processDivisions(debate, aiContent);
-                logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
-              } catch (error) {
-                logger.error('Failed to update divisions with AI content:', error);
-                results.skipped++;
-                return;
-              }
-            }
-            
-            const stats = await calculateStats(debateDetails, memberDetails);
-            logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
-
-            const finalDebate = transformDebate({
-              ...debateDetails, 
-              ...stats, 
-              ...aiContent
-            }, memberDetails);
-
-            // Add fileId and retry upsert if needed
-            try {
-              await retryUpsert({
-                ...finalDebate,
-                file_id: fileId
-              });
-              logger.debug(`Successfully stored debate ${debate.ExternalId} in database`);
-              results.success++;
+                  return {
+                    ...division,
+                    ai_question: aiDivisionContent?.question,
+                    ai_topic: aiDivisionContent?.topic,
+                    ai_context: aiDivisionContent?.context,
+                    ai_key_arguments: aiDivisionContent?.key_arguments
+                  };
+                })
+              );
+              logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
             } catch (error) {
-              logger.error(`Failed to store debate ${debate.ExternalId} after ${MAX_RETRIES} attempts:`, error);
-              results.failed++;
+              logger.error('Failed to update divisions with AI content:', error);
+              // Continue processing - don't skip the debate
             }
+          }
+
+          let fileId = null;
+          
+          // 4. Create vector file with complete data
+          if (vectorStore && aiContent) {
+            const vectorFile = await createAndUploadVectorFile({
+              ...debateDetails,
+              ...aiContent,
+              divisions // Pass the complete divisions data
+            }, memberDetails);
+            
+            if (vectorFile) {
+              fileId = vectorFile.id;
+              try {
+                await openai.beta.vectorStores.fileBatches.createAndPoll(
+                  vectorStore.id,
+                  { file_ids: [fileId] }
+                );
+                logger.debug(`Added file ${fileId} to vector store ${vectorStore.id}`);
+              } catch (error) {
+                logger.error('Failed to add file to vector store:', error);
+                fileId = null; // Reset fileId if vector store addition fails
+              }
+            }
+          } else {
+            logger.debug(`Skipping vector file creation for debate ${debate.ExternalId} - missing required AI content`);
+          }
+
+          const stats = await calculateStats(debateDetails, memberDetails);
+          logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
+
+          const finalDebate = transformDebate({
+            ...debateDetails, 
+            ...stats, 
+            ...aiContent
+          }, memberDetails);
+
+          // Add fileId and retry upsert if needed
+          try {
+            await retryUpsert({
+              ...finalDebate,
+              file_id: fileId
+            });
+            logger.debug(`Successfully stored debate ${debate.ExternalId} in database`);
+            results.success++;
+          } catch (error) {
+            logger.error(`Failed to store debate ${debate.ExternalId} after ${MAX_RETRIES} attempts:`, error);
+            results.failed++;
           }
         } catch (error) {
           logger.error(`Failed to process debate ${debate.ExternalId}:`, error);

@@ -3,7 +3,7 @@ import { File } from 'buffer';
 import logger from '../utils/logger.js';
 
 function formatDebateForVector(debate, memberDetails) {
-  const { Overview, Items = [], summary, keyPoints, topics = [] } = debate;
+  const { Overview, Items = [], summary, keyPoints, topics = [], divisions = [] } = debate;
   const type = Overview.Type;
 
   // Extract and deduplicate keywords from key points
@@ -125,8 +125,70 @@ function formatDebateForVector(debate, memberDetails) {
 
         return sections.join('\n');
       }).join('\n\n')
-    }
-  ];
+    },
+
+    // Divisions section (if present)
+    divisions?.length ? {
+      title: 'Divisions',
+      content: divisions.map(division => {
+        const sections = [
+          `Division ${division.division_number || ''}`,
+          `Result: Ayes ${division.ayes_count || 0}, Noes ${division.noes_count || 0}`,
+        ];
+
+        // Add AI-generated content if available
+        if (division.ai_question) {
+          sections.push(`Question: ${division.ai_question}`);
+        }
+        if (division.ai_topic) {
+          sections.push(`Topic: ${division.ai_topic}`);
+        }
+        if (division.ai_context) {
+          sections.push(`Context: ${division.ai_context}`);
+        }
+        if (division.ai_key_arguments?.for?.length) {
+          sections.push('Arguments For:');
+          sections.push(division.ai_key_arguments.for
+            .map(arg => `  - ${arg}`)
+            .join('\n')
+          );
+        }
+        if (division.ai_key_arguments?.against?.length) {
+          sections.push('Arguments Against:');
+          sections.push(division.ai_key_arguments.against
+            .map(arg => `  - ${arg}`)
+            .join('\n')
+          );
+        }
+
+        // Add voting records if available
+        if (division.aye_members?.length) {
+          sections.push('Voted Aye:');
+          sections.push(division.aye_members
+            .map(member => {
+              const details = [member.display_as];
+              if (member.party) details.push(member.party);
+              return `  - ${details.join(', ')}`;
+            })
+            .join('\n')
+          );
+        }
+        if (division.noe_members?.length) {
+          sections.push('Voted No:');
+          sections.push(division.noe_members
+            .map(member => {
+              const details = [member.display_as];
+              if (member.party) details.push(member.party);
+              return `  - ${details.join(', ')}`;
+            })
+            .join('\n')
+          );
+        }
+
+        return sections.join('\n');
+      }).join('\n\n')
+    } : null,
+  ].filter(Boolean); // Remove null sections
 
   // Combine all sections
   return sections

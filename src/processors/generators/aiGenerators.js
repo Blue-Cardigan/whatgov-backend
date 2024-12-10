@@ -62,7 +62,7 @@ function cleanSpeakerName(speakerName) {
 export async function generateSummary(context, typePrompt) {
   // Calculate appropriate token length based on context length
   const contextWords = context.split(/\s+/).length;
-  const SHORT_DEBATE_THRESHOLD = 500;
+  const SHORT_DEBATE_THRESHOLD = 800;
   
   // For short debates, use fewer tokens since we only need overview
   if (contextWords <= SHORT_DEBATE_THRESHOLD) {
@@ -108,8 +108,8 @@ You must return:
   }
   
   // For longer debates, use the original scaling formula
-  const baseTokens = 300;
-  const scalingFactor = 0.2; // 1/5 token per word
+  const baseTokens = 500;
+  const scalingFactor = 0.25; // 1/4 token per word
   const maxTokens = 2500;
   
   const calculatedTokens = Math.min(
@@ -133,6 +133,7 @@ Type: ${typePrompt}
 
 Guidelines:
 - Begin with a clear, engaging overview of the main discussion points and outcomes
+- Structure your analysis using markdown to make it easy to read
 - Highlight key arguments, data, and significant exchanges between members
 - Include relevant policy implications or outcomes
 - Maintain an objective tone while capturing the debate's atmosphere
@@ -490,7 +491,6 @@ export async function generateCommentThread(text, debateId) {
 
 export async function generateDivisionQuestions(debate, divisions, memberDetails) {
   try {
-    // Safely process items and create debate text
     const processedItems = processDebateItems(debate.Items || [], memberDetails);
     const debateText = formatDebateContext({
       Title: debate.Overview.Title || 'Untitled Debate',
@@ -509,39 +509,48 @@ Analyze these divisions that occurred during the debate.
 
 For each division, provide:
 1. A clear yes/no question (max 20 words) that MPs were voting on
-2. The main topic category it falls under
+2. The main topic category from these options only:
+   - Environment and Natural Resources
+   - Healthcare and Social Welfare
+   - Economy, Business, and Infrastructure
+   - Science, Technology, and Innovation
+   - Legal Affairs and Public Safety
+   - International Relations and Diplomacy
+   - Parliamentary Affairs and Governance
+   - Education, Culture, and Society
 3. A two-sentence explanation of the significance and context of the division
-4. Key arguments for and against
+4. Key arguments for and against (1 sentence each)
 
-Debate Title: ${debate.Overview.Title || 'Untitled Debate'}
+Debate Title: ${debate.Overview.Title || 'No Title'}
 Debate Context:
 ${debateText}
 
 Divisions:
+- Text before vote: ${div.text_before_vote || 'Not available'}
 ${divisions.map((div, index) => `
 Division ${index + 1}:
 - Result: Ayes: ${div.ayes_count || 0}, Noes: ${div.noes_count || 0}
 `).join('\n')}`
       }],
-      response_format: zodResponseFormat(DivisionQuestionSchema, 'division_questions')
+      response_format: zodResponseFormat(DivisionQuestionSchema, 'questions')
     });
 
-    // Get the AI generated content
+    // Get the AI generated content and ensure it matches our schema
     const aiQuestions = response.choices[0].message.parsed.questions || [];
 
     // Map the AI responses back to the original divisions using array index
     return divisions.map((division, index) => {
       const aiContent = aiQuestions[index] || {};
       return {
-        division_id: division.Id,
-        external_id: division.ExternalId,
-        debate_section_ext_id: division.DebateSectionExtId || debate.Overview.ExtId,
-        question_text: aiContent.question_text || 'Question unavailable',
-        topic: aiContent.topic || 'other',
-        explanation: aiContent.explanation || 'No explanation available',
-        arguments: {
-          for: aiContent.arguments?.for || [],
-          against: aiContent.arguments?.against || []
+        division_id: division.Id,                    // Internal ID for matching
+        external_id: division.ExternalId,            // Hansard API ID
+        debate_section_ext_id: division.DebateSectionExtId || debate.Overview.ExtId,  // Parent debate ID
+        question: aiContent.question_text || 'Question unavailable',
+        topic: aiContent.topic || '',
+        context: aiContent.explanation || 'No explanation available',
+        key_arguments: {
+          for: aiContent.arguments?.for || '',
+          against: aiContent.arguments?.against || ''
         }
       };
     });
