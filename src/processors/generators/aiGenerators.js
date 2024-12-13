@@ -6,7 +6,8 @@ import {
   topicDefinitions 
 } from '../../prompts/debatePrompts.js';
 import {
-  SummarySchema,
+  SummarySchemaLong,
+  SummarySchemaShort,
   QuestionsSchema,
   TopicSchema,
   KeyPointSchema,
@@ -64,14 +65,13 @@ export async function generateSummary(context, typePrompt) {
   const contextWords = context.split(/\s+/).length;
   const SHORT_DEBATE_THRESHOLD = 800;
   
-  // For short debates, use fewer tokens since we only need overview
   if (contextWords <= SHORT_DEBATE_THRESHOLD) {
-    logger.debug('Short debate detected, generating overview only:', {
+    console.log('Short debate detected, generating overview only:', {
       contextWords,
       threshold: SHORT_DEBATE_THRESHOLD
     });
 
-    const response = await openai.chat.completions.create({
+    const response = await openai.beta.chat.completions.parse({
       model: "gpt-4o",
       messages: [{ 
         role: "user", 
@@ -81,7 +81,7 @@ Context: ${context}
 Type: ${typePrompt}
 
 Guidelines:
-- Provide a clear, engaging overview of the main points and outcomes
+- Provide a clear, engaging overview of the main discussion points and outcomes
 - Maintain an objective tone while capturing the debate's atmosphere
 - Identify main speakers and their key contributions
 - Note any decisions or conclusions reached
@@ -89,22 +89,18 @@ Guidelines:
 You must return:
 - title: A snappy, politically-neutral title for the debate
 - overview: A well-structured overview that captures all key points
-- tone: The overall tone (neutral/contentious/collaborative)
-- keyThemes: Array of main themes discussed
-- mainSpeakers: Array of key participants and their contributions
-- wordCount: Total words in the overview` 
+- tone: The overall tone (neutral/contentious/collaborative)` 
       }],
       temperature: 0.4,
-      max_tokens: 150,
-      response_format: zodResponseFormat(SummarySchema, 'summary')
+      max_tokens: 500,
+      response_format: zodResponseFormat(SummarySchemaShort, 'summary')
     });
-
-    const result = JSON.parse(response.choices[0].message.content);
+    
     // For short debates, use the overview as the summary
-    return SummarySchema.parse({
-      ...result,
-      summary: result.overview
-    });
+    return {
+      ...response.choices[0].message.parsed,
+      summary: response.choices[0].message.parsed.overview
+    };
   }
   
   // For longer debates, use the original scaling formula
@@ -120,7 +116,7 @@ You must return:
     )
   );
 
-  logger.debug('Calculated summary tokens for full debate:', {
+  console.log('Calculated summary tokens for full debate:', {
     contextWords,
     calculatedTokens,
     scaling: `${scalingFactor} tokens per word`
@@ -147,23 +143,19 @@ You must return:
 - overview: A well-structured overview of the debate
 - summary: A well-structured summary of appropriate length
 - tone: The overall tone (neutral/contentious/collaborative)
-- keyThemes: Array of main themes discussed
-- mainSpeakers: Array of key participants and their contributions
-- wordCount: Total words in the summary
 
 Focus on accuracy and clarity while preserving the parliamentary context.`;
 
   try {
-    const response = await openai.chat.completions.create({
+    const response = await openai.beta.chat.completions.parse({
       model: "gpt-4o",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.2,
       max_tokens: calculatedTokens,
-      response_format: zodResponseFormat(SummarySchema, 'summary')
+      response_format: zodResponseFormat(SummarySchemaLong, 'summary')
     });
 
-    const result = JSON.parse(response.choices[0].message.content);
-    return SummarySchema.parse(result);
+    return response.choices[0].message.parsed;
   } catch (error) {
     logger.error('Failed to generate summary:', {
       error: error.message,
@@ -526,10 +518,10 @@ Debate Context:
 ${debateText}
 
 Divisions:
-- Text before vote: ${div.text_before_vote || 'Not available'}
-${divisions.map((div, index) => `
+${divisions.map((division, index) => `
 Division ${index + 1}:
-- Result: Ayes: ${div.ayes_count || 0}, Noes: ${div.noes_count || 0}
+- Text before vote: ${division.text_before_vote || 'Not available'}
+- Result: Ayes: ${division.ayes_count || 0}, Noes: ${division.noes_count || 0}
 `).join('\n')}`
       }],
       response_format: zodResponseFormat(DivisionQuestionSchema, 'questions')
@@ -542,13 +534,13 @@ Division ${index + 1}:
     return divisions.map((division, index) => {
       const aiContent = aiQuestions[index] || {};
       return {
-        division_id: division.Id,                    // Internal ID for matching
-        external_id: division.ExternalId,            // Hansard API ID
-        debate_section_ext_id: division.DebateSectionExtId || debate.Overview.ExtId,  // Parent debate ID
-        question: aiContent.question_text || 'Question unavailable',
-        topic: aiContent.topic || '',
-        context: aiContent.explanation || 'No explanation available',
-        key_arguments: {
+        division_id: division.Id,
+        external_id: division.ExternalId,
+        debate_section_ext_id: division.DebateSectionExtId || debate.Overview.ExtId,
+        ai_question: aiContent.question_text || 'Question unavailable',
+        ai_topic: aiContent.topic || '',
+        ai_context: aiContent.explanation || 'No explanation available',
+        ai_key_arguments: {
           for: aiContent.arguments?.for || '',
           against: aiContent.arguments?.against || ''
         }

@@ -3,12 +3,10 @@ import { HansardAPI } from '../services/hansard-api.js';
 import { SupabaseService } from '../services/supabase.js';
 import { processAIContent } from './aiProcessor.js';
 import { calculateStats } from './statsProcessor.js';
-import { transformDebate } from '../utils/transforms.js';
+import { transformDebate, transformDivisions, normalizeAIContent } from '../utils/transforms.js';
 import logger from '../utils/logger.js';
 import { config } from '../config/config.js';
-import { processDivisions } from './divisionsProcessor.js';
-import { createAndUploadVectorFile } from './vectorProcessor.js';
-import { openai } from '../services/openai.js';
+import { createEmbeddingsForDebate } from './embeddingsProcessor.js';
 
 async function fetchMembersFromSupabase(memberIds) {
   try {
@@ -46,35 +44,41 @@ async function fetchMembersFromSupabase(memberIds) {
   }
 }
 
-export async function processDebates(specificDate = null, specificDebateId = null, aiProcess = null) {
+export async function processDebates(date = null, debateId = null, aiProcesses = null) {
+  console.log('Processing debates with options:', {
+    date,
+    debateId,
+    aiProcesses: aiProcesses?.join(', ') || 'all'
+  });
+  
   try {
     let debatesToProcess = [];
     
-    if (specificDebateId) {
+    if (debateId) {
       try {
         const [debate, speakers] = await Promise.all([
-          HansardAPI.fetchDebate(specificDebateId),
-          HansardAPI.fetchSpeakers(specificDebateId)
+          HansardAPI.fetchDebate(debateId),
+          HansardAPI.fetchSpeakers(debateId)
         ]);
         
         if (!debate) {
           throw new Error('No debate data returned');
         }
 
-        logger.debug('Fetched specific debate:', {
-          id: specificDebateId,
+        console.log('Fetched specific debate:', {
+          id: debateId,
           title: debate.Title,
           itemCount: debate.Items?.length
         });
         
         debatesToProcess = [{
-          ExternalId: specificDebateId,
+          ExternalId: debateId,
           debate,
           speakers
         }];
         
       } catch (error) {
-        logger.error(`Failed to fetch specific debate ${specificDebateId}:`, {
+        logger.error(`Failed to fetch specific debate ${debateId}:`, {
           error: error.message,
           stack: error.stack,
           status: error.status,
@@ -85,9 +89,9 @@ export async function processDebates(specificDate = null, specificDebateId = nul
     } else {
       // Get latest debates from Hansard with options (now includes validation)
       debatesToProcess = await HansardService.getLatestDebates({
-        specificDate,
-        specificDebateId,
-        aiProcess
+        specificDate: date,
+        specificDebateId: debateId,
+        aiProcess: aiProcesses
       });
     }
     
@@ -121,61 +125,12 @@ export async function processDebates(specificDate = null, specificDebateId = nul
       }
     });
 
-    logger.debug('Debate structure:', {
-      sampleDebate: debatesToProcess[0] ? {
-        hasItems: Boolean(debatesToProcess[0].Items),
-        hasDebateItems: Boolean(debatesToProcess[0].debate?.Items),
-        hasChildDebates: Boolean(debatesToProcess[0].ChildDebates),
-        structure: Object.keys(debatesToProcess[0])
-      } : null
-    });
-
     const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
     
-    logger.debug('Fetched member details:', {
+    console.log('Fetched member details:', {
       count: memberDetails.size,
       sample: Array.from(memberDetails.entries()).slice(0, 2)
     });
-
-    const mondayDate = new Date();
-    mondayDate.setDate(mondayDate.getDate() - mondayDate.getDay() + 1);
-    const mondayDateString = mondayDate.toISOString().split('T')[0];
-
-    // Get or create vector store for this week
-    let vectorStore;
-    try {
-      const existingStores = await openai.beta.vectorStores.list();
-      vectorStore = existingStores.data.find(store => 
-        store.name === `Parliamentary Debates - Week of ${mondayDateString}`
-      );
-
-      if (!vectorStore) {
-        vectorStore = await openai.beta.vectorStores.create({
-          name: `Parliamentary Debates - Week of ${mondayDateString}`
-        });
-        logger.info(`Created new vector store for week of ${mondayDateString}`);
-      }
-    } catch (error) {
-      logger.error('Failed to setup vector store:', error);
-      // Continue processing without vector store
-    }
-
-    const MAX_RETRIES = 3;
-    const RETRY_DELAY = 2000; // 2 seconds
-
-    async function retryUpsert(debate, retries = 0) {
-      try {
-        await SupabaseService.upsertDebate(debate);
-        return true;
-      } catch (error) {
-        if (error.code === '57014' && retries < MAX_RETRIES) { // Statement timeout
-          logger.warn(`Database timeout, retrying upsert (attempt ${retries + 1}/${MAX_RETRIES})...`);
-          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
-          return retryUpsert(debate, retries + 1);
-        }
-        throw error;
-      }
-    }
 
     for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {
       const batch = debatesToProcess.slice(i, i + config.BATCH_SIZE);
@@ -184,100 +139,238 @@ export async function processDebates(specificDate = null, specificDebateId = nul
         try {
           const debateDetails = debate.debate;
           const debateType = debateDetails.Overview.Type;
-          
-          // 1. First, get the raw divisions data
-          const divisions = await processDivisions(debate);
 
-          // 2. Generate AI content including division questions
-          let aiContent;
-          try {
+          // Calculate stats first
+          const stats = await calculateStats(debateDetails, memberDetails);
+
+          // Only fetch divisions if aiProcesses includes 'divisions'
+          let divisions = null;
+          if (aiProcesses && aiProcesses.includes('divisions') || aiProcesses.includes('all')) {
+            try {
+              divisions = await HansardAPI.fetchDivisionsList(debate.ExternalId);
+              
+              if (divisions?.length) {
+                // Fetch full details for each division
+                divisions = await Promise.all(
+                  divisions.map(async (division) => {
+                    const details = await HansardAPI.fetchDivisionDetails(division.ExternalId);
+                    return {
+                      ...division,
+                      aye_members: details?.AyeMembers || [],
+                      noe_members: details?.NoeMembers || []
+                    };
+                  })
+                );
+                
+                console.log('Fetched division details:', {
+                  debateId: debate.ExternalId,
+                  count: divisions.length
+                });
+              }
+            } catch (error) {
+              logger.error('Failed to fetch divisions:', error);
+              divisions = null;
+            }
+          }
+
+          // Get existing debate data from database to preserve unmodified AI content
+          const existingDebate = await SupabaseService.getDebateByExtId(debate.ExternalId);
+
+          // Process AI content if needed
+          let aiContent = null;
+          if (!aiProcesses || aiProcesses.some(p => ['summary', 'questions', 'topics', 'keypoints', 'divisions', 'comments'].includes(p))) {
             aiContent = await processAIContent(
               debateDetails,
               memberDetails,
               divisions,
               debateType,
-              aiProcess
+              aiProcesses
             );
-          } catch (error) {
-            logger.error('Failed to generate AI content:', error);
-            results.skipped++;
-            return;
           }
 
-          // 3. Update divisions in database with AI content
-          if (divisions?.length && aiContent?.divisionQuestions) {
+          console.log('Processing debate content:', {
+            debateId: debate.ExternalId,
+            requestedProcesses: aiProcesses,
+            newAIFields: aiContent ? Object.keys(aiContent) : []
+          });
+
+          // If specific AI processes are requested, only update those fields
+          if (aiProcesses) {
             try {
-              await SupabaseService.upsertDivisions(
-                divisions.map(division => {
-                  const aiDivisionContent = aiContent.divisionQuestions.find(
-                    q => q.division_id === division.Id
-                  );
-                  return {
-                    ...division,
-                    ai_question: aiDivisionContent?.question,
-                    ai_topic: aiDivisionContent?.topic,
-                    ai_context: aiDivisionContent?.context,
-                    ai_key_arguments: aiDivisionContent?.key_arguments
-                  };
-                })
-              );
-              logger.debug(`Updated divisions with AI content for debate ${debateDetails.Overview.Title}`);
-            } catch (error) {
-              logger.error('Failed to update divisions with AI content:', error);
-              // Continue processing - don't skip the debate
-            }
-          }
+              // Normalize AI content field names
+              const normalizedAIContent = normalizeAIContent(aiContent);
 
-          let fileId = null;
-          
-          // 4. Create vector file with complete data
-          if (vectorStore && aiContent) {
-            const vectorFile = await createAndUploadVectorFile({
-              ...debateDetails,
-              ...aiContent,
-              divisions // Pass the complete divisions data
-            }, memberDetails);
-            
-            if (vectorFile) {
-              fileId = vectorFile.id;
-              try {
-                await openai.beta.vectorStores.fileBatches.createAndPoll(
-                  vectorStore.id,
-                  { file_ids: [fileId] }
-                );
-                logger.debug(`Added file ${fileId} to vector store ${vectorStore.id}`);
-              } catch (error) {
-                logger.error('Failed to add file to vector store:', error);
-                fileId = null; // Reset fileId if vector store addition fails
+              console.log('Normalized AI content:', {
+                debateId: debate.ExternalId,
+                originalFields: aiContent ? Object.keys(aiContent) : [],
+                normalizedFields: normalizedAIContent ? Object.keys(normalizedAIContent) : []
+              });
+
+              const updateData = {
+                ext_id: debate.ExternalId,
+                ...(normalizedAIContent ? Object.fromEntries(
+                  Object.entries(normalizedAIContent).filter(([key]) => {
+                    // Now we can use exact matches since fields are already normalized
+                    if (key === 'ai_comment_thread') return aiProcesses.includes('comments');
+                    if (key.startsWith('ai_title') || key.startsWith('ai_summary') || 
+                        key.startsWith('ai_overview') || key.startsWith('ai_tone')) 
+                      return aiProcesses.includes('summary');
+                    if (key === 'ai_topics') return aiProcesses.includes('topics');
+                    if (key === 'ai_key_points') return aiProcesses.includes('keypoints');
+                    if (key.startsWith('ai_question')) return aiProcesses.includes('questions');
+                    return false;
+                  })
+                ) : {})
+              };
+
+              console.log('Updating debate with AI content:', {
+                debateId: debate.ExternalId,
+                aiProcesses,
+                fields: Object.keys(updateData),
+                updateData
+              });
+
+              // Only pass divisions if we're processing division content
+              const divisionsToUpdate = aiProcesses.includes('divisions') ? divisions : null;
+
+              const { error } = await SupabaseService.upsertDebate(
+                updateData, 
+                aiProcesses,
+                divisionsToUpdate
+              );
+
+              if (error) {
+                throw new Error(`Failed to update debate: ${error.message}`);
               }
+
+              results.success++;
+            } catch (error) {
+              logger.error('Failed to process AI update:', {
+                error: error.message,
+                stack: error.stack,
+                debateId: debate.ExternalId,
+                aiProcesses,
+                cause: error.cause
+              });
+              results.failed++;
+              throw error;
             }
           } else {
-            logger.debug(`Skipping vector file creation for debate ${debate.ExternalId} - missing required AI content`);
+            // Full update - include all data
+            try {
+              const transformedDebate = {
+                ...transformDebate(debate, debateDetails, stats),
+                ...(aiContent || {})
+              };
+
+              const { error } = await SupabaseService.upsertDebate(
+                transformedDebate,
+                null,
+                divisions
+              );
+
+              if (error) {
+                throw new Error(`Failed to store debate: ${error.message}`);
+              }
+
+              logger.info('Successfully stored debate:', {
+                debateId: debate.ExternalId,
+                stats,
+                divisionsCount: divisions?.length || 0
+              });
+
+              results.success++;
+            } catch (error) {
+              logger.error('Failed to store debate:', {
+                error: error.message,
+                stack: error.stack,
+                debateId: debate.ExternalId,
+                cause: error.cause
+              });
+              results.failed++;
+              throw error;
+            }
           }
 
-          const stats = await calculateStats(debateDetails, memberDetails);
-          logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
+          // Handle divisions separately if they're being processed
+          if ((!aiProcesses || aiProcesses.includes('divisions')) && divisions?.length) {
+            const transformedDivisions = divisions.map(division => {
+              const newDivisionContent = aiContent?.divisionQuestions?.find(
+                q => q.division_id === division.Id
+              );
 
-          const finalDebate = transformDebate({
-            ...debateDetails, 
-            ...stats, 
-            ...aiContent
-          }, memberDetails);
-
-          // Add fileId and retry upsert if needed
-          try {
-            await retryUpsert({
-              ...finalDebate,
-              file_id: fileId
+              if (aiProcesses) {
+                // Only update division AI content
+                return {
+                  division_id: division.Id,
+                  debate_section_ext_id: debate.ExternalId,
+                  ...(newDivisionContent ? {
+                    ai_question: newDivisionContent.ai_question,
+                    ai_topic: newDivisionContent.ai_topic,
+                    ai_context: newDivisionContent.ai_context,
+                    ai_key_arguments: newDivisionContent.ai_key_arguments
+                  } : {})
+                };
+              } else {
+                // Full division update
+                return {
+                  ...transformDivision(division),
+                  ...(newDivisionContent || {})
+                };
+              }
             });
-            logger.debug(`Successfully stored debate ${debate.ExternalId} in database`);
-            results.success++;
-          } catch (error) {
-            logger.error(`Failed to store debate ${debate.ExternalId} after ${MAX_RETRIES} attempts:`, error);
-            results.failed++;
+
+            if (transformedDivisions.length) {
+              await SupabaseService.upsertDivisions(transformedDivisions);
+            }
           }
+
+          // 5. Generate embeddings if requested
+          if (!aiProcesses || aiProcesses.includes('embeddings') || aiProcesses.includes('all')) {
+            try {
+              console.log('Preparing to generate embeddings:', {
+                debateId: debate.ExternalId,
+                hasAiContent: !!aiContent,
+                hasDivisions: !!transformedDivisions
+              });
+
+              // Prepare the debate object with all necessary content
+              const debateForEmbeddings = {
+                ...debateDetails,
+                ...aiContent,
+                divisions: transformedDivisions,
+                Overview: {
+                  ...debateDetails.Overview,
+                  ExtId: debate.ExternalId
+                }
+              };
+
+              await createEmbeddingsForDebate(
+                debateForEmbeddings,
+                memberDetails
+              );
+
+              logger.info('Successfully generated embeddings for debate:', {
+                debateId: debate.ExternalId
+              });
+            } catch (error) {
+              logger.error('Failed to generate embeddings:', {
+                error: error.message,
+                stack: error.stack,
+                debateId: debate.ExternalId,
+                cause: error.cause
+              });
+              // Continue processing - don't fail the entire debate for embedding errors
+            }
+          }
+
         } catch (error) {
-          logger.error(`Failed to process debate ${debate.ExternalId}:`, error);
+          logger.error('Failed to process debate:', {
+            error: error.message,
+            stack: error.stack,
+            debateId: debate?.ExternalId,
+            cause: error.cause
+          });
           results.failed++;
         }
       });

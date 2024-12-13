@@ -1,8 +1,7 @@
-import { openai } from '../services/openai.js';
-import { File } from 'buffer';
 import logger from '../utils/logger.js';
+import { EmbeddingService } from '../services/embeddingService.js';
 
-function formatDebateForVector(debate, memberDetails) {
+function formatDebateForEmbedding(debate, memberDetails) {
   const { Overview, Items = [], summary, keyPoints, topics = [], divisions = [] } = debate;
   const type = Overview.Type;
 
@@ -146,19 +145,13 @@ function formatDebateForVector(debate, memberDetails) {
         if (division.ai_context) {
           sections.push(`Context: ${division.ai_context}`);
         }
-        if (division.ai_key_arguments?.for?.length) {
+        if (division.ai_key_arguments?.for) {
           sections.push('Arguments For:');
-          sections.push(division.ai_key_arguments.for
-            .map(arg => `  - ${arg}`)
-            .join('\n')
-          );
+          sections.push(`  - ${division.ai_key_arguments.for}`);
         }
-        if (division.ai_key_arguments?.against?.length) {
+        if (division.ai_key_arguments?.against) {
           sections.push('Arguments Against:');
-          sections.push(division.ai_key_arguments.against
-            .map(arg => `  - ${arg}`)
-            .join('\n')
-          );
+          sections.push(`  - ${division.ai_key_arguments.against}`);
         }
 
         // Add voting records if available
@@ -196,38 +189,57 @@ function formatDebateForVector(debate, memberDetails) {
     .join('\n\n');
 }
 
-export async function createAndUploadVectorFile(debate, memberDetails) {
+export async function createEmbeddingsForDebate(debate, memberDetails) {
   try {
+    // Add debug logging for input validation
+    logger.debug('Starting embeddings generation:', {
+      hasItems: Boolean(debate?.Items),
+      hasOverview: Boolean(debate?.Overview),
+      debateId: debate?.Overview?.ExtId,
+      contentTypes: Object.keys(debate || {})
+    });
+
     // Only proceed if we have all required data
     if (!debate?.Items || !debate?.Overview) {
+      logger.warn('Missing required debate data for embeddings:', {
+        hasItems: Boolean(debate?.Items),
+        hasOverview: Boolean(debate?.Overview),
+        debateId: debate?.Overview?.ExtId
+      });
       return null;
     }
 
     // Format the debate content
-    const content = formatDebateForVector(debate, memberDetails);
-
-    // Create virtual file
-    const virtualFile = new File(
-      [Buffer.from(content)],
-      `${debate.Overview.ExtId}.txt`,
-      { type: 'text/plain' }
-    );
-
-    // Upload to OpenAI
-    const uploadedFile = await openai.files.create({
-      file: virtualFile,
-      purpose: 'assistants'
+    const content = formatDebateForEmbedding(debate, memberDetails);
+    
+    // Debug log the formatted content length
+    logger.debug('Formatted content for embeddings:', {
+      debateId: debate.Overview.ExtId,
+      contentLength: content.length,
+      hasSummary: Boolean(debate.summary),
+      hasKeyPoints: Boolean(debate.keyPoints),
+      hasTopics: Boolean(debate.topics),
+      hasDivisions: Boolean(debate.divisions?.length)
     });
 
-    logger.debug(`Created vector file for debate ${debate.Overview.ExtId}`, {
-      fileId: uploadedFile.id,
-      filename: uploadedFile.filename
+    // Generate and store embeddings for the same content
+    await EmbeddingService.generateAndStoreFileEmbedding({
+      content,
+      debateId: debate.Overview.ExtId
     });
 
-    return uploadedFile;
+    logger.info('Successfully generated embeddings:', {
+      debateId: debate.Overview.ExtId,
+      contentLength: content.length
+    });
 
   } catch (error) {
-    logger.error('Failed to create vector file:', error);
-    return null;
+    logger.error('Failed to create embeddings:', {
+      error: error.message,
+      stack: error.stack,
+      debateId: debate?.Overview?.ExtId,
+      cause: error.cause
+    });
+    throw error; // Re-throw to ensure the error is properly handled upstream
   }
 }

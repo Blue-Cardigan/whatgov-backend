@@ -113,7 +113,18 @@ function getDebateType(overview) {
 
 export function transformDebate(debateDetails, memberDetails = new Map()) {
   try {
-    const { Navigator = [], Overview = {}, Items = [] } = debateDetails;
+    const { 
+      Navigator = [], 
+      Overview = {}, 
+      Items = [], 
+      stats = {},
+      summary,
+      topics,
+      keyPoints,
+      commentThread,
+      questions
+    } = debateDetails;
+
     const parent = Navigator[Navigator.length - 2] || {};
     
     // Find the debate's Timecode from Navigator
@@ -187,15 +198,14 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       house: Overview.House || '',
       location: Overview.Location || '',
 
-      ai_title: debateDetails.summary?.title || '',
+      ai_title: summary?.title || '',
       ai_summary: [
-        debateDetails.summary?.summary
+        summary?.summary
       ].join('\n'),
-      ai_overview: debateDetails.summary?.overview || '',
-      ai_tone: (debateDetails.summary?.tone || 'neutral').toLowerCase(),
+      ai_overview: summary?.overview || '',
+      ai_tone: (summary?.tone || 'neutral').toLowerCase(),
       
-      // Updated topics with full speaker details
-      ai_topics: (debateDetails.topics || []).map(topic => ({
+      ai_topics: (topics || []).map(topic => ({
         ...topic,
         speakers: topic.speakers.map(speaker => ({
           name: speaker.name,
@@ -207,8 +217,7 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
         }))
       })),
       
-      // Updated key points with full speaker details
-      ai_key_points: debateDetails.keyPoints?.keyPoints?.map(point => ({
+      ai_key_points: keyPoints?.keyPoints?.map(point => ({
         point: point.point,
         speaker: {
           name: point.speaker.name,
@@ -232,8 +241,7 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
         context: point.context
       })) || [],
       
-      // Updated comment thread with full speaker details
-      ai_comment_thread: (debateDetails.commentThread?.comments || []).map(comment => ({
+      ai_comment_thread: (commentThread?.comments || []).map(comment => ({
         ...comment,
         author: {
           name: comment.author.name,
@@ -258,10 +266,10 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
         }
       })),
       
-      speaker_count: speakers.length,
+      speaker_count: stats.speakerCount || 0,
       speakers: speakers,
-      contribution_count: Items.filter(item => item?.ItemType === 'Contribution').length,
-      party_count: debateDetails.partyCount || {},
+      contribution_count: stats.contributionCount || 0,
+      party_count: stats.partyCount || {},
       interest_score: scoreData.score,
       interest_factors: scoreData.factors,
       
@@ -272,9 +280,9 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       
       search_text: searchText,
       
-      ai_question: debateDetails.questions?.question?.text || '',
-      ai_question_topic: debateDetails.questions?.question?.topic || '',
-      ai_question_subtopics: debateDetails.questions?.question?.subtopics || [],
+      ai_question: questions?.question?.text || '',
+      ai_question_topic: questions?.question?.topic || '',
+      ai_question_subtopics: questions?.question?.subtopics || [],
       ai_question_ayes: 0,
       ai_question_noes: 0
     };
@@ -291,6 +299,78 @@ export function transformSpeaker(apiSpeaker) {
     party: apiSpeaker.Party || null,
     constituency: apiSpeaker.MemberFrom || null
   };
+}
+
+// Add a separate function for transforming divisions
+export function transformDivisions(divisions = []) {
+  return divisions?.map(division => ({
+    division_id: division.division_id,
+    external_id: division.external_id,
+    debate_section_ext_id: division.debate_section_ext_id,
+    date: division.date,
+    time: division.time,
+    has_time: division.has_time,
+    ayes_count: division.ayes_count,
+    noes_count: division.noes_count,
+    house: division.house,
+    debate_section: division.debate_section,
+    debate_section_source: division.debate_section_source,
+    division_number: division.division_number,
+    text_before_vote: division.text_before_vote,
+    text_after_vote: division.text_after_vote,
+    evel_type: division.evel_type,
+    evel_info: division.evel_info,
+    evel_ayes_count: division.evel_ayes_count,
+    evel_noes_count: division.evel_noes_count,
+    is_committee_division: division.is_committee_division,
+    ai_question: division.ai_question,
+    ai_topic: division.ai_topic,
+    ai_context: division.ai_context,
+    ai_key_arguments: division.ai_key_arguments || {
+      for: null,
+      against: null
+    },
+    aye_members: division.aye_members || [],
+    noe_members: division.noe_members || []
+  })) || [];
+}
+
+// Normalize AI content before upserting specific ai processed fields
+export function normalizeAIContent(aiContent) { 
+  if (!aiContent) return null;
+
+  const normalized = {};
+
+  // Map camelCase to snake_case with ai_ prefix
+  const fieldMappings = {
+    commentThread: 'ai_comment_thread',
+    title: 'ai_title',
+    summary: 'ai_summary',
+    overview: 'ai_overview',
+    tone: 'ai_tone',
+    topics: 'ai_topics',
+    keyPoints: 'ai_key_points',
+    question: 'ai_question',
+    questionTopic: 'ai_question_topic',
+    questionSubtopics: 'ai_question_subtopics',
+    questionAyes: 'ai_question_ayes',
+    questionNoes: 'ai_question_noes',
+    divisionQuestions: 'ai_division_questions'
+  };
+
+  // Convert each field if it exists
+  Object.entries(aiContent).forEach(([key, value]) => {
+    const normalizedKey = fieldMappings[key];
+    if (normalizedKey) {
+      normalized[normalizedKey] = value;
+    } else {
+      // If no mapping exists, prefix with ai_ and convert to snake_case
+      const snakeCase = key.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`);
+      normalized[`ai_${snakeCase}`] = value;
+    }
+  });
+
+  return normalized;
 }
 
 // Export the helper function

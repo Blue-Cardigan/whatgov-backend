@@ -26,7 +26,7 @@ const us2gbTranslations = JSON.parse(
   readFileSync(join(__dirname, '../utils/us2gbbig.json'), 'utf8')
 );
 
-export async function processAIContent(debate, memberDetails, divisions = null, debateType, aiProcess = null) {
+export async function processAIContent(debate, memberDetails, divisions = null, debateType, aiProcesses = null) {
   try {
     // Get debate context and type-specific prompt
     const processedItems = processDebateItems(debate.Items, memberDetails);
@@ -36,35 +36,38 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
     // Initialize content object
     let content = {};
 
-    // Process based on specified AI process or all if none specified
-    if (!aiProcess || aiProcess === 'summary') {
+    // Convert single process to array for consistency
+    const processes = Array.isArray(aiProcesses) ? aiProcesses : [aiProcesses];
+
+    // Process based on specified AI processes or all if none specified
+    if (!processes.length || processes.includes('summary')) {
       content.summary = await generateSummary(context, typePrompt);
-      logger.debug('Generated summary');
+      console.log('Generated summary');
     }
 
-    if (!aiProcess || aiProcess === 'questions') {
+    if (!processes.length || processes.includes('questions')) {
       content.questions = await generateQuestions(context, typePrompt);
-      logger.debug('Generated questions');
+      console.log('Generated questions');
     }
 
-    if (!aiProcess || aiProcess === 'topics') {
+    if (!processes.length || processes.includes('topics')) {
       content.topics = await extractTopics(context);
-      logger.debug('Extracted topics');
+      console.log('Extracted topics');
     }
 
-    if (!aiProcess || aiProcess === 'keypoints') {
+    if (!processes.length || processes.includes('keypoints')) {
       content.keyPoints = await extractKeyPoints(context);
-      logger.debug('Extracted key points');
+      console.log('Extracted key points');
     }
 
-    if (divisions?.length && (!aiProcess || aiProcess === 'divisions')) {
+    if (divisions?.length && (!processes.length || processes.includes('divisions'))) {
       content.divisionQuestions = await generateDivisionQuestions(debate, divisions, memberDetails);
-      logger.debug('Generated division questions');
+      console.log('Generated division questions');
     }
 
-    if (!aiProcess || aiProcess === 'comments') {
+    if (!processes.length || processes.includes('comments')) {
       content.commentThread = await generateCommentThread(context, debate.Overview.Id);
-      logger.debug('Generated comment thread');
+      console.log('Generated comment thread');
     }
 
     // Translate all content at once
@@ -74,7 +77,7 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
     logger.info('AI content generation complete', {
       debateId: debate.Overview?.Id,
       processesRun: Object.keys(content),
-      requestedProcess: aiProcess || 'all'
+      requestedProcesses: processes.length ? processes.join(', ') : 'all'
     });
 
     return translatedContent;
@@ -85,7 +88,7 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
       error: error.message,
       stack: error.stack,
       cause: error.cause,
-      requestedProcess: aiProcess
+      requestedProcesses: Array.isArray(aiProcesses) ? aiProcesses.join(', ') : aiProcesses
     });
     throw error;
   }

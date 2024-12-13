@@ -1,18 +1,10 @@
 import { processDebates } from './processors/debateProcessor.js';
 import logger from './utils/logger.js';
 import fs from 'fs';
+import { SupabaseService } from './services/supabase.js';
+import { HansardAPI } from './services/hansard-api.js';
 
-const VALID_AI_PROCESSES = ['summary', 'questions', 'topics', 'keypoints', 'divisions', 'comments'];
-
-async function parseDate(dateStr) {
-  try {
-    const date = new Date(dateStr);
-    if (isNaN(date.getTime())) throw new Error('Invalid date');
-    return date;
-  } catch (error) {
-    throw new Error(`Invalid date format: ${dateStr}`);
-  }
-}
+const VALID_AI_PROCESSES = ['summary', 'questions', 'topics', 'keypoints', 'divisions', 'comments', 'embeddings'];
 
 async function processDateRange(startDate, endDate, aiProcess) {
   const start = new Date(startDate);
@@ -48,22 +40,118 @@ async function processDateRange(startDate, endDate, aiProcess) {
   return results;
 }
 
-async function main() {
+async function processDebatesWithMissingContent(aiProcess = null) {
   try {
-    const [arg1, arg2, aiProcessArg] = process.argv.slice(2);
+    const PAGE_SIZE = 10;
+    let startRange = 0;
+    let hasMore = true;
+    let totalProcessed = 0;
+    let successCount = 0;
+    let failureCount = 0;
 
-    // Validate aiProcess if provided
-    if (aiProcessArg && !VALID_AI_PROCESSES.includes(aiProcessArg)) {
-      throw new Error(`Invalid AI process. Must be one of: ${VALID_AI_PROCESSES.join(', ')}`);
+    while (hasMore) {
+      // Get debates with missing AI content from Supabase
+      const { data: debatesWithMissingContent, error, hasMore: moreResults } = 
+        await SupabaseService.getDebatesWithMissingContent(PAGE_SIZE, startRange);
+      
+      if (error) throw error;
+      
+      if (!debatesWithMissingContent?.length) {
+        logger.info('No more debates found with missing AI content');
+        break;
+      }
+
+      logger.info(`Processing batch of ${debatesWithMissingContent.length} debates (range: ${startRange}-${startRange + PAGE_SIZE - 1})`);
+
+      // Process each debate in the current batch
+      for (const debate of debatesWithMissingContent) {
+        try {
+          // Fetch full debate data from Hansard API
+          const [debateDetails, speakers] = await Promise.all([
+            HansardAPI.fetchDebate(debate.ext_id),
+            HansardAPI.fetchSpeakers(debate.ext_id)
+          ]);
+
+          if (!debateDetails) {
+            logger.warn(`No debate data returned for ${debate.ext_id}`);
+            failureCount++;
+            continue;
+          }
+
+          // Process the debate with existing machinery
+          await processDebates(null, debate.ext_id, aiProcess);
+          successCount++;
+          
+        } catch (error) {
+          logger.error(`Failed to process debate ${debate.ext_id}:`, {
+            error: error.message,
+            stack: error.stack
+          });
+          failureCount++;
+        }
+      }
+
+      totalProcessed += debatesWithMissingContent.length;
+      hasMore = moreResults;
+      startRange += PAGE_SIZE;
+
+      // Log progress
+      logger.info('Batch processing complete:', {
+        processed: totalProcessed,
+        successful: successCount,
+        failed: failureCount,
+        hasMore
+      });
+
+      // Add a small delay between batches to avoid overwhelming the API
+      if (hasMore) {
+        await new Promise(resolve => setTimeout(resolve, 1000));
+      }
     }
 
-    // Check if either of the first two arguments is a debate ID
-    const debateIdArg = [arg1, arg2].find(arg => arg && arg.match(/^[0-9a-fA-F-]{36}$/));
-    const dateArg = [arg1, arg2].find(arg => arg && !arg.match(/^[0-9a-fA-F-]{36}$/));
+    logger.info('Completed processing all debates with missing content:', {
+      totalProcessed,
+      successful: successCount,
+      failed: failureCount
+    });
+
+    return successCount > 0;
+  } catch (error) {
+    logger.error('Failed to process debates with missing content:', {
+      error: error.message,
+      stack: error.stack
+    });
+    return false;
+  }
+}
+
+async function main() {
+  try {
+    const args = process.argv.slice(2);
+    
+    // Find the debate ID (if present)
+    const debateIdArg = args.find(arg => arg.match(/^[0-9a-fA-F-]{36}$/));
+    
+    // Find ALL AI processes (if present)
+    const aiProcessArgs = args.filter(arg => VALID_AI_PROCESSES.includes(arg));
+    
+    // Any remaining arg might be a date
+    const dateArg = args.find(arg => 
+      !arg.match(/^[0-9a-fA-F-]{36}$/) && 
+      !VALID_AI_PROCESSES.includes(arg)
+    );
+
+    // Validate aiProcesses if provided
+    if (aiProcessArgs.length > 0) {
+      const invalidProcesses = aiProcessArgs.filter(proc => !VALID_AI_PROCESSES.includes(proc));
+      if (invalidProcesses.length > 0) {
+        throw new Error(`Invalid AI process(es): ${invalidProcesses.join(', ')}. Must be one of: ${VALID_AI_PROCESSES.join(', ')}`);
+      }
+    }
 
     if (debateIdArg) {
-      logger.info(`Processing single debate: ${debateIdArg}`, { aiProcess: aiProcessArg });
-      const results = await processDebates(null, debateIdArg, aiProcessArg);
+      logger.info(`Processing single debate: ${debateIdArg}`, { aiProcesses: aiProcessArgs });
+      const results = await processDebates(null, debateIdArg, aiProcessArgs);
       
       if (process.env.GITHUB_OUTPUT) {
         fs.appendFileSync(
@@ -78,7 +166,7 @@ async function main() {
     // Handle date range processing
     if (dateArg) {
       const startDate = new Date(dateArg);
-      const endDate = arg2 && !arg2.match(/^[0-9a-fA-F-]{36}$/) ? new Date(arg2) : startDate;
+      const endDate = args[args.length - 1] && !args[args.length - 1].match(/^[0-9a-fA-F-]{36}$/) ? new Date(args[args.length - 1]) : startDate;
 
       if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
         throw new Error('Invalid date format');
@@ -91,10 +179,10 @@ async function main() {
       logger.info('Processing date range:', {
         startDate: startDate.toISOString().split('T')[0],
         endDate: endDate.toISOString().split('T')[0],
-        aiProcess: aiProcessArg || 'all'
+        aiProcess: aiProcessArgs || 'all'
       });
 
-      const results = await processDateRange(startDate, endDate, aiProcessArg);
+      const results = await processDateRange(startDate, endDate, aiProcessArgs);
       
       // Log results summary
       const summary = results.reduce((acc, result) => {
@@ -105,7 +193,7 @@ async function main() {
       logger.info('Processing complete:', {
         dateRange: `${startDate.toISOString().split('T')[0]} to ${endDate.toISOString().split('T')[0]}`,
         summary,
-        aiProcess: aiProcessArg || 'all'
+        aiProcess: aiProcessArgs || 'all'
       });
 
       if (process.env.GITHUB_OUTPUT) {
@@ -119,10 +207,9 @@ async function main() {
       process.exit(summary.success > 0 ? 0 : 1);
     }
 
-    // Default case - process today's debates
-    logger.info('Processing debates for today');
-    const today = new Date().toISOString().split('T')[0];
-    const results = await processDebates(today);
+    // Default case - process debates with missing content
+    logger.info('Processing debates with missing AI content');
+    const results = await processDebatesWithMissingContent(aiProcessArgs);
     
     if (process.env.GITHUB_OUTPUT) {
       fs.appendFileSync(

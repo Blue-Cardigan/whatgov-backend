@@ -84,4 +84,109 @@ export class EmbeddingService {
       throw error;
     }
   }
+
+  static chunkText(text, maxTokens = 800, overlapTokens = 400) {
+    // Approximate characters based on tokens (4 chars ≈ 1 token)
+    const chunkSize = maxTokens * 4;
+    const overlapSize = overlapTokens * 4;
+    
+    const chunks = [];
+    let startIndex = 0;
+    
+    while (startIndex < text.length) {
+      let endIndex = startIndex + chunkSize;
+      
+      if (endIndex < text.length) {
+        const searchWindow = text.slice(endIndex - overlapSize, endIndex);
+        const lastSentenceEnd = Math.max(
+          searchWindow.lastIndexOf('.'),
+          searchWindow.lastIndexOf('?'),
+          searchWindow.lastIndexOf('!')
+        );
+        
+        if (lastSentenceEnd !== -1) {
+          endIndex = endIndex - overlapSize + lastSentenceEnd + 1;
+        }
+      }
+      
+      const chunk = text.slice(startIndex, endIndex).trim();
+      if (chunk) {
+        chunks.push(chunk);
+      }
+      
+      startIndex = endIndex - overlapSize;
+    }
+    
+    return chunks;
+  }
+
+  static async generateAndStoreFileEmbedding({ content, debateId }) {
+    try {
+      // Split content into overlapping chunks
+      const chunks = this.chunkText(content);
+
+      logger.debug('Processing chunks for embeddings:', {
+        debateId,
+        chunkCount: chunks.length,
+        totalContentLength: content.length
+      });
+
+      // Process chunks
+      for (const [index, chunk] of chunks.entries()) {
+        try {
+          // Generate embedding for each chunk
+          const embedding = await OpenAIService.generateEmbedding(chunk);
+
+          // Upsert chunk using the composite primary key
+          const { error } = await supabase
+            .from('debate_file_chunks')
+            .upsert({
+              debate_id: debateId,
+              chunk_index: index,
+              chunk_text: chunk,
+              embedding: embedding,
+              token_count: chunk.split(/\s+/).length,
+              updated_at: new Date().toISOString()
+            }, {
+              onConflict: 'debate_id,chunk_index'
+            });
+
+          if (error) {
+            logger.error(`Failed to upsert chunk ${index}:`, {
+              error: error.message,
+              debateId,
+              chunkIndex: index
+            });
+            throw error;
+          }
+
+          logger.info(`Stored embedding for chunk ${index} of debate ${debateId}`, {
+            chunkLength: chunk.length,
+            tokenCount: chunk.split(/\s+/).length
+          });
+        } catch (error) {
+          logger.error(`Failed to process chunk ${index} of debate ${debateId}:`, {
+            error: error.message,
+            stack: error.stack,
+            chunkLength: chunk.length
+          });
+          throw error;
+        }
+      }
+
+      logger.info('Completed embedding generation and storage:', {
+        debateId,
+        totalChunks: chunks.length
+      });
+
+    } catch (error) {
+      logger.error('Failed to generate and store file embeddings:', {
+        error: error.message,
+        stack: error.stack,
+        debateId,
+        cause: error.cause
+      });
+      throw error;
+    }
+  }
 } 

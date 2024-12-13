@@ -6,7 +6,7 @@ import logger from '../utils/logger.js';
 async function listAssistantDetails() {
   try {
     const assistant = await openai.beta.assistants.retrieve(
-      'asst_mJiFP4B0fRNFMYofN4z99uDn'
+      'asst_qVQP4gTRYIeZLXSPy5csWlpe'
     );
 
     logger.info('raw assistant', assistant);

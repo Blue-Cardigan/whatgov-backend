@@ -7,19 +7,24 @@ export async function processDivisions(debate, aiContent = {}) {
     const debateExternalId = debate.ExternalId;
     const debateItems = debate.Items;
     
-    logger.debug('Processing divisions for debate:', {
-      externalId: debateExternalId,
-      hasItems: !!debateItems,
-      itemsCount: debateItems?.length
+    console.log('Starting divisions processing:', {
+      debateId: debateExternalId,
+      hasAiContent: !!aiContent,
+      aiContentKeys: Object.keys(aiContent)
     });
 
     // Get divisions list for the debate
     const divisions = await HansardAPI.fetchDivisionsList(debateExternalId);
     
     if (!divisions || !divisions.length) {
-      logger.debug(`No divisions found for debate ${debateExternalId}`);
+      console.log(`No divisions found for debate ${debateExternalId}`);
       return null;
     }
+
+    console.log('Found divisions:', {
+      count: divisions.length,
+      sampleDivision: divisions[0]
+    });
 
     const processedDivisions = await Promise.all(
       divisions.map(async (division) => {
@@ -35,14 +40,24 @@ export async function processDivisions(debate, aiContent = {}) {
 
           // Fetch full division details including votes
           const divisionDetails = await HansardAPI.fetchDivisionDetails(division.ExternalId);
+          if (!divisionDetails) {
+            logger.warn(`No division details found for ${division.ExternalId}`);
+            return null;
+          }
           
           // Find matching AI content for this division
           const aiDivisionContent = aiContent.divisionQuestions?.find(
             q => q.division_id === division.Id
           ) || {};
+
+          console.log('Processing division:', {
+            divisionId: division.Id,
+            hasAiContent: !!aiDivisionContent,
+            aiContentKeys: Object.keys(aiDivisionContent)
+          });
           
           // Transform the data for storage
-          return {
+          const transformedDivision = {
             division_id: division.Id,
             external_id: division.ExternalId,
             debate_section_ext_id: debateExternalId,
@@ -62,26 +77,32 @@ export async function processDivisions(debate, aiContent = {}) {
             evel_ayes_count: division.EVELAyesCount,
             evel_noes_count: division.EVELNoesCount,
             is_committee_division: division.IsCommitteeDivision,
-            // Add AI-generated content
-            ai_question: aiDivisionContent.question || null,
-            ai_topic: aiDivisionContent.topic || null,
-            ai_context: aiDivisionContent.context || null,
-            ai_key_arguments: {
-              for: aiDivisionContent.key_arguments?.for || null,
-              against: aiDivisionContent.key_arguments?.against || null
+            ai_question: aiDivisionContent.ai_question || null,
+            ai_topic: aiDivisionContent.ai_topic || null,
+            ai_context: aiDivisionContent.ai_context || null,
+            ai_key_arguments: aiDivisionContent.ai_key_arguments || {
+              for: null,
+              against: null
             },
-            // Store voting records
-            aye_members: divisionDetails.AyeMembers.map(member => ({
+            aye_members: divisionDetails.AyeMembers?.map(member => ({
               member_id: member.MemberId,
               display_as: member.DisplayAs,
               party: member.Party
-            })),
-            noe_members: divisionDetails.NoeMembers.map(member => ({
+            })) || [],
+            noe_members: divisionDetails.NoeMembers?.map(member => ({
               member_id: member.MemberId,
               display_as: member.DisplayAs,
               party: member.Party
-            }))
+            })) || []
           };
+
+          console.log('Transformed division:', {
+            divisionId: transformedDivision.division_id,
+            hasAiContent: !!(transformedDivision.ai_question || transformedDivision.ai_topic),
+            hasMembers: transformedDivision.aye_members.length + transformedDivision.noe_members.length
+          });
+
+          return transformedDivision;
         } catch (error) {
           logger.error(`Failed to process division ${division.ExternalId}:`, error);
           return null;
@@ -92,13 +113,25 @@ export async function processDivisions(debate, aiContent = {}) {
     // Filter out any failed divisions
     const validDivisions = processedDivisions.filter(d => d !== null);
 
+    console.log('Processed divisions:', {
+      total: processedDivisions.length,
+      valid: validDivisions.length,
+      sample: validDivisions[0]
+    });
+
     if (validDivisions.length > 0) {
       // Store divisions in database
-      await SupabaseService.upsertDivisions(validDivisions);
-      logger.debug(`Stored ${validDivisions.length} divisions for debate ${debateExternalId}`);
+      const { error } = await SupabaseService.upsertDivisions(validDivisions);
+      if (error) {
+        logger.error(`Failed to store divisions for debate ${debateExternalId}:`, error);
+        return null;
+      }
+      console.log(`Stored ${validDivisions.length} divisions for debate ${debateExternalId}`);
+      return validDivisions;
     }
 
-    return validDivisions;
+    console.log(`No valid divisions to store for debate ${debateExternalId}`);
+    return null;
 
   } catch (error) {
     logger.error(`Failed to process divisions for debate ${debateExternalId}:`, {
