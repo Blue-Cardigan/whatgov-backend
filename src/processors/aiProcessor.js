@@ -41,7 +41,7 @@ export async function processAIContent(debate, memberDetails, divisions = null, 
 
     // Process based on specified AI process or all if none specified
     if (shouldRunAll || processesToRun.includes('summary')) {
-      content.summary = await generateSummary(context, typePrompt);
+      content.summary = await generateSummary(context, typePrompt, debateType);
       console.log('Generated summary');
     }
 

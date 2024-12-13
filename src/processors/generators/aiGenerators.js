@@ -60,7 +60,7 @@ function cleanSpeakerName(speakerName) {
   return cleanedName || speakerName; // Return original if cleaned version is empty
 }
 
-export async function generateSummary(context, typePrompt) {
+export async function generateSummary(context, typePrompt, debateType) {
   // Calculate appropriate token length based on context length
   const contextWords = context.split(/\s+/).length;
   const SHORT_DEBATE_THRESHOLD = 800;
@@ -75,28 +75,32 @@ export async function generateSummary(context, typePrompt) {
       model: "gpt-4o",
       messages: [{ 
         role: "user", 
-        content: `As an expert in UK parliament, provide a concise analysis of this short debate.
-  
+        content: `You're an expert UK parliamentary analyst who provides clear detailed analyses to busy parliamentarians. Provide a comprehensive analysis of this ${debateType} proceeding.
+
 Context: ${context}
-Type: ${typePrompt}
+
+${typePrompt}
 
 Guidelines:
-- Provide a clear, engaging overview of the main discussion points and outcomes
-- Maintain an objective tone while capturing the debate's atmosphere
-- Identify main speakers and their key contributions
-- Note any decisions or conclusions reached
+- Focus on the specific format and purpose of this type of proceeding
+- Highlight the most significant outcomes or decisions
+- Note any ministerial commitments or policy implications
+- Identify key participants and their main contributions
+- Maintain parliamentary context while being accessible
+- Consider the broader political implications
 
 You must return:
-- title: A snappy, politically-neutral title for the debate
-- overview: A well-structured overview that captures all key points
-- tone: The overall tone (neutral/contentious/collaborative)` 
+- title: A snappy, politically-neutral title in the style of the Financial Times, that reflects the specific type of proceeding
+- overview: A well-structured overview that captures key points and their significance
+- tone: The overall tone (neutral/contentious/collaborative)
+
+Remember this is a ${debateType} - structure your analysis accordingly.` 
       }],
       temperature: 0.4,
       max_tokens: 250,
       response_format: zodResponseFormat(SummarySchemaShort, 'summary')
     });
     
-    // For short debates, use the overview as the summary
     return {
       ...response.choices[0].message.parsed,
       summary: response.choices[0].message.parsed.overview
@@ -104,9 +108,9 @@ You must return:
   }
   
   // For longer debates, use the original scaling formula
-  const baseTokens = 500;
+  const baseTokens = 650;
   const scalingFactor = 0.25; // 1/4 token per word
-  const maxTokens = 2500;
+  const maxTokens = 3000;
   
   const calculatedTokens = Math.min(
     maxTokens,
@@ -122,29 +126,32 @@ You must return:
     scaling: `${scalingFactor} tokens per word`
   });
 
-  const prompt = `As an expert in UK parliament, provide a comprehensive analysis of the following debate. 
+  const prompt = `You're an expert UK parliamentary analyst who provides clear detailed analyses to busy parliamentarians. Provide a comprehensive analysis of this ${debateType} proceeding.
   
 Context: ${context}
-Type: ${typePrompt}
+${typePrompt}
 
-Guidelines:
-- Begin with a clear, engaging overview of the main discussion points and outcomes
-- Structure your analysis using markdown to make it easy to read
-- Highlight key arguments, data, and significant exchanges between members
-- Include relevant policy implications or outcomes
-- Maintain an objective tone while capturing the debate's atmosphere
-- Identify main speakers and their key contributions
-- Note any significant decisions, votes, or conclusions reached
-- Highlight cross-party agreements or notable disagreements
-- Include relevant contextual information (e.g., historical context, related legislation)
+In your analysis, highlight:
+1. Key points brought up by speakers
+   - Main arguments and counterarguments
+   - Evidence and data
+   - Cross-party positions
+2. Notable outcomes
+   - Decisions reached
+   - Commitments made
+   - Actions promised
+   - Next steps identified
+3. Anything else significant or important to know about this proceeding
 
 You must return:
-- title: A snappy, politically-neutral title for the debate
-- overview: A well-structured overview of the debate
-- summary: A well-structured summary of appropriate length
+- title: A snappy, politically-neutral title in the style of the Financial Times, that reflects this type of proceeding
+- overview: A clear, concise overview highlighting key details in 2-3 sentences.
+- summary: A structured analysis with an emphasis on the most important elements listed above
 - tone: The overall tone (neutral/contentious/collaborative)
 
-Focus on accuracy and clarity while preserving the parliamentary context.`;
+Note the user is an expert in this type of proceeding - do not repeat basic context.
+
+Remember this is a ${debateType} proceeding - maintain appropriate context and focus.`;
 
   try {
     const response = await openai.beta.chat.completions.parse({
