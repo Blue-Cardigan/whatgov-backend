@@ -92,7 +92,7 @@ You must return:
 - tone: The overall tone (neutral/contentious/collaborative)` 
       }],
       temperature: 0.4,
-      max_tokens: 500,
+      max_tokens: 250,
       response_format: zodResponseFormat(SummarySchemaShort, 'summary')
     });
     
@@ -116,7 +116,7 @@ You must return:
     )
   );
 
-  console.log('Calculated summary tokens for full debate:', {
+  logger.debug('Calculated summary tokens for full debate:', {
     contextWords,
     calculatedTokens,
     scaling: `${scalingFactor} tokens per word`
@@ -534,15 +534,15 @@ Division ${index + 1}:
     return divisions.map((division, index) => {
       const aiContent = aiQuestions[index] || {};
       return {
-        division_id: division.Id,
-        external_id: division.ExternalId,
-        debate_section_ext_id: division.DebateSectionExtId || debate.Overview.ExtId,
-        ai_question: aiContent.question_text || 'Question unavailable',
-        ai_topic: aiContent.topic || '',
-        ai_context: aiContent.explanation || 'No explanation available',
+        external_id: division.external_id,
+        debate_section_ext_id: division.debate_section_ext_id,
+        division_number: division.division_number,
+        ai_question: aiContent.question_text,
+        ai_topic: aiContent.topic,
+        ai_context: aiContent.explanation,
         ai_key_arguments: {
-          for: aiContent.arguments?.for || '',
-          against: aiContent.arguments?.against || ''
+          for: aiContent.arguments?.for,
+          against: aiContent.arguments?.against
         }
       };
     });

@@ -3,9 +3,10 @@ import { HansardAPI } from '../services/hansard-api.js';
 import { SupabaseService } from '../services/supabase.js';
 import { processAIContent } from './aiProcessor.js';
 import { calculateStats } from './statsProcessor.js';
-import { transformDebate, transformDivisions, normalizeAIContent } from '../utils/transforms.js';
+import { transformDebate } from '../utils/transforms.js';
 import logger from '../utils/logger.js';
 import { config } from '../config/config.js';
+import { processDivisions } from './divisionsProcessor.js';
 import { createEmbeddingsForDebate } from './embeddingsProcessor.js';
 
 async function fetchMembersFromSupabase(memberIds) {
@@ -44,41 +45,35 @@ async function fetchMembersFromSupabase(memberIds) {
   }
 }
 
-export async function processDebates(date = null, debateId = null, aiProcesses = null) {
-  console.log('Processing debates with options:', {
-    date,
-    debateId,
-    aiProcesses: aiProcesses?.join(', ') || 'all'
-  });
-  
+export async function processDebates(specificDate = null, specificDebateId = null, aiProcess = null) {
   try {
     let debatesToProcess = [];
     
-    if (debateId) {
+    if (specificDebateId) {
       try {
         const [debate, speakers] = await Promise.all([
-          HansardAPI.fetchDebate(debateId),
-          HansardAPI.fetchSpeakers(debateId)
+          HansardAPI.fetchDebate(specificDebateId),
+          HansardAPI.fetchSpeakers(specificDebateId)
         ]);
         
         if (!debate) {
           throw new Error('No debate data returned');
         }
 
-        console.log('Fetched specific debate:', {
-          id: debateId,
+        logger.debug('Fetched specific debate:', {
+          id: specificDebateId,
           title: debate.Title,
           itemCount: debate.Items?.length
         });
         
         debatesToProcess = [{
-          ExternalId: debateId,
+          ExternalId: specificDebateId,
           debate,
           speakers
         }];
         
       } catch (error) {
-        logger.error(`Failed to fetch specific debate ${debateId}:`, {
+        logger.error(`Failed to fetch specific debate ${specificDebateId}:`, {
           error: error.message,
           stack: error.stack,
           status: error.status,
@@ -89,9 +84,9 @@ export async function processDebates(date = null, debateId = null, aiProcesses =
     } else {
       // Get latest debates from Hansard with options (now includes validation)
       debatesToProcess = await HansardService.getLatestDebates({
-        specificDate: date,
-        specificDebateId: debateId,
-        aiProcess: aiProcesses
+        specificDate,
+        specificDebateId,
+        aiProcess
       });
     }
     
@@ -127,10 +122,27 @@ export async function processDebates(date = null, debateId = null, aiProcesses =
 
     const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
     
-    console.log('Fetched member details:', {
+    logger.debug('Fetched member details:', {
       count: memberDetails.size,
       sample: Array.from(memberDetails.entries()).slice(0, 2)
     });
+
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 2000; // 2 seconds
+
+    async function retryUpsert(debate, aiProcess, retries = 0) {
+      try {
+        await SupabaseService.upsertDebate(debate, aiProcess);
+        return true;
+      } catch (error) {
+        if (error.code === '57014' && retries < MAX_RETRIES) {
+          logger.warn(`Database timeout, retrying upsert (attempt ${retries + 1}/${MAX_RETRIES})...`);
+          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+          return retryUpsert(debate, aiProcess, retries + 1);
+        }
+        throw error;
+      }
+    }
 
     for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {
       const batch = debatesToProcess.slice(i, i + config.BATCH_SIZE);
@@ -139,238 +151,100 @@ export async function processDebates(date = null, debateId = null, aiProcesses =
         try {
           const debateDetails = debate.debate;
           const debateType = debateDetails.Overview.Type;
+          
+          // 1. First, get the raw divisions data
+          const divisions = await processDivisions(debate);
 
-          // Calculate stats first
-          const stats = await calculateStats(debateDetails, memberDetails);
-
-          // Only fetch divisions if aiProcesses includes 'divisions'
-          let divisions = null;
-          if (aiProcesses && aiProcesses.includes('divisions') || aiProcesses.includes('all')) {
-            try {
-              divisions = await HansardAPI.fetchDivisionsList(debate.ExternalId);
-              
-              if (divisions?.length) {
-                // Fetch full details for each division
-                divisions = await Promise.all(
-                  divisions.map(async (division) => {
-                    const details = await HansardAPI.fetchDivisionDetails(division.ExternalId);
-                    return {
-                      ...division,
-                      aye_members: details?.AyeMembers || [],
-                      noe_members: details?.NoeMembers || []
-                    };
-                  })
-                );
-                
-                console.log('Fetched division details:', {
-                  debateId: debate.ExternalId,
-                  count: divisions.length
-                });
-              }
-            } catch (error) {
-              logger.error('Failed to fetch divisions:', error);
-              divisions = null;
-            }
-          }
-
-          // Get existing debate data from database to preserve unmodified AI content
-          const existingDebate = await SupabaseService.getDebateByExtId(debate.ExternalId);
-
-          // Process AI content if needed
-          let aiContent = null;
-          if (!aiProcesses || aiProcesses.some(p => ['summary', 'questions', 'topics', 'keypoints', 'divisions', 'comments'].includes(p))) {
+          // 2. Generate AI content including division questions
+          let aiContent;
+          try {
             aiContent = await processAIContent(
               debateDetails,
               memberDetails,
               divisions,
               debateType,
-              aiProcesses
+              aiProcess
             );
+          } catch (error) {
+            logger.error('Failed to generate AI content:', error);
+            results.skipped++;
+            return;
           }
 
-          console.log('Processing debate content:', {
-            debateId: debate.ExternalId,
-            requestedProcesses: aiProcesses,
-            newAIFields: aiContent ? Object.keys(aiContent) : []
-          });
-
-          // If specific AI processes are requested, only update those fields
-          if (aiProcesses) {
+          // 3. Update divisions in database with AI content
+          if (divisions?.length && aiContent?.divisionQuestions) {
             try {
-              // Normalize AI content field names
-              const normalizedAIContent = normalizeAIContent(aiContent);
+              const updatedDivisions = divisions.map(division => {
+                const aiDivisionContent = aiContent.divisionQuestions.find(
+                  q => q.external_id === division.external_id
+                );
+                
+                if (!aiDivisionContent) return division;
 
-              console.log('Normalized AI content:', {
-                debateId: debate.ExternalId,
-                originalFields: aiContent ? Object.keys(aiContent) : [],
-                normalizedFields: normalizedAIContent ? Object.keys(normalizedAIContent) : []
-              });
-
-              const updateData = {
-                ext_id: debate.ExternalId,
-                ...(normalizedAIContent ? Object.fromEntries(
-                  Object.entries(normalizedAIContent).filter(([key]) => {
-                    // Now we can use exact matches since fields are already normalized
-                    if (key === 'ai_comment_thread') return aiProcesses.includes('comments');
-                    if (key.startsWith('ai_title') || key.startsWith('ai_summary') || 
-                        key.startsWith('ai_overview') || key.startsWith('ai_tone')) 
-                      return aiProcesses.includes('summary');
-                    if (key === 'ai_topics') return aiProcesses.includes('topics');
-                    if (key === 'ai_key_points') return aiProcesses.includes('keypoints');
-                    if (key.startsWith('ai_question')) return aiProcesses.includes('questions');
-                    return false;
-                  })
-                ) : {})
-              };
-
-              console.log('Updating debate with AI content:', {
-                debateId: debate.ExternalId,
-                aiProcesses,
-                fields: Object.keys(updateData),
-                updateData
-              });
-
-              // Only pass divisions if we're processing division content
-              const divisionsToUpdate = aiProcesses.includes('divisions') ? divisions : null;
-
-              const { error } = await SupabaseService.upsertDebate(
-                updateData, 
-                aiProcesses,
-                divisionsToUpdate
-              );
-
-              if (error) {
-                throw new Error(`Failed to update debate: ${error.message}`);
-              }
-
-              results.success++;
-            } catch (error) {
-              logger.error('Failed to process AI update:', {
-                error: error.message,
-                stack: error.stack,
-                debateId: debate.ExternalId,
-                aiProcesses,
-                cause: error.cause
-              });
-              results.failed++;
-              throw error;
-            }
-          } else {
-            // Full update - include all data
-            try {
-              const transformedDebate = {
-                ...transformDebate(debate, debateDetails, stats),
-                ...(aiContent || {})
-              };
-
-              const { error } = await SupabaseService.upsertDebate(
-                transformedDebate,
-                null,
-                divisions
-              );
-
-              if (error) {
-                throw new Error(`Failed to store debate: ${error.message}`);
-              }
-
-              logger.info('Successfully stored debate:', {
-                debateId: debate.ExternalId,
-                stats,
-                divisionsCount: divisions?.length || 0
-              });
-
-              results.success++;
-            } catch (error) {
-              logger.error('Failed to store debate:', {
-                error: error.message,
-                stack: error.stack,
-                debateId: debate.ExternalId,
-                cause: error.cause
-              });
-              results.failed++;
-              throw error;
-            }
-          }
-
-          // Handle divisions separately if they're being processed
-          if ((!aiProcesses || aiProcesses.includes('divisions')) && divisions?.length) {
-            const transformedDivisions = divisions.map(division => {
-              const newDivisionContent = aiContent?.divisionQuestions?.find(
-                q => q.division_id === division.Id
-              );
-
-              if (aiProcesses) {
-                // Only update division AI content
                 return {
-                  division_id: division.Id,
-                  debate_section_ext_id: debate.ExternalId,
-                  ...(newDivisionContent ? {
-                    ai_question: newDivisionContent.ai_question,
-                    ai_topic: newDivisionContent.ai_topic,
-                    ai_context: newDivisionContent.ai_context,
-                    ai_key_arguments: newDivisionContent.ai_key_arguments
-                  } : {})
+                  ...division,
+                  ai_question: aiDivisionContent.ai_question,
+                  ai_topic: aiDivisionContent.ai_topic,
+                  ai_context: aiDivisionContent.ai_context,
+                  ai_key_arguments: aiDivisionContent.ai_key_arguments
                 };
-              } else {
-                // Full division update
-                return {
-                  ...transformDivision(division),
-                  ...(newDivisionContent || {})
-                };
-              }
-            });
+              });
 
-            if (transformedDivisions.length) {
-              await SupabaseService.upsertDivisions(transformedDivisions);
+              // Single upsert with complete data
+              const { error } = await SupabaseService.upsertDivisions(updatedDivisions);
+              if (error) throw error;
+            } catch (error) {
+              logger.error('Failed to update divisions with AI content:', error);
             }
           }
 
-          // 5. Generate embeddings if requested
-          if (!aiProcesses || aiProcesses.includes('embeddings') || aiProcesses.includes('all')) {
+          // 4. Generate and store embeddings with complete data
+          if (aiContent && aiProcess?.includes('embeddings')) {
             try {
-              console.log('Preparing to generate embeddings:', {
-                debateId: debate.ExternalId,
-                hasAiContent: !!aiContent,
-                hasDivisions: !!transformedDivisions
-              });
-
-              // Prepare the debate object with all necessary content
-              const debateForEmbeddings = {
-                ...debateDetails,
-                ...aiContent,
-                divisions: transformedDivisions,
-                Overview: {
-                  ...debateDetails.Overview,
-                  ExtId: debate.ExternalId
-                }
-              };
-
               await createEmbeddingsForDebate(
-                debateForEmbeddings,
+                {
+                  ...debateDetails,
+                  ...aiContent,
+                  divisions // Pass the complete divisions data
+                }, 
                 memberDetails
               );
-
-              logger.info('Successfully generated embeddings for debate:', {
-                debateId: debate.ExternalId
-              });
+              logger.debug(`Generated embeddings for debate ${debate.ExternalId}`);
             } catch (error) {
-              logger.error('Failed to generate embeddings:', {
-                error: error.message,
-                stack: error.stack,
-                debateId: debate.ExternalId,
-                cause: error.cause
-              });
-              // Continue processing - don't fail the entire debate for embedding errors
+              logger.error('Failed to generate embeddings:', error);
             }
+          } else {
+            logger.debug(`Skipping embedding generation for debate ${debate.ExternalId} - missing required AI content`);
           }
 
+          const stats = await calculateStats(debateDetails, memberDetails);
+          logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
+
+          try {
+            const existingContent = await SupabaseService.getExistingDebateContent(debate.ExternalId);
+            
+            const finalDebate = transformDebate({
+              ...debateDetails,
+              ...stats,
+              ...existingContent,
+              ...aiContent
+            }, memberDetails);
+
+            // Remove fileId and update upsert
+            await retryUpsert(finalDebate, aiProcess);
+            logger.debug(`Successfully stored debate ${debate.ExternalId} in database`);
+            results.success++;
+          } catch (error) {
+            if (error.message.includes('Failed to retrieve existing debate content')) {
+              logger.error(`Skipping update to prevent data loss: ${error.message}`);
+              results.skipped++;
+              return;
+            }
+            logger.error(`Failed to store debate ${debate.ExternalId}:`, error);
+            results.failed++;
+          }
         } catch (error) {
-          logger.error('Failed to process debate:', {
-            error: error.message,
-            stack: error.stack,
-            debateId: debate?.ExternalId,
-            cause: error.cause
-          });
+          logger.error(`Failed to process debate ${debate.ExternalId}:`, error);
           results.failed++;
         }
       });

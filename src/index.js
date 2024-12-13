@@ -7,6 +7,7 @@ import { HansardAPI } from './services/hansard-api.js';
 const VALID_AI_PROCESSES = ['summary', 'questions', 'topics', 'keypoints', 'divisions', 'comments', 'embeddings'];
 
 async function processDateRange(startDate, endDate, aiProcess) {
+  const processesToRun = aiProcess?.length > 0 ? aiProcess : VALID_AI_PROCESSES;
   const start = new Date(startDate);
   const end = new Date(endDate);
   const results = [];
@@ -18,7 +19,7 @@ async function processDateRange(startDate, endDate, aiProcess) {
       const dateResults = await processDebates(
         date.toISOString().split('T')[0],
         null,
-        aiProcess
+        processesToRun
       );
       results.push({
         date: date.toISOString().split('T')[0],
@@ -41,6 +42,7 @@ async function processDateRange(startDate, endDate, aiProcess) {
 }
 
 async function processDebatesWithMissingContent(aiProcess = null) {
+  const processesToRun = aiProcess?.length > 0 ? aiProcess : VALID_AI_PROCESSES;
   try {
     const PAGE_SIZE = 10;
     let startRange = 0;
@@ -79,7 +81,7 @@ async function processDebatesWithMissingContent(aiProcess = null) {
           }
 
           // Process the debate with existing machinery
-          await processDebates(null, debate.ext_id, aiProcess);
+          await processDebates(null, debate.ext_id, processesToRun);
           successCount++;
           
         } catch (error) {
@@ -135,10 +137,11 @@ async function main() {
     // Find ALL AI processes (if present)
     const aiProcessArgs = args.filter(arg => VALID_AI_PROCESSES.includes(arg));
     
-    // Any remaining arg might be a date
-    const dateArg = args.find(arg => 
+    // Find date arguments (any remaining args that match date format)
+    const dateArgs = args.filter(arg => 
       !arg.match(/^[0-9a-fA-F-]{36}$/) && 
-      !VALID_AI_PROCESSES.includes(arg)
+      !VALID_AI_PROCESSES.includes(arg) &&
+      /^\d{4}-\d{2}-\d{2}$/.test(arg)  // Add explicit date format check
     );
 
     // Validate aiProcesses if provided
@@ -150,8 +153,11 @@ async function main() {
     }
 
     if (debateIdArg) {
-      logger.info(`Processing single debate: ${debateIdArg}`, { aiProcesses: aiProcessArgs });
-      const results = await processDebates(null, debateIdArg, aiProcessArgs);
+      // If no AI processes specified, use all of them
+      const processesToRun = aiProcessArgs.length > 0 ? aiProcessArgs : VALID_AI_PROCESSES;
+      
+      logger.info(`Processing single debate: ${debateIdArg}`, { aiProcesses: processesToRun });
+      const results = await processDebates(null, debateIdArg, processesToRun);
       
       if (process.env.GITHUB_OUTPUT) {
         fs.appendFileSync(
@@ -164,12 +170,12 @@ async function main() {
     }
 
     // Handle date range processing
-    if (dateArg) {
-      const startDate = new Date(dateArg);
-      const endDate = args[args.length - 1] && !args[args.length - 1].match(/^[0-9a-fA-F-]{36}$/) ? new Date(args[args.length - 1]) : startDate;
+    if (dateArgs.length > 0) {
+      const startDate = new Date(dateArgs[0]);
+      const endDate = dateArgs[1] ? new Date(dateArgs[1]) : startDate;
 
       if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
-        throw new Error('Invalid date format');
+        throw new Error('Invalid date format. Please use YYYY-MM-DD');
       }
 
       if (endDate < startDate) {

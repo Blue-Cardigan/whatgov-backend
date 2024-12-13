@@ -1,30 +1,25 @@
 import { HansardAPI } from '../services/hansard-api.js';
-import { SupabaseService } from '../services/supabase.js';
 import logger from '../utils/logger.js';
 
-export async function processDivisions(debate, aiContent = {}) {
+export async function processDivisions(debate) {
   try {
     const debateExternalId = debate.ExternalId;
     const debateItems = debate.Items;
     
-    console.log('Starting divisions processing:', {
-      debateId: debateExternalId,
-      hasAiContent: !!aiContent,
-      aiContentKeys: Object.keys(aiContent)
+    logger.debug('Fetching divisions for debate:', {
+      externalId: debateExternalId,
+      hasItems: !!debateItems,
+      itemsCount: debateItems?.length
     });
 
     // Get divisions list for the debate
     const divisions = await HansardAPI.fetchDivisionsList(debateExternalId);
+    console.log(`${divisions.length} divisions found`);
     
     if (!divisions || !divisions.length) {
-      console.log(`No divisions found for debate ${debateExternalId}`);
+      logger.debug(`No divisions found for debate ${debateExternalId}`);
       return null;
     }
-
-    console.log('Found divisions:', {
-      count: divisions.length,
-      sampleDivision: divisions[0]
-    });
 
     const processedDivisions = await Promise.all(
       divisions.map(async (division) => {
@@ -45,20 +40,8 @@ export async function processDivisions(debate, aiContent = {}) {
             return null;
           }
           
-          // Find matching AI content for this division
-          const aiDivisionContent = aiContent.divisionQuestions?.find(
-            q => q.division_id === division.Id
-          ) || {};
-
-          console.log('Processing division:', {
-            divisionId: division.Id,
-            hasAiContent: !!aiDivisionContent,
-            aiContentKeys: Object.keys(aiDivisionContent)
-          });
-          
-          // Transform the data for storage
-          const transformedDivision = {
-            division_id: division.Id,
+          // Transform the data without AI content
+          return {
             external_id: division.ExternalId,
             debate_section_ext_id: debateExternalId,
             date: division.Date,
@@ -77,13 +60,6 @@ export async function processDivisions(debate, aiContent = {}) {
             evel_ayes_count: division.EVELAyesCount,
             evel_noes_count: division.EVELNoesCount,
             is_committee_division: division.IsCommitteeDivision,
-            ai_question: aiDivisionContent.ai_question || null,
-            ai_topic: aiDivisionContent.ai_topic || null,
-            ai_context: aiDivisionContent.ai_context || null,
-            ai_key_arguments: aiDivisionContent.ai_key_arguments || {
-              for: null,
-              against: null
-            },
             aye_members: divisionDetails.AyeMembers?.map(member => ({
               member_id: member.MemberId,
               display_as: member.DisplayAs,
@@ -95,14 +71,6 @@ export async function processDivisions(debate, aiContent = {}) {
               party: member.Party
             })) || []
           };
-
-          console.log('Transformed division:', {
-            divisionId: transformedDivision.division_id,
-            hasAiContent: !!(transformedDivision.ai_question || transformedDivision.ai_topic),
-            hasMembers: transformedDivision.aye_members.length + transformedDivision.noe_members.length
-          });
-
-          return transformedDivision;
         } catch (error) {
           logger.error(`Failed to process division ${division.ExternalId}:`, error);
           return null;
@@ -113,24 +81,12 @@ export async function processDivisions(debate, aiContent = {}) {
     // Filter out any failed divisions
     const validDivisions = processedDivisions.filter(d => d !== null);
 
-    console.log('Processed divisions:', {
-      total: processedDivisions.length,
-      valid: validDivisions.length,
-      sample: validDivisions[0]
-    });
-
     if (validDivisions.length > 0) {
-      // Store divisions in database
-      const { error } = await SupabaseService.upsertDivisions(validDivisions);
-      if (error) {
-        logger.error(`Failed to store divisions for debate ${debateExternalId}:`, error);
-        return null;
-      }
-      console.log(`Stored ${validDivisions.length} divisions for debate ${debateExternalId}`);
+      logger.debug(`Processed ${validDivisions.length} divisions for debate ${debateExternalId}`);
       return validDivisions;
     }
 
-    console.log(`No valid divisions to store for debate ${debateExternalId}`);
+    logger.debug(`No valid divisions found for debate ${debateExternalId}`);
     return null;
 
   } catch (error) {
@@ -140,4 +96,4 @@ export async function processDivisions(debate, aiContent = {}) {
     });
     return null;
   }
-} 
+}
