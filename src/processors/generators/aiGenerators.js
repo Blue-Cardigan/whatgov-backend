@@ -149,7 +149,7 @@ You must return:
 - summary: A structured analysis with an emphasis on the most important elements listed above
 - tone: The overall tone (neutral/contentious/collaborative)
 
-Note the user is an expert in this type of proceeding - do not repeat basic context.
+The user is an expert in this type of proceeding, and already knows the context - ensure your analysis is rich and detailed, for an expert audience.
 
 Remember this is a ${debateType} proceeding - maintain appropriate context and focus.`;
 
