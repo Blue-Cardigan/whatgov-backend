@@ -230,7 +230,6 @@ export async function processDebates(specificDate = null, specificDebateId = nul
               ...aiContent
             }, memberDetails);
 
-            // Remove fileId and update upsert
             await retryUpsert(finalDebate, aiProcess);
             logger.debug(`Successfully stored debate ${debate.ExternalId} in database`);
             results.success++;

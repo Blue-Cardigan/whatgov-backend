@@ -378,25 +378,30 @@ export class SupabaseService {
 
   static async getDebatesWithMissingContent(pageSize = 10, startRange = 0) {
     try {
+      // First get debates with missing AI content
       const { data, error } = await supabase
         .from('debates')
         .select(`
           ext_id,
-          overview,
+          ai_overview,
           ai_summary,
           ai_topics,
           ai_key_points,
           ai_comment_thread,
           ai_question,
           divisions (
-            id,
+            external_id,
+            debate_section_ext_id,
+            division_number,
+            text_before_vote,
+            ayes_count,
+            noes_count,
             ai_question,
             ai_topic,
             ai_context,
             ai_key_arguments
           )
         `)
-        .eq('divisions.debate_section_ext_id', 'debates.ext_id')
         .or(
           'ai_summary.is.null,' +
           'ai_topics.is.null,' +
@@ -410,6 +415,7 @@ export class SupabaseService {
 
       if (error) throw error;
 
+      // Debug logging
       const debugInfo = data?.map(debate => ({
         ext_id: debate.ext_id,
         missing_fields: [

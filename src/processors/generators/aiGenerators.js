@@ -75,7 +75,7 @@ export async function generateSummary(context, typePrompt, debateType) {
       model: "gpt-4o",
       messages: [{ 
         role: "user", 
-        content: `You're an expert UK parliamentary analyst who provides clear detailed analyses to busy parliamentarians. Provide a comprehensive analysis of this ${debateType} proceeding.
+        content: `You're an expert UK parliamentary analyst who provides concise, information rich analyses to busy parliamentarians. Provide a 2-3 sentence overview of this ${debateType} proceeding.
 
 Context: ${context}
 
@@ -91,7 +91,7 @@ Guidelines:
 
 You must return:
 - title: A snappy, politically-neutral title in the style of the Financial Times, that reflects the specific type of proceeding
-- overview: A well-structured overview that captures key points and their significance
+- overview: A short well-structured overview that captures key points and their significance
 - tone: The overall tone (neutral/contentious/collaborative)
 
 Remember this is a ${debateType} - structure your analysis accordingly.` 
