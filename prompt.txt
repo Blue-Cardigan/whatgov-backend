@@ -1,0 +1,92 @@
+As a parliamentary analyst, create a comprehensive, searchable analysis of this Question proceeding.
+
+CONTEXT
+-------
+Title: Community Energy Projects
+
+Type: Question
+
+House: House of Commons
+
+
+Debate Transcript:
+
+Speaker [Name: Olly Glover, Party: LD, Constituency: Didcot and Wantage]:
+3. What steps he is taking to support community energy projects.
+
+Community energy will play a pivotal role in our mission for clean power. Last week, we published the clean power action plan, which contained more information about how we will meet this world-leading mission, and the report confirmed that community energy will play an important role, particularly through Great British Energy.
+
+Speaker [Name: Olly Glover, Party: LD, Constituency: Didcot and Wantage]:
+Renewable energy schemes on community buildings in my Oxfordshire constituency of Didcot and Wantage, supported by the Low Carbon Hub in Oxford, have mostly benefited building owners up to now. Would the Minister support more flexibility in local energy systems and allow local energy trading to get more support for renewable energy schemes in our communities, so that more local people can directly benefit?
+
+The hon. Gentleman makes an incredibly important point about how local community groups can benefit from not just hosting the community energy, but from being able to sell locally. We have had a number of conversations on this topic already. I most recently met the community energy contact group, which does a lot of work to look at what regulations there might be, and we are happy to look at any proposals that come forward. We want to see a revolution in community energy right across the country so that more communities can benefit.
+
+Speaker [Name: Mr Toby Perkins, Party: Lab, Constituency: Chesterfield]:
+Under the previous Government, we had an energy market that worked for nobody. It was bad for consumers, and we also saw many energy companies go out of business as the Government lost any grip on the industry. Does my hon. Friend agree that with the greater stability we have under this new Labour Government, there are opportunities for community energy coming forward as part of the recovery of our whole energy infrastructure?
+
+It will not surprise the House that I agree wholeheartedly with my hon. Friend, who, as always, makes an incredibly important point. He is right that stability is key, but so too is this Government’s commitment to invest in community energy. We have committed to upwards of 8 GW of energy from community sources over the course of this Parliament up to 2030. That commitment ensures not just that we have an energy mix where communities benefit, but that they benefit from the economic and social advantages of owning the energy they produce.
+
+Speaker [Name: Sarah Dyke, Party: LD, Constituency: Glastonbury and Somerton]:
+Community energy schemes provide a great opportunity for local communities to take ownership of clean energy production. In Glastonbury and Somerton, we have seen the benefits as Avalon Community Energy projects around Glastonbury are projected to save 1,000 tonnes of carbon per year. How will the Minister support community energy schemes and ensure that they play a fair and full role in creating clean energy?
+
+The hon. Member has raised community energy on a number of occasions in this place, and I know she is a champion of it. She is right to highlight the examples of where community energy can make a huge difference. One of the key areas we want to drive forward is the local power plan, which will be delivered by Great British Energy. Unfortunately, her party did not in the end support the creation of Great British Energy, but I hope they will change that position and see the huge advantages of investing through Great British Energy in schemes like the one she mentioned, but also of helping to build capacity in community groups so that they are capable of driving those projects forward.
+
+Speaker [Name: Brian Leishman, Party: Lab, Constituency: Alloa and Grangemouth]:
+I declare the interest that I am a Unite the union member.
+
+Communities all across Scotland rely on the Grangemouth refinery for their energy. As closure looms, Unite has given the Government a plan that will save jobs, help hit sustainable aviation fuel targets and build new green industries for the future. It is not too late to save those jobs and achieve the just transition that my community desperately needs. Will the Secretary of State agree that the plan has great potential and agree to meet Unite to see what the Government can do to achieve a truly just transition for the refinery workers and keep Scotland’s only refinery working?
+
+As my hon. Friend knows, we have met Unite on a number of occasions over the past few months since Petroineos made the disappointing decision to follow through on its closure plans for the Grangemouth refinery. It is important that we look at every possible option, and we have done.
+
+It is also important that the Government are clear that we want to see a long-term sustainable future for the refinery site. That is why we invested in Project Willow, which at the moment is coming up with credible investable propositions for the site. We want to protect the workers and do whatever we can to ensure a just transition at Grangemouth and for industry right across the country, but those options need to be long-term and sustainable so that we do not drive workers back into this process again a few years down the line. We are committed to ensuring that we invest in long-term sustainable propositions for the site, and of course we will meet anyone and discuss any propositions to help make that happen.
+
+I call the Liberal Democrat spokesperson.
+
+Speaker [Name: Pippa Heylings, Party: LD, Constituency: South Cambridgeshire]:
+It is so good to hear the Minister affirm the need to bring the public onside, as well as private sector investment, to achieve the transformation towards green power and net zero. The Liberal Democrats support Great British Energy if community energy is at the centre of the Great British Energy Bill. Our colleagues in the Lords are debating amendments relating to direct participation in and benefit from community energy. Will the Minister agree to those proposals if they come to this House?
+
+In the spirit of Christmas, I thank the hon. Lady for all the engagement and discussions we have had—[Interruption.] The Conservative Front Benchers groan, but I have joy for their party at Christmas as well. We are absolutely committed to community energy, which was in our manifesto. At every stage of the Bill, we have committed to community energy being right at the heart of what Great British Energy will do. If their lordships make any amendments in their consideration of the Bill, we will of course consider those amendments when the Bill comes back to this place. However, I say gently to the hon. Lady that her party did not support Great British Energy, so it cannot now claim credit for the things that Great British Energy will deliver.
+
+Focus on specific issues raised, quality of answers, and follow-up scrutiny.
+    Highlight any new information or commitments obtained.
+
+Please provide your analysis in the following format:
+
+1. ANALYSIS
+-----------
+Provide a detailed, keyword-rich analysis that covers:
+• The structure and main content of the debate
+• Policy terms, legislation names, and technical terminology
+• Named entities (people, organizations, locations)
+• Numerical data and statistics
+• References to acts, amendments, and procedures
+• Related parliamentary business
+• Political positions and policy stances
+• Department names and governmental bodies
+• Key dates and timeframes
+
+2. SPEAKER POINTS
+----------------
+Analyze contributions from each speaker:
+- Olly Glover (LD) - Didcot and Wantage
+- Mr Toby Perkins (Lab) - Chesterfield
+- Sarah Dyke (LD) - Glastonbury and Somerton
+- Brian Leishman (Lab) - Alloa and Grangemouth
+- Pippa Heylings (LD) - South Cambridgeshire
+
+For each speaker, include:
+• Name, role, and party affiliation
+• Main arguments and key statements
+• Data cited with sources
+• Specific terminology and keywords used
+• Positions taken
+• Questions raised or answered
+• Technical terms and legislation referenced
+
+FORMAT REQUIREMENTS
+------------------
+• Use precise, searchable terminology
+• Maintain parliamentary context and formality
+• Structure content hierarchically for clarity
+• Include direct quotes where significant
+• Cross-reference related debates or legislation

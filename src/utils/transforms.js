@@ -1,63 +1,44 @@
-import { calculateDebateScore } from './scoreCalculator.js';
 import { cleanHtmlTags } from './debateUtils.js';
 
 export function validateDebateContent(debateDetails) {
   try {
-    // Validate input
-    if (!debateDetails?.Overview) {
-      throw new Error('Missing required debate overview data');
+    // Early return if debate details is null/undefined
+    if (!debateDetails) {
+      return null;
     }
 
-    const { Items = [], Overview } = debateDetails;
+    if (debateDetails.Items.length === 0) {
+      return null;
+    }
+
+    const overview = debateDetails.Overview;
 
     // Skip prayers in both Houses
-    if (Overview.Title?.includes('Prayer')) {
-      console.log('Skipping debate with Prayer title');
+    if (overview.Title?.includes('Prayer')) {
+      return null;
+    }
+
+    if (overview.NextDebateTitle?.includes('Prayer')) {
       return null;
     }
     
     // Skip if HRSTag contains 'BigBold'
-    if (Overview.HRSTag?.includes('BigBold')) {
-      console.log('Skipping debate with HRSTag containing BigBold');
+    if (overview.HRSTag?.includes('BigBold')) {
       return null;
     }
 
-    // Get all contribution items
-    const contributionItems = Items.filter(item => item?.ItemType === 'Contribution');
-    
-    // Modified check for contributions - different rules for Lords
-    if (contributionItems.length > 0) {
-      if (Overview.House === 'Commons') {
-        // Commons-specific check
-        if (contributionItems.every(item => !item.MemberId) && 
-            !Overview.PreviousDebateExtId) {
-          return null;
-        }
-      } else if (Overview.House === 'Lords') {
-        // Lords-specific check - more lenient on MemberId requirement
-        if (contributionItems.every(item => !item.Value?.trim()) && 
-            !Overview.PreviousDebateExtId) {
-          return null;
-        }
-      }
-    }
-    
-    // Get cleaned search text first to validate content
-    const searchText = (Items || [])
-      .filter(item => item?.ItemType === 'Contribution')
-      .map(item => item?.Value || '')
-      .join(' ')
-      .replace(/<[^>]*>/g, '') // Remove HTML tags
-      .trim(); // Trim whitespace
-    
-    // Return null if no meaningful content
-    if (!searchText) {
+    // Skip if all memberId values are null
+    if (debateDetails.Items.every(item => item?.memberId === null)) {
       return null;
     }
 
     return 'valid';
   } catch (error) {
-    console.error('Filter debate content error:', error);
+    console.error('Filter debate content error:', {
+      error: error.message,
+      stack: error.stack,
+      debateId: debateDetails?.Overview?.ExtId || 'unknown'
+    });
     return null;
   }
 }
@@ -77,18 +58,27 @@ function getDebateType(overview) {
   }
 
   // Process Commons debate types
-  let type = (overview.HRSTag || '')
-    .replace(/^hs_/, '')
-    .replace(/Hdg/, '')
-    .replace(/^(?:2c|2|3c|6b|8|3)/, '')
-    .replace(/WestHallDebate/, 'Westminster Hall')
-    .replace(/Department/, 'Department Questions')
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
-    .replace(/Bill Title/, 'Bill Procedure')
-    .replace(/Business WO Debate/, 'Business Without Debate')
-    .replace(/Deb Bill/, 'Debated Bill')
-    .trim();
+  let type = (overview.HRSTag || 'Committee')
+    .replace('hs_2BillTitle', 'Bill Reading')
+    .replace('hs_8Question', 'Question')
+    .replace('hs_8Statement', 'Written Statement')
+    .replace('hs_8Petition', 'Petition')
+    .replace('hs_2cStatement', 'Statement')
+    .replace('hs_2cUrgentQuestion', 'Urgent Question')
+    .replace('hs_2DebBill', 'Debated Bill')
+    .replace('hs_6bDepartment', 'Department Question')
+    .replace('hs_2BusinessWODebate', 'Business Without Debate')
+    .replace('hs_2cWestHallDebate', 'Westminster Hall')
+    .replace('hs_2WestHallDebate', 'Westminster Hall')
+    .replace('hs_2DebBill', 'Debated Bill')
+    .replace('hs_2cGenericHdg', 'General Debate')
+    .replace('hs_2cDebatedMotion', 'Debated Motion')
+    .replace('hs_2DebatedMotion', 'Debated Motion')
+    .replace('hs_3MainHdg', 'Main')
+    .replace('hs_2GenericHdg', 'Generic Debate')
+    // Used for lords debates unpredictably so replace with location below
+    // .replace('NewDebate', 'New Debate')
+    // .replace('hs_Venue', 'Venue')
 
   // Additional type detection for Commons
   if (!type) {
@@ -96,10 +86,12 @@ function getDebateType(overview) {
       type = 'Public Bill Committees';
     } else if (overview.Location?.includes('General Committees') && !overview.Location?.includes('Lords')) {
       type = 'General Committees';
-    } else if (overview.Title?.includes('Urgent Question')) {
-      type = 'Urgent Question';
-    } else if (overview.Title?.includes('Statement')) {
-      type = 'Statement';
+    }
+    else if (overview.Location?.includes('Grand Committee')) {
+      type = 'Grand Committee';
+    }
+    else if (overview.Location?.includes('Lords Chamber')) {
+      type = 'Lords Chamber';
     }
   }
 
@@ -120,13 +112,10 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
     const debateNode = Navigator.find(n => n.ExternalId === Overview.ExtId);
     const startTime = debateNode?.Timecode || null;
 
-    // Validate required fields g
+    // Validate required fields
     if (!Overview.ExtId || !Overview.Title || !Overview.Date) {
       throw new Error('Missing required fields in Overview');
     }
-    
-    // Calculate interest score and factors directly here
-    const scoreData = calculateDebateScore(debateDetails);
 
     // Get day of week from date with error handling
     let dayOfWeek = '';

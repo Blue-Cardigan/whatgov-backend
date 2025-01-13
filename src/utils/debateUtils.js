@@ -1,10 +1,50 @@
 import logger from './logger.js';
 import { 
-  locationPrompts,
   debateTypePrompts 
 } from '../prompts/debatePrompts.js';
 
-export function handleBritishTranslation(text, translations) {
+
+export function translateContent(content, translations) {
+  if (!content || !translations) {
+    logger.warn('Missing content or translations for British English conversion', {
+      hasContent: !!content,
+      hasTranslations: !!translations
+    });
+    return content;
+  }
+
+  try {
+    // Deep clone the content to avoid modifying the original
+    const translatedContent = JSON.parse(JSON.stringify(content));
+
+    // Helper function to translate strings in an object
+    const translateObject = (obj) => {
+      for (const key in obj) {
+        if (typeof obj[key] === 'string') {
+          obj[key] = handleBritishTranslation(obj[key], translations);
+        } else if (Array.isArray(obj[key])) {
+          obj[key] = obj[key].map(item => 
+            typeof item === 'string' ? handleBritishTranslation(item, translations) 
+            : translateObject(item)
+          );
+        } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+          translateObject(obj[key]);
+        }
+      }
+      return obj;
+    };
+
+    return translateObject(translatedContent);
+  } catch (error) {
+    logger.error('Translation error:', {
+      error: error.message,
+      stack: error.stack
+    });
+    return content; // Return original content on error
+  }
+}
+
+function handleBritishTranslation(text, translations) {
   try {
     if (!text) return text;
     if (!translations) {
@@ -34,54 +74,11 @@ export function handleBritishTranslation(text, translations) {
   }
 }
 
-export function processDebateItems(items, memberDetails) {
-  if (!items) {
-    logger.warn('No items provided to processDebateItems');
-    return [];
-  }
-
-  try {
-    return items.map(item => {
-      const processedItem = {
-        id: item.ItemId || item.Id,
-        externalId: item.ExternalId,
-        type: item.ItemType || item.Type,
-        text: item.Value || item.Text,
-        time: item.Timecode || item.Time,
-        memberId: item.MemberId,
-        memberName: item.AttributedTo || item.MemberName
-      };
-      
-      // Add member details if available
-      if (item.MemberId && memberDetails?.get?.(item.MemberId)) {
-        const details = memberDetails.get(item.MemberId);
-        processedItem.speaker = {
-          memberId: item.MemberId,
-          name: details.DisplayAs,
-          party: details.Party,
-          constituency: details.MemberFrom
-        };
-      }
-      
-      return processedItem;
-    }).filter(Boolean); // Remove any null/undefined items
-  } catch (error) {
-    logger.error('Error processing debate items:', {
-      error: error.message,
-      stack: error.stack,
-      itemsProvided: !!items,
-      itemCount: items?.length,
-      sampleItem: items?.[0] ? JSON.stringify(items[0]).slice(0, 200) : null
-    });
-    return [];
-  }
-}
-
 export function cleanHtmlTags(text) {
   return text.replace(/<[^>]*>/g, '');
 }
 
-export function formatDebateContext(overview, processedItems) {
+export function formatDebateContext(overview, items) {
   try {
     const context = [
       `Title: ${overview?.Title || ''}`,
@@ -90,36 +87,36 @@ export function formatDebateContext(overview, processedItems) {
       '\nDebate Transcript:'
     ];
 
-    // Handle different item structures
-    if (Array.isArray(processedItems)) {
-      const formattedItems = processedItems.map(item => {
-        // Handle group structure
-        if (item.speaker && item.text) {
-          const speaker = item.speaker;
-          return `Speaker [ID: ${speaker.memberId || 'N/A'}]: ${speaker.name || 'Unknown'}, ` +
-            `Party: ${speaker.party || 'Unknown'}, ` +
-            `Constituency: ${speaker.constituency || 'N/A'}\n` +
-            `${Array.isArray(item.text) ? item.text.join('\n') : item.text}`;
-        }
+    // Ensure items is an array and has content
+    if (Array.isArray(items) && items.length > 0) {
+      const formattedItems = items.map(item => {
+        // Skip items without value or attribution
+        if (!item.value && !item.memberId && !item.name) return null;
+
+        const speakerInfo = [];
         
-        // Handle flat structure
-        return `Speaker [ID: ${item.memberId || 'N/A'}]: ${item.memberName || 'Unknown'}, ` +
-          `${item.memberDetails ? `Party: ${item.memberDetails.Party || 'Unknown'}, ` +
-          `Constituency: ${item.memberDetails.MemberFrom || 'N/A'}` : ''}\n` +
-          `${item.text || ''}`;
+        // Add member information if available
+        if (item.name) speakerInfo.push(`Name: ${item.name}`);
+        if (item.party) speakerInfo.push(`Party: ${item.party}`);
+        if (item.constituency) speakerInfo.push(`Constituency: ${item.constituency}`);
+        
+        // Format the contribution
+        const speakerLine = speakerInfo.length > 0 
+          ? `Speaker [${speakerInfo.join(', ')}]:`
+          : '';
+        
+        const contentLine = item.value ? cleanHtmlTags(item.value) : '';
+        
+        return [speakerLine, contentLine].filter(Boolean).join('\n');
       });
-      
-      context.push(...formattedItems);
-    } else {
-      logger.warn('Invalid processedItems structure:', {
-        type: typeof processedItems,
-        sample: processedItems ? JSON.stringify(processedItems).slice(0, 100) : 'null'
-      });
+
+      // Add all valid formatted items to context
+      context.push(...formattedItems.filter(Boolean));
     }
 
     logger.debug('Formatted debate context:', {
       title: overview?.Title,
-      itemCount: processedItems?.length,
+      itemCount: items?.length,
       contextLength: context.length
     });
     
@@ -127,32 +124,12 @@ export function formatDebateContext(overview, processedItems) {
   } catch (error) {
     logger.error('Error formatting debate context:', {
       error: error.message,
-      stack: error.stack,
-      overview: overview ? Object.keys(overview) : null,
-      itemsSample: processedItems ? processedItems.slice(0, 2) : null
+      stack: error.stack
     });
-    
-    // Return a basic context if there's an error
-    return `Title: ${overview?.Title || 'Untitled'}\nLocation: ${overview?.Location || 'Unknown'}\n`;
+    return `Title: ${overview?.Title || 'Untitled'}\nType: ${overview?.Type || 'Unknown'}\n`;
   }
 }
 
-export function getTypeSpecificPrompt(debateType, location) {
-  // Check Lords-specific prompts first
-  if (location?.includes('Lords Chamber')) {
-    return locationPrompts['Lords Chamber'];
-  }
-  
-  if (location?.includes('Grand Committee')) {
-    return locationPrompts['Grand Committee'];
-  }
-
-  return debateTypePrompts[debateType] || `
-    This is a House of Commons proceeding.
-    Focus on:
-    - The specific parliamentary procedure being used
-    - Key points of debate or discussion
-    - Ministerial responses or commitments
-    - Cross-party positions
-    - Practical implications for policy or legislation`;
+export function getTypeSpecificPrompt(debateType) {
+  return debateTypePrompts[debateType] || ``;
 }

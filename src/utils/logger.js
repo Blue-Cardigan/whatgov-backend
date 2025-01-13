@@ -7,7 +7,7 @@ const LOG_LEVELS = {
 
 class Logger {
   constructor() {
-    this.level = process.env.LOG_LEVEL || 'INFO';
+    this.level = process.env.LOG_LEVEL || 'DEBUG';
   }
 
   formatMessage(level, message, ...args) {

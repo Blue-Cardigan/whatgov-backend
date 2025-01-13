@@ -1,60 +1,23 @@
 import { HansardService } from '../services/hansard.js';
-import { HansardAPI } from '../services/hansard-api.js';
-import { SupabaseService } from '../services/supabase.js';
-import { processAIContent } from './aiProcessor.js';
-import { calculateStats } from './statsProcessor.js';
-import { transformDebate } from '../utils/transforms.js';
 import logger from '../utils/logger.js';
-import { config } from '../config/config.js';
-import { processDivisions } from './divisionsProcessor.js';
-import { createEmbeddingsForDebate } from './embeddingsProcessor.js';
+import { getTypeSpecificPrompt, formatDebateContext } from '../utils/debateUtils.js';
+import { generateAnalysis } from './generateAnalysis.js';
+import { upsertResultsToVectorStore } from './upsertResultstoVectorStore.js';
 
-async function fetchMembersFromSupabase(memberIds) {
-  try {
-    // Cache member details in memory for the duration of the process
-    if (!global.memberDetailsCache) {
-      global.memberDetailsCache = new Map();
-    }
-
-    // Filter out already cached members
-    const uncachedIds = memberIds.filter(id => !global.memberDetailsCache.has(id));
-    
-    if (uncachedIds.length > 0) {
-      const { data, error } = await SupabaseService.getMemberDetails(uncachedIds);
-      if (error) throw error;
-      
-      // Add to cache
-      data.forEach(member => {
-        global.memberDetailsCache.set(member.member_id, {
-          DisplayAs: member.display_as,
-          MemberId: member.member_id,
-          Party: member.party,
-          MemberFrom: member.constituency
-        });
-      });
-    }
-    
-    // Return map of requested members from cache
-    return new Map(
-      memberIds.map(id => [id, global.memberDetailsCache.get(id)])
-        .filter(([, member]) => member !== undefined)
-    );
-  } catch (error) {
-    logger.error('Failed to fetch member details from Supabase:', error);
-    return new Map();
-  }
-}
-
-export async function processDebates(specificDate = null, specificDebateId = null, aiProcess = null) {
+export async function processDebates(specificDate = null, specificDebateId = null) {
   try {
     let debatesToProcess = [];
     
+    // Log initial processing parameters
+    logger.info('Starting debate processing:', {
+      specificDate,
+      specificDebateId,
+      timestamp: new Date().toISOString()
+    });
+    
     if (specificDebateId) {
       try {
-        const [debate, speakers] = await Promise.all([
-          HansardAPI.fetchDebate(specificDebateId),
-          HansardAPI.fetchSpeakers(specificDebateId)
-        ]);
+        const debate = await HansardService.fetchDebate(specificDebateId);
         
         if (!debate) {
           throw new Error('No debate data returned');
@@ -68,204 +31,175 @@ export async function processDebates(specificDate = null, specificDebateId = nul
         
         debatesToProcess = [{
           ExternalId: specificDebateId,
-          debate,
-          speakers
+          debate
         }];
         
       } catch (error) {
         logger.error(`Failed to fetch specific debate ${specificDebateId}:`, {
           error: error.message,
-          stack: error.stack,
-          status: error.status,
-          response: error.response
+          stack: error.stack
         });
         return false;
       }
     } else {
-      // Get latest debates from Hansard with options (now includes validation)
       debatesToProcess = await HansardService.getLatestDebates({
-        specificDate,
-        specificDebateId,
-        aiProcess
+        specificDate
       });
     }
-    
-    if (!debatesToProcess?.length) {
-      logger.warn('No debates found to process');
-      return false;
+
+    if (!debatesToProcess.length) {
+      logger.info('No debates to process');
+      return true;
     }
 
-    const results = {
-      success: 0,
-      failed: 0,
-      skipped: 0
-    };
+    logger.info('Beginning debate processing:', {
+      totalDebates: debatesToProcess.length,
+      startTime: new Date().toISOString()
+    });
 
-    // Collect all unique member IDs across filtered debates
-    const allMemberIds = new Set();
-    debatesToProcess.forEach(debate => {
-      const items = debate.Items || debate.debate?.Items || [];
+    // Process debates sequentially but collect results for bulk upload
+    const processedResults = [];
+    const allSpeakers = new Set();
+    let successCount = 0;
+    let failureCount = 0;
+
+    for (let i = 0; i < debatesToProcess.length; i++) {
+      const debate = debatesToProcess[i];
+      const debateData = debate.debate || debate;
       
-      items
-        .filter(item => item.ItemType === 'Contribution' && item.MemberId)
-        .forEach(item => allMemberIds.add(item.MemberId));
+      logger.info(`Processing debate ${i + 1}/${debatesToProcess.length}:`, {
+        id: debate.ExternalId,
+        title: debateData.Overview?.Title,
+        type: debateData.Overview?.Type
+      });
+
+      // Format debate for processing
+      const processedDebate = {
+        ext_id: debate.ExternalId,
+        id: debate.ExternalId,
+        context: formatDebateContext(debateData.Overview, debateData.Items),
+        typePrompt: getTypeSpecificPrompt(debateData.Overview?.Type),
+        overview: debateData.Overview
+      };
+
+      const startTime = Date.now();
       
-      if (debate.ChildDebates) {
-        debate.ChildDebates.forEach(childDebate => {
-          const childItems = childDebate.Items || [];
-          childItems
-            .filter(item => item.ItemType === 'Contribution' && item.MemberId)
-            .forEach(item => allMemberIds.add(item.MemberId));
+      try {
+        // Extract unique speakers
+        const debateSpeakers = extractUniqueSpeakers(debateData);
+        debateSpeakers.forEach(speaker => allSpeakers.add(speaker));
+
+        logger.debug('Generating analysis:', {
+          debateId: processedDebate.ext_id,
+          speakerCount: debateSpeakers.size,
+          contextLength: processedDebate.context.length
+        });
+
+        const analysis = await generateAnalysis(processedDebate, Array.from(debateSpeakers));
+
+        const processingTime = Date.now() - startTime;
+        
+        logger.info('Successfully processed debate:', {
+          debateId: processedDebate.ext_id,
+          processingTimeMs: processingTime,
+          analysisLength: analysis.analysis.length,
+          speakerPointsCount: analysis.speaker_points.length
+        });
+
+        processedResults.push({
+          debate: processedDebate,
+          analysis,
+          speakers: Array.from(debateSpeakers)
+        });
+
+        successCount++;
+
+      } catch (error) {
+        failureCount++;
+        logger.error(`Failed to process debate ${processedDebate.ext_id}:`, {
+          error: error.message,
+          stack: error.stack,
+          processingTimeMs: Date.now() - startTime,
+          progress: `${i + 1}/${debatesToProcess.length}`
+        });
+        continue;
+      }
+
+      // Progress summary every 5 debates or at the end
+      if ((i + 1) % 5 === 0 || i === debatesToProcess.length - 1) {
+        logger.info('Processing progress:', {
+          processed: i + 1,
+          total: debatesToProcess.length,
+          successful: successCount,
+          failed: failureCount,
+          remainingDebates: debatesToProcess.length - (i + 1),
+          totalSpeakers: allSpeakers.size
+        });
+      }
+
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
+
+    if (processedResults.length === 0) {
+      logger.warn('No debates were successfully processed:', {
+        totalAttempted: debatesToProcess.length,
+        failures: failureCount
+      });
+      return [];
+    }
+
+    // Bulk upsert to vector store
+    logger.info('Beginning vector store upsert:', {
+      debateCount: processedResults.length,
+      totalSpeakers: allSpeakers.size,
+      successRate: `${((successCount / debatesToProcess.length) * 100).toFixed(1)}%`
+    });
+
+    const debates = processedResults.map(r => r.debate);
+    const analyses = processedResults.map(r => r.analysis);
+    
+    const vectorStoreResults = await upsertResultsToVectorStore(
+      debates,
+      analyses,
+      Array.from(allSpeakers)
+    );
+
+    logger.info('Processing completed:', {
+      totalProcessed: debatesToProcess.length,
+      successful: successCount,
+      failed: failureCount,
+      vectorStoreUpdates: vectorStoreResults.length,
+      endTime: new Date().toISOString()
+    });
+
+    return vectorStoreResults;
+
+  } catch (error) {
+    logger.error('Failed to process debates:', {
+      error: error.message,
+      stack: error.stack,
+      timestamp: new Date().toISOString()
+    });
+    throw error;
+  }
+}
+
+function extractUniqueSpeakers(debateData) {
+  // Implement speaker extraction based on your data structure
+  const speakers = new Set();
+  
+  if (debateData.Items) {
+    debateData.Items.forEach(item => {
+      if (item.Speaker) {
+        speakers.add({
+          name: item.Speaker.Name,
+          party: item.Speaker.Party,
+          constituency: item.Speaker.Constituency,
+          role: item.Speaker.Role
         });
       }
     });
-
-    const memberDetails = await fetchMembersFromSupabase([...allMemberIds]);
-    
-    logger.debug('Fetched member details:', {
-      count: memberDetails.size,
-      sample: Array.from(memberDetails.entries()).slice(0, 2)
-    });
-
-    const MAX_RETRIES = 3;
-    const RETRY_DELAY = 2000; // 2 seconds
-
-    async function retryUpsert(debate, aiProcess, retries = 0) {
-      try {
-        await SupabaseService.upsertDebate(debate, aiProcess);
-        return true;
-      } catch (error) {
-        if (error.code === '57014' && retries < MAX_RETRIES) {
-          logger.warn(`Database timeout, retrying upsert (attempt ${retries + 1}/${MAX_RETRIES})...`);
-          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
-          return retryUpsert(debate, aiProcess, retries + 1);
-        }
-        throw error;
-      }
-    }
-
-    for (let i = 0; i < debatesToProcess.length; i += config.BATCH_SIZE) {
-      const batch = debatesToProcess.slice(i, i + config.BATCH_SIZE);
-      
-      const promises = batch.map(async (debate) => {
-        try {
-          const debateDetails = debate.debate;
-          const debateType = debateDetails.Overview.Type;
-          
-          // 1. First, get the raw divisions data
-          const divisions = await processDivisions(debate);
-
-          // 2. Generate AI content including division questions
-          let aiContent;
-          try {
-            aiContent = await processAIContent(
-              debateDetails,
-              memberDetails,
-              divisions,
-              debateType,
-              aiProcess
-            );
-          } catch (error) {
-            logger.error('Failed to generate AI content:', error);
-            results.skipped++;
-            return;
-          }
-
-          // 3. Update divisions in database with AI content
-          if (divisions?.length && aiContent?.divisionQuestions) {
-            try {
-              const updatedDivisions = divisions.map(division => {
-                const aiDivisionContent = aiContent.divisionQuestions.find(
-                  q => q.external_id === division.external_id
-                );
-                
-                if (!aiDivisionContent) return division;
-
-                return {
-                  ...division,
-                  ai_question: aiDivisionContent.ai_question,
-                  ai_topic: aiDivisionContent.ai_topic,
-                  ai_context: aiDivisionContent.ai_context,
-                  ai_key_arguments: aiDivisionContent.ai_key_arguments
-                };
-              });
-
-              // Single upsert with complete data
-              const { error } = await SupabaseService.upsertDivisions(updatedDivisions);
-              if (error) throw error;
-            } catch (error) {
-              logger.error('Failed to update divisions with AI content:', error);
-            }
-          }
-
-          // 4. Generate and store embeddings with complete data
-          if (aiContent && aiProcess?.includes('embeddings')) {
-            try {
-              await createEmbeddingsForDebate(
-                {
-                  ...debateDetails,
-                  ...aiContent,
-                  divisions // Pass the complete divisions data
-                }, 
-                memberDetails
-              );
-              logger.debug(`Generated embeddings for debate ${debate.ExternalId}`);
-            } catch (error) {
-              logger.error('Failed to generate embeddings:', error);
-            }
-          } else {
-            logger.debug(`Skipping embedding generation for debate ${debate.ExternalId} - missing required AI content`);
-          }
-
-          const stats = await calculateStats(debateDetails, memberDetails);
-          logger.debug(`Calculated stats for debate ${debate.ExternalId}`);
-
-          try {
-            const existingContent = await SupabaseService.getExistingDebateContent(debate.ExternalId);
-            
-            const finalDebate = transformDebate({
-              ...debateDetails,
-              ...stats,
-              ...existingContent,
-              ...aiContent
-            }, memberDetails);
-
-            await retryUpsert(finalDebate, aiProcess);
-            logger.debug(`Successfully stored debate ${debate.ExternalId} in database`);
-            results.success++;
-          } catch (error) {
-            if (error.message.includes('Failed to retrieve existing debate content')) {
-              logger.error(`Skipping update to prevent data loss: ${error.message}`);
-              results.skipped++;
-              return;
-            }
-            logger.error(`Failed to store debate ${debate.ExternalId}:`, error);
-            results.failed++;
-          }
-        } catch (error) {
-          logger.error(`Failed to process debate ${debate.ExternalId}:`, error);
-          results.failed++;
-        }
-      });
-
-      await Promise.all(promises);
-      
-      if (i + config.BATCH_SIZE < debatesToProcess.length) {
-        await new Promise(resolve => setTimeout(resolve, config.RETRY_DELAY));
-      }
-    }
-
-    logger.info('Processing complete:', {
-      processed: results.success,
-      failed: results.failed,
-      skipped: results.skipped,
-      total: debatesToProcess.length
-    });
-
-    return true;
-
-  } catch (error) {
-    logger.error('Failed to process debates:', error);
-    throw error;
   }
-} 
+  
+  return speakers;
+}

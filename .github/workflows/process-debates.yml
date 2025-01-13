@@ -2,8 +2,7 @@ name: Process Hansard Debates
 
 on:
   schedule:
-    - cron: '*/30 12-23,0-1 * * 1-5'  # Default schedule
-    - cron: '*/15 * * * 1-5'           # More frequent schedule (will be conditionally used)
+    - cron: '30 6 * * 1-5'  # Runs at 6:30 AM UTC, Monday-Friday
   workflow_dispatch:
 
 jobs:

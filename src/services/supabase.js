@@ -5,60 +5,14 @@ import logger from '../utils/logger.js';
 const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY);
 
 export class SupabaseService {
-  static async upsertDebate(debate, aiProcess = null) {
+  static async upsertDebate(debateOutput) {
     try {
-      // If only divisions processing is specified, skip debate upsert
-      if (aiProcess && aiProcess.length === 1 && aiProcess.includes('divisions')) {
-        logger.debug('Skipping debate upsert - only divisions processing specified');
-        return null;
-      }
 
-      // Get existing debate data first
-      const { data: existingDebate, error: fetchError } = await supabase
-        .from('debates')
-        .select(`
-          ai_title,
-          ai_summary,
-          ai_overview,
-          ai_tone,
-          ai_topics,
-          ai_key_points,
-          ai_comment_thread,
-          ai_question,
-          ai_question_topic,
-          ai_question_subtopics
-        `)
-        .eq('ext_id', debate.ext_id)
-        .single();
-
-      if (fetchError && fetchError.code !== 'PGRST116') { // Not found is ok
-        throw fetchError;
-      }
-
-      // Merge existing AI content with new content, preserving existing values
-      const mergedDebate = {
-        ...debate,
-        ...(existingDebate && {
-          ai_title: debate.ai_title ?? existingDebate.ai_title,
-          ai_summary: debate.ai_summary ?? existingDebate.ai_summary,
-          ai_overview: debate.ai_overview ?? existingDebate.ai_overview,
-          ai_tone: debate.ai_tone ?? existingDebate.ai_tone,
-          ai_topics: debate.ai_topics ?? existingDebate.ai_topics,
-          ai_key_points: debate.ai_key_points ?? existingDebate.ai_key_points,
-          ai_comment_thread: debate.ai_comment_thread ?? existingDebate.ai_comment_thread,
-          ai_question: debate.ai_question ?? existingDebate.ai_question,
-          ai_question_topic: debate.ai_question_topic ?? existingDebate.ai_question_topic,
-          ai_question_subtopics: debate.ai_question_subtopics ?? existingDebate.ai_question_subtopics
-        })
-      };
-
-      // Perform the upsert with merged data
+      // Perform the upsert
       const { data, error } = await supabase
-        .from('debates')
-        .upsert(mergedDebate, {
-          onConflict: ['ext_id'],
-          returning: 'representation',
-          conflictTarget: 'ext_id'
+        .from('debates_new')
+        .upsert(debateOutput, {
+          onConflict: ['ext_id']
         });
 
       if (error) throw error;
@@ -69,44 +23,46 @@ export class SupabaseService {
     }
   }
 
-  static async upsertDivisions(divisions) {
+  static async updateDebateFileIds({ extId, fileId }) {
     try {
       const { data, error } = await supabase
-        .from('divisions')
-        .upsert(divisions, {
-          onConflict: ['debate_section_ext_id', 'division_number'],
-          returning: true
-        });
+        .from('debates_new')
+        .update({ 
+          file_id: fileId,  // Single file ID
+          updated_at: new Date().toISOString()
+        })
+        .eq('ext_id', extId)
+        .select();
 
-      if (error) throw error;
+      if (error) {
+        logger.error('Failed to update debate file_id:', {
+          error: error.message,
+          extId,
+          fileId
+        });
+        throw error;
+      }
+
+      logger.debug('Updated debate file ID:', {
+        extId,
+        fileId
+      });
+
       return { data, error: null };
     } catch (error) {
-      logger.error('Failed to upsert divisions:', error);
-      return { data: null, error };
-    }
-  }
-
-  // In supabase.js
-  static async getExistingDebateContent(externalId) {
-    try {
-      const { data, error } = await supabase
-        .from('debates')
-        .select('ai_summary, ai_topics, ai_key_points, ai_question, ai_comment_thread')
-        .eq('ext_id', externalId)
-        .single();
-
-      if (error) throw error;
-      return data || {};
-    } catch (error) {
-      logger.error('Failed to get existing debate content:', error);
-      return {};
+      logger.error('Failed to update debate file_id:', {
+        error: error.message,
+        stack: error.stack,
+        extId
+      });
+      throw error;
     }
   }
 
   static async getLastProcessedDate() {
     try {
       const { data, error } = await supabase
-        .from('debates')
+        .from('debates_new')
         .select('date')
         .order('date', { ascending: false })
         .limit(1);
@@ -115,21 +71,6 @@ export class SupabaseService {
       return data[0]?.date;
     } catch (error) {
       logger.error('Failed to get last processed date:', error);
-      throw error;
-    }
-  }
-
-  static async getDebateIds(externalIds) {
-    try {
-      const { data, error } = await supabase
-        .from('debates')
-        .select('ext_id')
-        .in('ext_id', externalIds);
-
-      if (error) throw error;
-      return data.map(d => d.ext_id);
-    } catch (error) {
-      logger.error('Failed to get debate IDs:', error);
       throw error;
     }
   }
@@ -156,7 +97,7 @@ export class SupabaseService {
     try {
       const { data, error } = await supabase
         .from('members')
-        .select('member_id, display_as, party, constituency')
+        .select('member_id, display_as, party, constituency, department')
         .in('member_id', memberIds);
 
       if (error) throw error;
@@ -167,155 +108,10 @@ export class SupabaseService {
     }
   }
 
-  static async getMembersWithoutTwfyId() {
-    try {
-      const { data, error } = await supabase
-        .from('members')
-        .select('member_id, display_as')
-        .is('twfy_id', null);
-
-      if (error) throw error;
-      return { data, error: null };
-    } catch (error) {
-      logger.error('Failed to get members without TWFY ID:', error);
-      return { data: [], error };
-    }
-  }
-
-  static async updateMemberTwfy({ memberId, twfyId, twfyUrl }) {
-    try {
-      const { data, error } = await supabase
-        .from('members')
-        .update({
-          twfy_id: twfyId,
-          twfy_url: twfyUrl,
-          updated_at: new Date().toISOString()
-        })
-        .eq('member_id', memberId)
-        .select();
-
-      if (error) throw error;
-      return { data, error: null };
-    } catch (error) {
-      logger.error('Failed to update member TWFY details:', error);
-      return { data: null, error };
-    }
-  }
-
-  static async getDebates() {
-    try {
-      const { data, error } = await supabase
-        .from('debates')
-        .select('ext_id, title')
-        .order('date', { ascending: false });
-
-      if (error) throw error;
-      return { data, error: null };
-    } catch (error) {
-      logger.error('Failed to get debates:', error);
-      return { data: [], error };
-    }
-  }
-
-  static async updateDebateSpeakers({ ext_id, speakers, speaker_count }) {
-    try {
-      const { data, error } = await supabase
-        .from('debates')
-        .update({ 
-          speakers,
-          speaker_count,
-          updated_at: new Date().toISOString()
-        })
-        .eq('ext_id', ext_id)
-        .select();
-
-      if (error) throw error;
-      return { data, error: null };
-    } catch (error) {
-      logger.error('Failed to update debate speakers:', error);
-      return { data: null, error };
-    }
-  }
-
-  static async getCurrentWeekDebates() {
-    try {
-      const { data, error } = await supabase
-        .from('debates')
-        .select('*')
-        .gte('date', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString())
-        .order('date', { ascending: true });
-
-      if (error) throw error;
-      return { data, error: null };
-    } catch (error) {
-      logger.error('Failed to get current week debates:', error);
-      return { data: [], error };
-    }
-  }
-
-  static async upsertEmbedding(debateId, embedding) {
-    try {
-      const { data, error } = await supabase
-        .from('debate_embeddings')
-        .upsert({
-          debate_id: debateId,
-          embedding,
-          updated_at: new Date().toISOString()
-        }, {
-          onConflict: 'debate_id',
-          returning: true
-        });
-
-      if (error) throw error;
-      return { data, error: null };
-    } catch (error) {
-      logger.error('Failed to upsert embedding:', error);
-      return { data: null, error };
-    }
-  }
-
-  static async getDebatesWithoutEmbeddings() {
-    try {
-      const { data: embeddingIds, error: embeddingError } = await supabase
-        .from('debate_embeddings')
-        .select('debate_id');
-
-      if (embeddingError) throw embeddingError;
-
-      const embeddingIdList = embeddingIds.map(e => e.debate_id);
-
-      const query = supabase
-        .from('debates')
-        .select(`
-          id,
-          ext_id,
-          title,
-          ai_summary,
-          ai_key_points,
-          ai_topics,
-          type,
-          date,
-          speakers
-        `);
-
-      if (embeddingIdList.length > 0) {
-        query.not('id', 'in', embeddingIdList);
-      }
-
-      const { data, error } = await query;
-
-      if (error) throw error;
-      return { data, error: null };
-    } catch (error) {
-      logger.error('Failed to get debates without embeddings:', error);
-      return { data: [], error };
-    }
-  }
-
   static async getDebateByExtId(extId) {
     try {
       const { data, error } = await supabase
-        .from('debates')
+        .from('debates_new')
         .select('*')
         .eq('ext_id', extId)
         .limit(1);
@@ -328,123 +124,150 @@ export class SupabaseService {
     }
   }
 
-  static async updateDebateFileId({ extId, fileId }) {
+  static async batchUpsertDebates(debates) {
     try {
+      logger.debug('Batch upserting debates:', {
+        count: debates.length,
+        ids: debates.map(d => d.ext_id)
+      });
+
       const { data, error } = await supabase
-        .from('debates')
-        .update({ 
-          file_id: fileId,
-          updated_at: new Date().toISOString()
-        })
-        .eq('ext_id', extId)
-        .select();
+        .from('debates_new')
+        .upsert(debates, {
+          onConflict: ['ext_id'],
+          returning: true
+        });
 
-      if (error) throw error;
-      return { data, error: null };
-    } catch (error) {
-      logger.error('Failed to update debate file_id:', error);
-      return { data: null, error };
-    }
-  }
-
-  static async getDebatesWithoutFileChunks() {
-    try {
-      const { data: chunkedDebates, error: chunksError } = await supabase
-        .from('debate_file_chunks')
-        .select('debate_id');
-
-      if (chunksError) throw chunksError;
-
-      const chunkedDebateIds = chunkedDebates.map(d => d.debate_id);
-
-      const query = supabase
-        .from('debates')
-        .select('*')
-        .order('date', { ascending: false });
-
-      if (chunkedDebateIds.length > 0) {
-        query.not('id', 'in', chunkedDebateIds);
+      if (error) {
+        logger.error('Batch upsert failed:', {
+          error: error.message,
+          details: error.details,
+          hint: error.hint
+        });
+        throw error;
       }
 
-      const { data, error } = await query;
+      if (!data) {
+        console.log('Upsert succeeded');
+        return true;  // Return the original data since upsert succeeded
+      }
 
-      if (error) throw error;
-      return { data, error: null };
+      logger.debug('Successfully batch upserted debates:', {
+        count: data.length,
+        ids: data.map(d => d.ext_id)
+      });
+
+      return data;
     } catch (error) {
-      logger.error('Failed to get debates without file chunks:', error);
-      return { data: [], error };
+      logger.error('Failed to batch upsert debates:', {
+        error: error.message,
+        stack: error.stack,
+        debates: debates.map(d => ({ ext_id: d.ext_id, title: d.title }))
+      });
+      throw error;
     }
   }
 
-  static async getDebatesWithMissingContent(pageSize = 10, startRange = 0) {
+  static async getCurrentVectorStore(startDate) {
     try {
-      // First get debates with missing AI content
+      logger.debug('Fetching current vector store for start date:', startDate);
+      
       const { data, error } = await supabase
-        .from('debates')
-        .select(`
-          ext_id,
-          ai_overview,
-          ai_summary,
-          ai_topics,
-          ai_key_points,
-          ai_comment_thread,
-          ai_question,
-          divisions (
-            external_id,
-            debate_section_ext_id,
-            division_number,
-            text_before_vote,
-            ayes_count,
-            noes_count,
-            ai_question,
-            ai_topic,
-            ai_context,
-            ai_key_arguments
-          )
-        `)
-        .or(
-          'ai_summary.is.null,' +
-          'ai_topics.is.null,' +
-          'ai_key_points.is.null,' +
-          'ai_comment_thread.is.null,' +
-          'ai_question.is.null'
-        )
-        .order('date', { ascending: false })
-        .range(startRange, startRange + pageSize - 1)
-        .limit(pageSize);
+        .from('vector_stores')
+        .select('*')
+        .eq('start_date', startDate)
+        .order('created_at', { ascending: false })
+        .limit(1);
 
-      if (error) throw error;
+      if (error) {
+        logger.error('Failed to fetch current vector store:', {
+          error: error.message,
+          details: error.details,
+          startDate
+        });
+        throw error;
+      }
 
-      // Debug logging
-      const debugInfo = data?.map(debate => ({
-        ext_id: debate.ext_id,
-        missing_fields: [
-          !debate.ai_summary && 'ai_summary',
-          !debate.ai_topics && 'ai_topics',
-          !debate.ai_key_points && 'ai_key_points',
-          !debate.ai_comment_thread && 'ai_comment_thread',
-          !debate.ai_question && 'ai_question',
-          debate.divisions?.some(d => !d.ai_question) && 'division_questions'
-        ].filter(Boolean)
-      }));
+      if (!data || data.length === 0) {
+        logger.debug('No vector store found for start date:', startDate);
+        return null;
+      }
 
-      logger.debug('Found debates with missing content:', {
-        count: data?.length,
-        range: `${startRange}-${startRange + pageSize - 1}`,
-        sample: debugInfo?.[0],
+      logger.debug('Found vector store:', {
+        store_id: data[0].store_id,
+        store_name: data[0].store_name,
+        start_date: data[0].start_date,
+        end_date: data[0].end_date
       });
 
-      return { 
-        data, 
-        error: null,
-        hasMore: data?.length === pageSize
-      };
+      return data[0];
     } catch (error) {
-      logger.error('Failed to fetch debates with missing content:', {
+      logger.error('Error in getCurrentVectorStore:', {
         error: error.message,
-        stack: error.stack
+        stack: error.stack,
+        startDate
       });
-      return { data: null, error };
+      throw error;
+    }
+  }
+
+  static async createWeeklyVectorStore(storeId, startDate, endDate, assistantId) {
+    try {
+      logger.debug('Creating new weekly vector store:', {
+        store_id: storeId,
+        assistant_id: assistantId,
+        start_date: startDate,
+        end_date: endDate
+      });
+
+      // Deactivate previous stores
+      const { error: updateError } = await supabase
+        .from('vector_stores')
+        .update({ is_active: false })
+        .eq('is_active', true);
+
+      if (updateError) {
+        logger.error('Failed to deactivate previous stores:', updateError);
+        throw updateError;
+      }
+
+      // Create new store record
+      const { data, error } = await supabase
+        .from('vector_stores')
+        .insert({
+          store_id: storeId,
+          assistant_id: assistantId,
+          store_name: `Weekly Debates ${startDate.toISOString().split('T')[0]}`,
+          start_date: startDate.toISOString(),
+          end_date: endDate.toISOString(),
+          is_active: true
+        })
+        .select()
+        .single();
+
+      if (error) {
+        logger.error('Failed to create vector store record:', {
+          error: error.message,
+          details: error.details
+        });
+        throw error;
+      }
+
+      logger.debug('Successfully created weekly vector store:', {
+        store_id: data.store_id,
+        assistant_id: data.assistant_id,
+        store_name: data.store_name
+      });
+
+      return data;
+    } catch (error) {
+      logger.error('Error in createWeeklyVectorStore:', {
+        error: error.message,
+        stack: error.stack,
+        store_id: storeId,
+        assistant_id: assistantId
+      });
+      throw error;
     }
   }
 }

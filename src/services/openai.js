@@ -18,28 +18,13 @@ export class OpenAIService {
           role: "user",
           content: prompt
         }],
-        temperature: options.temperature || 0.3,
+        temperature: options.temperature || 0,
         max_tokens: options.maxTokens || 500
       });
 
       return response.choices[0].message.content;
     } catch (error) {
       logger.error('OpenAI API error:', error);
-      throw error;
-    }
-  }
-
-  static async generateEmbedding(text) {
-    try {
-      const response = await openai.embeddings.create({
-        model: "text-embedding-3-small",
-        input: text,
-        encoding_format: "float"
-      });
-
-      return response.data[0].embedding;
-    } catch (error) {
-      logger.error('OpenAI Embedding API error:', error);
       throw error;
     }
   }

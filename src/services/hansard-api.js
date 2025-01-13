@@ -2,6 +2,31 @@ import logger from '../utils/logger.js';
 
 const HANSARD_API_BASE = 'https://hansard-api.parliament.uk';
 
+/**
+ * Main flow to fetch latest debate data:
+ * 1. getDebatesList() is the main entry point
+ *    - Calls getLastSittingDate() if no date provided
+ *    - Fetches debates for both Commons and Lords in parallel
+ *    - Will try up to 5 previous dates if no debates found
+ * 
+ * 2. For each house:
+ *    - Gets available sections via getAvailableSections()
+ *    - Processes sections in batches of 5 via processHouseDebates()
+ *    - For each section, fetches section trees via fetchSectionTrees()
+ * 
+ * 3. For each debate found:
+ *    - Fetches full debate data via fetchDebate()
+ *    - Fetches speakers list via fetchSpeakers()
+ * 
+ * Potential redundant API calls:
+ * - In processItems(): Debate data is fetched twice if getDebateDetails() 
+ *   is called separately for the same debate
+ * - In getLastSittingDate(): Both Commons and Lords dates are always fetched 
+ *   when no house is specified, even if only one is needed
+ * - In getDebatesList(): Debates for both houses are always fetched initially,
+ *   even when only one house is requested
+ */
+
 export class HansardAPI {
   static async fetchWithErrorHandling(url, retryCount = 0) {
     const MAX_RETRIES = 3;
@@ -33,7 +58,7 @@ export class HansardAPI {
   }
 
   static async fetchSectionTrees(config) {
-    const url = `${HANSARD_API_BASE}/overview/sectiontrees.${config.format}?` + 
+    const url = `${HANSARD_API_BASE}/overview/sectiontrees.json?` + 
       new URLSearchParams({
         house: config.house,
         date: config.date,
@@ -55,21 +80,28 @@ export class HansardAPI {
 
   static async getLastSittingDate(house) {
     try {
+      // Only fetch the requested house
       if (house) {
         const url = `${HANSARD_API_BASE}/overview/lastsittingdate.json?` +
           new URLSearchParams({ house });
         const response = await this.fetchWithErrorHandling(url);
-        return response.replace(/"/g, '').trim(); // Remove quotes and whitespace
+        return response.replace(/"/g, '').trim();
       }
 
-      // Fetch both houses in parallel
-      const [commonsDate, lordsDate] = await Promise.all([
-        this.getLastSittingDate('Commons'),
-        this.getLastSittingDate('Lords')
-      ]);
-
-      // Return the most recent date
-      return new Date(commonsDate) > new Date(lordsDate) ? commonsDate : lordsDate;
+      // If no house specified, fetch Commons first and only fetch Lords if needed
+      const commonsDate = await this.getLastSittingDate('Commons');
+      const commonsDateTime = new Date(commonsDate);
+      
+      // Only fetch Lords if Commons date is old (e.g., more than 2 days old)
+      const twoDaysAgo = new Date();
+      twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
+      
+      if (commonsDateTime < twoDaysAgo) {
+        const lordsDate = await this.getLastSittingDate('Lords');
+        return new Date(commonsDate) > new Date(lordsDate) ? commonsDate : lordsDate;
+      }
+      
+      return commonsDate;
     } catch (error) {
       logger.error('Failed to fetch last sitting date:', {
         error: error.message,
@@ -99,7 +131,7 @@ export class HansardAPI {
 
   static async getDebatesList(date, house = 'Commons') {
     try {
-      const targetDate = date || await this.getLastSittingDate();
+      const targetDate = date || await this.getLastSittingDate(house); // Only fetch date for requested house
       let currentDate = new Date(targetDate);
       let attempts = 0;
       const MAX_ATTEMPTS = 5;
@@ -107,15 +139,11 @@ export class HansardAPI {
       while (attempts < MAX_ATTEMPTS) {
         const formattedDate = currentDate.toISOString().split('T')[0];
 
-        // Get available sections for both houses in parallel
-        const [commonsDebates, lordsDebates] = await Promise.all([
-          this.processHouseDebates(formattedDate, 'Commons'),
-          this.processHouseDebates(formattedDate, 'Lords')
-        ]);
+        // Only fetch debates for the requested house
+        const debates = await this.processHouseDebates(formattedDate, house);
 
-        // If either house has debates, return results for the specified house
-        if (commonsDebates.length > 0 || lordsDebates.length > 0) {
-          return house === 'Commons' ? commonsDebates : lordsDebates;
+        if (debates.length > 0) {
+          return debates;
         }
 
         logger.info('No debates found, trying previous day:', { 
@@ -156,12 +184,11 @@ export class HansardAPI {
         const batch = sections.slice(i, i + batchSize);
         const batchPromises = batch.map(async (section) => {
           const sectionData = await this.fetchSectionTrees({
-            format: 'json',
             house,
             date,
             section
           });
-          
+          console.log(sectionData);
           if (!Array.isArray(sectionData)) {
             logger.warn('Invalid section data:', { section, house, date });
             return [];
@@ -190,34 +217,65 @@ export class HansardAPI {
     }
   }
 
-  static async processItems(items, parentTitle = '', context = {}) {
+  // Cache for debate details to prevent duplicate fetches
+  static debateCache = new Map();
+
+  static async processItems(items, context = {}) {
     if (!Array.isArray(items)) return [];
 
-    // Process all items in parallel
+    let isFirstDebate = true; // Flag to track first debate
+
     const promises = items.map(async (item) => {
       if (item.ExternalId) {
         try {
+          // Check cache first
+          if (this.debateCache.has(item.ExternalId)) {
+            return this.debateCache.get(item.ExternalId);
+          }
+
           // Make API calls in parallel
           const [debateData, speakersData] = await Promise.all([
             HansardAPI.fetchDebate(item.ExternalId),
             HansardAPI.fetchSpeakers(item.ExternalId)
           ]);
           
-          // Ensure we have the correct structure
-          return {
+          const result = {
             ExternalId: item.ExternalId,
             Title: item.Title,
-            parentTitle,
             debateDate: context.date,
             house: context.house,
             section: context.section,
             Items: debateData.Items || [],
             Overview: debateData.Overview,
-            ChildDebates: debateData.ChildDebates || [],
             speakers: speakersData,
-            // Include the raw debate data for compatibility
             debate: debateData
           };
+
+          // Only log detailed structure for first debate
+          if (isFirstDebate) {
+            logger.info('First debate structure:', {
+              structure: {
+                keys: Object.keys(result),
+                itemsLength: result.Items.length,
+                firstItem: result.Items[0] ? {
+                  keys: Object.keys(result.Items[0]),
+                  sample: JSON.stringify(result.Items[0]).slice(0, 200) + '...'
+                } : null,
+                speakersLength: result.speakers?.length,
+                firstSpeaker: result.speakers?.[0] ? {
+                  keys: Object.keys(result.speakers[0]),
+                  sample: JSON.stringify(result.speakers[0]).slice(0, 200) + '...'
+                } : null,
+                overviewKeys: result.Overview ? Object.keys(result.Overview) : null
+              }
+            });
+            isFirstDebate = false;
+          }
+
+          // Cache the result
+          this.debateCache.set(item.ExternalId, result);
+          
+          return result;
         } catch (error) {
           logger.error('Failed to fetch debate details:', {
             error: error.message,
@@ -229,7 +287,7 @@ export class HansardAPI {
       }
       
       if (item.SectionTreeItems) {
-        return HansardAPI.processItems(item.SectionTreeItems, item.Title, context);
+        return HansardAPI.processItems(item.SectionTreeItems, context);
       }
       
       return null;
@@ -242,18 +300,34 @@ export class HansardAPI {
 
   static async getDebateDetails(debateSectionExtId) {
     try {
+      // Check cache first
+      if (this.debateCache.has(debateSectionExtId)) {
+        const cached = this.debateCache.get(debateSectionExtId);
+        return {
+          ExternalId: cached.ExternalId,
+          Title: cached.Title,
+          Items: cached.Items,
+          Overview: cached.Overview,
+          speakers: cached.speakers
+        };
+      }
+
+      // If not in cache, fetch and cache the result
       const [debateData, speakers] = await Promise.all([
         this.fetchDebate(debateSectionExtId),
         this.fetchSpeakers(debateSectionExtId)
       ]);
 
-      return {
+      const result = {
         ExternalId: debateSectionExtId,
         Title: debateData.Title,
         Items: debateData.Items,
         Overview: debateData.Overview,
         speakers
       };
+
+      this.debateCache.set(debateSectionExtId, result);
+      return result;
     } catch (error) {
       logger.error('Failed to get debate details:', {
         error: error.message,

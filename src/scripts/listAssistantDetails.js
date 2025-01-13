@@ -6,7 +6,7 @@ import logger from '../utils/logger.js';
 async function listAssistantDetails() {
   try {
     const assistant = await openai.beta.assistants.retrieve(
-      'asst_qVQP4gTRYIeZLXSPy5csWlpe'
+      'asst_xk2tjHDfwmk3ldHUHhx9L5KW'
     );
 
     logger.info('raw assistant', assistant);
@@ -17,6 +17,8 @@ async function listAssistantDetails() {
     logger.info(`  Model: ${assistant.model}`);
     logger.info(`  Description: ${assistant.description}`);
     logger.info(`  Created: ${new Date(assistant.created_at * 1000).toLocaleString()}`);
+    logger.info(`  Instructions: ${assistant.instructions}`);
+    logger.info(`  Vector Store IDs: ${assistant.tool_resources?.file_search?.vector_store_ids}`);
     
     if (assistant.tools && assistant.tools.length) {
       logger.info('\nTools:');
