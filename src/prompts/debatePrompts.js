@@ -25,10 +25,6 @@ export const DebateAnalysisSchema = z.object({
     statistics: z.array(z.object({
       value: z.string(),
       context: z.string()
-    })),
-    dates: z.array(z.object({
-      date: z.string(),
-      significance: z.string()
     }))
   }),
   speaker_points: z.array(SpeakerSchema)
@@ -38,7 +34,7 @@ export const debateResponseFormat = (schema = DebateAnalysisSchema) =>
   zodResponseFormat(schema, "debate_analysis");
 
 export function getPrompt(debate) {
-  return `As an expert UK parliamentary analyst, provide a briefing on this ${debate.overview?.Type || ''} parliamentary session. Focus on key information and outcomes.
+  return `As an expert UK parliamentary analyst, provide a briefing on this ${debate.overview?.Type || ''} parliamentary session. Focus on subject matter and outcomes.
 
 Context:
 ${debate.context}
@@ -47,15 +43,15 @@ ${debate.typePrompt || ''}
 
 Provide:
 1. ANALYSIS
-- Main points, overall structure, and outcomes
+- Main points, subject matter, and overall structure
+- Outcome
 - Key statistics with context
-- Important dates and deadlines
 
 2. SPEAKER ANALYSIS
 For every speaker:
 - Name, role, and party
 - All points made
-- Highlight most notable points, questions, responses, and commitments
+- Ensure every speaker's points are included
 
 Focus on accuracy and relevance. Include exact figures and dates where mentioned.`;
 }

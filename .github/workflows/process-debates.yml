@@ -2,7 +2,8 @@ name: Process Hansard Debates
 
 on:
   schedule:
-    - cron: '30 6 * * 1-5'  # Runs at 6:30 AM UTC, Monday-Friday
+    - cron: '30 6 * * 1-5'  # Runs at 6:30 AM GMT, Monday-Friday
+    - cron: '0 13 * * 1-5'  # Runs at 1:00 PM GMT, Monday-Friday
   workflow_dispatch:
 
 jobs:
