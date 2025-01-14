@@ -31,7 +31,7 @@ export const DebateAnalysisSchema = z.object({
       significance: z.string()
     }))
   }),
-  speakers: z.array(SpeakerSchema)
+  speaker_points: z.array(SpeakerSchema)
 });
 
 export const debateResponseFormat = (schema = DebateAnalysisSchema) => 

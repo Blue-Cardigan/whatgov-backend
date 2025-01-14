@@ -125,7 +125,6 @@ async function getOrCreateWeeklyStore(debateDate) {
     // Create the vector store in OpenAI
     const vectorStore = await openai.beta.vectorStores.create({
       name: storeName,
-      description: `Weekly debate store for week starting ${startOfWeek.toISOString().split('T')[0]}`,
       metadata: {
         start_date: startOfWeek.toISOString(),
         end_date: endOfWeek.toISOString(),
