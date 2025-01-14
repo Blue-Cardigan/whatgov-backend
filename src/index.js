@@ -2,6 +2,7 @@ import { processDebates } from './processors/debateProcessor.js';
 import logger from './utils/logger.js';
 import fs from 'fs';
 import fetch from 'node-fetch';
+import { HansardService } from './services/hansard.js';
 
 const DEFAULT_PROCESS = ['analysis'];
 
@@ -58,13 +59,14 @@ async function processDateRange(startDate, endDate) {
 
 async function processNewDebates() {
   try {
-    const startDate = new Date();
-    
+    // Fetch the last sitting date
+    const lastSittingDate = await HansardService.getLastSittingDate();
+
     logger.info('Processing new debates for:', {
-      date: startDate.toISOString().split('T')[0]
+      date: lastSittingDate
     });
 
-    const results = await processDateRange(startDate, startDate);
+    const results = await processDateRange(lastSittingDate, lastSittingDate);
     return results.some(r => r.success);
   } catch (error) {
     logger.error('Failed to process new debates:', {
