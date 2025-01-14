@@ -60,6 +60,7 @@ function getDebateType(overview) {
   // Process Commons debate types
   let type = (overview.HRSTag || 'Committee')
     .replace('hs_2BillTitle', 'Bill Reading')
+    .replace('hs_2cBillTitle', 'Bill Reading')
     .replace('hs_8Question', 'Question')
     .replace('hs_8Statement', 'Written Statement')
     .replace('hs_8Petition', 'Petition')

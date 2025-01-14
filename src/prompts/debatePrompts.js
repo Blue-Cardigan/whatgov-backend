@@ -20,7 +20,7 @@ const SpeakerSchema = z.object({
 
 export const DebateAnalysisSchema = z.object({
   analysis: z.object({
-    main_points: z.string(),
+    main_content: z.string(),
     outcome: z.string(),
     statistics: z.array(z.object({
       value: z.string(),
