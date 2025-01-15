@@ -28,8 +28,19 @@ export function validateDebateContent(debateDetails) {
     }
 
     // Skip if all memberId values are null
-    if (debateDetails.Items.every(item => item?.memberId === null)) {
+    if (debateDetails.Items.every(item => item?.MemberId === null)) {
       return null;
+    }
+
+    // Skip debates with a single contribution under 100 words
+    if (debateDetails.Items.length === 1 && debateDetails.Items[0]?.ItemType === 'Contribution') {
+      const wordCount = debateDetails.Items[0].Value
+        ? debateDetails.Items[0].Value.trim().split(/\s+/).length
+        : 0;
+      
+      if (wordCount < 100) {
+        return null;
+      }
     }
 
     return 'valid';

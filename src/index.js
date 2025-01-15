@@ -3,10 +3,21 @@ import logger from './utils/logger.js';
 import fs from 'fs';
 import fetch from 'node-fetch';
 import { HansardService } from './services/hansard.js';
+import { SupabaseService } from './services/supabase.js';
 
 const DEFAULT_PROCESS = ['analysis'];
 
-async function processDateRange(startDate, endDate) {
+async function processDateRange(startDate, endDate, specificDebateId = null) {
+  // If specific debate ID provided, fetch and process single debate
+  if (specificDebateId) {
+    logger.info(`Processing single debate: ${specificDebateId}`);
+    const debate = await HansardService.fetchDebate(specificDebateId);
+    if (!debate) {
+      throw new Error(`Failed to fetch debate: ${specificDebateId}`);
+    }
+    return processDebates(null, specificDebateId, DEFAULT_PROCESS, [debate]);
+  }
+
   const start = new Date(startDate);
   const end = new Date(endDate);
   const results = [];
@@ -20,17 +31,80 @@ async function processDateRange(startDate, endDate) {
     
     while (retryCount < MAX_RETRIES) {
       try {
+        // Get all debates for this date
+        const options = { specificDate: formattedDate };
+        const allDebates = await HansardService.getLatestDebates(options);
+        
+        // Log total debates found
+        logger.info(`Found ${allDebates.length} total debates for date: ${formattedDate}`);
+        
+        // Check which debates already exist in database
+        const existingDebatesResults = await Promise.all(
+          allDebates.map(async (debate) => {
+            try {
+              const result = await SupabaseService.getDebateByExtId(debate.ExternalId);
+              if (result.error) {
+                logger.warn(`Error checking debate existence: ${debate.ExternalId}`, {
+                  error: result.error
+                });
+              }
+              return { debate, exists: result?.data?.[0] != null };
+            } catch (error) {
+              logger.warn(`Failed to check debate existence: ${debate.ExternalId}`, {
+                error: error.message
+              });
+              return { debate, exists: false };
+            }
+          })
+        );
+        
+        // Log all skipped debates
+        existingDebatesResults
+          .filter(result => result.exists)
+          .forEach(result => {
+            logger.info(`Skipping existing debate: ${result.debate.ExternalId}`, {
+              title: result.debate.Overview?.Title
+            });
+          });
+        
+        // Filter out existing debates
+        const newDebates = existingDebatesResults
+          .filter(result => !result.exists)
+          .map(result => result.debate);
+
+        if (newDebates.length === 0) {
+          logger.info(`No new debates to process for date: ${formattedDate}`);
+          results.push({
+            date: formattedDate,
+            success: true,
+            skipped: true,
+            totalDebates: allDebates.length,
+            newDebates: 0
+          });
+          break;
+        }
+
+        logger.info(`Processing ${newDebates.length} new debates out of ${allDebates.length} total for date: ${formattedDate}`, {
+          newDebateIds: newDebates.map(d => d.ExternalId)
+        });
+        
+        // Process the filtered debates
         const dateResults = await processDebates(
           formattedDate,
           null,
-          DEFAULT_PROCESS
+          DEFAULT_PROCESS,
+          newDebates // Pass all new debates
         );
-        console.log('Date results:', dateResults.length);
+        
+        logger.info(`Successfully processed ${dateResults.length} new debates for date: ${formattedDate}`);
         results.push({
           date: formattedDate,
-          success: dateResults
+          success: true,
+          newCount: dateResults.length,
+          skippedCount: allDebates.length - newDebates.length,
+          totalDebates: allDebates.length
         });
-        break; // Success, move to next date
+        break;
       } catch (error) {
         retryCount++;
         if (retryCount === MAX_RETRIES) {
@@ -79,10 +153,15 @@ async function processNewDebates() {
 
 async function notifyScheduler() {
   try {
+    if (!process.env.SCHEDULER_API_KEY) {
+      logger.warn('SCHEDULER_API_KEY not set, skipping scheduler notification');
+      return;
+    }
+
     const response = await fetch('https://whatgov.co.uk/api/scheduler/process', {
       method: 'POST',
       headers: {
-        'X-API-Key': 'scheduler-api-key'
+        'X-API-Key': process.env.SCHEDULER_API_KEY
       }
     });
     
@@ -112,8 +191,8 @@ async function main() {
     let results;
 
     if (debateIdArg) {
-      logger.info(`Processing single debate: ${debateIdArg}`);
-      results = await processDebates(null, debateIdArg, DEFAULT_PROCESS);
+      // Pass the debate ID through processDateRange instead
+      results = await processDateRange(null, null, debateIdArg);
     }
     else if (dateArgs.length > 0) {
       const startDate = new Date(dateArgs[0]);

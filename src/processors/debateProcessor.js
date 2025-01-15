@@ -4,58 +4,23 @@ import { getTypeSpecificPrompt, formatDebateContext } from '../utils/debateUtils
 import { generateAnalysis } from './generateAnalysis.js';
 import { upsertResultsToVectorStore } from './upsertResultstoVectorStore.js';
 
-export async function processDebates(specificDate = null, specificDebateId = null) {
+export async function processDebates(
+  specificDate = null,
+  specificDebateId = null,
+  debatesToProcess = []
+) {
   try {
-    let debatesToProcess = [];
-    
-    // Log initial processing parameters
     logger.info('Starting debate processing:', {
       specificDate,
       specificDebateId,
+      debateCount: debatesToProcess.length,
       timestamp: new Date().toISOString()
     });
-    
-    if (specificDebateId) {
-      try {
-        const debate = await HansardService.fetchDebate(specificDebateId);
-        
-        if (!debate) {
-          throw new Error('No debate data returned');
-        }
-
-        logger.debug('Fetched specific debate:', {
-          id: specificDebateId,
-          title: debate.Title,
-          itemCount: debate.Items?.length
-        });
-        
-        debatesToProcess = [{
-          ExternalId: specificDebateId,
-          debate
-        }];
-        
-      } catch (error) {
-        logger.error(`Failed to fetch specific debate ${specificDebateId}:`, {
-          error: error.message,
-          stack: error.stack
-        });
-        return false;
-      }
-    } else {
-      debatesToProcess = await HansardService.getLatestDebates({
-        specificDate
-      });
-    }
 
     if (!debatesToProcess.length) {
       logger.info('No debates to process');
-      return true;
+      return [];
     }
-
-    logger.info('Beginning debate processing:', {
-      totalDebates: debatesToProcess.length,
-      startTime: new Date().toISOString()
-    });
 
     // Process debates sequentially but collect results for bulk upload
     const processedResults = [];
@@ -65,28 +30,27 @@ export async function processDebates(specificDate = null, specificDebateId = nul
 
     for (let i = 0; i < debatesToProcess.length; i++) {
       const debate = debatesToProcess[i];
-      const debateData = debate.debate || debate;
       
       logger.info(`Processing debate ${i + 1}/${debatesToProcess.length}:`, {
         id: debate.ExternalId,
-        title: debateData.Overview?.Title,
-        type: debateData.Overview?.Type
+        title: debate.Overview?.Title,
+        type: debate.Overview?.Type
       });
 
       // Format debate for processing
       const processedDebate = {
         ext_id: debate.ExternalId,
         id: debate.ExternalId,
-        context: formatDebateContext(debateData.Overview, debateData.Items),
-        typePrompt: getTypeSpecificPrompt(debateData.Overview?.Type),
-        overview: debateData.Overview
+        context: formatDebateContext(debate.Overview, debate.Items),
+        typePrompt: getTypeSpecificPrompt(debate.Overview?.Type),
+        overview: debate.Overview
       };
 
       const startTime = Date.now();
       
       try {
         // Extract unique speakers
-        const debateSpeakers = extractUniqueSpeakers(debateData);
+        const debateSpeakers = extractUniqueSpeakers(debate);
         debateSpeakers.forEach(speaker => allSpeakers.add(speaker));
 
         logger.debug('Generating analysis:', {

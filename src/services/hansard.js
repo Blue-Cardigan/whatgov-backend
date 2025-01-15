@@ -335,14 +335,26 @@ export class HansardService {
       }
       else {
         // Match pattern: "Name (Constituency) (Party)"
-        const match = item.AttributedTo.match(/^([^(]+)\s*\(([^)]+)\)\s*\(([^)]+)\)/);
-        if (match) {
-          const rawParty = match[3].trim();
+        const fullMatch = item.AttributedTo.match(/^([^(]+)\s*\(([^)]+)\)\s*\(([^)]+)\)/);
+        if (fullMatch) {
+          const rawParty = fullMatch[3].trim();
           return {
             MemberId: item.MemberId,
-            Name: match[1].trim(),
-            Constituency: match[2].trim(),
-            Party: PARTY_MAPPINGS[rawParty] || rawParty, // Use mapping if available, otherwise keep original
+            Name: fullMatch[1].trim(),
+            Constituency: fullMatch[2].trim(),
+            Party: PARTY_MAPPINGS[rawParty] || rawParty,
+            firstSeen: item.Timecode
+          };
+        }
+
+        // Match pattern: "Name (Party)" - typically used for Lords
+        const simpleMatch = item.AttributedTo.match(/^([^(]+)\s*\(([^)]+)\)/);
+        if (simpleMatch) {
+          const rawParty = simpleMatch[2].trim();
+          return {
+            MemberId: item.MemberId,
+            Name: simpleMatch[1].trim(),
+            Party: PARTY_MAPPINGS[rawParty] || rawParty,
             firstSeen: item.Timecode
           };
         }
@@ -498,5 +510,32 @@ export class HansardService {
   // Add method to get all cached members
   static getAllMembers() {
     return Array.from(this.memberCache.values());
+  }
+
+  static async getDebateIds(date, house) {
+    try {
+      // Get debates from both houses if no specific house is specified
+      const [commonsDebates, lordsDebates] = await Promise.all([
+        this.getHouseDebates(date, 'Commons'),
+        this.getHouseDebates(date, 'Lords')
+      ]);
+
+      // Combine and extract debate IDs
+      const allDebates = [...commonsDebates, ...lordsDebates];
+      const debateIds = allDebates
+        .filter(debate => debate?.ExternalId)
+        .map(debate => debate.ExternalId);
+
+      logger.debug(`Found ${debateIds.length} debate IDs for date ${date}`);
+      return debateIds;
+    } catch (error) {
+      logger.error('Failed to get debate IDs:', {
+        error: error.message,
+        stack: error.stack,
+        date,
+        house
+      });
+      throw error;
+    }
   }
 }
