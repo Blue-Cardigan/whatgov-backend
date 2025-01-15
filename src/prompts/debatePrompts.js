@@ -3,7 +3,6 @@ import { zodResponseFormat } from 'openai/helpers/zod';
 
 // Simplified schemas with clear, focused descriptions
 const ContributionSchema = z.object({
-  type: z.enum(['key_point', 'question', 'response']),
   content: z.string(),
   references: z.array(z.object({
     text: z.string(),
@@ -14,7 +13,8 @@ const ContributionSchema = z.object({
 const SpeakerSchema = z.object({
   name: z.string(),
   role: z.string().optional(),
-  party: z.string(),
+  party: z.string().optional(),
+  constituency: z.string().optional(),
   contributions: z.array(ContributionSchema)
 });
 
@@ -49,8 +49,9 @@ Provide:
 
 2. SPEAKER ANALYSIS
 For every speaker:
-- Name, role, and party
-- All points made
+- Name
+- Role, party, and constituency if present
+- Compressed points made
 - Ensure every speaker's points are included
 
 Focus on accuracy and relevance. Include exact figures and dates where mentioned.`;
