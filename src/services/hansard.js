@@ -358,14 +358,14 @@ export class HansardService {
             firstSeen: item.Timecode
           };
         }
-      }
 
-      // Log unhandled format
-      logger.debug('Unhandled member format:', { 
-        attributedTo: item.AttributedTo,
-        memberId: item.MemberId 
-      });
-      return null;
+        // Handle basic name-only format
+        return {
+          MemberId: item.MemberId,
+          Name: item.AttributedTo.trim(),
+          firstSeen: item.Timecode
+        };
+      }
     } catch (error) {
       logger.error('Failed to extract member details:', {
         error: error.message,
