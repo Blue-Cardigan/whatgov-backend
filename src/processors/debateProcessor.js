@@ -7,12 +7,14 @@ import { upsertResultsToVectorStore } from './upsertResultstoVectorStore.js';
 export async function processDebates(
   specificDate = null,
   specificDebateId = null,
+  processTypes = ['analysis'],
   debatesToProcess = []
 ) {
   try {
     logger.info('Starting debate processing:', {
       specificDate,
       specificDebateId,
+      processTypes,
       debateCount: debatesToProcess.length,
       timestamp: new Date().toISOString()
     });

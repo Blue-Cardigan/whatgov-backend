@@ -93,7 +93,7 @@ async function processDateRange(startDate, endDate, specificDebateId = null) {
           formattedDate,
           null,
           DEFAULT_PROCESS,
-          newDebates // Pass all new debates
+          newDebates
         );
         
         logger.info(`Successfully processed ${dateResults.length} new debates for date: ${formattedDate}`);

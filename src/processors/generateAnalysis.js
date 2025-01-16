@@ -108,11 +108,6 @@ export async function generateAnalysis(debate, uniqueSpeakers = []) {
     const contextWords = trimmedContext.split(/\s+/).length;
     const speakerCount = uniqueSpeakers?.length || 0;  // Add safe access
     
-    // Calculate token scaling based on context length
-    const analysisScaling = Math.min(1.0, Math.max(0.3, 
-      1 - (contextWords / 10000)  // Scale down for longer contexts
-    ));
-    
     // Estimate max tokens needed
     const maxTokens = Math.min(4096, Math.floor(
       (contextWords * 1.5) + (speakerCount * 200)
