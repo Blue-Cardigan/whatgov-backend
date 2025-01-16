@@ -3,6 +3,8 @@ import logger from '../utils/logger.js';
 import { getTypeSpecificPrompt, formatDebateContext } from '../utils/debateUtils.js';
 import { generateAnalysis } from './generateAnalysis.js';
 import { upsertResultsToVectorStore } from './upsertResultstoVectorStore.js';
+import fs from 'fs';
+import path from 'path';
 
 export async function processDebates(
   specificDate = null,
@@ -39,7 +41,6 @@ export async function processDebates(
         type: debate.Overview?.Type
       });
 
-      // Format debate for processing
       const processedDebate = {
         ext_id: debate.ExternalId,
         id: debate.ExternalId,
@@ -51,7 +52,6 @@ export async function processDebates(
       const startTime = Date.now();
       
       try {
-        // Extract unique speakers
         const debateSpeakers = extractUniqueSpeakers(debate);
         debateSpeakers.forEach(speaker => allSpeakers.add(speaker));
 
@@ -62,6 +62,28 @@ export async function processDebates(
         });
 
         const analysis = await generateAnalysis(processedDebate, Array.from(debateSpeakers));
+
+        // If this is a specific debate ID, store the raw output
+        if (specificDebateId) {
+          const outputDir = path.join(process.cwd(), 'debug_output');
+          if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+          }
+
+          const outputPath = path.join(outputDir, `${specificDebateId}_output.json`);
+          fs.writeFileSync(outputPath, JSON.stringify({
+            timestamp: new Date().toISOString(),
+            debate: processedDebate,
+            speakers: Array.from(debateSpeakers),
+            raw_analysis: analysis
+          }, null, 2));
+
+          logger.info(`Stored debug output for debate ${specificDebateId}`, {
+            path: outputPath
+          });
+
+          return [{ id: specificDebateId, status: 'debug_stored' }];
+        }
 
         const processingTime = Date.now() - startTime;
         
@@ -82,6 +104,33 @@ export async function processDebates(
 
       } catch (error) {
         failureCount++;
+        
+        // If this is a specific debate ID, store the error output
+        if (specificDebateId) {
+          const outputDir = path.join(process.cwd(), 'debug_output');
+          if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+          }
+
+          const outputPath = path.join(outputDir, `${specificDebateId}_error.json`);
+          fs.writeFileSync(outputPath, JSON.stringify({
+            timestamp: new Date().toISOString(),
+            debate: processedDebate,
+            speakers: Array.from(debateSpeakers),
+            error: {
+              message: error.message,
+              stack: error.stack,
+              raw_response: error.raw_response || null
+            }
+          }, null, 2));
+
+          logger.info(`Stored error output for debate ${specificDebateId}`, {
+            path: outputPath
+          });
+
+          return [{ id: specificDebateId, status: 'error_stored' }];
+        }
+
         logger.error(`Failed to process debate ${processedDebate.ext_id}:`, {
           error: error.message,
           stack: error.stack,
@@ -114,31 +163,35 @@ export async function processDebates(
       return [];
     }
 
-    // Bulk upsert to vector store
-    logger.info('Beginning vector store upsert:', {
-      debateCount: processedResults.length,
-      totalSpeakers: allSpeakers.size,
-      successRate: `${((successCount / debatesToProcess.length) * 100).toFixed(1)}%`
-    });
+    // Only proceed with vector store updates if not processing a specific debate
+    if (!specificDebateId && processedResults.length > 0) {
+      logger.info('Beginning vector store upsert:', {
+        debateCount: processedResults.length,
+        totalSpeakers: allSpeakers.size,
+        successRate: `${((successCount / debatesToProcess.length) * 100).toFixed(1)}%`
+      });
 
-    const debates = processedResults.map(r => r.debate);
-    const analyses = processedResults.map(r => r.analysis);
-    
-    const vectorStoreResults = await upsertResultsToVectorStore(
-      debates,
-      analyses,
-      Array.from(allSpeakers)
-    );
+      const debates = processedResults.map(r => r.debate);
+      const analyses = processedResults.map(r => r.analysis);
+      
+      const vectorStoreResults = await upsertResultsToVectorStore(
+        debates,
+        analyses,
+        Array.from(allSpeakers)
+      );
 
-    logger.info('Processing completed:', {
-      totalProcessed: debatesToProcess.length,
-      successful: successCount,
-      failed: failureCount,
-      vectorStoreUpdates: vectorStoreResults.length,
-      endTime: new Date().toISOString()
-    });
+      logger.info('Processing completed:', {
+        totalProcessed: debatesToProcess.length,
+        successful: successCount,
+        failed: failureCount,
+        vectorStoreUpdates: vectorStoreResults.length,
+        endTime: new Date().toISOString()
+      });
 
-    return vectorStoreResults;
+      return vectorStoreResults;
+    }
+
+    return processedResults;
 
   } catch (error) {
     logger.error('Failed to process debates:', {

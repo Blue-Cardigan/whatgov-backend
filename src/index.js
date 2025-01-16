@@ -150,7 +150,6 @@ async function processNewDebates() {
     return false;
   }
 }
-
 async function notifyScheduler() {
   try {
     if (!process.env.SCHEDULER_API_KEY) {
@@ -161,20 +160,31 @@ async function notifyScheduler() {
     const response = await fetch('https://whatgov.co.uk/api/scheduler/process', {
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
         'X-API-Key': process.env.SCHEDULER_API_KEY
-      }
+      },
+      // Add a timeout to prevent hanging
+      signal: AbortSignal.timeout(30000) // 30 second timeout
     });
     
     if (!response.ok) {
-      throw new Error(`Scheduler API responded with status: ${response.status}`);
+      const errorText = await response.text();
+      throw new Error(`Scheduler API responded with status: ${response.status}, body: ${errorText}`);
     }
     
-    logger.info('Successfully notified scheduler API');
+    const data = await response.json();
+    logger.info('Successfully notified scheduler API', { data });
   } catch (error) {
-    logger.error('Failed to notify scheduler API:', {
-      error: error.message,
-      stack: error.stack
-    });
+    if (error.name === 'AbortError') {
+      logger.error('Scheduler API request timed out');
+    } else {
+      logger.error('Failed to notify scheduler API:', {
+        error: error.message,
+        stack: error.stack
+      });
+    }
+    // You might want to throw the error here depending on your needs
+    // throw error;
   }
 }
 
