@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-01-16T18:44:24.139Z",
+  "debate": {
+    "ext_id": "3D295451-886C-4349-BAB4-A702F3E56DF6",
+    "id": "3D295451-886C-4349-BAB4-A702F3E56DF6",
+    "context": "Title: Community Spaces\n\nType: Question\n\nHouse: House of Commons\n\n\nDebate Transcript:",
+    "typePrompt": "Focus on specific issues raised, quality of answers, and follow-up scrutiny.\nHighlight any new information or commitments obtained.",
+    "overview": {
+      "Id": 4809523,
+      "ExtId": "3D295451-886C-4349-BAB4-A702F3E56DF6",
+      "Title": "Community Spaces",
+      "HRSTag": "hs_8Question",
+      "Date": "2025-01-16T00:00:00",
+      "Location": "Commons Chamber",
+      "House": "Commons",
+      "Source": 1,
+      "VolumeNo": null,
+      "ContentLastUpdated": "2025-01-16T18:14:26.417",
+      "DebateTypeId": 1,
+      "SectionType": 1,
+      "NextDebateExtId": "5BD09F9A-C0EF-41CD-AB4E-A4C5AA198B00",
+      "NextDebateTitle": "Short-term Lets: Regulation",
+      "PreviousDebateExtId": "8797BE3A-4225-4921-A463-4AE2D9B52C87",
+      "PreviousDebateTitle": "Prayers",
+      "Type": "Question"
+    }
+  },
+  "prompt": "Use your expert knowledge on UK Parliament to provide an in-depth analysis with speaker points of this Question session. \n  \n  Your main analysis should:\n  1) Include all details on content and significant contributions.\n  2) Be specific to the debate type.\n  3) Be accurate, chronological, and comprehensive. \n  4) Include outcomes and statistics.\n\n  Your speaker points should:\n  1) Include every speaker and their details (if available), regardless of their length of contribution.\n  2) Only include Party, Role, or Constituency if directly provided. If not provided, do not include.\n  2) Provide a complete set of points made by each speaker, compressed into a few sentences.\n  3) Be accurate, chronological, and comprehensive. \n\nContext:\nTitle: Community Spaces\n\nType: Question\n\nHouse: House of Commons\n\n\nDebate Transcript:\n\nFocus on specific issues raised, quality of answers, and follow-up scrutiny.\nHighlight any new information or commitments obtained.\n\nProvide:\n1. ANALYSIS\n- Comprehensive analysis\n- Outcome\n- Key statistics with context\n\n2. SPEAKER ANALYSIS\nFor every speaker:\n- Name\n- Role, party, and constituency if present\n- Compressed points made\n\nFocus on accuracy and relevance. Include exact figures and dates where mentioned.",
+  "error": {
+    "message": "Unterminated string in JSON at position 83 (line 1 column 84)",
+    "stack": "SyntaxError: Unterminated string in JSON at position 83 (line 1 column 84)\n    at JSON.parse (<anonymous>)\n    at generateAnalysis (file:///Users/cardigan/whatgov-backend/src/processors/generateAnalysis.js:135:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async processDebates (file:///Users/cardigan/whatgov-backend/src/processors/debateProcessor.js:90:26)\n    at async main (file:///Users/cardigan/whatgov-backend/src/index.js:227:17)",
+    "raw_response": null
+  }
+}

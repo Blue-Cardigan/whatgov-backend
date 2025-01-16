@@ -25,6 +25,7 @@ export async function processDebates(
       logger.info('No debates to process');
       return [];
     }
+    console.log('debatesToProcess', debatesToProcess[0])
 
     // Process debates sequentially but collect results for bulk upload
     const processedResults = [];
@@ -35,10 +36,34 @@ export async function processDebates(
     for (let i = 0; i < debatesToProcess.length; i++) {
       const debate = debatesToProcess[i];
       
+      // For specific debate IDs, process the items to get member details
+      if (specificDebateId && debate.Items) {
+        // Create context object for processItems
+        const context = {
+          date: debate.Overview?.Date,
+          house: debate.Overview?.House,
+          section: debate.Overview?.Section
+        };
+
+        // Process the items to get member details
+        const processedItems = await HansardService.processItems([{
+          ExternalId: debate.Overview.ExtId,
+          Title: debate.Overview.Title,
+          Items: debate.Items
+        }], context);
+
+        // Use the first processed item (should only be one for specific ID)
+        if (processedItems?.[0]) {
+          debate.Items = processedItems[0].Items;
+        }
+        console.log('debate', debate)
+      }
+
       logger.info(`Processing debate ${i + 1}/${debatesToProcess.length}:`, {
-        id: debate.ExternalId,
+        id: debate.Overview?.ExtId,
         title: debate.Overview?.Title,
-        type: debate.Overview?.Type
+        type: debate.Overview?.Type,
+        itemCount: debate.Items?.length
       });
 
       const processedDebate = {
@@ -48,6 +73,8 @@ export async function processDebates(
         typePrompt: getTypeSpecificPrompt(debate.Overview?.Type),
         overview: debate.Overview
       };
+
+      console.log(processedDebate.context)
 
       const startTime = Date.now();
       
@@ -65,6 +92,7 @@ export async function processDebates(
 
         // If this is a specific debate ID, store the raw output
         if (specificDebateId) {
+          console.log(processedDebate.type)
           const outputDir = path.join(process.cwd(), 'debug_output');
           if (!fs.existsSync(outputDir)) {
             fs.mkdirSync(outputDir, { recursive: true });
@@ -75,7 +103,8 @@ export async function processDebates(
             timestamp: new Date().toISOString(),
             debate: processedDebate,
             speakers: Array.from(debateSpeakers),
-            raw_analysis: analysis
+            prompt: analysis._debug?.prompt,
+            raw_analysis: analysis._debug?.raw_response || analysis
           }, null, 2));
 
           logger.info(`Stored debug output for debate ${specificDebateId}`, {
@@ -116,7 +145,7 @@ export async function processDebates(
           fs.writeFileSync(outputPath, JSON.stringify({
             timestamp: new Date().toISOString(),
             debate: processedDebate,
-            speakers: Array.from(debateSpeakers),
+            prompt: error.prompt,
             error: {
               message: error.message,
               stack: error.stack,

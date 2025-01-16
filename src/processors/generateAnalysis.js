@@ -90,6 +90,11 @@ export async function generateAnalysis(debate, uniqueSpeakers = []) {
       throw new Error('Invalid debate input');
     }
 
+    // Add minimum content validation
+    if (debate.context.split(/\s+/).length < 50) {
+      logger.warn('Debate content too short for meaningful analysis');
+    }
+
     logger.debug('Generating analysis for debate:', {
       id: debate.id,
       contextLength: debate.context.length,
@@ -106,18 +111,21 @@ export async function generateAnalysis(debate, uniqueSpeakers = []) {
     };
 
     const contextWords = trimmedContext.split(/\s+/).length;
-    const speakerCount = uniqueSpeakers?.length || 0;  // Add safe access
+    const speakerCount = uniqueSpeakers?.length || 0;
     
     // Estimate max tokens needed
     const maxTokens = Math.min(4096, Math.floor(
       (contextWords * 1.5) + (speakerCount * 200)
     ));
 
+    // Generate the prompt
+    const prompt = getPrompt(processedDebate, uniqueSpeakers);
+
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o',
       messages: [{
         role: 'user',
-        content: getPrompt(processedDebate, uniqueSpeakers)
+        content: prompt
       }],
       max_tokens: maxTokens,
       response_format: debateResponseFormat()
@@ -129,10 +137,17 @@ export async function generateAnalysis(debate, uniqueSpeakers = []) {
     return {
       analysis: analysisContent.analysis,
       speaker_points: analysisContent.speaker_points,
-      custom_id: debate.ext_id // Add this to help with matching later
+      custom_id: debate.ext_id,
+      _debug: {
+        prompt,
+        raw_response: analysisContent
+      }
     };
 
   } catch (error) {
+    error.prompt = getPrompt(debate, uniqueSpeakers);
+    error.raw_response = error.raw_response || null;
+    
     logger.error('Failed to generate analysis:', {
       error: error.message,
       debateId: debate.id,

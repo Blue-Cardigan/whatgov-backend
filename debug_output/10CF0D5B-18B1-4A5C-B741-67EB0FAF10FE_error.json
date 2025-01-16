@@ -1,0 +1,32 @@
+{
+  "timestamp": "2025-01-16T18:58:45.272Z",
+  "debate": {
+    "context": "Title: Culture, Media and Sport\n\nType: Department Question\n\nHouse: House of Commons\n\n\nDebate Transcript:",
+    "typePrompt": "",
+    "overview": {
+      "Id": 4809522,
+      "ExtId": "10CF0D5B-18B1-4A5C-B741-67EB0FAF10FE",
+      "Title": "Culture, Media and Sport",
+      "HRSTag": "hs_6bDepartment",
+      "Date": "2025-01-16T00:00:00",
+      "Location": "Commons Chamber",
+      "House": "Commons",
+      "Source": 1,
+      "VolumeNo": null,
+      "ContentLastUpdated": "2025-01-16T18:14:26.417",
+      "DebateTypeId": 1,
+      "SectionType": 1,
+      "NextDebateExtId": "7D94BC43-023E-4F06-AB20-8264FA617B5F",
+      "NextDebateTitle": "Business of the House",
+      "PreviousDebateExtId": "8797BE3A-4225-4921-A463-4AE2D9B52C87",
+      "PreviousDebateTitle": "Prayers",
+      "Type": "Department Question"
+    }
+  },
+  "prompt": "Use your expert knowledge on UK Parliament to provide an in-depth analysis with speaker points of this Department Question session. \n  \n  Your main analysis should:\n  1) Include all details on content and significant contributions.\n  2) Be specific to the debate type.\n  3) Be accurate, chronological, and comprehensive. \n  4) Include outcomes and statistics.\n\n  Your speaker points should:\n  1) Include every speaker and their details (if available), regardless of their length of contribution.\n  2) Only include Party, Role, or Constituency if directly provided. If not provided, do not include.\n  2) Provide a complete set of points made by each speaker, compressed into a few sentences.\n  3) Be accurate, chronological, and comprehensive. \n\nContext:\nTitle: Culture, Media and Sport\n\nType: Department Question\n\nHouse: House of Commons\n\n\nDebate Transcript:\n\n\n\nProvide:\n1. ANALYSIS\n- Comprehensive analysis\n- Outcome\n- Key statistics with context\n\n2. SPEAKER ANALYSIS\nFor every speaker:\n- Name\n- Role, party, and constituency if present\n- Compressed points made\n\nFocus on accuracy and relevance. Include exact figures and dates where mentioned.",
+  "error": {
+    "message": "Unterminated string in JSON at position 110 (line 1 column 111)",
+    "stack": "SyntaxError: Unterminated string in JSON at position 110 (line 1 column 111)\n    at JSON.parse (<anonymous>)\n    at generateAnalysis (file:///Users/cardigan/whatgov-backend/src/processors/generateAnalysis.js:135:34)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async processDebates (file:///Users/cardigan/whatgov-backend/src/processors/debateProcessor.js:91:26)\n    at async main (file:///Users/cardigan/whatgov-backend/src/index.js:235:17)",
+    "raw_response": null
+  }
+}

@@ -178,20 +178,6 @@ export function transformDebate(debateDetails, memberDetails = new Map()) {
       .join('\n')
       .trim();
 
-    // Only include AI fields that have actual content
-    const aiFields = {
-      ai_title: debateDetails.summary?.title || undefined,
-      ai_summary: debateDetails.summary?.summary ? [debateDetails.summary.summary].join('\n') : undefined,
-      ai_overview: debateDetails.summary?.overview || undefined,
-      ai_tone: debateDetails.summary?.tone ? debateDetails.summary.tone.toLowerCase() : undefined,
-      ai_topics: debateDetails.topics || undefined,
-      ai_key_points: debateDetails.keyPoints?.keyPoints || undefined,
-      ai_comment_thread: debateDetails.commentThread?.comments || undefined,
-      ai_question: debateDetails.questions?.question?.text || undefined,
-      ai_question_topic: debateDetails.questions?.question?.topic || undefined,
-      ai_question_subtopics: debateDetails.questions?.question?.subtopics || undefined
-    };
-
     // Filter out undefined values
     const cleanAiFields = Object.entries(aiFields)
       .reduce((acc, [key, value]) => {

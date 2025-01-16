@@ -1,0 +1,99 @@
+{
+  "timestamp": "2025-01-16T18:00:28.991Z",
+  "debate": {
+    "ext_id": "7E6627DB-755E-42EA-A3E1-D448FA44DA23",
+    "id": "7E6627DB-755E-42EA-A3E1-D448FA44DA23",
+    "context": "Title: Hyde Park Estate\n\nType: Question\n\nHouse: House of Commons\n\n\nDebate Transcript:\n\nSpeaker [Name: Rachel Blake (Cities of London and Westminster) (Lab/Co-op)]:\n3. What steps the Church is taking to improve the maintenance of the Hyde Park Estate. \n\nSpeaker [Name: Marsha De Cordova]:\nThe Hyde Park estate has been managed by the Church Commissioners for over 150 years, and they are committed to its long-term stewardship. As responsible landlords, the commissioners are committed to adopting best practice and have continuous investment programmes for the management of buildings on the estate to ensure that they remain fit for purpose both now and in the future.\n\nSpeaker [Name: Rachel Blake]:\nI have been working for months with residents of the Quadrangle, the Water Gardens and Connaught Village on the scale of their service charges. They have managed to reduce their service charges by 10%. Will my hon. Friend join me in congratulating them on their hard work and agree that they should not have had to work that hard? Will she join me in a meeting with the Church Commissioners to improve the transparency and monitoring of service charge levels?\n\nSpeaker [Name: Marsha De Cordova]:\nOf course I congratulate the residents on their hard work. I know from my constituency about the challenges around increases in service charges; it is so important that they are transparent to everybody. I would be happy to join my hon. Friend in a meeting with her residents on this issue, and I would recommend including those from the Church Commissioners’ property services team. I hope that will be okay.\n\nSpeaker [Name: Jim Shannon (Strangford) (DUP)]:\nThe Hyde Park estate is an oasis of peace and tranquillity in the middle of the concrete and buildings and used daily by many. What steps will the Church take to ensure that there are sufficient waste disposal and recycling bins across the Hyde Park estate, for those with two legs, and indeed for those with four legs?\n\nSpeaker [Name: Marsha De Cordova]:\nI am sure that those managing and maintaining the estate are looking at all those issues, but I would be happy to write to the hon. Gentleman with further information.",
+    "typePrompt": "Focus on specific issues raised, quality of answers, and follow-up scrutiny.\nHighlight any new information or commitments obtained.",
+    "overview": {
+      "Id": 4809459,
+      "ExtId": "7E6627DB-755E-42EA-A3E1-D448FA44DA23",
+      "Title": "Hyde Park Estate",
+      "HRSTag": "hs_8Question",
+      "Date": "2025-01-16T00:00:00",
+      "Location": "Commons Chamber",
+      "House": "Commons",
+      "Source": 1,
+      "VolumeNo": null,
+      "ContentLastUpdated": "2025-01-16T17:54:26.613",
+      "DebateTypeId": 1,
+      "SectionType": 1,
+      "NextDebateExtId": "86929C2E-B9B7-4ED9-A10B-8FF7FB65AA96",
+      "NextDebateTitle": "Foreign Donations to UK Political Parties",
+      "PreviousDebateExtId": "30D06022-85F8-4B5E-BAC8-659975CB89EE",
+      "PreviousDebateTitle": "Makin Review",
+      "Type": "Question"
+    }
+  },
+  "speakers": [],
+  "prompt": "Use your expert knowledge on UK Parliament to provide an in-depth analysis with speaker points of this Question session. \n  \n  Your main analysis should:\n  1) Include all details on content and significant contributions.\n  2) Be specific to the debate type.\n  3) Be accurate, chronological, and comprehensive. \n  4) Include outcomes and statistics.\n\n  Your speaker points should:\n  1) Include every speaker and their details (if available), regardless of their length of contribution.\n  2) Provide a complete set of points made by each speaker, compressed into a few sentences.\n  3) Be accurate, chronological, and comprehensive. \n\nContext:\nTitle: Hyde Park Estate\n\nType: Question\n\nHouse: House of Commons\n\n\nDebate Transcript:\n\nSpeaker [Name: Rachel Blake (Cities of London and Westminster) (Lab/Co-op)]:\n3. What steps the Church is taking to improve the maintenance of the Hyde Park Estate. \n\nSpeaker [Name: Marsha De Cordova]:\nThe Hyde Park estate has been managed by the Church Commissioners for over 150 years, and they are committed to its long-term stewardship. As responsible landlords, the commissioners are committed to adopting best practice and have continuous investment programmes for the management of buildings on the estate to ensure that they remain fit for purpose both now and in the future.\n\nSpeaker [Name: Rachel Blake]:\nI have been working for months with residents of the Quadrangle, the Water Gardens and Connaught Village on the scale of their service charges. They have managed to reduce their service charges by 10%. Will my hon. Friend join me in congratulating them on their hard work and agree that they should not have had to work that hard? Will she join me in a meeting with the Church Commissioners to improve the transparency and monitoring of service charge levels?\n\nSpeaker [Name: Marsha De Cordova]:\nOf course I congratulate the residents on their hard work. I know from my constituency about the challenges around increases in service charges; it is so important that they are transparent to everybody. I would be happy to join my hon. Friend in a meeting with her residents on this issue, and I would recommend including those from the Church Commissioners’ property services team. I hope that will be okay.\n\nSpeaker [Name: Jim Shannon (Strangford) (DUP)]:\nThe Hyde Park estate is an oasis of peace and tranquillity in the middle of the concrete and buildings and used daily by many. What steps will the Church take to ensure that there are sufficient waste disposal and recycling bins across the Hyde Park estate, for those with two legs, and indeed for those with four legs?\n\nSpeaker [Name: Marsha De Cordova]:\nI am sure that those managing and maintaining the estate are looking at all those issues, but I would be happy to write to the hon. Gentleman with further information.\n\nFocus on specific issues raised, quality of answers, and follow-up scrutiny.\nHighlight any new information or commitments obtained.\n\nProvide:\n1. ANALYSIS\n- Comprehensive analysis\n- Outcome\n- Key statistics with context\n\n2. SPEAKER ANALYSIS\nFor every speaker:\n- Name\n- Role, party, and constituency if present\n- Compressed points made\n\nFocus on accuracy and relevance. Include exact figures and dates where mentioned.",
+  "raw_analysis": {
+    "analysis": {
+      "main_content": "The recent Question session in the House of Commons focused on the maintenance and management of the Hyde Park Estate, a significant area within the heart of London managed by the Church Commissioners. Throughout the session, MP Rachel Blake provoked an insightful discussion on management practices and the financial implications for residents, seeking greater transparency and community involvement in decision-making processes.",
+      "outcome": "The session concluded with commitments towards improving transparency regarding service charges and an agreement to include stakeholders in further discussions. The representatives highlighted the need for sustained stewardship of the Hyde Park estate, guaranteeing a balance between historical preservation and contemporary needs.",
+      "statistics": [
+        {
+          "value": "150 years",
+          "context": "The duration the Church Commissioners have managed the Hyde Park estate."
+        },
+        {
+          "value": "10%",
+          "context": "The reduction in service charges achieved by the residents through their efforts."
+        }
+      ]
+    },
+    "speaker_points": [
+      {
+        "name": "Rachel Blake",
+        "role": "MP",
+        "party": "Labour and Co-operative Party",
+        "constituency": "Cities of London and Westminster",
+        "contributions": [
+          {
+            "content": "Questioned the ongoing maintenance strategies employed by the Church Commissioners for the Hyde Park Estate. Noted the success of residents in reducing service charges by 10%, and advocated for better transparency and monitoring of those charges.",
+            "references": [
+              {
+                "text": "The reduction of service charges by 10%.",
+                "source": "Residential efforts."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Marsha De Cordova",
+        "role": "MP (Responding)",
+        "party": "/",
+        "constituency": "/",
+        "contributions": [
+          {
+            "content": "Committed to supporting ongoing investments to ensure the estate's properties remain fit for purpose. Congratulated residents on their efforts to reduce service charges and agreed to meet with them, alongside representatives from the Church Commissioners’ property services team, to discuss further improvements.",
+            "references": [
+              {
+                "text": "Commitment to transparency and investment.",
+                "source": "Official statement."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Jim Shannon",
+        "role": "MP",
+        "party": "Democratic Unionist Party",
+        "constituency": "Strangford",
+        "contributions": [
+          {
+            "content": "Highlighted concerns regarding amenities such as waste disposal and recycling facilities, stressing the importance of maintaining the estate's reputation as an oasis of tranquillity.",
+            "references": [
+              {
+                "text": "Waste disposal and recycling concerns.",
+                "source": "Public interest."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

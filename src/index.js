@@ -4,6 +4,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import { HansardService } from './services/hansard.js';
 import { SupabaseService } from './services/supabase.js';
+import { getDebateType } from './utils/transforms.js';
 
 const DEFAULT_PROCESS = ['analysis'];
 
@@ -11,10 +12,40 @@ async function processDateRange(startDate, endDate, specificDebateId = null) {
   // If specific debate ID provided, fetch and process single debate
   if (specificDebateId) {
     logger.info(`Processing single debate: ${specificDebateId}`);
-    const debate = await HansardService.fetchDebate(specificDebateId);
-    if (!debate) {
+    const debateResponse = await HansardService.fetchDebate(specificDebateId);
+    if (!debateResponse) {
       throw new Error(`Failed to fetch debate: ${specificDebateId}`);
     }
+    
+    // Process the debate through HansardService to ensure consistent formatting
+    const processedDebate = await HansardService.processItems([{
+      ExternalId: specificDebateId,
+      Title: debateResponse.Overview.Title,
+      ChildDebates: debateResponse.ChildDebates || [],
+      Items: debateResponse.Items || [],
+      Overview: debateResponse.Overview,
+      Navigator: debateResponse.Navigator
+    }]);
+
+    if (!processedDebate?.[0]) {
+      throw new Error(`Failed to process debate: ${specificDebateId}`);
+    }
+    
+    const debate = processedDebate[0];
+    
+    // Add debate type to Overview before processing
+    if (debate?.Overview) {
+      debate.Overview.Type = getDebateType(debate.Overview);
+      logger.debug('Debate type:', debate.Overview.Type);
+    }
+    
+    logger.debug('Processing single debate:', {
+      id: specificDebateId,
+      type: debate.Overview.Type,
+      itemCount: debate.Items?.length,
+      childDebatesCount: debate.ChildDebates?.length
+    });
+    
     return processDebates(null, specificDebateId, DEFAULT_PROCESS, [debate]);
   }
 
@@ -34,7 +65,6 @@ async function processDateRange(startDate, endDate, specificDebateId = null) {
         // Get all debates for this date
         const options = { specificDate: formattedDate };
         const allDebates = await HansardService.getLatestDebates(options);
-        
         // Log total debates found
         logger.info(`Found ${allDebates.length} total debates for date: ${formattedDate}`);
         
@@ -157,7 +187,7 @@ async function notifyScheduler() {
       return;
     }
 
-    const response = await fetch('https://whatgov.co.uk/api/scheduler/process', {
+    const response = await fetch('https://www.whatgov.co.uk/api/scheduler/process', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
