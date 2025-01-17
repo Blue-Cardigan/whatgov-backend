@@ -2,20 +2,12 @@ import { z } from 'zod';
 import { zodResponseFormat } from 'openai/helpers/zod';
 
 // Simplified schemas with clear, focused descriptions
-const ContributionSchema = z.object({
-  content: z.string(),
-  references: z.array(z.object({
-    text: z.string(),
-    source: z.string().optional()
-  })).optional()
-});
-
 const SpeakerSchema = z.object({
   name: z.string(),
   role: z.string().optional(),
   party: z.string().optional(),
   constituency: z.string().optional(),
-  contributions: z.array(ContributionSchema)
+  contributions: z.array(z.string())
 });
 
 export const DebateAnalysisSchema = z.object({
@@ -34,7 +26,19 @@ export const debateResponseFormat = (schema = DebateAnalysisSchema) =>
   zodResponseFormat(schema, "debate_analysis");
 
 export function getPrompt(debate) {
-  return `As an expert UK parliamentary analyst, provide a briefing on this ${debate.overview?.Type || ''} parliamentary session. Focus on subject matter and outcomes.
+  return `Use your expert knowledge on UK Parliament to provide an in-depth analysis with speaker points of this ${debate.overview?.Type || ''} session. 
+  
+  Your main analysis should:
+  1) Include all details on content and significant contributions.
+  2) Be specific to the debate type.
+  3) Be accurate, chronological, and comprehensive. 
+  4) Include outcomes and statistics.
+
+  Your speaker points should:
+  1) Include every speaker and their details (if available), regardless of their length of contribution.
+  2) Only include Party, Role, or Constituency if directly provided. If not provided, do not include.
+  2) Provide a complete set of points made by each speaker, compressed into a few sentences.
+  3) Be accurate, chronological, and comprehensive. 
 
 Context:
 ${debate.context}
@@ -43,7 +47,7 @@ ${debate.typePrompt || ''}
 
 Provide:
 1. ANALYSIS
-- Main points, subject matter, and overall structure
+- Comprehensive analysis
 - Outcome
 - Key statistics with context
 
@@ -52,7 +56,6 @@ For every speaker:
 - Name
 - Role, party, and constituency if present
 - Compressed points made
-- Ensure every speaker's points are included
 
 Focus on accuracy and relevance. Include exact figures and dates where mentioned.`;
 }

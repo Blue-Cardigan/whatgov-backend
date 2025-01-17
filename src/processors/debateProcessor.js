@@ -34,6 +34,8 @@ export async function processDebates(
 
     for (let i = 0; i < debatesToProcess.length; i++) {
       const debate = debatesToProcess[i];
+      console.log(debate)
+      console.log(debate.Overview)
       
       logger.info(`Processing debate ${i + 1}/${debatesToProcess.length}:`, {
         id: debate.ExternalId,

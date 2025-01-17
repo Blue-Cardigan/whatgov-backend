@@ -32,15 +32,16 @@ export function validateDebateContent(debateDetails) {
       return null;
     }
 
-    // Skip debates with a single contribution under 100 words
-    if (debateDetails.Items.length === 1 && debateDetails.Items[0]?.ItemType === 'Contribution') {
-      const wordCount = debateDetails.Items[0].Value
-        ? debateDetails.Items[0].Value.trim().split(/\s+/).length
-        : 0;
-      
-      if (wordCount < 100) {
-        return null;
-      }
+    // Combine all contribution values and check total word count
+    const totalWordCount = debateDetails.Items
+      .filter(item => item?.ItemType === 'Contribution')
+      .reduce((count, item) => {
+        const words = item.value ? item.value.trim().split(/\s+/).length : 0;
+        return count + words;
+      }, 0);
+    
+    if (totalWordCount < 100) {
+      return null;
     }
 
     return 'valid';
