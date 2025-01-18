@@ -31,7 +31,6 @@ function trimDebateContext(context, maxTokens = 120000) {
 
   // Calculate estimated tokens for intro
   const introTokens = estimateTokens(intro);
-  const remainingTokens = maxTokens - introTokens;
   
   // Prioritize sections with key indicators
   const prioritizedSections = sections.map(section => {
@@ -115,11 +114,15 @@ export async function generateAnalysis(debate, uniqueSpeakers = []) {
     
     // Estimate max tokens needed
     const maxTokens = Math.min(4096, Math.floor(
-      (contextWords * 1.5) + (speakerCount * 200)
+      Math.max(800, (contextWords * 0.75) + (speakerCount * 150))
     ));
 
-    // Generate the prompt
-    const prompt = getPrompt(processedDebate, uniqueSpeakers);
+    if (contextWords < 50) {
+      logger.warn('Debate content too short for meaningful analysis');
+      return null;
+    }
+
+    console.log(maxTokens)
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o',
@@ -131,17 +134,35 @@ export async function generateAnalysis(debate, uniqueSpeakers = []) {
       response_format: debateResponseFormat()
     });
 
-    // Parse the response to ensure it's valid JSON
-    const analysisContent = JSON.parse(completion.choices[0].message.content);
+    // Add error handling and logging for JSON parsing
+    let analysisContent;
+    try {
+      const rawContent = completion.choices[0].message.content;
+      logger.debug('Raw API response:', rawContent);
+      
+      // Add validation check
+      if (!rawContent || typeof rawContent !== 'string') {
+        throw new Error('Invalid API response format');
+      }
+      
+      // Verify the response appears to be complete JSON
+      if (!rawContent.trim().endsWith('}')) {
+        throw new Error('Incomplete JSON response');
+      }
+      
+      analysisContent = JSON.parse(rawContent);
+    } catch (parseError) {
+      logger.error('JSON parsing failed:', {
+        error: parseError.message,
+        rawContent: completion.choices[0].message.content
+      });
+      throw new Error(`Failed to parse API response: ${parseError.message}`);
+    }
     
     return {
       analysis: analysisContent.analysis,
       speaker_points: analysisContent.speaker_points,
-      custom_id: debate.ext_id,
-      _debug: {
-        prompt,
-        raw_response: analysisContent
-      }
+      custom_id: debate.ext_id
     };
 
   } catch (error) {

@@ -78,7 +78,7 @@ export function cleanHtmlTags(text) {
   return text.replace(/<[^>]*>/g, '');
 }
 
-export function formatDebateContext(overview, items) {
+export function formatDebateContext(overview, items, childDebates = []) {
   try {
     const context = [
       `Title: ${overview?.Title || ''}`,
@@ -87,20 +87,18 @@ export function formatDebateContext(overview, items) {
       '\nDebate Transcript:'
     ];
 
-    // Ensure items is an array and has content
-    if (Array.isArray(items) && items.length > 0) {
-      const formattedItems = items.map(item => {
-        // Skip items without value or attribution
+    // Helper function to format items
+    const formatItems = (items) => {
+      if (!Array.isArray(items)) return [];
+      
+      return items.map(item => {
         if (!item.value && !item.memberId && !item.name) return null;
 
         const speakerInfo = [];
-        
-        // Add member information if available
         if (item.name) speakerInfo.push(`Name: ${item.name}`);
         if (item.party) speakerInfo.push(`Party: ${item.party}`);
         if (item.constituency) speakerInfo.push(`Constituency: ${item.constituency}`);
         
-        // Format the contribution
         const speakerLine = speakerInfo.length > 0 
           ? `Speaker [${speakerInfo.join(', ')}]:`
           : '';
@@ -108,15 +106,30 @@ export function formatDebateContext(overview, items) {
         const contentLine = item.value ? cleanHtmlTags(item.value) : '';
         
         return [speakerLine, contentLine].filter(Boolean).join('\n');
-      });
+      }).filter(Boolean);
+    };
 
-      // Add all valid formatted items to context
-      context.push(...formattedItems.filter(Boolean));
+    // Format main debate items
+    if (Array.isArray(items) && items.length > 0) {
+      context.push(...formatItems(items));
+    }
+
+    // Format child debates
+    if (Array.isArray(childDebates) && childDebates.length > 0) {
+      childDebates.forEach(childDebate => {
+        if (childDebate.Overview && childDebate.Items) {
+          context.push(
+            `\nSub-debate: ${childDebate.Overview.Title || 'Untitled'}`
+          );
+          context.push(...formatItems(childDebate.Items));
+        }
+      });
     }
 
     logger.debug('Formatted debate context:', {
       title: overview?.Title,
-      itemCount: items?.length,
+      mainItemCount: items?.length,
+      childDebatesCount: childDebates?.length,
       contextLength: context.length
     });
     
@@ -133,3 +146,26 @@ export function formatDebateContext(overview, items) {
 export function getTypeSpecificPrompt(debateType) {
   return debateTypePrompts[debateType] || ``;
 }
+
+export function getLastSevenDays() {
+  const days = [];
+  const today = new Date();
+  const currentDate = new Date(today);
+  let daysCollected = 0;
+
+  const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+  while (daysCollected < 7) {
+    const dayOfWeek = currentDate.getDay();
+    // Only include weekdays (Monday-Friday)
+    if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+      const weekday = weekdays[dayOfWeek - 1];
+      const dateStr = currentDate.toISOString().split('T')[0];
+      days.push(`${weekday} ${dateStr}`);
+      daysCollected++;
+    }
+    currentDate.setDate(currentDate.getDate() - 1);
+  }
+
+  return days;
+} 

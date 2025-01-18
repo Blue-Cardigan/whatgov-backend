@@ -122,9 +122,6 @@ export class HansardService {
         })
         .filter(debate => {
           const isValid = validateDebateContent(debate);
-          if (!isValid) {
-            logger.debug(`Filtered out invalid debate: ${debate?.ExternalId}`);
-          }
           return isValid !== null;
         });
 
@@ -214,6 +211,7 @@ export class HansardService {
       }
       
       logger.info(`Fetched ${debates.length} ${house} debates for ${date}`);
+      console.log(debates.map(debate => debate.ExternalId))
       return debates;
       
     } catch (error) {
@@ -380,37 +378,35 @@ export class HansardService {
   static async processItems(items, context = {}) {
     if (!Array.isArray(items)) return [];
     const debateMemberCache = new Map();
-    
-    // Add a Set to track member IDs that need to be fetched from Supabase
     const membersToFetch = new Set();
 
     const promises = items.map(async (item) => {
       if (item.ExternalId) {
         try {
-          // Check cache first
           if (this.debateCache.has(item.ExternalId)) {
             const cached = this.debateCache.get(item.ExternalId);
             return cached;
           }
 
-          // Fetch debate data
           const debateData = await this.fetchDebate(item.ExternalId);
-          
-          // First pass: Get member details and collect IDs that need fetching
-          const simplifiedItems = debateData.Items?.map(item => {
+
+          // Concatenate Items from child debates
+          const allItems = [
+            ...(debateData.Items || []),
+            ...(debateData.ChildDebates || []).flatMap(child => child.Items || [])
+          ];
+
+          const simplifiedItems = allItems.map(item => {
             let memberDetails = item.MemberId ? this.getMemberDetails(item) : null;
-            
-            // If we have a member ID but no name/details, add to fetch list
+
             if (item.MemberId && (!memberDetails?.Name && !memberDetails?.Role)) {
               membersToFetch.add(item.MemberId);
             }
-            
-            // Use cached details if available
+
             if (item.MemberId && (!memberDetails || !memberDetails.Name) && debateMemberCache.has(item.MemberId)) {
               memberDetails = debateMemberCache.get(item.MemberId);
             }
-            
-            // Cache valid member details
+
             if (memberDetails?.Name) {
               debateMemberCache.set(item.MemberId, memberDetails);
             }
@@ -425,17 +421,15 @@ export class HansardService {
             };
           });
 
-          // If we have members to fetch, get them from Supabase
           if (membersToFetch.size > 0) {
             const { data: supabaseMembers } = await SupabaseService.getMemberDetails([...membersToFetch]);
-            // Update simplified items with Supabase data
             if (supabaseMembers?.length) {
               const supabaseMemberMap = new Map(
                 supabaseMembers.map(member => [
                   member.member_id, 
                   {
                     ...member,
-                    party: PARTY_MAPPINGS[member.party] || member.party // Normalize party names from Supabase too
+                    party: PARTY_MAPPINGS[member.party] || member.party
                   }
                 ])
               );
@@ -449,7 +443,6 @@ export class HansardService {
                     item.party = supabaseMember.party;
                     item.role = supabaseMember.department || '';
 
-                    // Cache the member details for future use
                     debateMemberCache.set(item.memberId, {
                       MemberId: item.memberId,
                       Name: supabaseMember.display_as,
@@ -463,7 +456,6 @@ export class HansardService {
             }
           }
 
-          // Continue with existing filtering
           const filteredItems = simplifiedItems
             .filter(Boolean)
             .filter(item => {
@@ -495,11 +487,11 @@ export class HansardService {
           return null;
         }
       }
-      
+
       if (item.SectionTreeItems) {
         return this.processItems(item.SectionTreeItems, context);
       }
-      
+
       return null;
     });
 

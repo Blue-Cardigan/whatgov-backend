@@ -35,6 +35,8 @@ export async function processDebates(
 
     for (let i = 0; i < debatesToProcess.length; i++) {
       const debate = debatesToProcess[i];
+      console.log(debate)
+      console.log(debate.Overview)
       
       // For specific debate IDs, process the items to get member details
       if (specificDebateId && debate.Items) {

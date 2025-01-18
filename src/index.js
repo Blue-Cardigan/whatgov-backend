@@ -4,7 +4,11 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import { HansardService } from './services/hansard.js';
 import { SupabaseService } from './services/supabase.js';
+<<<<<<< HEAD
 import { getDebateType } from './utils/transforms.js';
+=======
+import { processScheduledSearches } from './scheduler/index.js';
+>>>>>>> move-scheduler
 
 const DEFAULT_PROCESS = ['analysis'];
 
@@ -180,41 +184,28 @@ async function processNewDebates() {
     return false;
   }
 }
+
 async function notifyScheduler() {
   try {
-    if (!process.env.SCHEDULER_API_KEY) {
-      logger.warn('SCHEDULER_API_KEY not set, skipping scheduler notification');
-      return;
-    }
+    logger.info('Starting scheduler processing');
 
-    const response = await fetch('https://www.whatgov.co.uk/api/scheduler/process', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-API-Key': process.env.SCHEDULER_API_KEY
-      },
-      // Add a timeout to prevent hanging
-      signal: AbortSignal.timeout(30000) // 30 second timeout
-    });
+    const searchType = process.argv[2] || null;
     
-    if (!response.ok) {
-      const errorText = await response.text();
-      throw new Error(`Scheduler API responded with status: ${response.status}, body: ${errorText}`);
-    }
+    // Call scheduler processing directly instead of making API request
+    const result = await processScheduledSearches(searchType);
     
-    const data = await response.json();
-    logger.info('Successfully notified scheduler API', { data });
-  } catch (error) {
-    if (error.name === 'AbortError') {
-      logger.error('Scheduler API request timed out');
-    } else {
-      logger.error('Failed to notify scheduler API:', {
-        error: error.message,
-        stack: error.stack
+    if (result.success) {
+      logger.info('Successfully completed scheduler processing', { 
+        processed: result.processed 
       });
+    } else {
+      logger.warn('Scheduler processing completed with warnings');
     }
-    // You might want to throw the error here depending on your needs
-    // throw error;
+  } catch (error) {
+    logger.error('Failed to process scheduler:', {
+      error: error.message,
+      stack: error.stack
+    });
   }
 }
 
