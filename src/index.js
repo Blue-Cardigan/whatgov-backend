@@ -4,11 +4,7 @@ import fs from 'fs';
 import fetch from 'node-fetch';
 import { HansardService } from './services/hansard.js';
 import { SupabaseService } from './services/supabase.js';
-<<<<<<< HEAD
 import { getDebateType } from './utils/transforms.js';
-=======
-import { processScheduledSearches } from './scheduler/index.js';
->>>>>>> move-scheduler
 
 const DEFAULT_PROCESS = ['analysis'];
 
