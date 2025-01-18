@@ -1,6 +1,6 @@
 import logger from '../utils/logger.js';
 
-const HANSARD_API_BASE = 'https://hansard-api.parliament.uk';
+export const HANSARD_API_BASE = 'https://hansard-api.parliament.uk';
 
 /**
  * Main flow to fetch latest debate data:
@@ -188,7 +188,6 @@ export class HansardAPI {
             date,
             section
           });
-          console.log(sectionData);
           if (!Array.isArray(sectionData)) {
             logger.warn('Invalid section data:', { section, house, date });
             return [];

@@ -211,7 +211,6 @@ export class HansardService {
       }
       
       logger.info(`Fetched ${debates.length} ${house} debates for ${date}`);
-      console.log(debates.map(debate => debate.ExternalId))
       return debates;
       
     } catch (error) {

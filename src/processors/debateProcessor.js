@@ -25,7 +25,6 @@ export async function processDebates(
       logger.info('No debates to process');
       return [];
     }
-    console.log('debatesToProcess', debatesToProcess[0])
 
     // Process debates sequentially but collect results for bulk upload
     const processedResults = [];
@@ -35,8 +34,6 @@ export async function processDebates(
 
     for (let i = 0; i < debatesToProcess.length; i++) {
       const debate = debatesToProcess[i];
-      console.log(debate)
-      console.log(debate.Overview)
       
       // For specific debate IDs, process the items to get member details
       if (specificDebateId && debate.Items) {
@@ -58,7 +55,6 @@ export async function processDebates(
         if (processedItems?.[0]) {
           debate.Items = processedItems[0].Items;
         }
-        console.log('debate', debate)
       }
 
       logger.info(`Processing debate ${i + 1}/${debatesToProcess.length}:`, {
@@ -75,8 +71,6 @@ export async function processDebates(
         typePrompt: getTypeSpecificPrompt(debate.Overview?.Type),
         overview: debate.Overview
       };
-
-      console.log(processedDebate.context)
 
       const startTime = Date.now();
       

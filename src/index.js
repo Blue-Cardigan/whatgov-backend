@@ -1,7 +1,7 @@
 import { processDebates } from './processors/debateProcessor.js';
 import logger from './utils/logger.js';
 import fs from 'fs';
-import fetch from 'node-fetch';
+import { processScheduledSearches } from './scheduler/index.js';
 import { HansardService } from './services/hansard.js';
 import { SupabaseService } from './services/supabase.js';
 import { getDebateType } from './utils/transforms.js';

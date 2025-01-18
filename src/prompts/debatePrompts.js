@@ -25,8 +25,8 @@ export const DebateAnalysisSchema = z.object({
 export const debateResponseFormat = (schema = DebateAnalysisSchema) => 
   zodResponseFormat(schema, "debate_analysis");
 
-export function getPrompt(debate) {
-  return `Use your expert knowledge on UK Parliament to provide an in-depth analysis with speaker points of this ${debate.overview?.Type || ''} session. 
+export function getPrompt(debate, maxTokens) {
+  return `Use your expert knowledge on UK Parliament to provide an in-depth analysis with speaker points of this ${debate.overview?.Type || ''} session, in ${maxTokens * 0.75} tokens. 
   
   Your main analysis should:
   1) Include all details on content and significant contributions.
@@ -39,6 +39,8 @@ export function getPrompt(debate) {
   2) Only include Party, Role, or Constituency if directly provided. If not provided, do not include.
   2) Provide a complete set of points made by each speaker, compressed into a few sentences.
   3) Be accurate, chronological, and comprehensive. 
+
+  Your entire response should be in ${maxTokens * 0.75} tokens.
 
 Context:
 ${debate.context}

@@ -9,6 +9,7 @@ import { assistantPrompt } from '../utils/assistantPrompt.js';
 const PERMANENT_STORE_ID = 'vs_3R5Unz1iS6bKaUcet2DQcRmF';
 const POLL_INTERVAL = 1000; // 1 second
 const MAX_POLL_ATTEMPTS = 60; // 1 minute maximum wait
+const VECTOR_STORE_ID = 'vs_FBrrbGgQ1FFxEqW7tzPxxhO5';
 
 async function pollFileBatch(vectorStoreId, batchId) {
   let attempts = 0;
@@ -222,6 +223,55 @@ export async function prepareDebateFile(debateData, analysis, uniqueSpeakers) {
   };
 }
 
+async function removeOldFiles(cutoffDate) {
+  try {
+    logger.debug('Removing files older than:', cutoffDate);
+
+    // Get files older than cutoff date from Supabase
+    const { data: oldDebates, error } = await SupabaseService.getOldDebates(cutoffDate);
+
+    if (error) throw error;
+
+    if (!oldDebates?.length) {
+      logger.debug('No old files to remove');
+      return;
+    }
+
+    logger.info('Found old files to remove:', {
+      count: oldDebates.length,
+      oldestDate: oldDebates[0]?.date,
+      newestDate: oldDebates[oldDebates.length - 1]?.date
+    });
+
+    // Remove files from vector store
+    await Promise.all(oldDebates.map(async (debate) => {
+      try {
+        await openai.beta.vectorStores.files.del(
+          VECTOR_STORE_ID,
+          debate.file_id
+        );
+        logger.debug('Removed file from vector store:', {
+          file_id: debate.file_id,
+          date: debate.date
+        });
+      } catch (error) {
+        logger.warn('Failed to remove file from vector store:', {
+          error: error.message,
+          file_id: debate.file_id,
+          date: debate.date
+        });
+      }
+    }));
+  } catch (error) {
+    logger.error('Failed to remove old files:', {
+      error: error.message,
+      stack: error.stack,
+      cutoffDate
+    });
+    throw error;
+  }
+}
+
 export async function upsertResultsToVectorStore(debates, analysisResults, uniqueSpeakers) {
   const debatesArray = Array.isArray(debates) ? debates : [debates];
   const tempFiles = [];
@@ -341,28 +391,29 @@ export async function upsertResultsToVectorStore(debates, analysisResults, uniqu
 
     await SupabaseService.batchUpsertDebates(debateRecords);
 
-    // Get the appropriate weekly store ID
-    const weeklyStoreId = await getOrCreateWeeklyStore(debateRecords[0].date);
-    console.log('Weekly store ID:', weeklyStoreId);
+    // Calculate cutoff date (7 days ago)
+    const cutoffDate = new Date();
+    cutoffDate.setDate(cutoffDate.getDate() - 7);
+    cutoffDate.setHours(0, 0, 0, 0);
 
-    // Upload to both stores
-    const stores = [PERMANENT_STORE_ID, weeklyStoreId];
-    await Promise.all(stores.map(async (storeId) => {
-      const batch = await openai.beta.vectorStores.fileBatches.create(
-        storeId,
-        { file_ids: uploadedFiles.map(f => f.id) }
-      );
+    // Remove old files before adding new ones
+    await removeOldFiles(cutoffDate.toISOString());
 
-      logger.debug('Created vector store batch:', {
-        storeId,
-        batchId: batch.id,
-        fileCount: uploadedFiles.length
-      });
+    // Upload to vector store (modified to use single store)
+    const batch = await openai.beta.vectorStores.fileBatches.create(
+      VECTOR_STORE_ID,
+      { file_ids: uploadedFiles.map(f => f.id) }
+    );
 
-      await pollFileBatch(storeId, batch.id);
-    }));
+    logger.debug('Created vector store batch:', {
+      storeId: VECTOR_STORE_ID,
+      batchId: batch.id,
+      fileCount: uploadedFiles.length
+    });
 
-    // Return the results with file IDs
+    await pollFileBatch(VECTOR_STORE_ID, batch.id);
+
+    // Return results
     return debateRecords.map(record => ({
       ext_id: record.ext_id,
       file_id: record.file_id,

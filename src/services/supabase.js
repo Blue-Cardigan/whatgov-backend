@@ -75,6 +75,22 @@ export class SupabaseService {
     }
   }
 
+  static async getOldDebates(cutoffDate) {
+    try {
+      const { data, error } = await supabase
+        .from('debates_new')
+        .select('file_id, date')
+        .lt('date', cutoffDate)
+        .not('file_id', 'is', null);
+
+      if (error) throw error;
+      return data;
+    } catch (error) {
+      logger.error('Failed to get old debates:', error);
+      throw error;
+    }
+  }
+
   static async upsertMember(member) {
     try {
       const { data, error } = await supabase

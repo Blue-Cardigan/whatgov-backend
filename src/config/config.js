@@ -1,11 +1,16 @@
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
+import OpenAI from 'openai';
 
 // Load environment variables from .env file
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 dotenv.config({ path: join(__dirname, '../../.env') });
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
 
 export const config = {
   // API Keys
@@ -20,10 +25,11 @@ export const config = {
   MAX_RETRIES: parseInt(process.env.MAX_RETRIES || '3'),
   RETRY_DELAY: parseInt(process.env.RETRY_DELAY || '1000'),
 
-  // Feature flags
-  ENABLE_AI_PROCESSING: process.env.ENABLE_AI_PROCESSING !== 'false',
-  ENABLE_SPEAKER_STATS: process.env.ENABLE_SPEAKER_STATS !== 'false',
-
   // Logging
-  LOG_LEVEL: process.env.LOG_LEVEL || 'INFO'
+  LOG_LEVEL: process.env.LOG_LEVEL || 'INFO',
+
+  // Default assistant ID
+  DEFAULT_ASSISTANT_ID: process.env.DEFAULT_OPENAI_ASSISTANT_ID,
+  WEEKLY_ASSISTANT_ID: process.env.WEEKLY_OPENAI_ASSISTANT_ID,
+  OPENAI: openai
 }; 

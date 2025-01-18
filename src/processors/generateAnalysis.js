@@ -5,8 +5,21 @@ import logger from '../utils/logger.js';
 
 function estimateTokens(text) {
   // Rough estimate: average English word is ~1.3 tokens
-  // Add 20% buffer for special characters and formatting
-  return Math.ceil(text.split(/\s+/).length * 1.3 * 1.2);
+  // Add 10% buffer for special characters and formatting
+  const baseTokens = text.split(/\s+/).length * 1.3;
+  return Math.ceil(baseTokens * 1.1); // Reduce buffer to 10%
+}
+
+function calculateMaxResponseTokens(contextWords, debateType, speakerCount) {
+  // Add debate type-specific scaling
+  const typeScaling = {
+    'Petition': 0.5,
+    'Statement': 0.6,
+    'default': 0.75
+  };
+
+  const scaling = (typeScaling[debateType] || typeScaling.default) + (speakerCount * 200);
+  return Math.max(850, Math.floor(contextWords * scaling));
 }
 
 function trimDebateContext(context, maxTokens = 120000) {
@@ -113,22 +126,20 @@ export async function generateAnalysis(debate, uniqueSpeakers = []) {
     const speakerCount = uniqueSpeakers?.length || 0;
     
     // Estimate max tokens needed
-    const maxTokens = Math.min(4096, Math.floor(
-      Math.max(800, (contextWords * 0.75) + (speakerCount * 150))
-    ));
-
+    const maxTokens = calculateMaxResponseTokens(contextWords, debate.type, speakerCount);
+    
     if (contextWords < 50) {
       logger.warn('Debate content too short for meaningful analysis');
       return null;
     }
 
-    console.log(maxTokens)
+    console.log('maxTokens', maxTokens)
 
     const completion = await openai.chat.completions.create({
       model: 'gpt-4o',
       messages: [{
         role: 'user',
-        content: prompt
+        content: getPrompt(processedDebate, uniqueSpeakers, maxTokens)
       }],
       max_tokens: maxTokens,
       response_format: debateResponseFormat()

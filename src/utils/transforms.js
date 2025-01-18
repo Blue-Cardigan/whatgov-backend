@@ -8,45 +8,43 @@ export function validateDebateContent(debateDetails) {
     }
 
     if (debateDetails.Items.length === 0) {
-      console.log('debateDetails.Items.length === 0', debateDetails)
+      console.log('debateDetails.Items.length === 0', debateDetails.Overview.ExtId)
       return null;
     }
 
     const overview = debateDetails.Overview;
-    console.log('overview', overview)
     // Skip prayers in both Houses
     if (overview.Title?.includes('Prayer')) {
-      console.log('overview.Title?.includes(Prayer)', overview)
+      console.log('overview.Title?.includes(Prayer)', overview.Title)
       return null;
     }
 
     if (overview.NextDebateTitle?.includes('Prayer')) {
-      console.log('overview.NextDebateTitle?.includes(Prayer)', overview)
+      console.log('overview.NextDebateTitle?.includes(Prayer)', overview.Title)
       return null;
     }
     
     // Skip if HRSTag contains 'BigBold'
     if (overview.HRSTag?.includes('BigBold')) {
-      console.log('overview.HRSTag?.includes(BigBold)', overview)
+      console.log('overview.HRSTag?.includes(BigBold)', overview.HRSTag)
       return null;
     }
 
     // Skip if all memberId values are null
     if (debateDetails.Items.every(item => item?.MemberId === null)) {
-      console.log('debateDetails.Items.every(item => item?.MemberId === null)', debateDetails)
+      console.log('debateDetails.Items.every(item => item?.MemberId === null)', debateDetails.Overview.ExtId)
       return null;
     }
 
     // Combine all contribution values and check total word count
     const totalWordCount = debateDetails.Items
-      .filter(item => item?.ItemType === 'Contribution')
       .reduce((count, item) => {
         const words = item.value ? item.value.trim().split(/\s+/).length : 0;
         return count + words;
       }, 0);
     
     if (totalWordCount < 100) {
-      console.log('totalWordCount < 100', debateDetails)
+      console.log('totalWordCount < 100', debateDetails.Overview.ExtId)
       return null;
     }
 
@@ -82,6 +80,7 @@ function getDebateType(overview) {
     .replace('hs_8Question', 'Question')
     .replace('hs_8Statement', 'Written Statement')
     .replace('hs_8Petition', 'Petition')
+    .replace('hs_6bPetitions', 'Petition')
     .replace('hs_2cStatement', 'Statement')
     .replace('hs_2cUrgentQuestion', 'Urgent Question')
     .replace('hs_2DebBill', 'Debated Bill')
