@@ -8,27 +8,32 @@ export function validateDebateContent(debateDetails) {
     }
 
     if (debateDetails.Items.length === 0) {
+      console.log('debateDetails.Items.length === 0', debateDetails)
       return null;
     }
 
     const overview = debateDetails.Overview;
-
+    console.log('overview', overview)
     // Skip prayers in both Houses
     if (overview.Title?.includes('Prayer')) {
+      console.log('overview.Title?.includes(Prayer)', overview)
       return null;
     }
 
     if (overview.NextDebateTitle?.includes('Prayer')) {
+      console.log('overview.NextDebateTitle?.includes(Prayer)', overview)
       return null;
     }
     
     // Skip if HRSTag contains 'BigBold'
     if (overview.HRSTag?.includes('BigBold')) {
+      console.log('overview.HRSTag?.includes(BigBold)', overview)
       return null;
     }
 
     // Skip if all memberId values are null
     if (debateDetails.Items.every(item => item?.MemberId === null)) {
+      console.log('debateDetails.Items.every(item => item?.MemberId === null)', debateDetails)
       return null;
     }
 
@@ -41,6 +46,7 @@ export function validateDebateContent(debateDetails) {
       }, 0);
     
     if (totalWordCount < 100) {
+      console.log('totalWordCount < 100', debateDetails)
       return null;
     }
 
