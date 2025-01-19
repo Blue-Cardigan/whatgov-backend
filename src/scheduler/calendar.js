@@ -53,62 +53,88 @@ async function processCalendarItem(item) {
 }
 
 async function processEventItem(item, eventData) {
-  try {
-    // Search for this debate in Hansard
-    const searchParams = new URLSearchParams({
-      'queryParameters.searchTerm': eventData.event.title.replace('[HL]', '').trim(),
-      'queryParameters.date': item.date,
-      'queryParameters.house': eventData.event.house,
-      'queryParameters.startDate': eventData.event.startTime.split('T')[0],
-      'queryParameters.endDate': eventData.event.endTime.split('T')[0]
-    });
-
-    const url = `${HANSARD_API_BASE}/search/debates.json?${searchParams.toString()}`;
-    logger.info(`Searching for debate: ${url}`);
-    
-    const debateResponse = await fetch(url);
-    
-    if (!debateResponse.ok) {
-      throw new Error(`Error fetching debate: ${await debateResponse.text()}`);
-    }
-
-    const debateData = await debateResponse.json();
-    const debateResults = debateData.Results || [];
-
-    if (debateResults.length > 0) {
-      // Update the calendar item with debate IDs
+    try {
+      logger.info(`Processing event item: ${item.id}`);
+      const title = eventData.event.title.replace('[HL]', '').trim();
+  
+      // Try full title first
+      let debateResults = await searchHansard(title, item.date);
+  
+      // If no results, try individual terms
+      if (!debateResults.length) {
+        logger.info(`No results found for full title "${title}", trying individual terms`);
+        
+        // Split title into terms and filter out common words
+        const stopWords = new Set(['of', 'and', 'the', 'in', 'on', 'at', 'to', 'for', 'with', 'by']);
+        const terms = title
+          .split(/\s+/)
+          .filter(term => 
+            term.length > 2 && 
+            !stopWords.has(term.toLowerCase()) &&
+            !/^\d+$/.test(term) // Skip pure numbers
+          );
+  
+        logger.info(`Searching individual terms: ${terms.join(', ')}`);
+  
+        // Try each term individually
+        for (const term of terms) {
+          debateResults = await searchHansard(term, item.date);
+          
+          if (debateResults.length > 0) {
+            logger.info(`Found results using term: "${term}"`);
+            break;
+          }
+        }
+      }
+  
+      // Update the calendar item regardless of results
       const { error: updateError } = await supabase
         .from('saved_calendar_items')
         .update({
-          debate_ids: debateResults.map((d) => d.DebateSectionExtId),
-          is_unread: true
+          debate_ids: debateResults.map((d) => d.DebateSectionExtId) || [],
+          is_unread: debateResults.length > 0
         })
         .eq('id', item.id);
-
+  
       if (updateError) {
         throw updateError;
       }
-
-      logger.info(`Successfully processed calendar item ${item.id} with ${debateResults.length} debates`);
-    } else {
-      // Update to show we checked but found no debates
-      const { error: updateError } = await supabase
-        .from('saved_calendar_items')
-        .update({
-          debate_ids: [],
-          response: `No debates found for calendar item on ${item.date}`
-        })
-        .eq('id', item.id);
-
-      if (updateError) {
-        throw updateError;
-      }
+  
+      logger.info(
+        `Processed calendar item ${item.id}: ${
+          debateResults.length > 0 
+            ? `found ${debateResults.length} debates` 
+            : 'no debates found'
+        }`
+      );
+  
+    } catch (error) {
+      logger.error(`Error processing event item ${item.id}:`, error);
+      throw error;
     }
-  } catch (error) {
-    logger.error(`Error processing event item ${item.id}:`, error);
-    throw error;
   }
-}
+  
+  // Helper function to perform the Hansard search
+  async function searchHansard(searchTerm, date) {
+    const searchParams = new URLSearchParams({
+      'queryParameters.searchTerm': searchTerm,
+      'queryParameters.date': date,
+      'queryParameters.startDate': date,
+      'queryParameters.endDate': date
+    });
+  
+    const url = `${HANSARD_API_BASE}/search/debates.json?${searchParams.toString()}`;
+    logger.info(`Searching Hansard: ${url}`);
+    
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(`Error fetching debate: ${await response.text()}`);
+    }
+  
+    const data = await response.json();
+    return data.Results || [];
+  }
 
 async function processOralQuestions(item, eventData) {
   try {
@@ -228,7 +254,7 @@ async function processWholeSession(item, eventData, topLevelId) {
 
     // Create completion request
     const completion = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o",
       messages: [
         {
           role: "system",

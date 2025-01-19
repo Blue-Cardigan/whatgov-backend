@@ -2,7 +2,7 @@ import { createClient } from '@supabase/supabase-js';
 import { config } from '../config/config.js';
 import logger from '../utils/logger.js';
 
-const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY);
+const supabase = createClient(config.SUPABASE_URL, config.SERVICE_KEY);
 
 export class SupabaseService {
   static async upsertDebate(debateOutput) {
