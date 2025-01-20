@@ -28,6 +28,6 @@ jobs:
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          SERVICE_KEY: ${{ secrets.SERVICE_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          SCHEDULER_API_KEY: ${{ secrets.SCHEDULER_API_KEY }}
         run: node src/index.js
