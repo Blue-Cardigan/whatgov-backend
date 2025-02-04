@@ -217,40 +217,40 @@ async function main() {
 
     let results;
 
-    if (debateIdArg) {
-      // Pass the debate ID through processDateRange instead
-      results = await processDateRange(null, null, debateIdArg);
-    }
-    else if (dateArgs.length > 0) {
-      const startDate = new Date(dateArgs[0]);
-      const endDate = dateArgs[1] ? new Date(dateArgs[1]) : startDate;
+    // if (debateIdArg) {
+    //   // Pass the debate ID through processDateRange instead
+    //   results = await processDateRange(null, null, debateIdArg);
+    // }
+    // else if (dateArgs.length > 0) {
+    //   const startDate = new Date(dateArgs[0]);
+    //   const endDate = dateArgs[1] ? new Date(dateArgs[1]) : startDate;
 
-      if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
-        throw new Error('Invalid date format. Please use YYYY-MM-DD');
-      }
+    //   if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+    //     throw new Error('Invalid date format. Please use YYYY-MM-DD');
+    //   }
 
-      if (endDate < startDate) {
-        throw new Error('End date must be after start date');
-      }
+    //   if (endDate < startDate) {
+    //     throw new Error('End date must be after start date');
+    //   }
 
-      logger.info('Processing date range:', {
-        startDate: startDate.toISOString().split('T')[0],
-        endDate: endDate.toISOString().split('T')[0]
-      });
+    //   logger.info('Processing date range:', {
+    //     startDate: startDate.toISOString().split('T')[0],
+    //     endDate: endDate.toISOString().split('T')[0]
+    //   });
 
-      results = await processDateRange(startDate, endDate);
-    }
-    else {
-      logger.info('Processing new debates');
-      results = await processNewDebates();
-    }
+    //   results = await processDateRange(startDate, endDate);
+    // }
+    // else {
+    //   logger.info('Processing new debates');
+    //   results = await processNewDebates();
+    // }
 
-    if (process.env.GITHUB_OUTPUT) {
-      fs.appendFileSync(
-        process.env.GITHUB_OUTPUT, 
-        `found_debates=${Boolean(results)}\n`
-      );
-    }
+    // if (process.env.GITHUB_OUTPUT) {
+    //   fs.appendFileSync(
+    //     process.env.GITHUB_OUTPUT, 
+    //     `found_debates=${Boolean(results)}\n`
+    //   );
+    // }
 
     // Add scheduler notification before exit
     await notifyScheduler();

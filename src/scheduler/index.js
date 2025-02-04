@@ -3,6 +3,7 @@ import { supabase } from '../services/supabase.js';
 import { processCalendarItems } from './calendar.js';
 import { calculateNextRunDate } from './schedulerUtils.js';
 import { getLastSevenDays } from '../utils/debateUtils.js';
+import { processDailySummary } from './dailySummary.js';
 import logger from '../utils/logger.js';
 
 const openai = config.OPENAI;
@@ -12,7 +13,7 @@ export async function processScheduledSearches(searchType) {
     logger.info('Starting scheduled search processing');
 
     // Process weekly summary if needed
-    if (!searchType || searchType === 'frontpage') {
+    if (searchType === null || searchType === 'frontpage') {
       await processDailySummary();
     }
 
