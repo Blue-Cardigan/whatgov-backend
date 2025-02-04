@@ -3,17 +3,25 @@ import { assistantPrompt } from '../utils/assistantPrompt.js';
 import logger from '../utils/logger.js';
 import { fileURLToPath } from 'url';
 
-async function createParliamentaryAssistant() {
+async function createParliamentaryAssistant(vectorStoreId) {
+  if (!vectorStoreId) {
+    throw new Error('Vector store ID is required');
+  }
+
   try {
     logger.info('Creating new Parliamentary Assistant');
 
     const assistant = await openai.beta.assistants.create({
-      name: "UK Parliamentary Debates Assistant - Weekly Debates 2025-01-06",
+      name: "UK Parliamentary Debates Assistant",
       instructions: assistantPrompt,
       model: "gpt-4o",
       tools: [
         { type: "file_search" }
       ],
+    });
+
+    await openai.beta.assistants.update(assistant.id, {
+      tool_resources: { file_search: { vector_store_ids: [vectorStoreId] } },
     });
 
     logger.info('Successfully created assistant:', {
@@ -36,7 +44,13 @@ async function createParliamentaryAssistant() {
 
 // Run if called directly
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  createParliamentaryAssistant()
+  const vectorStoreId = process.argv[2];
+  if (!vectorStoreId) {
+    console.error('Please provide a vector store ID as an argument');
+    process.exit(1);
+  }
+
+  createParliamentaryAssistant(vectorStoreId)
     .then(assistant => {
       console.log('Assistant created successfully:', {
         id: assistant.id,

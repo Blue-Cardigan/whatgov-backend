@@ -29,7 +29,7 @@ export const config = {
   LOG_LEVEL: process.env.LOG_LEVEL || 'INFO',
 
   // Default assistant ID
-  DEFAULT_ASSISTANT_ID: process.env.DEFAULT_OPENAI_ASSISTANT_ID,
+  DEFAULT_ASSISTANT_ID: process.env.ALLTIME_OPENAI_ASSISTANT_ID,
   WEEKLY_ASSISTANT_ID: process.env.WEEKLY_OPENAI_ASSISTANT_ID,
   OPENAI: openai
 }; 

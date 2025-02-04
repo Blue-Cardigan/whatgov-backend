@@ -35,6 +35,8 @@ export async function processDailySummary() {
       response_format: dailySummaryFormat
     });
 
+    console.log(getDailySummaryPrompt())
+
     // Wait for completion
     let runStatus = await openai.beta.threads.runs.retrieve(thread.id, run.id);
     while (runStatus.status !== 'completed') {

@@ -13,8 +13,15 @@ export const DailySummarySchema = z.object({
 export const dailySummaryFormat = zodResponseFormat(DailySummarySchema, "daily_summary");
 
 export function getDailySummaryPrompt() {
+  const currentDate = new Date();
+  const sevenDaysAgo = new Date(currentDate);
+  sevenDaysAgo.setDate(currentDate.getDate() - 7);
+  
+  const formattedEndDate = currentDate.toISOString().split('T')[0];
+  const formattedStartDate = sevenDaysAgo.toISOString().split('T')[0];
+
   return `As an expert British parliamentary journalist, use a pithy tone to make specific remarks on the last 7 days in UK Parliament, with an emphasis on more recent events.
-  You have access to the last seven days of parliamentary debates and events. 
+  Use only debates and events from ${formattedStartDate} to ${formattedEndDate}. 
   Ensure your remarks cover the most impactful and newsworthy items, drawing on specific information with a focus on outcomes, specific Ministers, and key bills.
 
 Requirements:
