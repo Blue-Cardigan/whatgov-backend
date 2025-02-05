@@ -2,6 +2,9 @@ import { config } from '../config/config.js';
 import { supabase } from '../services/supabase.js';
 import { getDailySummaryPrompt, dailySummaryFormat } from './dailyPrompts.js';
 import logger from '../utils/logger.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const openai = config.OPENAI;
 
@@ -15,7 +18,7 @@ export async function processDailySummary() {
   const mondayString = monday.toISOString().split('T')[0];
 
   // Get the weekly assistant ID
-  let assistantId = config.WEEKLY_ASSISTANT_ID;
+  let assistantId = process.env.WEEKLY_OPENAI_ASSISTANT_ID;
 
   try {
     // Create a thread
