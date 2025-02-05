@@ -30,4 +30,6 @@ jobs:
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           SERVICE_KEY: ${{ secrets.SERVICE_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          WEEKLY_OPENAI_ASSISTANT_ID: ${{ secrets.WEEKLY_OPENAI_ASSISTANT_ID }}
+          DAILY_OPENAI_ASSISTANT_ID: ${{ secrets.ALLTIME_OPENAI_ASSISTANT_ID }}
         run: node src/index.js
